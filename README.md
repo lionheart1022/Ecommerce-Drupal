@@ -35,7 +35,7 @@ Table of Contents
 1. Clone repo
 
 ```bash
-git clone git@github.com:lionheart1022/diamond-commerce-drupal.git
+git clone git@github.com:lionheart1022/Ecommerce-drupal.git
 ```
 
 2. Go to the project root folder, copy environment-specific YAML file to `docker-compose.override.yml` and run
