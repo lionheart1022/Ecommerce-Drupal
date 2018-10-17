@@ -1,0 +1,21 @@
+uuid: 6513b93d-9402-4cf1-8c1e-d3917a12a994
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_header
+    - field.storage.block_content.field_block_telephone
+  module:
+    - telephone
+id: block_content.cpl_page_header.field_block_telephone
+field_name: field_block_telephone
+entity_type: block_content
+bundle: cpl_page_header
+label: Telephone
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

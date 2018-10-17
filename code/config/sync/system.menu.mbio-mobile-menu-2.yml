@@ -1,0 +1,8 @@
+uuid: ac5170fc-676a-4f83-9490-fa5b432c81b9
+langcode: en
+status: true
+dependencies: {  }
+id: mbio-mobile-menu-2
+label: 'Mbio mobile menu 2'
+description: 'Mbio mobile menu 2'
+locked: false

@@ -1,0 +1,22 @@
+# Commerce Klaviyo Review menu items definition
+commerce_klaviyo_review.configuration:
+  title: 'Klaviyo reviews'
+  route_name: 'commerce_klaviyo_review.configuration'
+  parent: 'commerce.configuration'
+  weight: -5
+commerce_klaviyo_review.config:
+  title: 'Settings'
+  route_name: commerce_klaviyo_review.config
+  description: 'Klaviyo Review configuration.'
+  parent: commerce_klaviyo_review.configuration
+  weight: 99
+klaviyo_review.admin.structure.settings:
+  title: 'Klaviyo Review'
+  description: 'Configure Commerce Klaviyo Review entity'
+  route_name: commerce_klaviyo_review.settings
+  parent: commerce_klaviyo_review.configuration
+entity.klaviyo_review.collection:
+  title: 'Klaviyo Reviews'
+  route_name: entity.klaviyo_review.collection
+  description: 'Manage yout Klaviyo reviews'
+  parent: commerce.admin_commerce

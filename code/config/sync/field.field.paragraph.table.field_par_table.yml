@@ -1,0 +1,65 @@
+uuid: 9b11f663-f52b-4dc7-b45f-419019c74dec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_table
+    - paragraphs.paragraphs_type.table
+  module:
+    - tablefield
+id: paragraph.table.field_par_table
+field_name: field_par_table
+entity_type: paragraph
+bundle: table
+label: 'Displayed content: custom table'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    rebuild:
+      cols: '3'
+      rows: '3'
+    value:
+      -
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      -
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      -
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      -
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      -
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+    format: null
+default_value_callback: ''
+settings:
+  export: 0
+  restrict_rebuild: 1
+  restrict_import: 1
+  lock_values: 0
+  cell_processing: '1'
+  empty_rules:
+    ignore_table_structure: 0
+    ignore_table_header: 0
+field_type: tablefield

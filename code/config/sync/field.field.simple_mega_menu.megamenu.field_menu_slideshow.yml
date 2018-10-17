@@ -1,0 +1,23 @@
+uuid: 19891f86-0b71-4afa-ab38-85bb035b8aa9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.simple_mega_menu.field_menu_slideshow
+    - simple_megamenu.simple_mega_menu_type.megamenu
+  module:
+    - options
+id: simple_mega_menu.megamenu.field_menu_slideshow
+field_name: field_menu_slideshow
+entity_type: simple_mega_menu
+bundle: megamenu
+label: Slideshow
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'OFF'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

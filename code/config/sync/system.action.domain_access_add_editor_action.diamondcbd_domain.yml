@@ -1,0 +1,14 @@
+uuid: f919b5b3-4c8f-41a9-b87d-89812bfdd8fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.diamondcbd_domain
+  module:
+    - domain_access
+id: domain_access_add_editor_action.diamondcbd_domain
+label: 'Add editors to the Diamond CBD domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: diamondcbd_domain

@@ -1,0 +1,85 @@
+uuid: 22893bef-05c2-4817-aade-b8a05f2e1545
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_view_ref
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - viewsreference
+id: paragraph.imgtxt.field_par_view_ref
+field_name: field_par_view_ref
+entity_type: paragraph
+bundle: imgtxt
+label: 'Displayed content: view reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: 0
+  plugin_types:
+    embed: embed
+    default: 0
+    page: 0
+    block: 0
+    attachment: 0
+    rest_export: 0
+    feed: 0
+  preselect_views:
+    additonal_content: 0
+    affiliated_content: 0
+    affiliated_editors: 0
+    best_sellers: 0
+    block_content: 0
+    blog_page: 0
+    blog_popular_articles: 0
+    buy_again: 0
+    comment: 0
+    comments_recent: 0
+    commerce_activity: 0
+    commerce_carts: 0
+    commerce_cart_block: 0
+    commerce_cart_form: 0
+    commerce_checkout_order_summary: 0
+    commerce_orders: 0
+    commerce_order_item_table: 0
+    commerce_products: 0
+    commerce_stores: 0
+    commerce_user_orders: 0
+    content: 0
+    content_recent: 0
+    diamond_commerce_main_page_faqs: 0
+    diamond_commerce_product_page: 0
+    diamond_commerce_shop: 0
+    diamond_commerce_testimonials: 0
+    favorite_products: 0
+    files: 0
+    frequently_bought_together: 0
+    frontpage: 0
+    latest_blog_posts: 0
+    media: 0
+    most_sold: 0
+    newest_products: 0
+    new_arrivals: 0
+    new_products_mobile_menu: 0
+    on_sale: 0
+    products_of_the_same_brand: 0
+    profiles: 0
+    redirect: 0
+    taxonomy_term: 0
+    user_admin_people: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+  enabled_settings:
+    limit: limit
+    argument: 0
+    offset: 0
+    pager: 0
+    title: 0
+field_type: viewsreference

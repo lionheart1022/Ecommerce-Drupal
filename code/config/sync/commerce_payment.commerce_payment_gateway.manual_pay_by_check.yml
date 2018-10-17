@@ -1,0 +1,23 @@
+uuid: 0359fdef-b11d-474d-8e09-a80f29de59d4
+langcode: en
+status: true
+dependencies: {  }
+id: manual_pay_by_check
+label: 'Manual - Pay by Check'
+weight: -5
+plugin: manual
+configuration:
+  instructions:
+    value: "Please send us the check to:\r\n3531 Griffin Road\r\nSuite #100\r\nFort Lauderdale, FL 33312, USA"
+    format: plain_text
+  display_label: 'Pay by Check'
+  mode: n/a
+  payment_method_types:
+    - credit_card
+conditions:
+  -
+    plugin: order_customer_role
+    configuration:
+      roles:
+        - wholesale_1
+conditionOperator: AND

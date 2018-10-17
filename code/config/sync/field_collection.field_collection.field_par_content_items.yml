@@ -1,0 +1,6 @@
+uuid: 47384598-31cc-4cc7-ae9f-245b9398b7d5
+langcode: en
+status: true
+dependencies: {  }
+id: field_par_content_items
+label: field_par_content_items

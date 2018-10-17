@@ -1,0 +1,5 @@
+entity.commerce_payment.nmi_add_form:
+  route_name: entity.commerce_payment.nmi_add_form
+  title: 'Add NMI payment'
+  appears_on:
+    - entity.commerce_payment.collection

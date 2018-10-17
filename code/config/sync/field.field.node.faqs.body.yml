@@ -1,0 +1,31 @@
+uuid: 18ab5cdb-7fe7-4eb8-a286-3153da92ad3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.faqs
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    text_paragraph_html: text_paragraph_html
+    article_html: '0'
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: node.faqs.body
+field_name: body
+entity_type: node
+bundle: faqs
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

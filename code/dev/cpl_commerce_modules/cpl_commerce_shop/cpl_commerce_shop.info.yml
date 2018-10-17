@@ -1,0 +1,48 @@
+name: 'CPL Commerce Shop'
+type: module
+core: 8.x
+dependencies:
+  - better_exposed_filters
+  - block
+  - block_class
+  - comment
+  - comments_order
+  - commerce
+  - commerce_cart
+  - commerce_order
+  - commerce_price
+  - commerce_product
+  - cpl_blog
+  - cpl_paragraphs
+  - cpl_search_popup
+  - facets
+  - facets_pretty_paths
+  - field
+  - file
+  - filefield_paths
+  - image
+  - image_url_formatter
+  - inline_entity_form
+  - media
+  - metatag
+  - options
+  - page_manager
+  - panels
+  - path
+  - physical
+  - rest
+  - search_api
+  - search_api_solr
+  - serialization
+  - state_machine
+  - system
+  - taxonomy
+  - taxonomy_machine_name
+  - text
+  - user
+  - views
+  - votingapi_widgets
+  - cpl_search_api
+  - cpl_base_commerce_layout
+
+description: 'Commerce shop page feature'

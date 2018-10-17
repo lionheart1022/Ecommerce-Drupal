@@ -1,0 +1,69 @@
+uuid: 1dc397ab-0931-460f-9d74-29f970ca827f
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.diamond_commerce_faqs_page
+    - views.view.diamond_commerce_main_page_faqs
+  content:
+    - 'block_content:cpl_content_reference:608b2a95-2bf2-45a8-b31d-b9d9aa873e47'
+    - 'block_content:cpl_content_reference:786318c7-7b0f-4bdb-acf6-bbaff6a8711d'
+  module:
+    - block_content
+    - panels
+    - views
+id: diamond_commerce_faqs_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    a85c03c8-72b8-46c6-8d2e-a471b480b5c4:
+      id: 'views_block:diamond_commerce_main_page_faqs-diamond_commerce_main_page_faqs_block'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: a85c03c8-72b8-46c6-8d2e-a471b480b5c4
+      context_mapping: {  }
+    508a0aeb-1699-46eb-8140-c95b3cafd74c:
+      id: 'block_content:786318c7-7b0f-4bdb-acf6-bbaff6a8711d'
+      label: 'FAQ image banner'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 508a0aeb-1699-46eb-8140-c95b3cafd74c
+      context_mapping: {  }
+    c45b8c49-e30b-45d1-bb28-4fc13fc06380:
+      id: 'block_content:608b2a95-2bf2-45a8-b31d-b9d9aa873e47'
+      label: 'Diamondhemp FAQ Banner'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: c45b8c49-e30b-45d1-bb28-4fc13fc06380
+      context_mapping: {  }
+  id: panels_variant
+  uuid: e8e4a122-c075-4c18-a303-226c37855c44
+  label: null
+  weight: 0
+  layout: cpl_1col_row_max_1
+  layout_settings: {  }
+  page_title: 'Frequently asked questions'
+  storage_type: page_manager
+  storage_id: diamond_commerce_faqs_page-panels_variant-0
+  builder: standard
+page: diamond_commerce_faqs_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

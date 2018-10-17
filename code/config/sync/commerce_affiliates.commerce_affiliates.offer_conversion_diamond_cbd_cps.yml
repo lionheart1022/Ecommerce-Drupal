@@ -1,0 +1,22 @@
+uuid: a0299555-80f1-4fe5-96f3-24b2c3c14a7f
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: offer_conversion_diamond_cbd_cps
+label: 'Offer Conversion: Diamond CBD - General Offer'
+plugin: hasoffers_affiliate
+configuration:
+  network_id: diamondcbd
+  offer_id: '2'
+  affiliate_id: ''
+  type: https_img
+  api_key: NETXZIHhJyKc9XISwpwUj9ftgrEoEs
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: order_canceled

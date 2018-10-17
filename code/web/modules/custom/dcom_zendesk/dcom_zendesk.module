@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce - Privy module.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function dcom_zendesk_page_attachments(array &$page) {
+  $is_admin_page = \Drupal::service('router.admin_context')->isAdminRoute();
+  $active_theme = \Drupal::theme()->getActiveTheme()->getName();
+  if (!$is_admin_page && in_array($active_theme, ['diamondcbd', 'mbio'])) {
+    $page['#attached']['library'][] = 'dcom_zendesk/dcom_zendesk';
+  }
+}

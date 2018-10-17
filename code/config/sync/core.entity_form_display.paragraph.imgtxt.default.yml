@@ -1,0 +1,342 @@
+uuid: 2293ba11-f20b-428d-91b7-b0bcb5ce712f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.imgtxt.field_par_alternating
+    - field.field.paragraph.imgtxt.field_par_background_color
+    - field.field.paragraph.imgtxt.field_par_class
+    - field.field.paragraph.imgtxt.field_par_constraint
+    - field.field.paragraph.imgtxt.field_par_content_items
+    - field.field.paragraph.imgtxt.field_par_content_media_ref
+    - field.field.paragraph.imgtxt.field_par_content_ref
+    - field.field.paragraph.imgtxt.field_par_display_mode
+    - field.field.paragraph.imgtxt.field_par_displayed_con
+    - field.field.paragraph.imgtxt.field_par_flags_disable
+    - field.field.paragraph.imgtxt.field_par_header_size
+    - field.field.paragraph.imgtxt.field_par_large
+    - field.field.paragraph.imgtxt.field_par_masonry_gap
+    - field.field.paragraph.imgtxt.field_par_masonry_type
+    - field.field.paragraph.imgtxt.field_par_max_qty
+    - field.field.paragraph.imgtxt.field_par_media_ref
+    - field.field.paragraph.imgtxt.field_par_media_type
+    - field.field.paragraph.imgtxt.field_par_medium
+    - field.field.paragraph.imgtxt.field_par_parallax
+    - field.field.paragraph.imgtxt.field_par_position
+    - field.field.paragraph.imgtxt.field_par_product_ref
+    - field.field.paragraph.imgtxt.field_par_row_style
+    - field.field.paragraph.imgtxt.field_par_slideshow_center
+    - field.field.paragraph.imgtxt.field_par_slideshow_control
+    - field.field.paragraph.imgtxt.field_par_slideshow_rows
+    - field.field.paragraph.imgtxt.field_par_small
+    - field.field.paragraph.imgtxt.field_par_text_box_options
+    - field.field.paragraph.imgtxt.field_par_video
+    - field.field.paragraph.imgtxt.field_par_view_ref
+    - field.field.paragraph.imgtxt.field_par_vmargin
+    - field.field.paragraph.imgtxt.field_par_vpadding
+    - field.field.paragraph.imgtxt.field_par_xlarge
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - cpl_paragraphs
+    - field_collection
+    - field_group
+    - video_embed_field
+third_party_settings:
+  field_group:
+    group_text_box:
+      children:
+        - field_par_text_box_options
+        - field_par_header_size
+        - field_par_position
+        - field_par_alternating
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        label: 'Text Box'
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: 'Text Box'
+      region: content
+    group_container:
+      children:
+        - field_par_constraint
+        - field_par_row_style
+        - field_par_vmargin
+        - field_par_vpadding
+        - field_par_background_color
+        - field_par_media_type
+        - field_par_video
+        - field_par_media_ref
+        - field_par_class
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Container
+      region: content
+    group_display:
+      children:
+        - field_par_display_mode
+        - field_par_slideshow_control
+        - field_par_slideshow_rows
+        - field_par_slideshow_center
+        - field_par_masonry_type
+        - field_par_masonry_gap
+        - field_par_parallax
+        - field_par_flags_disable
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Display
+      region: content
+    group_content:
+      children:
+        - field_par_max_qty
+        - field_par_displayed_con
+        - field_par_content_items
+        - field_par_content_ref
+        - field_par_product_ref
+        - field_par_content_media_ref
+        - field_par_view_ref
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Content
+      region: content
+id: paragraph.imgtxt.default
+targetEntityType: paragraph
+bundle: imgtxt
+mode: default
+content:
+  field_par_alternating:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_par_background_color:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_class:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_par_constraint:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_content_items:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+    region: content
+  field_par_content_media_ref:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_par_content_ref:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_par_display_mode:
+    weight: 22
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_displayed_con:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_flags_disable:
+    type: boolean_checkbox
+    weight: 30
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_par_header_size:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_large:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_par_masonry_gap:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_masonry_type:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_max_qty:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_par_media_ref:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_par_media_type:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_medium:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_par_parallax:
+    weight: 29
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_position:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_product_ref:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_par_row_style:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_slideshow_center:
+    weight: 26
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_par_slideshow_control:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_slideshow_rows:
+    weight: 25
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_small:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_par_text_box_options:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_video:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: video_embed_field_textfield
+    region: content
+  field_par_view_ref:
+    weight: 11
+    settings:
+      tag: predefined_view
+    third_party_settings: {  }
+    type: viewsreference_by_tag_select
+    region: content
+  field_par_vmargin:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_vpadding:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_xlarge:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

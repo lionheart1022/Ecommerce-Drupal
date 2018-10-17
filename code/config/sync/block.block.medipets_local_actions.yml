@@ -1,0 +1,20 @@
+uuid: bc7aee62-9414-4262-b1ef-91b61e74fdef
+langcode: en
+status: true
+dependencies:
+  theme:
+    - medipets
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: medipets_local_actions
+theme: medipets
+region: content
+weight: 0
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

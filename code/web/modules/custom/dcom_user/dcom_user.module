@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Dcom_user module implementation.
+ */
+
+use Drupal\Core\Entity\Query\QueryInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Config\Entity\ThirdPartySettingsInterface;
+use Drupal\dcom_user\Controller\MultipleRegistrationAlterController;
+use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function dcom_user_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $field_definition = $context['items']->getFieldDefinition();
+  if ($field_definition->getTargetEntityTypeId() == 'user' && $field_definition instanceof ThirdPartySettingsInterface) {
+    $field_roles = $field_definition->getThirdPartySetting('multiple_registration', 'user_additional_register_form');
+    if (!is_array($field_roles)) {
+      return;
+    }
+    $element['#access'] = MultipleRegistrationAlterController::checkFieldAccess($field_roles);
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function dcom_user_module_implements_alter(&$implementations, $hook) {
+  // Set field_widget_form_alter as last implement in this module.
+  if ($hook == 'field_widget_form_alter' && isset($implementations['dcom_user'])) {
+    $dcom_user['dcom_user'] = $implementations['dcom_user'];
+    unset($implementations['dcom_user']);
+    $implementations = array_merge($implementations, $dcom_user);
+  }
+}
+
+/**
+ * Only count orders from the current domain.
+ *
+ * Implements hook_cpl_commerce_order_counter_query().
+ */
+function dcom_user_cpl_commerce_order_counter_query(QueryInterface $query) {
+  try {
+    $or = $query->orConditionGroup();
+    $or
+      ->condition('field_domain', Drupal::service('domain.negotiator')
+        ->getActiveId())
+      ->notExists('field_domain');
+    $query->condition($or);
+  }
+  catch (ServiceNotFoundException $e) {
+    // No Domain module.
+  }
+}

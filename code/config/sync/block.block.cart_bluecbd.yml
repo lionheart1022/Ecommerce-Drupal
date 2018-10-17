@@ -1,0 +1,31 @@
+uuid: 04344c65-da45-4200-974f-7e0bcdd32edc
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_cart
+    - cpl_paragraphs
+  theme:
+    - bluecbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: cart_bluecbd
+theme: bluecbd
+region: right_off_canvas
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: true
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

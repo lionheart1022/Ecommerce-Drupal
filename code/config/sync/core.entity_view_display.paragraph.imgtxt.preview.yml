@@ -1,0 +1,97 @@
+uuid: 9bfe3eec-1b4c-43f0-ac6e-61dc779a200f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.imgtxt.field_par_alternating
+    - field.field.paragraph.imgtxt.field_par_background_color
+    - field.field.paragraph.imgtxt.field_par_class
+    - field.field.paragraph.imgtxt.field_par_constraint
+    - field.field.paragraph.imgtxt.field_par_content_items
+    - field.field.paragraph.imgtxt.field_par_content_media_ref
+    - field.field.paragraph.imgtxt.field_par_content_ref
+    - field.field.paragraph.imgtxt.field_par_display_mode
+    - field.field.paragraph.imgtxt.field_par_displayed_con
+    - field.field.paragraph.imgtxt.field_par_flags_disable
+    - field.field.paragraph.imgtxt.field_par_header_size
+    - field.field.paragraph.imgtxt.field_par_large
+    - field.field.paragraph.imgtxt.field_par_masonry_gap
+    - field.field.paragraph.imgtxt.field_par_masonry_type
+    - field.field.paragraph.imgtxt.field_par_max_qty
+    - field.field.paragraph.imgtxt.field_par_media_ref
+    - field.field.paragraph.imgtxt.field_par_media_type
+    - field.field.paragraph.imgtxt.field_par_medium
+    - field.field.paragraph.imgtxt.field_par_parallax
+    - field.field.paragraph.imgtxt.field_par_position
+    - field.field.paragraph.imgtxt.field_par_product_ref
+    - field.field.paragraph.imgtxt.field_par_row_style
+    - field.field.paragraph.imgtxt.field_par_slideshow_center
+    - field.field.paragraph.imgtxt.field_par_slideshow_control
+    - field.field.paragraph.imgtxt.field_par_slideshow_rows
+    - field.field.paragraph.imgtxt.field_par_small
+    - field.field.paragraph.imgtxt.field_par_text_box_options
+    - field.field.paragraph.imgtxt.field_par_video
+    - field.field.paragraph.imgtxt.field_par_view_ref
+    - field.field.paragraph.imgtxt.field_par_vmargin
+    - field.field.paragraph.imgtxt.field_par_vpadding
+    - field.field.paragraph.imgtxt.field_par_xlarge
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - options
+id: paragraph.imgtxt.preview
+targetEntityType: paragraph
+bundle: imgtxt
+mode: preview
+content:
+  field_par_position:
+    type: list_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_par_row_style:
+    type: list_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_par_text_box_options:
+    type: list_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_par_alternating: true
+  field_par_background_color: true
+  field_par_class: true
+  field_par_constraint: true
+  field_par_content_items: true
+  field_par_content_media_ref: true
+  field_par_content_ref: true
+  field_par_display_mode: true
+  field_par_displayed_con: true
+  field_par_flags_disable: true
+  field_par_header_size: true
+  field_par_large: true
+  field_par_masonry_gap: true
+  field_par_masonry_type: true
+  field_par_max_qty: true
+  field_par_media_ref: true
+  field_par_media_type: true
+  field_par_medium: true
+  field_par_parallax: true
+  field_par_product_ref: true
+  field_par_slideshow_center: true
+  field_par_slideshow_control: true
+  field_par_slideshow_rows: true
+  field_par_small: true
+  field_par_video: true
+  field_par_view_ref: true
+  field_par_vmargin: true
+  field_par_vpadding: true
+  field_par_xlarge: true

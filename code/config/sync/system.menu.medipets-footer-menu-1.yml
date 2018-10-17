@@ -1,0 +1,8 @@
+uuid: 7c5a1cb4-1c4b-4bef-8095-95cf616a8057
+langcode: en
+status: true
+dependencies: {  }
+id: medipets-footer-menu-1
+label: Shop
+description: 'Medipets footer menu 1'
+locked: false

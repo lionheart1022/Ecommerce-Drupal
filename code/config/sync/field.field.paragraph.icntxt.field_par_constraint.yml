@@ -1,0 +1,23 @@
+uuid: 115d67d2-4139-4675-9ed7-dec3e6804a14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_constraint
+    - paragraphs.paragraphs_type.icntxt
+  module:
+    - options
+id: paragraph.icntxt.field_par_constraint
+field_name: field_par_constraint
+entity_type: paragraph
+bundle: icntxt
+label: Constraint
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: FW
+default_value_callback: ''
+settings: {  }
+field_type: list_string

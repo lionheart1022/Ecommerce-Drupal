@@ -1,0 +1,63 @@
+uuid: 0712438d-5c38-4b1c-af8a-cd20f59a9460
+langcode: en
+status: true
+dependencies: {  }
+id: megamenu
+label: Megamenu
+targetMenu:
+  diamond-shop-menu: diamond-shop-menu
+  diamondhemp-menu: diamondhemp-menu
+  mbio-menu: mbio-menu
+  diamond-cbd-footer-menu-1: diamond-cbd-footer-menu-1
+  mbio-footer-menu-1: mbio-footer-menu-1
+  medipets-footer-menu-1: medipets-footer-menu-1
+  '-chill-gummies-mobile-menu': '0'
+  56-cbd-menu: '0'
+  56-cbd-mobile-menu: '0'
+  admin: '0'
+  blue-cbd-menu: '0'
+  blue-cbd-mobile-menu: '0'
+  cbd-liquid-gold-menu: '0'
+  cbd_liquid_gold_mobile_menu: '0'
+  checkout-policy-links: '0'
+  chill-gummies-menu: '0'
+  chong-choice-menu: '0'
+  chong-choice-mobile-menu: '0'
+  commerce-menu: '0'
+  medipets-footer-menu-3: '0'
+  corporate-menu: '0'
+  diamond-cbd-footer-menu-3: '0'
+  devel: '0'
+  diamond-cbd-mobile-oil-: '0'
+  diamond-cbd-navigation: '0'
+  diamond-cbd-oil-: '0'
+  diamond-cbd-footer-menu-4: '0'
+  diamond-cbd-mobile-menu-1: '0'
+  diamond-cbd-mobile-menu-2: '0'
+  diamond-cbd-mobile-menu-3: '0'
+  diamondhemp-mobile-menu: '0'
+  diamondhemp-footer-menu-1: '0'
+  diamondhemp-footer-menu-2: '0'
+  diamondhemp-footer-menu-3: '0'
+  diamondhemp-navigation: '0'
+  footer: '0'
+  footer-policy-links: '0'
+  medipets-footer-menu-2: '0'
+  diamond-cbd-footer-menu-2: '0'
+  mbio-footer-menu-2: '0'
+  main: '0'
+  mbio-footer-menu-3: '0'
+  mbio-footer-menu-4: '0'
+  mbio-mobile-menu-1: '0'
+  mbio-mobile-menu-2: '0'
+  mbio-mobile-menu-3: '0'
+  medipets-navigation: '0'
+  medipets-menu: '0'
+  medipets-mobile-menu-1: '0'
+  medipets-mobile-menu-2: '0'
+  medipets-mobile-menu-3: '0'
+  relax-gummies-menu: '0'
+  relax-gummies-mobile-menu-: '0'
+  tools: '0'
+  user-menu-mobile: '0'
+  account: '0'

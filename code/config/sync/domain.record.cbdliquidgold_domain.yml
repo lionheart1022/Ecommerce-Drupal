@@ -1,0 +1,11 @@
+uuid: 0e9db844-9cb7-4365-a613-36b1c3b213d7
+langcode: en
+status: true
+dependencies: {  }
+id: cbdliquidgold_domain
+domain_id: 8833954
+hostname: www.cbdliquidgold.com
+name: CBDLiquidGold.com
+scheme: variable
+weight: 5
+is_default: false

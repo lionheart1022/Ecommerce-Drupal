@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @file
+ * Contains dcom_user_register.module.
+ */
+
+use CommerceGuys\Addressing\AddressFormat\AddressField;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function dcom_user_register_module_implements_alter(&$implementations, $hook) {
+  if (in_array($hook, ['form_alter', 'field_widget_form_alter'])
+    && isset($implementations['dcom_user_register'])) {
+    $group = $implementations['dcom_user_register'];
+    unset($implementations['dcom_user_register']);
+    $implementations['dcom_user_register'] = $group;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function dcom_user_register_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['rid']['#value']) && substr($form['rid']['#value'], 0, 10) == 'wholesale_') {
+    $form['field_company_name']['widget'][0]['value']['#required'] = TRUE;
+    $form['field_ein_file']['widget'][0]['#required'] = TRUE;
+    $form['field_ein_tax_number']['widget'][0]['value']['#required'] = TRUE;
+    $form['field_phone']['widget'][0]['value']['#required'] = TRUE;
+    $form['field_address']['widget'][0]['address']['#field_behavior']['postalCode'] = 'required';
+    $form['field_address']['widget'][0]['address']['#field_behavior']['administrativeArea'] = 'required';
+    $form['field_address']['widget'][0]['address']['#field_behavior']['locality'] = 'required';
+    $form['field_address']['widget'][0]['address']['#field_behavior']['addressLine1'] = 'required';
+    $form['field_address']['widget'][0]['#type'] = 'container';
+  }
+
+  foreach (['field_first_name', 'field_last_name'] as $field_name) {
+    if (!empty($form[$field_name]['#access'])) {
+      $form[$field_name]['widget'][0]['value']['#required'] = TRUE;
+    }
+  }
+  $form['actions']['submit']['#submit'][] = 'dcom_user_register_form_user_register_form_submit';
+}
+
+/**
+ * Add additional notice to reset password form.
+ */
+function dcom_user_register_form_user_register_form_submit(array &$form, FormStateInterface $form_state) {
+  $rid = $form_state->getValue('rid');
+  $path = \Drupal::service('path.alias_manager')->getPathByAlias('/wholesale-registration-thank-you');
+  if ($rid && substr($rid, 0, 10) == 'wholesale_' && preg_match('/node\/(\d+)/', $path, $matches)) {
+    $form_state->setRedirect('entity.node.canonical', ['node' => $matches[1]]);
+  }
+}
+
+/**
+ * Change the title of wholesale registration form.
+ */
+function dcom_user_register_get_title(RouteMatchInterface $route) {
+  $role = $route->getRawParameter('rid');
+  if (substr($role, 0, 10) == 'wholesale_') {
+    return t('Create new wholesale account');
+  }
+  return \Drupal::service('multiple_registration.controller_service')->getRegisterPageTitle($route);
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function dcom_user_register_menu_local_tasks_alter(&$data, $route_name) {
+  $routes = [
+    'multiple_registration.role_registration_page',
+    'user.register',
+    'user.login',
+    'user.pass',
+  ];
+
+  if (in_array($route_name, $routes)) {
+    foreach ($data['tabs'][0] as $key => &$local_task) {
+      if (substr($key, 0, 44) == 'multiple_registration.local_tasks:wholesale_') {
+        $local_task['#link']['title'] = t('Create new wholesale account');
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function dcom_user_register_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  // Hide all address field parts if the field if hidden.
+  $address_parts = $property_mapping = [
+    AddressField::ADMINISTRATIVE_AREA,
+    AddressField::LOCALITY,
+    AddressField::DEPENDENT_LOCALITY,
+    AddressField::POSTAL_CODE,
+    AddressField::SORTING_CODE,
+    AddressField::ADDRESS_LINE1,
+    AddressField::ADDRESS_LINE2,
+    AddressField::ORGANIZATION,
+    AddressField::GIVEN_NAME,
+    AddressField::ADDITIONAL_NAME,
+    AddressField::FAMILY_NAME,
+  ];
+
+  /** @var \Drupal\Core\Field\FieldDefinitionInterface $field_definition */
+  $field_definition = $context['items']->getFieldDefinition();
+  if ($field_definition
+    && $field_definition->getTargetEntityTypeId() == 'user'
+    && $field_definition->getName() == 'field_address'
+    && isset($element['#access'])
+    && !$element['#access']) {
+    foreach ($address_parts as $address_part) {
+      $element['address']['#field_overrides'][$address_part] = 'hidden';
+    }
+  }
+}

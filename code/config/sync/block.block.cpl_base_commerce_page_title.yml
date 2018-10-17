@@ -1,0 +1,38 @@
+uuid: 1915ff5b-ecdf-448f-bb5d-d4eebebd286c
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - cpl_paragraphs
+    - system
+  theme:
+    - cpl_base_commerce
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: cpl_base_commerce_page_title
+theme: cpl_base_commerce
+region: content
+weight: -2
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/product/*\r\n/checkout/*\r\n/faqs"
+    negate: true
+    context_mapping: {  }
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_title
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

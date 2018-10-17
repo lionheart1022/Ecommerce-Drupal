@@ -1,0 +1,22 @@
+uuid: 12edd402-b116-43ef-93d2-7eb8052a1b10
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - diamondcbdoil
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: diamondcbdoil_messages
+theme: diamondcbdoil
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

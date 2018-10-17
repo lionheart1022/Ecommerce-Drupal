@@ -1,0 +1,41 @@
+uuid: c0823c98-d908-4d8d-9ba0-7157b14001d0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:166cb6ff-d755-4d51-802b-3a7cbb995484'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - mbio
+third_party_settings:
+  block_class:
+    classes: ''
+id: mbio_contactblock
+theme: mbio
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:166cb6ff-d755-4d51-802b-3a7cbb995484'
+settings:
+  id: 'block_content:166cb6ff-d755-4d51-802b-3a7cbb995484'
+  label: 'Mbio Contact block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /mbio-contact
+    negate: false
+    context_mapping: {  }

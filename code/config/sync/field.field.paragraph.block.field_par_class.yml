@@ -1,0 +1,19 @@
+uuid: 82e299a3-6511-40b8-ab14-032b789fc390
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_class
+    - paragraphs.paragraphs_type.block
+id: paragraph.block.field_par_class
+field_name: field_par_class
+entity_type: paragraph
+bundle: block
+label: 'Additional Class'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

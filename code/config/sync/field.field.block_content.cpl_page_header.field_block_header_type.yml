@@ -1,0 +1,23 @@
+uuid: 62221d17-ca71-40d2-b22f-95223cea7280
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_header
+    - field.storage.block_content.field_block_header_type
+  module:
+    - options
+id: block_content.cpl_page_header.field_block_header_type
+field_name: field_block_header_type
+entity_type: block_content
+bundle: cpl_page_header
+label: 'Header Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: H1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

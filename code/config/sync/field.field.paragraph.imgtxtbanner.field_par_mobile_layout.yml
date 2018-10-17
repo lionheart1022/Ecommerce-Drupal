@@ -1,0 +1,21 @@
+uuid: 0d6a1b03-9c2b-41e7-bf6a-c1b157cb48f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_mobile_layout
+    - paragraphs.paragraphs_type.imgtxtbanner
+  module:
+    - options
+id: paragraph.imgtxtbanner.field_par_mobile_layout
+field_name: field_par_mobile_layout
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'Mobile Layout'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

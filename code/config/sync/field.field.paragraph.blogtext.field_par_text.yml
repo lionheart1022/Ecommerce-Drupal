@@ -1,0 +1,31 @@
+uuid: 7e7a9f56-75b4-4452-9892-78cab57d1d3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_text
+    - paragraphs.paragraphs_type.blogtext
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    article_html: article_html
+    basic_html: '0'
+    restricted_html: '0'
+    text_paragraph_html: '0'
+    full_html: '0'
+    plain_text: '0'
+    paragraph_custom_html: '0'
+id: paragraph.blogtext.field_par_text
+field_name: field_par_text
+entity_type: paragraph
+bundle: blogtext
+label: Text
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,8 @@
+uuid: eb19cfe1-4940-4989-8f17-412c8cb8b466
+langcode: en
+status: true
+dependencies: {  }
+id: blue-cbd-menu
+label: 'Blue CBD Menu'
+description: 'Blue CBD Menu'
+locked: false

@@ -1,0 +1,14 @@
+uuid: b98c3296-2c1e-4b76-8ed4-e40ac725a722
+langcode: en
+status: true
+dependencies: {  }
+name: mobile_menu_teaser_1
+label: 'Mobile Menu Teaser 1'
+effects:
+  50eedb07-5403-425e-9f66-d543528f4237:
+    uuid: 50eedb07-5403-425e-9f66-d543528f4237
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 500

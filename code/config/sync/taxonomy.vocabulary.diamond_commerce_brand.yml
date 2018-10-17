@@ -1,0 +1,9 @@
+uuid: ef0c6a5b-8cdb-4440-954a-d1b76472a309
+langcode: en
+status: true
+dependencies: {  }
+name: 'Diamond Commerce Brand'
+vid: diamond_commerce_brand
+description: ''
+hierarchy: 0
+weight: 0

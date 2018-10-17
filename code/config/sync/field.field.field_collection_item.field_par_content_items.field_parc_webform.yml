@@ -1,0 +1,29 @@
+uuid: d0481efa-6e72-4683-8fa5-36f778168b87
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_parc_webform
+    - field_collection.field_collection.field_par_content_items
+  module:
+    - webform
+id: field_collection_item.field_par_content_items.field_parc_webform
+field_name: field_parc_webform
+entity_type: field_collection_item
+bundle: field_par_content_items
+label: Webform
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+  default_data: ''
+  status: open
+  open: ''
+  close: ''
+field_type: webform

@@ -1,0 +1,42 @@
+uuid: e028d73b-e001-4ebf-8f0b-9d08d9e07b76
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_footer:97bd4541-4998-47d5-a788-02742f5e58dc'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - diamondhemp
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondhemp_footer
+theme: diamondhemp
+region: footer_wide
+weight: -4
+provider: null
+plugin: 'block_content:97bd4541-4998-47d5-a788-02742f5e58dc'
+settings:
+  id: 'block_content:97bd4541-4998-47d5-a788-02742f5e58dc'
+  label: 'Diamondhemp Footer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_footer
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/cart\r\n/profile/*\r\n/user/*"
+    negate: true
+    context_mapping: {  }

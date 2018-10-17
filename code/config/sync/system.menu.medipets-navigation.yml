@@ -1,0 +1,8 @@
+uuid: 066d512a-2e18-446a-afa0-a25e25e6ff60
+langcode: en
+status: true
+dependencies: {  }
+id: medipets-navigation
+label: 'Medipets Navigation'
+description: 'Site section links.'
+locked: false

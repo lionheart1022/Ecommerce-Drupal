@@ -1,0 +1,14 @@
+uuid: 41abdb07-2ce5-47b1-a54b-9487b271b68a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.staff_customer_service
+  module:
+    - user
+id: user_remove_role_action.staff_customer_service
+label: 'Remove the Staff - Customer Service role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: staff_customer_service

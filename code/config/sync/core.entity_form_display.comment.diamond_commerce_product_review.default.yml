@@ -1,0 +1,43 @@
+uuid: f6615cc2-de89-4d66-9327-006ec135b386
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.diamond_commerce_product_review
+    - field.field.comment.diamond_commerce_product_review.field_review_body
+    - field.field.comment.diamond_commerce_product_review.field_review_vote
+    - field.field.comment.diamond_commerce_product_review.field_vote_reference
+id: comment.diamond_commerce_product_review.default
+targetEntityType: comment
+bundle: diamond_commerce_product_review
+mode: default
+content:
+  author:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_review_body:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_review_vote:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden:
+  field_vote_reference: true
+  subject: true

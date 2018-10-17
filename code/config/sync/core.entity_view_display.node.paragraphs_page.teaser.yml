@@ -1,0 +1,49 @@
+uuid: c90562e0-2624-467b-8d7b-319c929ef7e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.paragraphs_page.field_body_class
+    - field.field.node.paragraphs_page.field_domain_access
+    - field.field.node.paragraphs_page.field_domain_all_affiliates
+    - field.field.node.paragraphs_page.field_image
+    - field.field.node.paragraphs_page.field_main_blogs_page
+    - field.field.node.paragraphs_page.field_meta_description
+    - field.field.node.paragraphs_page.field_meta_title
+    - field.field.node.paragraphs_page.field_metatags
+    - field.field.node.paragraphs_page.field_page_paragraphs
+    - field.field.node.paragraphs_page.field_seo
+    - field.field.node.paragraphs_page.field_show_block_page_breadcrumb
+    - field.field.node.paragraphs_page.field_show_block_page_footer
+    - field.field.node.paragraphs_page.field_show_block_page_header
+    - field.field.node.paragraphs_page.field_show_block_page_title
+    - node.type.paragraphs_page
+  module:
+    - user
+_core:
+  default_config_hash: FlN-LRIJdDUZ_v6M7GVQEDwh6ISb3-JC4oLmSKTScvc
+id: node.paragraphs_page.teaser
+targetEntityType: node
+bundle: paragraphs_page
+mode: teaser
+content:
+  links:
+    weight: 101
+    region: content
+hidden:
+  field_body_class: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_image: true
+  field_main_blogs_page: true
+  field_meta_description: true
+  field_meta_title: true
+  field_metatags: true
+  field_page_paragraphs: true
+  field_seo: true
+  field_show_block_page_breadcrumb: true
+  field_show_block_page_footer: true
+  field_show_block_page_header: true
+  field_show_block_page_title: true
+  langcode: true

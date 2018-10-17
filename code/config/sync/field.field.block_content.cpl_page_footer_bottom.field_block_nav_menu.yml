@@ -1,0 +1,23 @@
+uuid: 621f901a-02c4-4355-8d9d-7c618ec01ab0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_footer_bottom
+    - field.storage.block_content.field_block_nav_menu
+id: block_content.cpl_page_footer_bottom.field_block_nav_menu
+field_name: field_block_nav_menu
+entity_type: block_content
+bundle: cpl_page_footer_bottom
+label: Menu
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

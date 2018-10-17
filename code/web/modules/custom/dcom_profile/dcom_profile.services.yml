@@ -1,0 +1,7 @@
+services:
+  dcom_profile.address_comparator:
+    class: Drupal\dcom_profile\Util\AddressComparator
+    arguments: ['@entity_type.manager']
+  dcom_profile.profile_comparator:
+    class: Drupal\dcom_profile\Util\ProfileComparator
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@dcom_profile.address_comparator']

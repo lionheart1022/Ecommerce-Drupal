@@ -1,0 +1,76 @@
+uuid: 7c74488f-4e27-4054-95f9-b07eca396c92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.lab_results.field_domain_access
+    - field.field.media.lab_results.field_media_image_1
+    - field.field.media.lab_results.field_media_product_ref
+    - field.field.media.lab_results.field_media_term_ref
+    - image.style.thumbnail
+    - media.type.lab_results
+  module:
+    - image
+id: media.lab_results.default
+targetEntityType: media
+bundle: lab_results
+mode: default
+content:
+  field_domain_access:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_media_image_1:
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    weight: 1
+    region: content
+  field_media_product_ref:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_media_term_ref:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  uid: true

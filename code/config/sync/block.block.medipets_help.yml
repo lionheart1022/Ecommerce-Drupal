@@ -1,0 +1,22 @@
+uuid: cf496b97-e345-46cd-84bd-31598f537f8f
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - medipets
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: medipets_help
+theme: medipets
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

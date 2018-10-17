@@ -1,0 +1,24 @@
+uuid: 4c74d4c1-effa-4edf-9a62-1cea58ea792d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+  theme:
+    - chillgummies
+third_party_settings:
+  block_class:
+    classes: ''
+id: chillgummies_checkoutprogress
+theme: chillgummies
+region: content
+weight: 2
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility: {  }

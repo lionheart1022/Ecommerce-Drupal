@@ -1,0 +1,30 @@
+uuid: 2fb93b70-320d-4cac-8860-bb94d04e4dc7
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_media_type
+field_name: field_par_media_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: IM
+      label: 'Background Image'
+    -
+      value: EX
+      label: 'Background Video External'
+    -
+      value: IN
+      label: 'Background Video Internal'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

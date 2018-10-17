@@ -1,0 +1,16 @@
+services:
+  dcom_odoo_entity_sync.carrier_resolver:
+    class: Drupal\dcom_odoo_entity_sync\CarrierResolver
+    arguments: ['@odoo_api.api_client', '@cache.default', '@cache_tags.invalidator']
+
+  dcom_odoo_entity_sync.tax_resolver:
+    class: Drupal\dcom_odoo_entity_sync\TaxResolver
+    arguments: ['@odoo_api.api_client', '@cache.default', '@cache_tags.invalidator']
+
+  dcom_odoo_entity_sync.sales_channel_resolver:
+    class: Drupal\dcom_odoo_entity_sync\SalesChannelResolver
+    arguments: []
+
+  dcom_odoo_entity_sync.invoice_fixer:
+    class: Drupal\dcom_odoo_entity_sync\InvoiceFixer
+    arguments: ['@database', '@odoo_api.api_client', '@odoo_api_entity_sync.sync', '@odoo_api_entity_sync.mapping']

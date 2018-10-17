@@ -1,0 +1,64 @@
+uuid: c0dc3e10-696b-4ec6-b364-850cd19a1fa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.table.field_body
+    - field.field.media.table.field_media_image
+    - field.field.media.table.field_media_product_ref
+    - field.field.media.table.field_media_term_ref
+    - media.type.table
+  module:
+    - text
+id: media.table.default
+targetEntityType: media
+bundle: table
+mode: default
+content:
+  field_body:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_media_product_ref:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_media_term_ref:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_image: true
+  path: true
+  status: true
+  uid: true

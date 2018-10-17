@@ -1,0 +1,72 @@
+uuid: ef34401a-e93d-4b9a-b3a3-69d53773ce0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.default
+    - field.field.commerce_order.default.field_ask_for_review
+    - field.field.commerce_order.default.field_domain
+    - field.field.commerce_order.default.field_odoo_discount_item_id
+    - field.field.commerce_order.default.field_order_source
+    - field.field.commerce_order.default.order_items
+    - field.field.commerce_order.default.shipments
+  module:
+    - commerce_order
+    - inline_entity_form
+_core:
+  default_config_hash: 1NKrIQBqELStd0cyiuHeNArhuPvOZj36faDEG1dWqEA
+id: commerce_order.default.default
+targetEntityType: commerce_order
+bundle: default
+mode: default
+content:
+  adjustments:
+    type: commerce_adjustment_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  billing_profile:
+    type: commerce_billing_profile
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  cart:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  field_domain:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  order_items:
+    type: inline_entity_form_complex
+    weight: 1
+    settings:
+      override_labels: true
+      label_singular: 'order item'
+      label_plural: 'order items'
+      allow_new: true
+      match_operator: CONTAINS
+      allow_existing: false
+      form_mode: default
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_ask_for_review: true
+  field_odoo_discount_item_id: true
+  field_order_source: true
+  ip_address: true
+  mail: true
+  order_number: true
+  shipments: true
+  state: true
+  store_id: true
+  uid: true

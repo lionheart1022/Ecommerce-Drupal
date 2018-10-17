@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_is_collection
+    - taxonomy.vocabulary.product_category
+id: taxonomy_term.product_category.field_is_collection
+field_name: field_is_collection
+entity_type: taxonomy_term
+bundle: product_category
+label: 'Is Collection'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

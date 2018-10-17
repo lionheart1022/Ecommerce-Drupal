@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @file
+ * Contains cpl_commerce_klaviyo_review.module.
+ */
+
+use Drupal\comment\Entity\CommentType;
+use Drupal\file\Entity\File;
+use \Drupal\user\Entity\User;
+
+/**
+ * Implements hook_theme().
+ */
+function cpl_commerce_klaviyo_review_theme() {
+  return [
+    'cpl_commerce_klaviyo_review_add_form' => [
+      'render element' => 'form',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function cpl_commerce_klaviyo_review_entity_extra_field_info() {
+  $return = [];
+  foreach (CommentType::loadMultiple() as $comment_type) {
+    $return['comment'][$comment_type->id()] = [
+      'form' => [
+        'greetings' => [
+          'label' => t('Greetings'),
+          'description' => t('Hello message to user.'),
+          'weight' => -4,
+        ],
+        'product_label' => [
+          'label' => t('Product label'),
+          'description' => t('Product comment will be assigned to.'),
+          'weight' => -3,
+        ],
+        'product_image' => [
+          'label' => t('Product image'),
+          'description' => t('Product comment will be assigned to.'),
+          'weight' => -2,
+        ],
+      ],
+    ];
+  }
+
+  return $return;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function cpl_commerce_klaviyo_review_form_comment_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // To be sure it's klaviyo review form.
+  if ($form_state->get('klaviyo_review')) {
+    $form['actions']['submit']['#value'] = t('Publish your review');
+    $form['field_review_body']['widget'][0]['value']['#title'] = t('How has you experienced with the product?');
+    $form['field_review_vote']['widget']['#title'] = t('Rate Your Satisfaction');
+    $form['#theme'] = ['cpl_commerce_klaviyo_review_add_form'];
+
+    // Getting username for greetigns message.
+    $account = \Drupal::service('commerce_klaviyo_review.current_user')->getAccount();
+    $username = [];
+    foreach (['field_first_name', 'field_last_name'] as $field_name) {
+      if ($account->hasField($field_name)) {
+        if ($field_value = $account->get($field_name)->getString()) {
+          $username[] = $field_value;
+        }
+      }
+    }
+    $username = $username ? implode(' ', $username) : $account->label();
+    $form['greetings'] = [
+      '#type' => 'item',
+      '#markup' => t('Hello @username!', ['@username' => $username]),
+    ];
+
+    // Getting product image and title.
+    if ($product = $form_state->getFormObject()->getEntity()->getCommentedEntity()) {
+      $form['product_label'] = [
+        '#type' => 'item',
+        '#markup' => t("You've recently bought @product_link at out store, what do you think about it?", ['@product_link' => $product->toLink()->toString()]),
+      ];
+      $imageField = $product->get('field_product_image')->getValue();
+      if (!empty($imageField[0]['target_id'])) {
+        $file = File::load($imageField[0]['target_id']);
+        $form['product_image'] = [
+          '#theme' => 'image_style',
+          '#style_name' => 'large',
+          '#uri' => $file->getFileUri(),
+        ];
+      }
+    }
+  }
+}

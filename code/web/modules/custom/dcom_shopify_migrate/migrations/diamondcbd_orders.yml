@@ -1,0 +1,145 @@
+id: diamondcbd_orders
+label: DiamondCBD Orders
+migration_group: diamondcbd
+migration_tags:
+# Skip sync, since there is some amount of orders, which needs to be processed in smaller chunks.
+  - odoo_skip_sync
+
+source:
+  plugin: dcom_shopify_order
+
+destination:
+  plugin: 'entity:commerce_order'
+  destination_module: commerce_product
+
+process:
+  created:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: created_at
+    settings:
+      validate_format: false
+  changed:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: updated_at
+    settings:
+      validate_format: false
+  placed:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: created_at
+    settings:
+      validate_format: false
+  completed:
+    plugin: shopify_latest_date
+    source:
+      - created_at
+      - closed_at
+      - processed_at
+      - updated_at
+  store_id/0/target_id:
+    # TODO: Find default store.
+    plugin: default_value
+    default_value: 1
+  billing_profile/0/target_id:
+    -
+      plugin: dcom_shopify_resolve_billing_profile
+      migration: diamondcbd_user_profiles
+      source: billing_address
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - 0
+  billing_profile/0/target_revision_id:
+    -
+      plugin: dcom_shopify_resolve_billing_profile
+      migration: diamondcbd_user_profiles
+      source: billing_address
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - 1
+  type:
+    plugin: default_value
+    default_value: default
+  ip_address: browser_ip
+  # TODO: shipments
+  uid:
+    -
+      plugin: dcom_shopify_resolve_uid
+      migration: diamondcbd_users
+      source: customer
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'Order uid is missing'
+  order_number:
+    -
+      plugin: get
+      method: process
+      source: name
+    -
+      plugin: substr
+      start: 1
+    -
+      plugin: attach_string
+      location: prefix
+      string: 'SHR'
+  checkout_flow:
+    plugin: default_value
+    default_value: default
+  cart:
+    plugin: default_value
+    default_value: 0
+  # TODO: checkout_step
+  # Do not ask for review.
+  field_ask_for_review:
+    plugin: default_value
+    default_value: 0
+  order_items:
+    plugin: migration_lookup
+    migration: diamondcbd_order_items
+    source: line_items
+  adjustments:
+    plugin: shopify_adjustments
+    source:
+      - discount_codes
+      - shipping_lines
+      - currency
+  # Skip refreshing order.
+  refresh_state:
+    plugin: default_value
+    default_value: refresh_skip
+  'total_price/0/number': total_price
+  'total_price/0/currency_code': currency
+  state:
+    plugin: shopify_order_state
+    source:
+      - cancelled_at
+      - closed_at
+      - fulfillment_status
+      - financial_status
+  field_order_source:
+    plugin: default_value
+    default_value: shopify_retail
+  field_domain:
+    plugin: default_value
+    default_value: diamondcbd_domain
+  data:
+    plugin: dcom_shipping_lines_data
+    source: shipping_lines
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

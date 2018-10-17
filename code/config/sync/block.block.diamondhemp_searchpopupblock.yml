@@ -1,0 +1,32 @@
+uuid: 7421be6c-71c4-4915-8461-d5db9ee87058
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - cpl_paragraphs
+    - cpl_search_popup
+  theme:
+    - diamondhemp
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondhemp_searchpopupblock
+theme: diamondhemp
+region: header
+weight: 0
+provider: null
+plugin: search_popup_block
+settings:
+  id: search_popup_block
+  label: 'Search Popup block'
+  provider: cpl_search_popup
+  label_display: '0'
+  view_id: diamond_commerce_shop
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_header
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

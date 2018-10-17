@@ -1,0 +1,13 @@
+name: 'Diamond Commerce - Shopify Migrate'
+type: module
+description: 'Provides Shopify migration.'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - dcom_order:dcom_order
+  - dcom_profile:dcom_profile
+  - email_registration:email_registration
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools
+  - shopify_migrate:shopify_migrate
+  - migrate_source_csv:migrate_source_csv

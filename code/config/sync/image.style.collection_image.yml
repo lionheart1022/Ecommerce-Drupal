@@ -1,0 +1,15 @@
+uuid: 80cbe4c0-12af-4fb2-a862-1c1224f1413f
+langcode: en
+status: true
+dependencies: {  }
+name: collection_image
+label: 'Collection image 325x325'
+effects:
+  123:
+    uuid: ''
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 325
+      height: 325
+pipeline: __default__

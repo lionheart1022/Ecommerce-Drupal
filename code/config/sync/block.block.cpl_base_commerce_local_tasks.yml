@@ -1,0 +1,22 @@
+uuid: 121a1dcf-3533-4daf-a840-9fa9b8c20c0f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cpl_base_commerce
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: cpl_base_commerce_local_tasks
+theme: cpl_base_commerce
+region: content
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

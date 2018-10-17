@@ -1,0 +1,19 @@
+add commerce klaviyo review entities:
+  title: 'Create new Commerce Klaviyo Review entities'
+
+administer commerce klaviyo review entities:
+  title: 'Administer Commerce Klaviyo Review entities'
+  description: 'Allow to access the administration form to configure Commerce Klaviyo Review entities.'
+  restrict access: true
+
+delete commerce klaviyo review entities:
+  title: 'Delete Commerce Klaviyo Review entities'
+
+edit commerce klaviyo review entities:
+  title: 'Edit Commerce Klaviyo Review entities'
+
+view published commerce klaviyo review entities:
+  title: 'View published Commerce Klaviyo Review entities'
+
+view unpublished commerce klaviyo review entities:
+  title: 'View unpublished Commerce Klaviyo Review entities'

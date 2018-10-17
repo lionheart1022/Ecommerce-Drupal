@@ -1,0 +1,24 @@
+uuid: aaf5c9e8-03d9-42a8-b6b5-ae8f454de092
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+  theme:
+    - cbdliquidgold
+third_party_settings:
+  block_class:
+    classes: ''
+id: cbdliquidgold_checkoutprogress
+theme: cbdliquidgold
+region: content
+weight: -4
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility: {  }

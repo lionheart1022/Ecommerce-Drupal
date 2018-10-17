@@ -1,0 +1,26 @@
+uuid: 5255c96a-c7fc-4463-bc3a-e00853e3e806
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_content_media_ref
+    - paragraphs.paragraphs_type.icntxt
+id: paragraph.icntxt.field_par_content_media_ref
+field_name: field_par_content_media_ref
+entity_type: paragraph
+bundle: icntxt
+label: 'Displayed content: media reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

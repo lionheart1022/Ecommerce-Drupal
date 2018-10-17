@@ -1,0 +1,29 @@
+uuid: dbe68cf0-6917-4a54-bad1-f5deabe01b03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_text_2
+    - paragraphs.paragraphs_type.txt
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    text_paragraph_html: text_paragraph_html
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: paragraph.txt.field_par_text_2
+field_name: field_par_text_2
+entity_type: paragraph
+bundle: txt
+label: 'Content Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

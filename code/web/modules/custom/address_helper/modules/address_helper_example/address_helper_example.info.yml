@@ -1,0 +1,7 @@
+name: 'Address Helper Example'
+type: module
+description: 'Provides simple Address Helper example plugin'
+core: 8.x
+package: 'Address'
+dependencies:
+  - address_helper:address_helper

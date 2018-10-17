@@ -1,0 +1,22 @@
+uuid: e01240e5-50fe-44aa-b5a4-08e323278616
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - chongchoicecbd
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: chongchoicecbd_content
+theme: chongchoicecbd
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

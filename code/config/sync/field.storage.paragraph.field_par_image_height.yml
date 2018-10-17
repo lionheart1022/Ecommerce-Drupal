@@ -1,0 +1,30 @@
+uuid: 8afc445c-b896-47a5-83e7-84b23f1c6695
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_image_height
+field_name: field_par_image_height
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: H1
+      label: 'Height 1'
+    -
+      value: H2
+      label: 'Height 2'
+    -
+      value: HF
+      label: 'Full screen'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

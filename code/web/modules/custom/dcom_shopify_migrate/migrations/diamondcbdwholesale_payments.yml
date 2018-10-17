@@ -1,0 +1,92 @@
+id: diamondcbdwholesale_payments
+label: DiamondCBD Wholesale Payments
+migration_group: diamondcbdwholesale
+
+source:
+  plugin: shopify_payment_transaction
+  shopify:
+    shop_domain: diamondcbdwholesale.myshopify.com
+    api_key: 2cfa640a2566deacbabe0a9a9a288ceb
+    password: c1fbc742b8ea51cc2496bf0e2d53bb50
+    shared_secret: 6a01dee49b3f4d399e39d755496a3260
+
+destination:
+  plugin: 'entity:commerce_payment'
+  destination_module: commerce_payment
+
+process:
+  completed:
+    -
+      plugin: skip_on_value
+      method: row
+      source: kind
+      value: sale
+      not_equals: true
+    -
+      plugin: format_date
+      from_format: 'Y-m-d\TH:i:sO'
+      to_format: 'U'
+      source: created_at
+      settings:
+        validate_format: false
+  order_id:
+  -
+    plugin: migration_lookup
+    migration: diamondcbdwholesale_orders
+    source: order_id
+  -
+    plugin: skip_on_empty
+    method: row
+    # Order id can be missing if there is really no order_id OR the order was
+    # ignored during orders import.
+    message: 'Order id is missing'
+  type:
+    plugin: static_map
+    source: gateway
+    map:
+      network_merchants: payment_default
+    default_value: payment_manual
+  payment_gateway_mode:
+    -
+      # Do no import test payment transactions.
+      plugin: skip_on_value
+      method: row
+      source: test
+      value: true
+    -
+      plugin: default_value
+      default_value: live
+  'amount/0/number': amount
+  'amount/0/currency_code': currency
+  'refunded_amount/0/number': refunded_amount
+  'refunded_amount/0/currency_code': currency
+  state:
+    -
+      plugin: skip_on_value
+      method: row
+      source: status
+      value: success
+      not_equals: true
+    -
+      plugin: default_value
+      default_value: completed
+  payment_gateway:
+    -
+      plugin: static_map
+      source: gateway
+      map:
+        network_merchants: nmi_com
+        'Mail a Check': manual_pay_by_check
+        'Wire Transfer': manual_pay_by_wire_transfer
+        manual: shopify_other
+        authorize_net: shopify_authorize
+        gift_card: shopfy_gift_card
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'A payment gateway is missing'
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

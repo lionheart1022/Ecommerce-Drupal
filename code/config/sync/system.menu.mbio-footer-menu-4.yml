@@ -1,0 +1,8 @@
+uuid: a97820d5-8fcf-4107-88c9-15fb17a68053
+langcode: en
+status: true
+dependencies: {  }
+id: mbio-footer-menu-4
+label: 'Mbio footer menu 4'
+description: 'Mbio footer menu 4'
+locked: false

@@ -1,0 +1,9 @@
+uuid: 03c9885b-5ea5-4619-9f65-6eaa348b26b3
+langcode: en
+status: true
+dependencies: {  }
+id: mbio_domain
+domain_id: mbio_domain
+pattern: mbio.diamondcommerce.docker.localhost
+redirect: 0
+environment: local

@@ -1,0 +1,35 @@
+uuid: 41cd99dc-c7d0-417f-8eac-938cf877be13
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_content_reference:d7cce093-cf1e-4931-9419-bfa16ee03b7f'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - diamondcbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondcbd_product_page_paragraphs
+theme: diamondcbd
+region: product_content
+weight: 0
+provider: null
+plugin: 'block_content:d7cce093-cf1e-4931-9419-bfa16ee03b7f'
+settings:
+  id: 'block_content:d7cce093-cf1e-4931-9419-bfa16ee03b7f'
+  label: 'Product page paragraphs'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

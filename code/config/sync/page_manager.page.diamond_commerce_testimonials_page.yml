@@ -1,0 +1,12 @@
+uuid: 69e4f2d8-5720-4187-9c9e-d7392c6d16cc
+langcode: en
+status: true
+dependencies: {  }
+id: diamond_commerce_testimonials_page
+label: 'Diamond Commerce Testimonials Page'
+description: ''
+use_admin_theme: false
+path: /testimonials
+access_logic: and
+access_conditions: {  }
+parameters: {  }

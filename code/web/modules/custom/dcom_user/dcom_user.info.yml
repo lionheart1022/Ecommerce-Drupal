@@ -1,0 +1,8 @@
+name: 'Diamond Commerce User'
+type: module
+description: 'Provides Diamond Commerce user common data.'
+core: 8.x
+package: Commerce
+dependencies:
+  - cpl_commerce_user
+  - drupal:user

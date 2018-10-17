@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+    url('SourceSansPro-Regular.woff2') format('woff2'),
+    url('SourceSansPro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: local('Source Sans Pro Italic'), local('SourceSansPro-Italic'),
+    url('SourceSansPro-Italic.woff2') format('woff2'),
+    url('SourceSansPro-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'),
+    url('SourceSansPro-Light.woff2') format('woff2'),
+    url('SourceSansPro-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
+    url('SourceSansPro-Bold.woff2') format('woff2'),
+    url('SourceSansPro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}

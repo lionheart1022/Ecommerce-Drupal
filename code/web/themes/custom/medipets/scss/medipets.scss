@@ -1,0 +1,20 @@
+// Medipets theme styles
+
+@charset 'utf-8';
+
+// Foundation variables
+@import '@cpl_base/settings';
+@import '@cpl_commerce/settings';
+@import 'settings';
+
+// Theme variables
+@import '@cpl_base/cpl-settings';
+@import '@cpl_commerce/cpl-settings';
+@import 'cpl-settings';
+
+// Foundation bootstrap
+@import '@cpl_base/foundation-custom';
+
+// Base theme styles
+@import '@cpl_base/common';
+@import '@cpl_commerce/common';

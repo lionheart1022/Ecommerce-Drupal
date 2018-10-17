@@ -1,0 +1,30 @@
+uuid: 4115c2d7-b662-4b16-b0f7-1a55b49b39c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_odoo_sync_exclude
+  module:
+    - multiple_registration
+    - user
+third_party_settings:
+  multiple_registration:
+    user_additional_register_form:
+      100: '100'
+      wholesale_unapproved: 0
+id: user.user.field_odoo_sync_exclude
+field_name: field_odoo_sync_exclude
+entity_type: user
+bundle: user
+label: 'Odoo Sync Exclude'
+description: 'Check this to disallow syncing this user with Odoo.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

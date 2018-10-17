@@ -1,0 +1,8 @@
+uuid: 762147f8-ba61-46fc-a9c8-257a8204fbcf
+langcode: en
+status: true
+dependencies: {  }
+id: medipets-footer-menu-2
+label: Learn
+description: 'Medipets footer menu 2'
+locked: false

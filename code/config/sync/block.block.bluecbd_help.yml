@@ -1,0 +1,22 @@
+uuid: 3106f52f-cf70-40b7-b399-429027036799
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - bluecbd
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: bluecbd_help
+theme: bluecbd
+region: content
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

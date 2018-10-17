@@ -1,0 +1,33 @@
+uuid: 4af8b5da-847d-4d99-9fa9-31b0aa7ca60b
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_nmi
+id: nmi_com_diamond_hemp
+label: 'NMI.com Diamond Hemp'
+weight: -7
+plugin: nmicom
+configuration:
+  api_key: 6nrybF6Bg7mG52ZXZXZ2746nE7NG72pu
+  phone_fields:
+    customer: field_phone_number
+  display_label: 'NMI.com (Network Merchants, Inc.) Diamond Hemp'
+  mode: test
+  payment_method_types:
+    - nmi_3sr_cc
+conditions:
+  -
+    plugin: dcom_order_customer_role
+    configuration:
+      roles:
+        wholesale_1: wholesale_1
+      negate: '1'
+  -
+    plugin: domain
+    configuration:
+      domains:
+        diamondhemp_domain: diamondhemp_domain
+      negate: 0
+      context_mapping: {  }
+conditionOperator: AND

@@ -1,0 +1,26 @@
+uuid: 799a3a99-b545-44ce-905d-b0d4c68f31c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_content_media_ref
+    - paragraphs.paragraphs_type.imgtxtbanner
+id: paragraph.imgtxtbanner.field_par_content_media_ref
+field_name: field_par_content_media_ref
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'Displayed content: media reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

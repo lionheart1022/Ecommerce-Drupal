@@ -1,0 +1,21 @@
+uuid: 11739d20-d581-44d4-a164-83d1ad3da1bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_product_ref
+    - paragraphs.paragraphs_type.icntxt
+id: paragraph.icntxt.field_par_product_ref
+field_name: field_par_product_ref
+entity_type: paragraph
+bundle: icntxt
+label: 'Displayed content: product reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings: {  }
+field_type: entity_reference

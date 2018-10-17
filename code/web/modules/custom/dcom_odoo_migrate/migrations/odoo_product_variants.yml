@@ -1,0 +1,124 @@
+id: odoo_product_variants
+label: Odoo Product Variants
+migration_group: odoo
+migration_tags:
+  - dcom_odoo_migrate_cron
+
+source:
+  plugin: odoo_api
+  model: product.product
+  filters:
+    -
+      - x_export_to_drupal
+      - '='
+      - true
+    -
+      # Do not import products with the category or Flavor (45).
+      - 'categ_id'
+      - 'not in'
+      -
+        - 45
+    - '|'
+    -
+      - active
+      - '='
+      - 0
+    -
+      - active
+      - '='
+      - 1
+  fields:
+    - name
+    - create_date
+    - write_date
+    - default_code
+    - x_drupal_product_variant_weight
+    - lst_price
+    - product_tmpl_id
+    - attribute_value_ids
+    - active
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:commerce_product_variation'
+  destination_module: commerce_product
+
+process:
+  title: name
+  type:
+    plugin: default_value
+    default_value: cbd_product_variation
+  created: create_date
+  changed: write_date
+  status: active
+  sku: default_code
+  weight/0/number:
+    -
+     plugin: skip_on_empty
+     method: process
+     source: x_drupal_product_variant_weight
+    -
+     plugin: dcom_measurement_convert
+     measurement_type: weight
+     from_units: kg
+     to_units: oz
+  weight/0/unit:
+    -
+      plugin: default_value
+      default_value: oz
+  price/0/number: lst_price
+  price/0/currency_code:
+    plugin: default_value
+    default_value: USD
+  product_id:
+    plugin: migration_lookup
+    migration: odoo_products
+    no_stub: true
+    source: product_tmpl_id
+  attribute_flavor:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: attribute_value_ids
+    -
+      plugin: migration_lookup
+      migration: odoo_product_attribute_value
+      no_stub: true
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: entity_lookup
+      value_key: attribute_value_id
+      bundle_key: attribute
+      bundle: flavor
+      entity_type: commerce_product_attribute_value
+      ignore_case: true
+  attribute_strength:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: attribute_value_ids
+    -
+      plugin: migration_lookup
+      migration: odoo_product_attribute_value
+      no_stub: true
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: entity_lookup
+      value_key: attribute_value_id
+      bundle_key: attribute
+      bundle: strength
+      entity_type: commerce_product_attribute_value
+      ignore_case: true
+  field_force_odoo_migrate:
+    plugin: default_value
+    default_value: 0
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

@@ -1,0 +1,31 @@
+uuid: 172a45b1-e560-451b-8a3a-abb21b2c8210
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_body
+    - media.type.table
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    text_paragraph_html: text_paragraph_html
+    article_html: '0'
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+    paragraph_custom_html: '0'
+id: media.table.field_body
+field_name: field_body
+entity_type: media
+bundle: table
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

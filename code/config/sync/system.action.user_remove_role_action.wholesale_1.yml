@@ -1,0 +1,14 @@
+uuid: b8fd0812-4886-4dc5-8e97-9a50eec92c83
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.wholesale_1
+  module:
+    - user
+id: user_remove_role_action.wholesale_1
+label: 'Remove the Wholesale 1 role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: wholesale_1

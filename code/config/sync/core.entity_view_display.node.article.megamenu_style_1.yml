@@ -1,0 +1,51 @@
+uuid: b8e63c6e-bb6e-4f1c-927d-114f28fed26f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.megamenu_style_1
+    - field.field.node.article.comment
+    - field.field.node.article.field_blog_description
+    - field.field.node.article.field_blog_paragraphs
+    - field.field.node.article.field_domain_access
+    - field.field.node.article.field_domain_all_affiliates
+    - field.field.node.article.field_image
+    - field.field.node.article.field_metatags
+    - field.field.node.article.field_seo
+    - field.field.node.article.field_show_block_page_breadcrumb
+    - field.field.node.article.field_show_block_page_title
+    - field.field.node.article.field_tags
+    - image.style.megamenu
+    - node.type.article
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: qVtHNxqdXB9w369AO5JB5SVhflquWqFm5xfyvYLAIlM
+id: node.article.megamenu_style_1
+targetEntityType: node
+bundle: article
+mode: megamenu_style_1
+content:
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: megamenu
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  comment: true
+  field_blog_description: true
+  field_blog_paragraphs: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_metatags: true
+  field_seo: true
+  field_show_block_page_breadcrumb: true
+  field_show_block_page_title: true
+  field_tags: true
+  langcode: true
+  links: true

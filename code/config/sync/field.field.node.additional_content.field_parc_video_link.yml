@@ -1,0 +1,25 @@
+uuid: cbb8800c-a7c2-44a9-8554-3b8c7f1c64e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parc_video_link
+    - node.type.additional_content
+  module:
+    - video_embed_field
+id: node.additional_content.field_parc_video_link
+field_name: field_parc_video_link
+entity_type: node
+bundle: additional_content
+label: 'External Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: '0'
+    youtube_playlist: '0'
+    youtube: '0'
+field_type: video_embed_field

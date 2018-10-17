@@ -1,0 +1,53 @@
+id: diamondcbdwholesale_user_profiles
+label: DiamondCBD Wholesale User Profiles
+migration_group: diamondcbdwholesale
+
+source:
+  plugin: dcom_shopify_customer_order_address
+  shopify:
+    shop_domain: diamondcbdwholesale.myshopify.com
+    api_key: 2cfa640a2566deacbabe0a9a9a288ceb
+    password: c1fbc742b8ea51cc2496bf0e2d53bb50
+    shared_secret: 6a01dee49b3f4d399e39d755496a3260
+
+
+destination:
+  plugin: 'entity_reference_revisions:profile'
+
+process:
+  uid:
+    -
+      plugin: skip_on_value
+      method: row
+      source: customer_id
+      value:
+        - 5660016399
+        - 5708102223
+        - 67050766351
+        - 67050176527
+    -
+      plugin: migration_lookup
+      migration: diamondcbdwholesale_users
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'Profile uid is missing'
+  type:
+    plugin: default_value
+    default_value: customer
+  field_phone_number/0/value: phone
+  address/0/given_name: first_name
+  address/0/family_name: last_name
+  address/0/organization: company
+  address/0/address_line1: address1
+  address/0/address_line2: address2
+  address/0/locality: city
+  address/0/administrative_area: province_code
+  address/0/postal_code: zip
+  address/0/country_code: country_code
+  is_default: default
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

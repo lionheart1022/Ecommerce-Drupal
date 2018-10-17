@@ -1,0 +1,14 @@
+uuid: eaa1ea4c-4ba5-4dce-a845-8df4dc2a6d00
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.staff_writer
+  module:
+    - user
+id: user_remove_role_action.staff_writer
+label: 'Remove the Staff - Writer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: staff_writer

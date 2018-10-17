@@ -1,0 +1,24 @@
+uuid: 56a2be58-6aa4-4360-94bf-3658930c68e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_mobile_layout
+field_name: field_par_mobile_layout
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: M1
+      label: 'Mobile Layout 1'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

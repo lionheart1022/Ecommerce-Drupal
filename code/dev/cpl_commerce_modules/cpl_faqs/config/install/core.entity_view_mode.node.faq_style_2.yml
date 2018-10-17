@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.faq_style_2
+label: 'FAQ Style 2'
+targetEntityType: node
+cache: true

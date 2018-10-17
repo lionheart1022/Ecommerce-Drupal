@@ -1,0 +1,22 @@
+uuid: b0f25170-f3ac-4c99-9c4c-57dc9febc6cd
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: offer_conversion_cbd_vapes
+label: 'Offer Conversion: CBD Vapes'
+plugin: hasoffers_affiliate
+configuration:
+  network_id: diamondcbd
+  offer_id: '37'
+  affiliate_id: ''
+  type: https_iframe
+  api_key: NETXZIHhJyKc9XISwpwUj9ftgrEoEs
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: order_canceled

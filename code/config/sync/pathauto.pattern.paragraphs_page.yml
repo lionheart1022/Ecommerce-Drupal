@@ -1,0 +1,22 @@
+uuid: 53780891-e437-4bd1-a292-94ade8562cf3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: paragraphs_page
+label: 'Paragraphs page'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  68560958-8e14-4031-8785-f78488398442:
+    id: node_type
+    bundles:
+      paragraphs_page: paragraphs_page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 68560958-8e14-4031-8785-f78488398442
+selection_logic: and
+weight: -5
+relationships: {  }

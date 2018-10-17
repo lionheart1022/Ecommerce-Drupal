@@ -1,0 +1,25 @@
+uuid: 9f3ea912-0529-400c-847e-b2fa3dcb8156
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_video
+    - paragraphs.paragraphs_type.imgtxtbanner
+  module:
+    - video_embed_field
+id: paragraph.imgtxtbanner.field_par_video
+field_name: field_par_video
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'External Video'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: '0'
+    youtube_playlist: '0'
+    youtube: '0'
+field_type: video_embed_field

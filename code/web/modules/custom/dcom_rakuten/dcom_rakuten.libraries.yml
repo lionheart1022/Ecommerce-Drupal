@@ -1,0 +1,6 @@
+checkout_tracking:
+  js:
+    js/checkout_tracking.js: { }
+  dependencies:
+    - core/drupal
+    - core/jquery.once

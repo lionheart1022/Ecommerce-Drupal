@@ -1,0 +1,22 @@
+uuid: e4dea9cc-d785-4148-a9ae-273ce512e671
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - cbdliquidgold
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: cbdliquidgold_help
+theme: cbdliquidgold
+region: content
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,27 @@
+uuid: b253282b-c777-43e2-b4d5-65c3a3c8bfb5
+langcode: en
+status: true
+dependencies: {  }
+id: favorite_product
+label: 'Favorite Product'
+bundles: {  }
+entity_type: commerce_product
+global: false
+weight: 0
+flag_short: Like
+flag_long: ''
+flag_message: ''
+unflag_short: Unlike
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:commerce_product'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

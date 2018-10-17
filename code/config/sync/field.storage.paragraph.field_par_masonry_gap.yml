@@ -1,0 +1,33 @@
+uuid: 1e01e3e7-6265-400f-80dd-e7d659e35067
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_masonry_gap
+field_name: field_par_masonry_gap
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'NO'
+      label: 'No Gap'
+    -
+      value: MG1
+      label: 'Masonry Gap 1'
+    -
+      value: MG2
+      label: 'Masonry Gap 2'
+    -
+      value: MG3
+      label: 'Masonry Gap 3'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

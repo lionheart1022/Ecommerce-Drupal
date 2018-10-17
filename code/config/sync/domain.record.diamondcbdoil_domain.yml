@@ -1,0 +1,11 @@
+uuid: 27591043-d1fa-4abb-b539-16238fb00826
+langcode: en
+status: true
+dependencies: {  }
+id: diamondcbdoil_domain
+domain_id: 8245644
+hostname: www.diamondcbdoil.com
+name: DiamondCBDOil.com
+scheme: variable
+weight: 5
+is_default: false

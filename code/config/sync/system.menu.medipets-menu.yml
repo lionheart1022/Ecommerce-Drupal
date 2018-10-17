@@ -1,0 +1,8 @@
+uuid: 1a3de25c-cc54-4c73-bb47-23f796af5a3a
+langcode: en
+status: true
+dependencies: {  }
+id: medipets-menu
+label: 'Medipets Shop'
+description: ''
+locked: false

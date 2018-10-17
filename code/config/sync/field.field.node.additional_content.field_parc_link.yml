@@ -1,0 +1,28 @@
+uuid: 0ca6bb1d-3ef5-4f7f-a7ee-2a2eb82de051
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parc_link
+    - node.type.additional_content
+  module:
+    - link
+id: node.additional_content.field_parc_link
+field_name: field_parc_link
+entity_type: node
+bundle: additional_content
+label: Link
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://www.diamondcbd.com/'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

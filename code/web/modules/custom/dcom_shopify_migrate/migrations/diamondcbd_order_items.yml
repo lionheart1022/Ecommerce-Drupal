@@ -1,0 +1,71 @@
+id: diamondcbd_order_items
+label: DiamondCBD Order Items
+migration_group: diamondcbd
+migration_tags:
+# Skip sync, since there is some amount of orders, which needs to be processed in smaller chunks.
+  - odoo_skip_sync
+
+source:
+  plugin: dcom_shopify_order_item
+
+destination:
+  plugin: 'entity:commerce_order_item'
+  destination_module: commerce_product
+
+process:
+#  order_id:
+#    plugin: migration_lookup
+#    migration: diamondcbd_orders
+#    source: order_id
+  # TODO: Fetch created/changed date from order.
+  created:
+    -
+      plugin: dcom_shopify_resolve_uid
+      migration: diamondcbd_users
+      source: customer
+      order_id_source: order_id
+    -
+      plugin: skip_on_empty
+      method: row
+      # Do not import order items for ignored orders.
+      message: 'Order uid is missing'
+    -
+      plugin: format_date
+      from_format: 'Y-m-d\TH:i:sO'
+      to_format: 'U'
+      source: order_created_at
+      settings:
+        validate_format: false
+  changed:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: order_updated_at
+    settings:
+      validate_format: false
+  type:
+    plugin: default_value
+    default_value: default
+  purchased_entity:
+    -
+      plugin: dcom_shopify_resolve_sku
+      migration: diamondcbd_product_variations
+      no_stub: true
+      source: variant_id
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'Empty SKU'
+  quantity: quantity
+  title: title
+  'unit_price/0/number': price
+  'unit_price/0/currency_code': order_currency
+
+migration_dependencies:
+  required:
+    - diamondcbd_product_variations
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

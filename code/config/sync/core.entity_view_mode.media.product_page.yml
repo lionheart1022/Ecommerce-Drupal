@@ -1,0 +1,10 @@
+uuid: 4ca2dfd8-66fc-4119-b73d-eb4c28267f0a
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.product_page
+label: 'Product page'
+targetEntityType: media
+cache: true

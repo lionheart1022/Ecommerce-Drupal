@@ -1,0 +1,41 @@
+uuid: ff8e4eb4-6170-4a08-8a29-6329f539df6b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:4e79ed17-a9b4-4e58-8ee8-dc6ef8f22d8c'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - diamondcbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondcbd_contactblock
+theme: diamondcbd
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:4e79ed17-a9b4-4e58-8ee8-dc6ef8f22d8c'
+settings:
+  id: 'block_content:4e79ed17-a9b4-4e58-8ee8-dc6ef8f22d8c'
+  label: 'Contact block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /diamondcbd-contact
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,23 @@
+uuid: 29f287a1-5c43-4425-bd31-bad10f487ffd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_background_image
+    - paragraphs.paragraphs_type.imgtxtbanner
+id: paragraph.imgtxtbanner.field_par_background_image
+field_name: field_par_background_image
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'Background Image'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

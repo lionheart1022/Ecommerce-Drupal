@@ -1,0 +1,23 @@
+uuid: 94a6fd2b-38a4-41da-8fc0-c231518fddbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_large
+    - paragraphs.paragraphs_type.icntxt
+  module:
+    - options
+id: paragraph.icntxt.field_par_large
+field_name: field_par_large
+entity_type: paragraph
+bundle: icntxt
+label: 'Large Columns'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1C
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,6 @@
+uuid: a8e49d00-2b28-4725-bfcc-1b51acacb393
+langcode: en
+status: true
+dependencies: {  }
+id: field_par_parallax_item
+label: field_par_parallax_item

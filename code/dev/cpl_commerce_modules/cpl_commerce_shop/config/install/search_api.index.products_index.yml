@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_solr
+    - search_api
+    - commerce_product
+  config:
+    - field.storage.commerce_product.field_product_category
+    - search_api.server.search_server
+third_party_settings:
+  search_api_solr:
+    finalize: true
+    commit_before_finalize: false
+    commit_after_finalize: true
+id: products_index
+name: 'Products Index'
+description: ''
+read_only: false
+field_settings:
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
+  title:
+    label: Title
+    datasource_id: 'entity:commerce_product'
+    property_path: title
+    type: solr_text_ngram
+  field_product_category:
+    label: 'Product Category'
+    datasource_id: 'entity:commerce_product'
+    property_path: field_product_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.field_product_category
+datasource_settings:
+  'entity:commerce_product':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  rendered_item: {  }
+  add_url: {  }
+  aggregated_field: {  }
+  solr_date_range: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: search_server

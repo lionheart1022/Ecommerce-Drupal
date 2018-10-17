@@ -1,0 +1,22 @@
+uuid: ec0aeab2-5d25-4281-b71c-8b754a678d36
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - diamondcbd
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: diamondcbd_content
+theme: diamondcbd
+region: content
+weight: 2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

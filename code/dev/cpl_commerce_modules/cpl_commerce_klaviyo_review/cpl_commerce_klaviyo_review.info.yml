@@ -1,0 +1,6 @@
+name: 'CPL Commerce Klaviyo Review'
+type: module
+description: 'CPL specific adjustments for commerce_klaviyo_review module'
+core: 8.x
+dependencies:
+  - commerce_klaviyo_review

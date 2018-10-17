@@ -1,0 +1,23 @@
+uuid: cb1b29c8-39a1-43bb-af1d-6e53fe49179f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_header_size
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - options
+id: paragraph.imgtxt.field_par_header_size
+field_name: field_par_header_size
+entity_type: paragraph
+bundle: imgtxt
+label: 'Heading Size'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: MD
+default_value_callback: ''
+settings: {  }
+field_type: list_string

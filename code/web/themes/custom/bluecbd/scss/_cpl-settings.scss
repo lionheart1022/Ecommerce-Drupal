@@ -1,0 +1,314 @@
+// CPL settings for the bluecbd theme
+
+$text-colors: (#1a693c, #767676);
+
+$bg-colors: (#ffffff, #e6e6e6, #28a9da, #171c26);
+
+$condensed-font-family: 'Source Sans Pro', sans-serif;
+
+// Search
+$search-input-border-color: #3aaa4a;
+
+// FAQ
+$faq-active-title-bg: $primary-color;
+$faq-active-title-text: $white;
+$faq-active-content-bg: #bbffd8;
+
+// Pager
+$pager-current-background: #28a9da;
+
+// Webform in paragraph
+$paragraph-webform-button: (
+  background: $black,
+  color: $white
+);
+$paragraph-webform-button-h: (
+  background: $primary-color,
+  color: $white
+);
+
+$paragraph-heading-text-size: (
+  small: (
+    xs: 12px,
+    sm: 14px,
+    md: 16px,
+    lg: 30px,
+    xl: 48px
+  ),
+  large: (
+    xs: 12px,
+    sm: 14px,
+    md: 20px,
+    lg: 36px,
+    xl: 50px
+  )
+);
+
+// ImageText options
+$imgtxt: (
+  1: (
+    container: (
+      background-color: $primary-color,
+      box-shadow: none
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1,
+      text-transform: none
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 18px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 18px,
+      font-weight: bold,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white,
+      border-radius: 25px
+    ),
+    link-h: (
+      background-color: $white,
+      color: $primary-color
+    ),
+    overlay: (
+      background-color: rgba(0, 0, 0, 0.9),
+      padding: 15px
+    )
+  ),
+  2: (
+    container: (
+      background-color: $white,
+      box-shadow: none
+    ),
+    heading: (
+      color: $black,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 18px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 18px,
+      font-weight: bold,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white,
+      border-radius: 25px
+    ),
+    link-h: (
+      background-color: $white,
+      color: $primary-color
+    ),
+    overlay: (
+      background-color: rgba(255, 255, 255, 0.9),
+      padding: 15px
+    )
+  ),
+  3: (
+    container: (
+      background-color: $white,
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5)
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 18px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 18px,
+      font-weight: bold,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white,
+      border-radius: 25px
+    ),
+    link-h: (
+      background-color: $white,
+      color: $primary-color
+    ),
+    overlay: (
+      background-color: rgba(26, 105, 60, 0.9),
+      padding: 15px
+    )
+  ),
+  4: (
+    container: (
+      background-color: $white,
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5)
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 18px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 18px,
+      font-weight: bold,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white,
+      border-radius: 25px
+    ),
+    link-h: (
+      background-color: $white,
+      color: $primary-color
+    ),
+    overlay: (
+      background-color: rgba(230, 230, 230, 0.9),
+      padding: 15px
+    )
+  )
+);
+
+// ImageTextBanner options
+$imgbnr: (
+  1: (
+    container: (
+      background-color: $primary-color,
+      box-shadow: none
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 18px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 18px,
+      font-weight: bold,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white,
+      border-radius: 25px
+    ),
+    link-h: (
+      background-color: $white,
+      color: $primary-color
+    )
+  ),
+  2: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 18px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 18px,
+      font-weight: bold,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white,
+      border-radius: 25px
+    ),
+    link-h: (
+      background-color: $white,
+      color: $primary-color
+    )
+  ),
+  3: (
+    container: (
+      background-color: $white,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $primary-color,
+      font-size: 18px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 18px,
+      font-weight: bold,
+      text-transform: uppercase,
+      background-color: $black,
+      color: $white,
+      border-radius: 25px
+    ),
+    link-h: (
+      background-color: $white,
+      color: $primary-color
+    )
+  ),
+  4: (
+    container: (
+      background-color: #171c26,
+      box-shadow: none
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 18px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 18px,
+      font-weight: bold,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white,
+      border-radius: 25px
+    ),
+    link-h: (
+      background-color: $white,
+      color: $primary-color
+    )
+  )
+);

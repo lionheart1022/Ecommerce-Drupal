@@ -1,0 +1,24 @@
+uuid: 914d2937-bf6e-4c6c-a59f-d1108f98702c
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      mbio_domain: mbio_domain
+      diamondcbd_domain: diamondcbd_domain
+      medipets_domain: medipets_domain
+id: offer_conversion_offer_id_21
+label: 'Offer Conversion: Diamond CBD - General 90 Day'
+plugin: hasoffers_affiliate
+configuration:
+  network_id: diamondcbd
+  offer_id: '21'
+  affiliate_id: ''
+  type: https_img
+  api_key: NETXZIHhJyKc9XISwpwUj9ftgrEoEs
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: order_canceled

@@ -1,0 +1,8 @@
+uuid: 21dbe4d5-af23-4875-9bc8-bdaef787f5b5
+langcode: en
+status: true
+dependencies: {  }
+id: medipets-mobile-menu-3
+label: 'Medipets mobile menu 3'
+description: 'Medipets mobile menu 3'
+locked: false

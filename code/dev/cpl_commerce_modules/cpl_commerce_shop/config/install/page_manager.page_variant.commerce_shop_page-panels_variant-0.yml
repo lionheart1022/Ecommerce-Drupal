@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.product_category
+    - page_manager.page.commerce_shop_page
+    - views.view.commerce_shop
+  module:
+    - facets
+    - panels
+    - system
+    - views
+id: commerce_shop_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    a97ab560-2e17-40a1-8bc4-2de9642cc03f:
+      id: system_breadcrumb_block
+      label: Breadcrumbs
+      provider: system
+      label_display: '0'
+      region: main
+      weight: 0
+      uuid: a97ab560-2e17-40a1-8bc4-2de9642cc03f
+      context_mapping: {  }
+    bb0f45e1-255b-4fcd-a9b7-42b33c6ba6a3:
+      id: 'views_block:commerce_shop-commerce_shop_block'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: bb0f45e1-255b-4fcd-a9b7-42b33c6ba6a3
+      context_mapping: {  }
+    957e147e-a6b1-4aeb-a6fa-0979d7a17efe:
+      id: 'facet_block:product_category'
+      label: 'Product Category'
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: 0
+      uuid: 957e147e-a6b1-4aeb-a6fa-0979d7a17efe
+      block_id: null
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 6628e594-b99e-4954-bcda-8e0d06cbf95a
+  label: null
+  weight: 0
+  layout: cpl_shop_page_style_1
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: commerce_shop_page-panels_variant-0
+  builder: standard
+page: commerce_shop_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

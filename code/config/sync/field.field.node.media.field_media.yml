@@ -1,0 +1,32 @@
+uuid: ed449e53-3211-45c5-94d5-6329cf260e3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media
+    - media.type.how_to_use
+    - media.type.image
+    - media.type.lab_results
+    - node.type.media
+id: node.media.field_media
+field_name: field_media
+entity_type: node
+bundle: media
+label: Media
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      how_to_use: how_to_use
+      image: image
+      lab_results: lab_results
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: how_to_use
+field_type: entity_reference

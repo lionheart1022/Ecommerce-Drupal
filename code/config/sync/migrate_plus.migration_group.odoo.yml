@@ -1,0 +1,10 @@
+uuid: 01f5fd16-19c9-4809-90a5-151f6ef09c3d
+langcode: en
+status: true
+dependencies: {  }
+id: odoo
+label: odoo
+description: ''
+source_type: null
+module: null
+shared_configuration: null

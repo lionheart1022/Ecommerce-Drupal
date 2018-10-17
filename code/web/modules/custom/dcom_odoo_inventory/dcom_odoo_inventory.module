@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce - Odoo Inventory module.
+ */
+
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * Fetch products inventory status from Odoo.
+ *
+ * Implements hook_cron().
+ */
+function dcom_odoo_inventory_cron() {
+  /** @var \Drupal\dcom_odoo_inventory\InventorySyncInterface $syncer */
+  $syncer = \Drupal::service('dcom_odoo_inventory.sync');
+
+  $logger = \Drupal::logger('dcom_odoo_inventory');
+  foreach ($syncer->queryVariantsNowAvailable() as $variation) {
+    $variation->field_product_availability->value = 1;
+    $variation->save();
+
+    $arguments = [
+      '@variant' => $variation->getTitle(),
+      '@id' => $variation->id(),
+    ];
+    $message = (string) new TranslatableMarkup('The following product variant is now available: @variant. ID: @id.', $arguments);
+    $logger->info($message);
+  }
+
+  foreach ($syncer->queryVariantsNotAvailableAnymore() as $variation) {
+    $variation->field_product_availability->value = 0;
+    $variation->save();
+
+    $arguments = [
+      '@variant' => $variation->getTitle(),
+      '@id' => $variation->id(),
+    ];
+    $message = (string) new TranslatableMarkup('The following product variant is no longer available: @variant. ID: @id.', $arguments);
+    $logger->info($message);
+  }
+}

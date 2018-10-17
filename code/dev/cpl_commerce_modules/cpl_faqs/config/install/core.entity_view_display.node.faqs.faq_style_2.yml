@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.faq_style_2
+    - field.field.node.faqs.body
+    - field.field.node.faqs.field_faqs_category
+    - field.field.node.faqs.field_faqs_type
+    - node.type.faqs
+  module:
+    - text
+    - user
+id: node.faqs.faq_style_2
+targetEntityType: node
+bundle: faqs
+mode: faq_style_2
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_faqs_category: true
+  field_faqs_type: true
+  langcode: true
+  links: true

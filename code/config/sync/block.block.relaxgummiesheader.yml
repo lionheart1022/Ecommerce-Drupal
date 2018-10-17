@@ -1,0 +1,35 @@
+uuid: 2f0e15a9-5c21-4372-831a-6875bec4c785
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_header:980f5997-56f6-4faf-bdbb-aaf4735df437'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - relaxgummies
+third_party_settings:
+  block_class:
+    classes: ''
+id: relaxgummiesheader
+theme: relaxgummies
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:980f5997-56f6-4faf-bdbb-aaf4735df437'
+settings:
+  id: 'block_content:980f5997-56f6-4faf-bdbb-aaf4735df437'
+  label: 'Relax Gummies Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

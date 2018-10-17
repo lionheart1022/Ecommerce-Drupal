@@ -1,0 +1,25 @@
+uuid: 1af4c4ae-1780-4dcd-892b-d580813fb2ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_domain
+    - field_collection.field_collection.field_domain_fields
+id: field_collection_item.field_domain_fields.field_domain
+field_name: field_domain
+entity_type: field_collection_item
+bundle: field_domain_fields
+label: Domain
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+field_type: entity_reference

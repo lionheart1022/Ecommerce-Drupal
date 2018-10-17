@@ -1,0 +1,316 @@
+<?php
+
+/**
+ * @file
+ * CPL Commerce Cart module.
+ */
+
+use Drupal\commerce_cart\Form\AddToCartForm;
+use Drupal\commerce_order\Entity\Order;
+use Drupal\commerce_order\Entity\OrderInterface;
+use Drupal\commerce_order\Entity\OrderItemInterface;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\Ajax\PrependCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Entity\ContentEntityForm;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+use Drupal\views\Form\ViewsForm;
+
+/**
+ * Add checkout button to cart block view, enable AJAX.
+ *
+ * Implements hook_form_alter().
+ */
+function cpl_commerce_cart_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_state->getFormObject() instanceof ViewsForm) {
+    /** @var \Drupal\views\ViewExecutable $view */
+    $view = reset($form_state->getBuildInfo()['args']);
+    $view_id = $view->storage->id();
+    if (in_array($view_id, ['cpl_commerce_cart_block', 'cpl_commerce_cart_form'])) {
+      $form['#action'] = Url::fromRoute('<current>')->toString();
+
+      $form['actions']['checkout'] = [
+        '#type' => 'submit',
+        '#value' => t('Checkout'),
+        '#weight' => 5,
+        '#access' => \Drupal::currentUser()->hasPermission('access checkout'),
+        '#submit' => array_merge($form['#submit'], ['commerce_checkout_order_item_views_form_submit']),
+        '#order_id' => $view->argument['order_id']->value[0],
+      ];
+
+      $form['output']['footer'] = [
+        '#weight' => 50,
+        'content' => views_embed_view('cpl_commerce_cart_block', 'cart_block_attachment', $view->args[0]),
+      ];
+      $form['output']['footer']['content']['#attributes']['class'][] = 'cpl-commerce-cart-order-footer';
+
+      $form['output']['order-total'] = [
+        '#weight' => 70,
+        'content' => views_embed_view('cpl_commerce_cart_block', 'order_total_embed', $view->args[0]),
+      ];
+      $form['output']['order-total']['content']['#attributes']['class'][] = 'cpl-commerce-cart-order-total';
+
+      if (isset($form['actions']['submit'])) {
+        $form['actions']['submit']['#submit'] = array_merge($form['#submit'], ['commerce_cart_order_item_views_form_submit', 'cpl_commerce_cart_cart_form_cleanup_submit']);
+        $form['actions']['submit']['#order_id'] = $view->argument['order_id']->value[0];
+        $form['actions']['submit']['#ajax'] = [
+          'callback' => 'cpl_commerce_cart_replace_view',
+          'wrapper' => $form['#id'],
+        ];
+        $form['actions']['submit']['#attributes']['class'][] = 'cpl-commerce-cart-edit-submit';
+      }
+
+      if (isset($form['remove_button'])) {
+        foreach (Element::children($form['remove_button']) as $child) {
+          $form['remove_button'][$child]['#ajax'] = [
+            'callback' => 'cpl_commerce_cart_replace_view',
+            'wrapper' => $form['#id'],
+          ];
+          $form['remove_button'][$child]['#order_id'] = $view->argument['order_id']->value[0];
+          $form['remove_button'][$child]['#submit'][] = '::submitForm';
+          $form['remove_button'][$child]['#submit'][] = 'cpl_commerce_cart_cart_form_cleanup_submit';
+        }
+      }
+      if (isset($form['edit_quantity'])) {
+        foreach (Element::children($form['edit_quantity']) as $child) {
+          $form['edit_quantity'][$child]['#attributes']['class'][] = 'cpl-commerce-cart-edit-quantity';
+        }
+      }
+      $form['#attached']['library'][] = 'cpl_commerce_cart/ajax_quantity_update';
+    }
+  }
+}
+
+/**
+ * AJAX callback for cart form update.
+ *
+ * @param array $form
+ *   Commerce cart form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state object.
+ *
+ * @return \Drupal\Core\Ajax\AjaxResponse
+ *   Form AJAX response.
+ */
+function cpl_commerce_cart_replace_view(array &$form, FormStateInterface $form_state) {
+  return cpl_commerce_cart_ajax_cart_form_response();
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function cpl_commerce_cart_form_commerce_order_item_add_to_cart_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form_object = $form_state->getFormObject();
+  if (!($form_object instanceof ContentEntityForm)) {
+    return;
+  }
+  $order_item = $form_object->getEntity();
+  if (!($order_item instanceof OrderItemInterface)) {
+    return;
+  }
+  if (cpl_commerce_cart_use_ajax($order_item)) {
+    $form['actions']['submit']['#ajax'] = [
+      'callback' => 'cpl_commerce_cart_replace_and_open_cart_block_ajax',
+    ];
+    $form['actions']['submit']['#submit'][] = 'cpl_commerce_cart_clear_order_item';
+    if (isset($form['quantity']['widget'][0]['value'])) {
+      $form['quantity']['widget'][0]['value']['#min'] = 1;
+    }
+  }
+}
+
+/**
+ * Form submit callback for re-creating the order item.
+ *
+ * This is required to make Add to Cart form work with AJAX properly.
+ */
+function cpl_commerce_cart_clear_order_item(&$form, FormStateInterface $form_state) {
+  $form_object = $form_state->getFormObject();
+  if ($form_object instanceof AddToCartForm) {
+    /** @var \Drupal\commerce_order\Entity\OrderItemInterface $order_item */
+    $order_item = $form_object->getEntity();
+    if (!$order_item->isNew()) {
+      /** @var \Drupal\commerce_order\OrderItemStorageInterface $order_item_storage */
+      $order_item_storage = \Drupal::entityTypeManager()->getStorage('commerce_order_item');
+      $form_object->setEntity($order_item_storage->createFromPurchasableEntity($order_item->getPurchasedEntity()));
+    }
+  }
+}
+
+/**
+ * AJAX callback for replacing cart popup block.
+ *
+ * @param array $form
+ *   Commerce cart form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state object.
+ *
+ * @return \Drupal\Core\Ajax\AjaxResponse
+ *   AJAX commands.
+ */
+function cpl_commerce_cart_replace_and_open_cart_block_ajax(array &$form, FormStateInterface $form_state) {
+  return cpl_commerce_cart_ajax_cart_form_response(TRUE);
+}
+
+/**
+ * Render Commerce Cart block.
+ *
+ * @return array
+ *   Block render array.
+ */
+function cpl_commerce_cart_render_cart_block() {
+  $block = [];
+
+  $block_plugin = \Drupal::service('plugin.manager.block')
+    ->createInstance('commerce_cart', []);
+  if ($block_plugin->access(\Drupal::currentUser())) {
+    $block = $block_plugin->build();
+  }
+  return $block;
+}
+
+/**
+ * Constructs AJAX response for replacing cart form and popup.
+ *
+ * @return \Drupal\Core\Ajax\AjaxResponse
+ *   AJAX response object.
+ */
+function cpl_commerce_cart_ajax_cart_form_response($invoke_cart_toggle = FALSE) {
+  // Clear GET and POST before rendering to avoid submitting forms during
+  // render.
+  $request_stack = \Drupal::requestStack();
+  $request_stack->push($request_stack->getCurrentRequest()->duplicate([], []));
+
+  $callable = Drupal::getContainer()
+    ->get('controller_resolver')
+    ->getControllerFromDefinition('\Drupal\commerce_cart\Controller\CartController::cartPage');
+  $page = call_user_func($callable);
+
+  // Cart page contents.
+  $response = new AjaxResponse();
+  $response->addCommand(new ReplaceCommand('.cart.cart-form', \Drupal::service('renderer')->renderRoot($page)));
+  $response->addAttachments($page['#attached']);
+
+  // Cart popup contents.
+  $block = cpl_commerce_cart_render_cart_block();
+  $response->addCommand(new ReplaceCommand('.cart--cart-block', \Drupal::service('renderer')->renderRoot($block)));
+  if ($invoke_cart_toggle) {
+    $response->addCommand(new InvokeCommand('.menu-link-item-cart:eq(0) a', 'trigger', ['click']));
+  }
+  $response->addAttachments($block['#attached']);
+
+  // Status messages.
+  $status_messages = ['#type' => 'status_messages'];
+  $output = \Drupal::service('renderer')->renderRoot($status_messages);
+  if (!empty($output)) {
+    $response->addCommand(new PrependCommand(NULL, $output));
+    $response->addAttachments($status_messages['#attached']);
+  }
+
+  // Showing message to wholesale unapproved accounts.
+  if (in_array('wholesale_unapproved', \Drupal::currentUser()->getRoles())) {
+    drupal_set_message(t('Your wholesale account is not approved yet so you got retail price.'), 'warning');
+    $message = ['#type' => 'status_messages'];
+    $output = \Drupal::service('renderer')->renderRoot($message);
+    if (!empty($output)) {
+      $response->addCommand(new PrependCommand('.region-highlighted', $output));
+      $response->addAttachments($status_messages['#attached']);
+    }
+  }
+
+  // Put back original request.
+  $request_stack->pop();
+  return $response;
+}
+
+/**
+ * Extra form submit callback for cleaning up the cart.
+ */
+function cpl_commerce_cart_cart_form_cleanup_submit(array &$form, FormStateInterface $form_state) {
+  $triggering_element = $form_state->getTriggeringElement();
+
+  if (!empty($triggering_element['#order_id'])
+  && $order = \Drupal::entityTypeManager()->getStorage('commerce_order')->load($triggering_element['#order_id'])) {
+    cpl_commerce_cart_commerce_order_remove_empty_items($order);
+  }
+
+  // Make sure form is rebuilt.
+  $form_state->setRebuild();
+}
+
+/**
+ * Remove empty order items, remove the empty order.
+ *
+ * @param \Drupal\commerce_order\Entity\Order $order
+ *   Commerce order entity.
+ */
+function cpl_commerce_cart_commerce_order_remove_empty_items(Order $order) {
+  foreach ($order->getItems() as $order_item) {
+    if ($order_item->getQuantity() == 0) {
+      // Remove empty order items.
+      $order->removeItem($order_item);
+      Drupal::getContainer()
+        ->get('commerce_cart.cart_manager')
+        ->removeOrderItem($order, $order_item);
+    }
+  }
+
+  if (count($order->getItems()) == 0) {
+    $order->delete();
+  }
+}
+
+/**
+ * Get order total by order ID.
+ *
+ * @param int $order_id
+ *   Order ID.
+ *
+ * @return \Drupal\commerce_price\Price|null
+ *   Order total price or NULL.
+ */
+function cpl_commerce_cart_order_amount($order_id) {
+  if (!$order_id
+    || !($order = \Drupal::entityTypeManager()->getStorage('commerce_order')->load($order_id))) {
+    return NULL;
+  }
+
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+  return $order->getTotalPrice();
+}
+
+/**
+ * Check if AJAX cart should be used for a given order item.
+ *
+ * @param \Drupal\commerce_order\Entity\OrderItemInterface $order_item
+ *   Order item entity.
+ *
+ * @return bool
+ *   Whether AJAX cart should be used.
+ */
+function cpl_commerce_cart_use_ajax(OrderItemInterface $order_item) {
+  $order_item_type_id = $order_item->bundle();
+  $order_item_type_storage = \Drupal::entityTypeManager()->getStorage('commerce_order_item_type');
+  /** @var \Drupal\commerce_order\Entity\OrderItemTypeInterface $order_item_type */
+  if (!($order_item_type = $order_item_type_storage->load($order_item_type_id))) {
+    return FALSE;
+  }
+
+  if (!($order_type_id = $order_item_type->getOrderTypeId())) {
+    return FALSE;
+  }
+
+  $order_type_storage = \Drupal::entityTypeManager()->getStorage('commerce_order_type');
+
+  /** @var \Drupal\commerce_order\Entity\OrderTypeInterface $order_type */
+  if (!($order_type = $order_type_storage->load($order_type_id))) {
+    return FALSE;
+  }
+
+  // Check if CPL Cart block view is selected for a given order type.
+  return $order_type->getThirdPartySetting('commerce_cart', 'cart_block_view', 'commerce_cart_block')
+    == 'cpl_commerce_cart_block';
+}

@@ -1,0 +1,36 @@
+uuid: 3cf6af4e-99f0-4768-a6e8-7daf97c72d06
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_attribute.strength
+    - field.field.commerce_product_attribute_value.strength.field_url_value
+id: commerce_product_attribute_value.strength.default
+targetEntityType: commerce_product_attribute_value
+bundle: strength
+mode: default
+content:
+  field_url_value:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

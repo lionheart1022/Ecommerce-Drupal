@@ -1,0 +1,27 @@
+uuid: d0450a90-4466-430d-8094-8d3044a00a2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - simple_megamenu
+id: simple_mega_menu.field_menu_constraint
+field_name: field_menu_constraint
+entity_type: simple_mega_menu
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: RM1
+      label: 'Row Max 1'
+    -
+      value: RM2
+      label: 'Row Max 2'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,8 @@
+uuid: d16224ea-3eb2-49e0-85c0-ab0e69c5fdab
+langcode: en
+status: true
+dependencies: {  }
+id: diamondhemp-menu
+label: 'Diamondhemp Shop'
+description: 'Diamondhemp Shop Menu'
+locked: false

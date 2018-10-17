@@ -1,0 +1,9 @@
+uuid: b3e7d515-520a-4fe7-9ef5-3c8c74fdb342
+langcode: en
+status: true
+dependencies: {  }
+id: local_chongchoicecbd
+domain_id: chongchoicecbd_domain
+pattern: chongchoicecbd.diamondcommerce.docker.localhost
+redirect: 0
+environment: local

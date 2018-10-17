@@ -1,0 +1,33 @@
+cpl_commerce_user.my_account:
+  path: '/account'
+  defaults:
+    _controller: '\Drupal\cpl_commerce_user\Controller\UserController::accountPage'
+  requirements:
+    _custom_access: '\Drupal\cpl_commerce_user\Controller\UserController::accountPageAccess'
+
+cpl_commerce_user.account:
+  path: '/user/{user}/account'
+  defaults:
+    _title: 'Account information'
+    _controller: '\Drupal\cpl_commerce_user\Controller\UserFormController::content'
+  requirements:
+    user: \d+
+    _entity_access: 'user.update'
+  options:
+    parameters:
+      user:
+        type: 'entity:user'
+
+cpl_commerce_user.business:
+  path: '/user/{user}/business'
+  defaults:
+    _title: 'My Business'
+    _controller: '\Drupal\cpl_commerce_user\Controller\UserFormController::contentBusiness'
+  requirements:
+    user: \d+
+    _entity_access: 'user.update'
+    _permission: 'view user business page'
+  options:
+    parameters:
+      user:
+        type: 'entity:user'

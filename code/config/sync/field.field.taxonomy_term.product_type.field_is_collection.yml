@@ -1,0 +1,23 @@
+uuid: fa0c5295-f1d6-4f34-8d3e-012580743982
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_is_collection
+    - taxonomy.vocabulary.product_type
+id: taxonomy_term.product_type.field_is_collection
+field_name: field_is_collection
+entity_type: taxonomy_term
+bundle: product_type
+label: 'Is Collection'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,19 @@
+uuid: 60b746cd-7815-4b07-9070-36cc15fe4d1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_class
+    - paragraphs.paragraphs_type.icntxt
+id: paragraph.icntxt.field_par_class
+field_name: field_par_class
+entity_type: paragraph
+bundle: icntxt
+label: 'Additional Class'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

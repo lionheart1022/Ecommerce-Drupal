@@ -1,0 +1,23 @@
+uuid: efa6b6c9-346d-44e2-8127-b0790349218c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_masonry_gap
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - options
+id: paragraph.imgtxt.field_par_masonry_gap
+field_name: field_par_masonry_gap
+entity_type: paragraph
+bundle: imgtxt
+label: 'Masonry Gap'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'NO'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

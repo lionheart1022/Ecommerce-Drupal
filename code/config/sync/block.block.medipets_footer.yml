@@ -1,0 +1,42 @@
+uuid: fc31fd81-99be-4ea2-96a2-06584f80050a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_footer:c3798348-a9fb-4b5c-970f-b00dd90c1ffb'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - medipets
+third_party_settings:
+  block_class:
+    classes: ''
+id: medipets_footer
+theme: medipets
+region: footer_wide
+weight: -6
+provider: null
+plugin: 'block_content:c3798348-a9fb-4b5c-970f-b00dd90c1ffb'
+settings:
+  id: 'block_content:c3798348-a9fb-4b5c-970f-b00dd90c1ffb'
+  label: 'Medipets Footer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_footer
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/cart\r\n/profile/*\r\n/user/*"
+    negate: true
+    context_mapping: {  }

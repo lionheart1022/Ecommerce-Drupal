@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce - Push Crew module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\domain\Entity\Domain;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function dcom_pushcrew_page_attachments(array &$page) {
+  /** @var \Drupal\domain\DomainInterface $domain */
+  $domain = \Drupal::service('domain.negotiator')
+    ->getActiveDomain();
+  if ($api_key = $domain->getThirdPartySetting('dcom_pushcrew', 'pushcrew_api_key')) {
+    $js = <<<PUSHCREW_HEAD_JS
+    (function(p,u,s,h){
+        p._pcq=p._pcq||[];
+        p._pcq.push(['_currentTime',Date.now()]);
+        s=u.createElement('script');
+        s.type='text/javascript';
+        s.async=true;
+        s.src='https://cdn.pushcrew.com/js/${api_key}.js';
+        h=u.getElementsByTagName('script')[0];
+        h.parentNode.insertBefore(s,h);
+    })(window,document);
+PUSHCREW_HEAD_JS;
+
+    $is_admin_page = \Drupal::service('router.admin_context')->isAdminRoute();
+    if (!$is_admin_page) {
+      $page['#attached']['html_head'][] = [
+        [
+          '#type' => 'html_tag',
+          '#tag' => 'script',
+          '#value' => $js,
+          '#weight' => 1000,
+        ],
+        'dcom-pushcrew',
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function dcom_pushcrew_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'domain_edit_form') {
+    dcom_pushcrew_domain_forms_alter($form, $form_state, $form_id);
+  }
+}
+
+/**
+ * Handles the form alter for the domain_edit_form form.
+ */
+function dcom_pushcrew_domain_forms_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\domain\Entity\Domain $domain */
+  $domain = $form_state->getFormObject()->getEntity();
+  $form['pushcrew_api_key'] = [
+    '#type' => 'textfield',
+    '#title' => t('Pushcrew API key'),
+    '#default_value' => $domain->getThirdPartySetting('dcom_pushcrew', 'pushcrew_api_key'),
+    '#weight' => 1,
+  ];
+  $form['#entity_builders'][] = 'dcom_pushcrew_form_domain_entity_builder';
+}
+
+/**
+ * Entity builder for the domain configuration entity.
+ */
+function dcom_pushcrew_form_domain_entity_builder($entity_type, Domain $domain, &$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('pushcrew_api_key')) {
+    $domain->setThirdPartySetting('dcom_pushcrew', 'pushcrew_api_key', $form_state->getValue('pushcrew_api_key'));
+    return;
+  }
+  $domain->unsetThirdPartySetting('dcom_pushcrew', 'pushcrew_api_key');
+}

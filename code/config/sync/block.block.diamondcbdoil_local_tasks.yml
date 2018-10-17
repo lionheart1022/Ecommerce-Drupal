@@ -1,0 +1,22 @@
+uuid: 2a67d147-6096-47aa-9558-04c3c5bba75e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - diamondcbdoil
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: diamondcbdoil_local_tasks
+theme: diamondcbdoil
+region: content
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,28 @@
+uuid: c44459d1-ea02-4012-8414-0f250f1cf5fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.commerce_product.field_product_lab_results
+    - media.type.lab_results
+id: commerce_product.cbd_product.field_product_lab_results
+field_name: field_product_lab_results
+entity_type: commerce_product
+bundle: cbd_product
+label: 'Lab Results'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      lab_results: lab_results
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

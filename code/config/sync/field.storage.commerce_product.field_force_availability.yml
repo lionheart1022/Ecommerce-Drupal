@@ -1,0 +1,33 @@
+uuid: 4c089aec-bbd1-4064-be45-1e4fdb0e1a4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - options
+id: commerce_product.field_force_availability
+field_name: field_force_availability
+entity_type: commerce_product
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: GLOBAL
+      label: 'Follow global site policy'
+    -
+      value: ODOO
+      label: 'Use Odoo stock status'
+    -
+      value: AVAIL
+      label: 'Force available'
+    -
+      value: NOTAVAIL
+      label: 'Force not available'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: 1f56e374-81c6-4fdb-95bc-d10d436e474d
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - options
+id: commerce_product_variation.field_product_availability
+field_name: field_product_availability
+entity_type: commerce_product_variation
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '0'
+      label: 'Not available'
+    -
+      value: '1'
+      label: Available
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

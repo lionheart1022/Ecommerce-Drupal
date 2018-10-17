@@ -1,0 +1,12 @@
+cpl_commerce_shop.config:
+  title: 'CPL Commerce'
+  route_name: cpl_commerce_shop.configuration
+  description: 'CPL Commerce configuration.'
+  parent: commerce.configuration
+  weight: 99
+
+cpl_commerce_shop.product_breadcrumbs:
+  title: 'Product Breadcrumbs'
+  route_name: cpl_commerce_shop.product_breadcrumbs
+  description: 'Configure product breadcrumbs.'
+  parent: cpl_commerce_shop.config

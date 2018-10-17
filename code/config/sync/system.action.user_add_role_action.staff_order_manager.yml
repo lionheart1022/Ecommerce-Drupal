@@ -1,0 +1,14 @@
+uuid: 96958493-c9b6-4581-80db-c60d59b79840
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.staff_order_manager
+  module:
+    - user
+id: user_add_role_action.staff_order_manager
+label: 'Add the Staff - Order Manager role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: staff_order_manager

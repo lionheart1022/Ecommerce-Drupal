@@ -1,0 +1,11 @@
+uuid: 9980a156-0330-4390-b2ca-7b88c53f593e
+langcode: en
+status: true
+dependencies: {  }
+id: relaxgummies_domain
+domain_id: 11143436
+hostname: www.relaxgummies.com
+name: RelaxGummies.com
+scheme: variable
+weight: 5
+is_default: false

@@ -1,0 +1,21 @@
+uuid: 7b229a55-fe6a-4c42-a1fe-2b00dfd48496
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_header
+    - field.storage.block_content.field_block_header_display
+  module:
+    - options
+id: block_content.cpl_page_header.field_block_header_display
+field_name: field_block_header_display
+entity_type: block_content
+bundle: cpl_page_header
+label: 'Header Display'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

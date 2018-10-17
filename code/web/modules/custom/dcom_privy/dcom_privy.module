@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce - Privy module.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function dcom_privy_page_attachments(array &$page) {
+  $is_admin_page = \Drupal::service('router.admin_context')->isAdminRoute();
+  if (!$is_admin_page) {
+    $page['#attached']['library'][] = 'dcom_privy/dcom_privy';
+  }
+}

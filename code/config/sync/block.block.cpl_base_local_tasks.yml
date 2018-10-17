@@ -1,0 +1,22 @@
+uuid: b59fa116-a4ef-40df-9799-1e08c6f13078
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cpl_base
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: cpl_base_local_tasks
+theme: cpl_base
+region: content
+weight: 1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

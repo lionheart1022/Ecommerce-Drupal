@@ -1,0 +1,9 @@
+uuid: 40df451a-d29f-4a61-a8b3-548d99972ba4
+langcode: en
+status: true
+dependencies: {  }
+id: dev_diamondcommerce_cpldev_com
+domain_id: default
+pattern: dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

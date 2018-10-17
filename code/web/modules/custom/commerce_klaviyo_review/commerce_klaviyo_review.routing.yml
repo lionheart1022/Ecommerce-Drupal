@@ -1,0 +1,73 @@
+commerce_klaviyo_review.configuration:
+  path: '/admin/commerce/config/klaviyo_reviews'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Klaviyo reviews'
+  requirements:
+    _permission: 'access commerce administration pages'
+commerce_klaviyo_review.settings:
+  path: '/admin/commerce/config/klaviyo_reviews/entity'
+  defaults:
+    _form: '\Drupal\commerce_klaviyo_review\Form\CommerceKlaviyoReviewSettingsForm'
+    _title: 'Klaviyo Review Settings'
+  requirements:
+    _permission: 'access commerce administration pages'
+commerce_klaviyo_review.config:
+  path: '/admin/commerce/config/klaviyo_reviews/settings'
+  defaults:
+    _form: '\Drupal\commerce_klaviyo_review\Form\KlaviyoReviewSettingForm'
+    _title: 'Commerce Klaviyo Review Setting'
+  requirements:
+    _permission: 'access commerce administration pages'
+  options:
+    _admin_route: TRUE
+entity.klaviyo_review.canonical:
+  path: '/admin/commerce/klaviyo_review/{klaviyo_review}'
+  defaults:
+    _entity_view: 'klaviyo_review'
+    _title: 'Klaviyo Review content'
+  requirements:
+    _entity_access: 'klaviyo_review.view'
+
+entity.klaviyo_review.collection:
+  path: '/admin/commerce/klaviyo_reviews'
+  defaults:
+    _entity_list: 'klaviyo_review'
+    _title: 'Klaviyo Review list'
+  requirements:
+    _permission: 'view klaviyo_review entity'
+
+entity.klaviyo_review.add:
+  path: '/admin/commerce/klaviyo_review/add'
+  defaults:
+    _entity_form: 'klaviyo_review.add'
+    _title: 'Add Klaviyo Review'
+  requirements:
+    _entity_create_access: 'klaviyo_review'
+
+entity.klaviyo_review.edit_form:
+  path: '/admin/commerce/klaviyo_review/{klaviyo_review}/edit'
+  defaults:
+    _entity_form: 'klaviyo_review.edit'
+    _title: 'Edit Klaviyo Review'
+  requirements:
+    _entity_access: 'klaviyo_review.update'
+
+entity.klaviyo_review.delete_form:
+  path: '/admin/commerce/klaviyo_review/{klaviyo_review}/delete'
+  defaults:
+    _entity_form: 'klaviyo_review.delete'
+    _title: 'Delete Klaviyo Review'
+  requirements:
+    _entity_access: 'klaviyo_review.delete'
+commerce_klaviyo_review.order_review:
+  path: '/commerce-review/{commerce_order}/{token}'
+  defaults:
+    _controller: '\Drupal\commerce_klaviyo_review\Controller\KlaviyoReviewAddController::addReview'
+    _title: 'Add review'
+  options:
+    parameters:
+      commerce_order:
+        type: 'entity:commerce_order'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,81 @@
+uuid: e22d2b11-8295-4968-93cd-b52450908e1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.icntxt.field_par_alternating
+    - field.field.paragraph.icntxt.field_par_background_color
+    - field.field.paragraph.icntxt.field_par_class
+    - field.field.paragraph.icntxt.field_par_constraint
+    - field.field.paragraph.icntxt.field_par_content_items
+    - field.field.paragraph.icntxt.field_par_content_media_ref
+    - field.field.paragraph.icntxt.field_par_content_ref
+    - field.field.paragraph.icntxt.field_par_display_mode
+    - field.field.paragraph.icntxt.field_par_displayed_con
+    - field.field.paragraph.icntxt.field_par_header_size
+    - field.field.paragraph.icntxt.field_par_icon_size
+    - field.field.paragraph.icntxt.field_par_large
+    - field.field.paragraph.icntxt.field_par_max_qty
+    - field.field.paragraph.icntxt.field_par_medium
+    - field.field.paragraph.icntxt.field_par_parallax
+    - field.field.paragraph.icntxt.field_par_position
+    - field.field.paragraph.icntxt.field_par_product_ref
+    - field.field.paragraph.icntxt.field_par_row_style
+    - field.field.paragraph.icntxt.field_par_slideshow_center
+    - field.field.paragraph.icntxt.field_par_slideshow_control
+    - field.field.paragraph.icntxt.field_par_slideshow_rows
+    - field.field.paragraph.icntxt.field_par_small
+    - field.field.paragraph.icntxt.field_par_text_box_options
+    - field.field.paragraph.icntxt.field_par_view_ref
+    - field.field.paragraph.icntxt.field_par_vmargin
+    - field.field.paragraph.icntxt.field_par_vpadding
+    - field.field.paragraph.icntxt.field_par_xlarge
+    - paragraphs.paragraphs_type.icntxt
+  module:
+    - options
+id: paragraph.icntxt.preview
+targetEntityType: paragraph
+bundle: icntxt
+mode: preview
+content:
+  field_par_row_style:
+    type: list_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_par_text_box_options:
+    type: list_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_par_alternating: true
+  field_par_background_color: true
+  field_par_class: true
+  field_par_constraint: true
+  field_par_content_items: true
+  field_par_content_media_ref: true
+  field_par_content_ref: true
+  field_par_display_mode: true
+  field_par_displayed_con: true
+  field_par_header_size: true
+  field_par_icon_size: true
+  field_par_large: true
+  field_par_max_qty: true
+  field_par_medium: true
+  field_par_parallax: true
+  field_par_position: true
+  field_par_product_ref: true
+  field_par_slideshow_center: true
+  field_par_slideshow_control: true
+  field_par_slideshow_rows: true
+  field_par_small: true
+  field_par_view_ref: true
+  field_par_vmargin: true
+  field_par_vpadding: true
+  field_par_xlarge: true

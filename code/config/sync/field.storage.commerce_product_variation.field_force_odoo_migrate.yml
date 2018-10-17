@@ -1,0 +1,18 @@
+uuid: 4088e4ab-9408-47a9-80bf-f1461443ad13
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.field_force_odoo_migrate
+field_name: field_force_odoo_migrate
+entity_type: commerce_product_variation
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

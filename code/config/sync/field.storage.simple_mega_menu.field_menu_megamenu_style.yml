@@ -1,0 +1,33 @@
+uuid: 840c98d3-0c68-419c-b670-57ba6efa1996
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - simple_megamenu
+id: simple_mega_menu.field_menu_megamenu_style
+field_name: field_menu_megamenu_style
+entity_type: simple_mega_menu
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Mega Menu Style 1'
+    -
+      value: '2'
+      label: 'Mega Menu Style 2'
+    -
+      value: '3'
+      label: 'Mega Menu Style 3'
+    -
+      value: '4'
+      label: 'Mega Menu Style 4'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

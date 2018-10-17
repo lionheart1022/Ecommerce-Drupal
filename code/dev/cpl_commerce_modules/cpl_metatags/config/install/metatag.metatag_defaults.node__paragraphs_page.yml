@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node__paragraphs_page
+label: 'Content: Paragraphs Page'
+tags:
+  title: '[node:field_meta_title] | [site:name]'
+  head_title: '[node:field_meta_title] | [site:name]'
+  image_src: '[node:field_image:meta_image]'
+  description: '[node:field_meta_description]'
+  og_image: '[node:field_image:meta_image]'
+  og_title: '[node:field_meta_title]'
+  og_description: '[node:field_meta_description]'
+  twitter_cards_type: summary
+  twitter_cards_description: '[node:field_meta_description]'
+  twitter_cards_image: '[node:field_image:meta_image]'
+  twitter_cards_title: '[node:field_meta_title]'

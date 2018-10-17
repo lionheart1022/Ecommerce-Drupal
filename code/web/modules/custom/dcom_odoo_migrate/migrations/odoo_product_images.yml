@@ -1,0 +1,61 @@
+id: odoo_product_images
+label: Odoo Product Images
+migration_group: odoo
+migration_tags:
+  - dcom_odoo_migrate_cron
+
+source:
+  plugin: odoo_api
+  model: x_product.image
+  fields:
+    - create_date
+    - write_date
+    - x_image
+    - x_name
+    - id
+  high_water_property:
+    name: write_date
+  constants:
+    file_scheme: 'public://'
+    images_dir: 'diamondcbd_images'
+
+destination:
+  plugin: 'entity:file'
+
+process:
+  created: create_date
+  changed: write_date
+  new_filename:
+    plugin: file_basename
+    source: x_name
+  new_filepath:
+    plugin: concat
+    source:
+      - id
+      - '@new_filename'
+    delimiter: '_'
+  destination_full_path:
+    plugin: concat
+    source:
+      - constants/file_scheme
+      - constants/images_dir
+      - '@new_filepath'
+    delimiter: '/'
+  uri:
+    plugin: dcom_odoo_image_uri
+    source:
+      - x_image
+      - '@destination_full_path'
+  # Admin is file owner.
+  uid:
+    plugin: default_value
+    default_value: 1
+  # Force set Permanent status.
+  status:
+    plugin: default_value
+    default_value: 1
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

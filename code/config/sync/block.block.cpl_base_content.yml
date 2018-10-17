@@ -1,0 +1,22 @@
+uuid: d6417fdb-9e0e-4e50-8e89-01d6a61ef428
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cpl_base
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: cpl_base_content
+theme: cpl_base
+region: content
+weight: 2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

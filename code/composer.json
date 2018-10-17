@@ -1,0 +1,280 @@
+{
+    "name": "drupal-composer/drupal-project",
+    "description": "Project template for Drupal 8 projects with composer",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "repositories": {
+        "0": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "cpl-starter-kit": {
+            "type": "git",
+            "url": "git@github.com:creativepropulsionlabs/cpl_starter_kit.git",
+            "no-api": true
+        },
+        "cpl-commerce-kit": {
+            "type": "git",
+            "url": "git@github.com:creativepropulsionlabs/cpl_commerce_kit.git",
+            "no-api": true
+        },
+        "taxcloud": {
+            "type": "git",
+            "url": "git@github.com:creativepropulsionlabs/commerce_taxcloud.git",
+            "no-api": true
+        },
+        "cpl-base-theme": {
+            "type": "git",
+            "url": "git@github.com:creativepropulsionlabs/cpl_base_theme.git",
+            "no-api": true
+        },
+        "cpl-paragraphs": {
+            "type": "git",
+            "url": "git@github.com:creativepropulsionlabs/cpl_paragraphs.git",
+            "no-api": true
+        },
+        "cpl-commerce-modules": {
+            "type": "path",
+            "url": "dev/cpl_commerce_modules",
+            "options": {
+                "symlink": true
+            }
+        }
+    },
+    "require": {
+        "composer/installers": "^1.2",
+        "creativepropulsionlabs/cpl_commerce_kit": "dev-master",
+        "creativepropulsionlabs/cpl_commerce_modules": "dev-master",
+        "creativepropulsionlabs/cpl_starter_kit": "dev-master",
+        "cweagans/composer-patches": "^1.6",
+        "drupal-composer/drupal-scaffold": "^2.2",
+        "drupal/allowed_formats": "^1.1",
+        "drupal/comments_order": "^1.0",
+        "drupal/commerce_google_analytics": "1.x-dev",
+        "drupal/commerce_klaviyo": "^1.0",
+        "drupal/commerce_taxcloud": "dev-8.x-1.x",
+        "drupal/console": "^1.0.2",
+        "drupal/core": "~8.5",
+        "drupal/csv_serialization": "^1.3",
+        "drupal/domain": "^1.0@alpha",
+        "drupal/domain_simple_sitemap": "^1.0",
+        "drupal/domain_site_settings": "^1.2",
+        "drupal/domain_theme_switch": "^1.3",
+        "drupal/email_registration": "^1.0@RC",
+        "drupal/facets": "~1",
+        "drupal/facets_pretty_paths": "1.x-dev",
+        "drupal/features": "^3.5",
+        "drupal/field_collection": "~3",
+        "drupal/field_group": "^3.0",
+        "drupal/filefield_paths": "^1.0",
+        "drupal/flag": "^4.0",
+        "drupal/flood_unblock": "^1.5",
+        "drupal/image_url_formatter": "^1.0@beta",
+        "drupal/imageapi_optimize": "^2.0@alpha",
+        "drupal/imagemagick": "~2.0",
+        "drupal/klaviyo_subscription": "2.x-dev",
+        "drupal/mailchimp": "^1.6",
+        "drupal/mandrill": "^1.0",
+        "drupal/masquerade": "^2.0@beta",
+        "drupal/media_entity_download": "^2.0",
+        "drupal/migrate_source_csv": "^2.1",
+        "drupal/multiple_registration": "~1.6",
+        "drupal/new_relic_rpm": "1.x-dev",
+        "drupal/odoo_api": "1.x-dev",
+        "drupal/page_manager": "4.x-dev",
+        "drupal/photoswipe": "^1.0",
+        "drupal/rules": "~3.0-alpha3",
+        "drupal/search_api": "~1.6",
+        "drupal/search_api_solr": "~2.0",
+        "drupal/silent_contribute": "^1.1",
+        "drupal/simple_megamenu": "^1.0",
+        "drupal/simple_sitemap": "^2.10",
+        "drupal/taxonomy_machine_name": "^1.0@alpha",
+        "drupal/telephone_formatter": "^1.0",
+        "drupal/token_filter": "^1.0@beta",
+        "drupal/twig_tweak": "^2.0",
+        "drupal/video_embed_field": "2.x",
+        "drupal/views_contextual_filters_or": "^1.0",
+        "drupal/views_data_export": "^1.0",
+        "drupal/viewsreference": "~2",
+        "drupal/votingapi_widgets": "~1.0",
+        "drupal/webform": "^5.0@RC",
+        "drupal/yoast_seo": "^2.0",
+        "drush/drush": "~8.0|^9.0.0-beta8",
+        "giggsey/libphonenumber-for-php": "^8.9",
+        "legolasbo/photoswipe": "^4.1",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3",
+        "wikimedia/composer-merge-plugin": "^1.4"
+    },
+    "require-dev": {
+        "behat/mink": "~1.7",
+        "behat/mink-goutte-driver": "~1.2",
+        "drupal/browsersync": "^1.0@beta",
+        "drupal/renderviz": "^1.0@alpha",
+        "drupal/stage_file_proxy": "^1.0@alpha",
+        "jcalderonzumba/gastonjs": "~1.0.2",
+        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+        "mikey179/vfsstream": "~1.2",
+        "phpunit/phpunit": ">=4.8.28 <5",
+        "symfony/css-selector": "~2.8|~3.0"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "@drupal-scaffold",
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "@drupal-scaffold",
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
+    },
+    "extra": {
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
+        },
+        "patches": {
+            "drupal/core": {
+                "Bundle field definition for views": "https://www.drupal.org/files/issues/2898635-11.drupal.bundleFieldDefinitions-are-not-added-in-EntityViewsData.patch",
+                "Fix incorrect bundle key handling in Migrate": "https://www.drupal.org/files/issues/2018-03-21/drupal-fix_incorrect_bundle_key_handling-2954982-2.patch",
+                "RSS view with fields give wrong URL from path field": "https://www.drupal.org/files/issues/2018-04-20/2673980-36.patch"
+            },
+            "drupal/domain": {
+                "Views default argument plugin": "https://www.drupal.org/files/issues/2018-03-14/domain-views_default_argument_plugin-2952907-2-D8.patch",
+                "Fix incorrect access check result cache": "https://www.drupal.org/files/issues/2018-04-24/domain-incorrect_access_check_result_cache_metadata-2958644-3.patch"
+            },
+            "drupal/commerce": {
+                "Add a condition to filter by user role": "https://www.drupal.org/files/issues/2018-04-24/commerce-add_user_role_condition-2965067-2.patch",
+                "Billing same as shipping": "https://www.drupal.org/files/issues/2018-05-23/commerce_checkbox-same-as-billing_2852207_166.patch",
+                "Custom promotion triggers an error when placing an order on backend": "https://www.drupal.org/files/issues/2018-06-18/commerce-custom-promotion-error-on-order-backend-placing-2980255-5.patch",
+                "Tax calculations do not take discounts (promotions) into account": "https://www.drupal.org/files/issues/commerce-tax-discounts-2897190-29.patch",
+                "Unable to add or edit order line item without overriding the unit price": "https://www.drupal.org/files/issues/unable_to_add_or_edit-2910410-8.patch",
+                "Fix error if order checkout flow was removed": "https://www.drupal.org/files/issues/2018-08-10/commerce-fix_getting_checkout_flow_test_and_fix-2991890-3-D8.patch",
+                "Fix missing workflow plugin provider dependency": "https://www.drupal.org/files/issues/2018-08-10/commerce-add_missing_workflow_provider_dependency_test_and_fix-2991940-17-D8.patch"
+            },
+            "drupal/commerce_fedex": {
+                "Implement SupportsTrackingInterface to provide tracking url support": "https://www.drupal.org/files/issues/2018-05-17/commerce_fedex-implement_supports_tracking_interface-2973558-2.patch"
+            },
+            "drupal/commerce_ups": {
+                "Fix incorrect weight measurement units handling": "https://www.drupal.org/files/issues/2018-04-17/commerce_ups-fix_rate_request_weight_unit_handling-2960549-6.patch",
+                "Implement SupportsTrackingInterface to provide tracking url support": "https://www.drupal.org/files/issues/commerce_ups-add_tracking_url_support-2918813.patch"
+            },
+            "drupal/email_registration": {
+                "Add a migrate process plugin for username": "https://www.drupal.org/files/issues/2018-03-16/email_registration-add_migrate_process_plugin-2953246-3.patch"
+            },
+            "drupal/klaviyo_subscription": {
+                "The module needs some fixes": "https://www.drupal.org/files/issues/2018-04-23/klaviyo_subscription-fixes-2952904-3.patch"
+            },
+            "drupal/metatag": {
+                "Panels/Page manager integration": "https://www.drupal.org/files/issues/2018-04-19/panels_page_manager-2563657-51.patch"
+            },
+            "drupal/rules": {
+                "Fatal error when adding an action and address is installed": "https://www.drupal.org/files/issues/2694685-52.rules-fix_type_definition_error.patch",
+                "Fix 8.5 compatibility": "https://www.drupal.org/files/issues/2018-03-15/2951263-rules-13.patch"
+            },
+            "drupal/paragraphs": {
+                "Allow paragraph type deletion if content exists": "https://www.drupal.org/files/issues/2018-05-31/allow_paragraphs_deletion-2764681-88.patch"
+            },
+            "drupal/page_manager": {
+                "Add missing JS once/context": "https://www.drupal.org/files/issues/page_manager-add_missing_once_and_context-2272255-5-D8.patch"
+            },
+            "drupal/multiple_registration": {
+                "Show fields available for all roles": "https://www.drupal.org/files/issues/multiple_registration-handle_edit_with_no_special_roles-2950781-2-D8.patch"
+            },
+            "drupal/zurb_foundation": {
+                "Zurb foundation compatibility problem with drupal 8.3 and up": "https://www.drupal.org/files/issues/zurb_foundation-movelayouts-2867688-24.patch"
+            },
+            "drupal/panels": {
+                "Changes to Layout not being saved": "https://www.drupal.org/files/issues/2018-08-28/panels-fix_updating_layout-2824632-16-D8.patch"
+            },
+            "drupal/search_api": {
+                "Add rendered entity in Views": "https://www.drupal.org/files/issues/2018-03-12/search_api-views_rendered_item_field-2820410-20-D8.patch"
+            },
+            "drupal/migrate_plus": {
+                "Fix empty array handling": "https://www.drupal.org/files/issues/empty_array_check-2902335.patch"
+            },
+            "drupal/adminimal_theme": {
+                "Fix checkboxes with error": "https://www.drupal.org/files/issues/adminimal-checkboxes_with_error-2696393-3.patch"
+            },
+            "drupal/facets_pretty_paths": {
+                "Remove ContainerFactoryPluginInterface implementation": "https://www.drupal.org/files/issues/2018-03-29/facets_pretty_paths-remove_coder_plugin_base_container_injection-2956914-4.patch",
+                "Refactor URL processor": "https://www.drupal.org/files/issues/2018-08-28/facets_pretty_paths-refactor_url_processor-2956977-3.patch"
+            },
+            "drupal/domain_simple_sitemap": {
+                "Incompatible with simple_sitemap 8.x-2.11": "https://www.drupal.org/files/issues/incompatible_with_simple_sitemap-2933549-16.patch"
+            },
+            "drupal/commerce_shipping": {
+                "Commerce shipping checkbox the same as billing": "https://www.drupal.org/files/issues/2018-04-24/commerce-shipping_checkbox-same-as-billing_2852207_157.patch",
+                "Fix empty profile reference check": "https://www.drupal.org/files/issues/2018-08-07/commerce_shipping-fix_fatal_error_on_missing_profile-2952457-10-D8.patch"
+            },
+            "drupal/views_data_export": {
+                "Add batch operations support": "https://www.drupal.org/files/issues/2789531-116.patch"
+            },
+            "drupal/imageapi_optimize": {
+                "Fix reSmushIt": "https://www.drupal.org/files/issues/imageapi_optimize-resmushit_service_exception-2927337-2.patch"
+            },
+            "drupal/new_relic_rpm": {
+                "Fix exception handler": "https://www.drupal.org/files/issues/2018-06-04/new_relic_rpm-fix_exception_handler-2976839-3-D8.patch"
+            },
+            "drupal/memcache": {
+                "Fix PHP 7.2 compatibility": "https://www.drupal.org/files/issues/memcache-assert_php_7_2-2944396-2.patch"
+            },
+            "drupal/filefield_paths": {
+                "Fatal error: Call to undefined method Drupal\\file\\Plugin\\Field\\FieldType\\FileFieldItemList::getThirdPartySettings() in filefield_paths/filefield_paths.module on line 353": "https://www.drupal.org/files/issues/2018-07-25/filefield_paths-ignore_base_fields-2662420-15.patch"
+            }
+        },
+        "merge-plugin": {
+            "require": [
+                "web/modules/custom/shopify_migrate/composer.json",
+                "web/modules/custom/dcom_shopify_migrate/composer.json",
+                "web/modules/custom/dcom_odoo_shipstation/composer.json",
+                "web/modules/custom/address_helper_google/composer.json",
+                "web/modules/custom/address_helper_smartystreets/composer.json",
+                "web/modules/custom/dcom_odoo_entity_sync/composer.json"
+            ]
+        }
+    }
+}

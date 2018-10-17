@@ -1,0 +1,5 @@
+entity.commerce_affiliate_type.collection:
+  title: 'Affiliate types'
+  route_name: 'entity.commerce_affiliate_type.collection'
+  parent: 'commerce.store_configuration'
+  description: 'Define the affiliates you collect.'

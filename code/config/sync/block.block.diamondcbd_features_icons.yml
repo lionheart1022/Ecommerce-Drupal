@@ -1,0 +1,35 @@
+uuid: af4d6525-4b49-46a7-a89d-e2a11a4ecdd5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_content_reference:68ba7aaf-a770-4d44-9703-5f19bc5f3de3'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - diamondcbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondcbd_features_icons
+theme: diamondcbd
+region: product_bottom
+weight: 0
+provider: null
+plugin: 'block_content:68ba7aaf-a770-4d44-9703-5f19bc5f3de3'
+settings:
+  id: 'block_content:68ba7aaf-a770-4d44-9703-5f19bc5f3de3'
+  label: 'Diamond CBD Features Icons'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

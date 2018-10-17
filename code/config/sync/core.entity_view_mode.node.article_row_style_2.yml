@@ -1,0 +1,10 @@
+uuid: 47e0031f-c9df-405f-aa70-1b5b79a11be3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.article_row_style_2
+label: 'Article Row Style 2'
+targetEntityType: node
+cache: true

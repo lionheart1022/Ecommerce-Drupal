@@ -1,0 +1,10 @@
+uuid: 8495ba87-64d0-4384-9f97-3d5d873acd8f
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.collection_term
+label: 'Collection Term'
+targetEntityType: taxonomy_term
+cache: true

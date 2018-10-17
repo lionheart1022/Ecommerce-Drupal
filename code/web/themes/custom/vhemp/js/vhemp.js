@@ -1,0 +1,8 @@
+'use strict';
+
+(function ($, Drupal) {
+    Drupal.behaviors['vhempEmpty'] = {
+        attach: function attach(context, settings) {}
+    };
+})(jQuery, Drupal);
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInZoZW1wLmpzIiwiZW1wdHkuanMiXSwibmFtZXMiOlsiJCIsIkRydXBhbCIsImJlaGF2aW9ycyIsImF0dGFjaCIsImNvbnRleHQiLCJzZXR0aW5ncyIsImpRdWVyeSJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBQ0MsV0FBVUEsQ0FBVixFQUFhQyxNQUFiLEVBQXFCO0FDRHRCQSxXQUFBQyxTQUFBRCxDQUFBLFlBQUFBLElBQUE7QUFDQUUsZ0JBQUEsU0FBQUEsTUFBQSxDQUFBQyxPQUFBLEVBQUFDLFFBQUEsRUFBQSxDQURBO0FBQUEsS0FBQUo7QURNQyxDQUxBLEVBS0NLLE1BTEQsRUFLU0wsTUFMVCxDQUFEIiwiZmlsZSI6InZoZW1wLmpzIiwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnO1xuKGZ1bmN0aW9uICgkLCBEcnVwYWwpIHtcbiAgICBEcnVwYWwuYmVoYXZpb3JzWyd2aGVtcEVtcHR5J10gPSB7XG4gICAgICAgIGF0dGFjaDogZnVuY3Rpb24gYXR0YWNoKGNvbnRleHQsIHNldHRpbmdzKSB7XG4gICAgICAgIH1cbiAgICB9O1xufShqUXVlcnksIERydXBhbCkpOyIsIiJdfQ==

@@ -1,0 +1,6 @@
+services:
+  dcom_user.breadcrumb:
+    class: Drupal\cpl_blog\BlogBreadcrumbBuilder
+    arguments: ['@module_handler']
+    tags:
+    - { name: breadcrumb_builder, priority: 100 }

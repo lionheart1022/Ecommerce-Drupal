@@ -1,0 +1,25 @@
+uuid: 7dff4910-2dce-4391-84d8-de5f4485b710
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_parc_number
+    - field_collection.field_collection.field_par_parallax_item
+id: field_collection_item.field_par_parallax_item.field_parc_number
+field_name: field_parc_number
+entity_type: field_collection_item
+bundle: field_par_parallax_item
+label: Number
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: 10
+  prefix: ''
+  suffix: ''
+field_type: integer

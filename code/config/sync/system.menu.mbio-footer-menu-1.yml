@@ -1,0 +1,8 @@
+uuid: 9866f8ac-46d6-4bf2-abc9-ed6a175b9454
+langcode: en
+status: true
+dependencies: {  }
+id: mbio-footer-menu-1
+label: Shop
+description: 'Mbio footer menu 1'
+locked: false

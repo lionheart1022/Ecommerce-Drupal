@@ -1,0 +1,8 @@
+uuid: 62f4f6a6-5083-4c61-854e-b41c078581e5
+langcode: en
+status: true
+dependencies: {  }
+id: cpl_mobile_menu
+label: 'CPL Mobile Menu'
+revision: 0
+description: 'Mobile menu block.'

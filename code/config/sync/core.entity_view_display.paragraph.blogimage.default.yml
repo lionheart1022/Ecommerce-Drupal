@@ -1,0 +1,33 @@
+uuid: 9537b758-b419-4b2a-831e-a8b7fffae390
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.blogimage.field_par_desc
+    - field.field.paragraph.blogimage.field_par_image
+    - image.style.max_1300x1300
+    - paragraphs.paragraphs_type.blogimage
+  module:
+    - image
+id: paragraph.blogimage.default
+targetEntityType: paragraph
+bundle: blogimage
+mode: default
+content:
+  field_par_desc:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_par_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: max_1300x1300
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

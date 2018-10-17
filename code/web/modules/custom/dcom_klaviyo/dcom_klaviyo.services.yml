@@ -1,0 +1,6 @@
+services:
+  event_subscriber.commerce_klaviyo_review.get_review_link:
+    class: Drupal\dcom_klaviyo\EventSubscriber\GetReviewLinkEventSubscriber
+    arguments: ['@domain.loader']
+    tags:
+      - { name: event_subscriber }

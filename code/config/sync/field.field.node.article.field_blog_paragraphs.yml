@@ -1,0 +1,76 @@
+uuid: 50acb56f-c563-4ba8-88a1-bce9210a2954
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_paragraphs
+    - node.type.article
+    - paragraphs.paragraphs_type.blogimage
+    - paragraphs.paragraphs_type.blogtext
+    - paragraphs.paragraphs_type.blogvideo
+    - paragraphs.paragraphs_type.html
+    - paragraphs.paragraphs_type.imgtxt
+    - paragraphs.paragraphs_type.table
+    - paragraphs.paragraphs_type.txt
+  module:
+    - entity_reference_revisions
+id: node.article.field_blog_paragraphs
+field_name: field_blog_paragraphs
+entity_type: node
+bundle: article
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      blogtext: blogtext
+      blogimage: blogimage
+      blogvideo: blogvideo
+      imgtxt: imgtxt
+      txt: txt
+      table: table
+      html: html
+    target_bundles_drag_drop:
+      blogtext:
+        enabled: true
+        weight: -25
+      blogimage:
+        enabled: true
+        weight: -24
+      blogvideo:
+        enabled: true
+        weight: -23
+      imgtxt:
+        enabled: true
+        weight: -22
+      txt:
+        enabled: true
+        weight: -21
+      table:
+        enabled: true
+        weight: -20
+      html:
+        enabled: true
+        weight: -19
+      icntxt:
+        weight: -18
+        enabled: false
+      imgtxtbanner:
+        weight: -17
+        enabled: false
+      embedded_content:
+        weight: -16
+        enabled: false
+      parallax:
+        weight: -15
+        enabled: false
+      view:
+        weight: -14
+        enabled: false
+field_type: entity_reference_revisions

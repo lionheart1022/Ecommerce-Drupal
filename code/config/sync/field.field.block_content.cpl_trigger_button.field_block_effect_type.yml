@@ -1,0 +1,23 @@
+uuid: 342923ac-caf4-477a-894f-f03e8a15db8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_trigger_button
+    - field.storage.block_content.field_block_effect_type
+  module:
+    - options
+id: block_content.cpl_trigger_button.field_block_effect_type
+field_name: field_block_effect_type
+entity_type: block_content
+bundle: cpl_trigger_button
+label: Effect
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'NO'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

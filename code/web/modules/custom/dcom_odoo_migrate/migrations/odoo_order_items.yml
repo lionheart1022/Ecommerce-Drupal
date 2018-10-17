@@ -1,0 +1,53 @@
+id: odoo_order_items
+label: Odoo Order Items
+migration_group: odoo
+migration_tags:
+  - odoo_api_entity_sync_save_mapping
+  - odoo_api_entity_sync_export_type_default
+  - odoo_two_way_sync
+
+source:
+  plugin: odoo_api
+  model: sale.order.line
+  # @TODO Filters.
+  #filters:
+  #  -
+  #    - 'state'
+  #    - 'in'
+  #    -
+  #      - 'sale'
+  #      - 'done'
+  #      - 'cancel'
+  # @TODO Fields
+  #fields:
+  #  - email
+  #  - phone
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:commerce_order_item'
+  destination_module: commerce_order
+
+process:
+  # TODO Trigger order total recalculate once the order item is saved.
+  # TODO type. Add commerce_order_item type field to Odoo.
+  # To fix the error Missing bundle for entity type commerce_order_item (/var/www/html/web/core/lib/Drupal/Core/Entity/ContentEntityStorageBase.php:74)
+  # type:
+  purchased_entity:
+    -
+      plugin: dcom_odoo_id_to_drupal
+      entity_type: 'commerce_product_variation'
+      source: 'product_id/0'
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'Field product_id is missing'
+  quantity: product_uom_qty
+  # TODO Get unit price from product_id.
+  #unit_price:
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

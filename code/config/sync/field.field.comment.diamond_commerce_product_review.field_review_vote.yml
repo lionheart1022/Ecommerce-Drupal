@@ -1,0 +1,23 @@
+uuid: 78581d70-18f1-4c61-8fba-e5ec9a5e394a
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.diamond_commerce_product_review
+    - field.storage.comment.field_review_vote
+  module:
+    - options
+id: comment.diamond_commerce_product_review.field_review_vote
+field_name: field_review_vote
+entity_type: comment
+bundle: diamond_commerce_product_review
+label: 'Review Vote'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 5
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

@@ -1,0 +1,14 @@
+uuid: 46bc6f15-93bc-4c0e-bafd-a2f9b62bd3c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.medipets_domain
+  module:
+    - domain_access
+id: domain_access_add_action.medipets_domain
+label: 'Add selected content to the Medipets domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: medipets_domain

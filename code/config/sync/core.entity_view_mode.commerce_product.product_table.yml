@@ -1,0 +1,10 @@
+uuid: 61d4bfe4-9748-48f4-ad93-987630a2add5
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.product_table
+label: 'Product Table'
+targetEntityType: commerce_product
+cache: true

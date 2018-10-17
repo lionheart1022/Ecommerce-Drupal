@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.faqs_page
+    - views.view.main_page_faqs
+  module:
+    - panels
+    - views
+id: faqs_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    c9ed1f07-bae9-4329-bddb-2d8230e3aa79:
+      id: 'views_block:main_page_faqs-main_page_faqs_block'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: c9ed1f07-bae9-4329-bddb-2d8230e3aa79
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 016669e1-6f81-4971-8ced-831ce891324e
+  label: null
+  weight: 0
+  layout: cpl_1col_row_max_1
+  layout_settings: {  }
+  page_title: 'Frequently asked questions'
+  storage_type: page_manager
+  storage_id: faqs_page-panels_variant-0
+  builder: standard
+page: faqs_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

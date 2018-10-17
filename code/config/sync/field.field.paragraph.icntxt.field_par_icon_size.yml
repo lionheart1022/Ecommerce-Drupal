@@ -1,0 +1,23 @@
+uuid: 110cf689-2e9f-462c-8a20-8dc5dcb4e898
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_icon_size
+    - paragraphs.paragraphs_type.icntxt
+  module:
+    - options
+id: paragraph.icntxt.field_par_icon_size
+field_name: field_par_icon_size
+entity_type: paragraph
+bundle: icntxt
+label: 'Icon Size'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: IS1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

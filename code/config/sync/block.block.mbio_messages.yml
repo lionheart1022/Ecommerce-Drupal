@@ -1,0 +1,22 @@
+uuid: 8e5efbc4-5478-42b3-a0c3-972866d5f48e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - mbio
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: mbio_messages
+theme: mbio
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

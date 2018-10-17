@@ -1,0 +1,42 @@
+uuid: 0671b7a7-5041-4f52-b91e-2cf6ea1458cb
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_form_reference:fba13643-6da2-4659-9274-83aaf444fc1c'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - diamondhemp
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondhemp_subscriptionform
+theme: diamondhemp
+region: footer_wide
+weight: -5
+provider: null
+plugin: 'block_content:fba13643-6da2-4659-9274-83aaf444fc1c'
+settings:
+  id: 'block_content:fba13643-6da2-4659-9274-83aaf444fc1c'
+  label: 'Diamondhemp Subscription Form'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_footer
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/cart\r\n/checkout/*\r\n/profile/*\r\n/user/*"
+    negate: true
+    context_mapping: {  }

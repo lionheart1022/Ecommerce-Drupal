@@ -1,0 +1,49 @@
+// Foundation settings for the chongchoicecbd theme
+
+// Typography
+$body-font-family: 'Source Sans Pro', sans-serif;
+$header-font-family: 'Source Sans Pro', sans-serif;
+$header-font-weight: bold;
+
+// Colors
+$foundation-palette: (
+  primary: #114726,
+  secondary: #00bba7,
+  success: #43b743,
+  warning: #edc63c,
+  alert: #e6442a
+);
+$primary-color: map-get($foundation-palette, primary);
+$secondary-color: map-get($foundation-palette, secondary);
+
+// Badges
+$badge-palette: $foundation-palette;
+
+// Accordion
+$accordion-background: $white;
+$accordion-plusminus: true;
+$accordion-title-font-size: rem-calc(16);
+$accordion-item-color: $dark-gray;
+$accordion-item-background-hover: $white;
+$accordion-item-padding: 1rem 1rem;
+$accordion-content-background: $white;
+$accordion-content-border: 1px solid $light-gray;
+$accordion-content-color: $body-font-color;
+$accordion-content-padding: 0.7rem 1rem;
+
+// Forms
+$select-background: $light-gray;
+
+// Breadcrumbs
+$breadcrumbs-margin: $global-margin * 2 0 $global-margin $global-margin;
+$breadcrumbs-item-font-size: rem-calc(15);
+$breadcrumbs-item-color: $dark-gray;
+$breadcrumbs-item-color-current: $dark-gray;
+$breadcrumbs-item-color-disabled: $dark-gray;
+$breadcrumbs-item-margin: 0.6rem;
+$breadcrumbs-item-uppercase: false;
+$breadcrumbs-item-slash: true;
+
+// Horizontal line
+$hr-width: 100%;
+$hr-border: 1px solid $dark-gray;

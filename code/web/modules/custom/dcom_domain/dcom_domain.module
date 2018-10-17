@@ -1,0 +1,222 @@
+<?php
+
+/**
+ * @file
+ * Contains dcom_domain.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\domain\Entity\Domain;
+
+/**
+ * Implements hook_help().
+ */
+function dcom_domain_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dcom_domain module.
+    case 'help.page.dcom_domain':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides additional settings for domains.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function dcom_domain_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'domain_edit_form') {
+    dcom_domain_domain_forms_alter($form, $form_state, $form_id);
+  }
+  if ($form_id == 'mailgun_admin_settings_form') {
+    $form['working_domain']['#field_suffix'] = t('Attention! There are "domain_config" files for this configuration for some domains!');
+  }
+}
+
+/**
+ * Handles the form alter for the domain_edit_form form.
+ */
+function dcom_domain_domain_forms_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\domain\Entity\Domain $domain */
+  $domain = $form_state->getFormObject()->getEntity();
+  $form['contact_page_path'] = [
+    '#type' => 'textfield',
+    '#title' => t('Contact Page Path'),
+    '#default_value' => $domain->getThirdPartySetting('dcom_domain', 'contact_page_path'),
+    '#weight' => 1,
+  ];
+  $form['company_email'] = [
+    '#type' => 'email',
+    '#title' => t('Email'),
+    '#default_value' => $domain->getThirdPartySetting('dcom_domain', 'company_email'),
+    '#weight' => 2,
+  ];
+  $form['company_logo'] = [
+    '#type' => 'textfield',
+    '#title' => t('Logo'),
+    '#default_value' => $domain->getThirdPartySetting('dcom_domain', 'company_logo'),
+    '#weight' => 3,
+  ];
+  $form['company_phone'] = [
+    '#type' => 'textfield',
+    '#title' => t('Phone'),
+    '#default_value' => $domain->getThirdPartySetting('dcom_domain', 'company_phone'),
+    '#weight' => 4,
+  ];
+  $form['company_address'] = [
+    '#type' => 'textfield',
+    '#title' => t('Address'),
+    '#default_value' => $domain->getThirdPartySetting('dcom_domain', 'company_address'),
+    '#weight' => 5,
+  ];
+  // Domain social networks.
+  $form['company_fb'] = [
+    '#type' => 'textfield',
+    '#title' => t('Facebook'),
+    '#default_value' => $domain->getThirdPartySetting('dcom_domain', 'company_fb'),
+    '#weight' => 6,
+  ];
+  $form['company_twitter'] = [
+    '#type' => 'textfield',
+    '#title' => t('Twitter'),
+    '#default_value' => $domain->getThirdPartySetting('dcom_domain', 'company_twitter'),
+    '#weight' => 7,
+  ];
+  $form['company_instagram'] = [
+    '#type' => 'textfield',
+    '#title' => t('Instagram'),
+    '#default_value' => $domain->getThirdPartySetting('dcom_domain', 'company_instagram'),
+    '#weight' => 8,
+  ];
+
+  $form['#entity_builders'][] = 'dcom_domain_form_domain_entity_builder';
+}
+
+/**
+ * Entity builder for the domain configuration entity.
+ */
+function dcom_domain_form_domain_entity_builder($entity_type, Domain $domain, &$form, FormStateInterface $form_state) {
+  $domain_setting_properties = [
+    'contact_page_path',
+    'company_email',
+    'company_logo',
+    'company_phone',
+    'company_address',
+    'company_fb',
+    'company_twitter',
+    'company_instagram',
+  ];
+
+  foreach ($domain_setting_properties as $property) {
+    if ($form_state->getValue($property)) {
+      $domain->setThirdPartySetting('dcom_domain', $property, $form_state->getValue($property));
+    }
+    else {
+      $domain->unsetThirdPartySetting('dcom_domain', $property);
+    }
+  }
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function dcom_domain_token_info() {
+  $info['tokens']['domain']['contact_page_path'] = [
+    'name' => t('Domain Contact Page'),
+    'description' => t('The domain Contact page path.'),
+  ];
+  $info['tokens']['domain']['company_email'] = [
+    'name' => t('Email'),
+    'description' => t('The Email address of company.'),
+  ];
+  $info['tokens']['domain']['company_logo'] = [
+    'name' => t('Logo'),
+    'description' => t('The logo of company.'),
+  ];
+  $info['tokens']['domain']['company_phone'] = [
+    'name' => t('Phone Number'),
+    'description' => t('The phone number of company.'),
+  ];
+  $info['tokens']['domain']['company_address'] = [
+    'name' => t('Address'),
+    'description' => t('The address of company.'),
+  ];
+  $info['tokens']['domain']['company_fb'] = [
+    'name' => t('Facebook Profile'),
+    'description' => t('Facebook profile of company.'),
+  ];
+  $info['tokens']['domain']['company_twitter'] = [
+    'name' => t('Twitter Profile'),
+    'description' => t('Twitter profile of company'),
+  ];
+  $info['tokens']['domain']['company_instagram'] = [
+    'name' => t('Instagram Profile'),
+    'description' => t('Instagram profile of company.'),
+  ];
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function dcom_domain_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  $domain = NULL;
+
+  // Based on the type, get the proper domain context.
+  switch ($type) {
+    case 'domain':
+      if (!empty($data['domain'])) {
+        $domain = $data['domain'];
+      }
+      else {
+        $domain = \Drupal::service('domain.negotiator')->getActiveDomain();
+      }
+      break;
+
+    case 'current-domain':
+      $domain = \Drupal::service('domain.negotiator')->getActiveDomain();
+      break;
+
+    case 'default-domain':
+      $domain = \Drupal::service('entity_type.manager')
+        ->getStorage('domain')
+        ->loadDefaultDomain();
+      break;
+  }
+
+  // Set the token information.
+  /** @var \Drupal\domain\Entity\Domain $domain */
+  if (!empty($domain)) {
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'contact_page_path':
+          $domain_contact_page = $domain->getThirdPartySetting('dcom_domain', 'contact_page_path');
+          $domain_contact_page = $domain_contact_page ?: '/contact';
+          $replacements[$original] = $domain_contact_page;
+          $bubbleable_metadata->addCacheableDependency($domain);
+          break;
+
+        case 'company_email':
+        case 'company_logo':
+        case 'company_phone':
+        case 'company_address':
+        case 'company_fb':
+        case 'company_twitter':
+        case 'company_instagram':
+          $replacements[$original] = $domain->getThirdPartySetting('dcom_domain', $name);
+          $bubbleable_metadata->addCacheableDependency($domain);
+          break;
+      }
+    }
+  }
+
+  return $replacements;
+}

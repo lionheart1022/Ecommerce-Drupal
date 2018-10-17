@@ -1,0 +1,22 @@
+uuid: 30d76d88-5979-42e5-ad28-bb2ea62b2ccd
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dcom_56cbd
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: dcom_56cbd_content
+theme: dcom_56cbd
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: b1438ad8-968e-46a6-afb7-9a0fdbe754b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_text_box_options
+    - paragraphs.paragraphs_type.txt
+  module:
+    - options
+id: paragraph.txt.field_par_text_box_options
+field_name: field_par_text_box_options
+entity_type: paragraph
+bundle: txt
+label: 'Text Box Options'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: TC1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

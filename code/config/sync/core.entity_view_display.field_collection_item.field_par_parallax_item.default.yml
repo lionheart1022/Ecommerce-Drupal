@@ -1,0 +1,57 @@
+uuid: a1637d65-c3fb-4485-bdc4-0b5da1e64585
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_par_parallax_item.field_parc_body
+    - field.field.field_collection_item.field_par_parallax_item.field_parc_color
+    - field.field.field_collection_item.field_par_parallax_item.field_parc_header
+    - field.field.field_collection_item.field_par_parallax_item.field_parc_image
+    - field.field.field_collection_item.field_par_parallax_item.field_parc_number
+    - field_collection.field_collection.field_par_parallax_item
+  module:
+    - image_url_formatter
+    - text
+id: field_collection_item.field_par_parallax_item.default
+targetEntityType: field_collection_item
+bundle: field_par_parallax_item
+mode: default
+content:
+  field_parc_body:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_parc_color:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_parc_header:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_parc_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    type: image_url
+    region: content
+  field_parc_number:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: number_unformatted
+    region: content
+hidden: {  }

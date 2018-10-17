@@ -1,0 +1,23 @@
+uuid: e6588f80-5ea9-42fb-a49c-9e920e212d1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_header
+    - field.storage.block_content.field_block_commerce_menu
+id: block_content.cpl_page_header.field_block_commerce_menu
+field_name: field_block_commerce_menu
+entity_type: block_content
+bundle: cpl_page_header
+label: 'User Menu'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

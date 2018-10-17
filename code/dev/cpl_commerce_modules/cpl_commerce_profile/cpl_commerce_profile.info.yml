@@ -1,0 +1,11 @@
+name: 'CPL Commerce Profile'
+type: module
+description: 'Provides CPL Commerce profile configuration.'
+core: 8.x
+package: Commerce
+dependencies:
+  - config_rewrite:config_rewrite
+  - address:address
+  - commerce:commerce_order
+  - drupal:telephone
+  - profile:profile

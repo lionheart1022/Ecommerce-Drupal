@@ -1,0 +1,43 @@
+uuid: 106570e9-9c6d-4976-bb1a-ab178784f677
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.view.field_par_background_color
+    - field.field.paragraph.view.field_par_class
+    - field.field.paragraph.view.field_par_constraint
+    - field.field.paragraph.view.field_par_row_style
+    - field.field.paragraph.view.field_par_view
+    - field.field.paragraph.view.field_par_vmargin
+    - field.field.paragraph.view.field_par_vpadding
+    - paragraphs.paragraphs_type.view
+  module:
+    - options
+    - viewsreference
+id: paragraph.view.default
+targetEntityType: paragraph
+bundle: view
+mode: default
+content:
+  field_par_row_style:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_par_view:
+    weight: 0
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    type: viewsreference_formatter
+    region: content
+hidden:
+  field_par_background_color: true
+  field_par_class: true
+  field_par_constraint: true
+  field_par_vmargin: true
+  field_par_vpadding: true

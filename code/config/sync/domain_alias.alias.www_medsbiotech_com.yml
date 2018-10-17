@@ -1,0 +1,9 @@
+uuid: fe26e269-c87c-40e1-a0d1-da40b3aba147
+langcode: en
+status: true
+dependencies: {  }
+id: www_medsbiotech_com
+domain_id: mbio_domain
+pattern: medsbiotech.com
+redirect: 301
+environment: default

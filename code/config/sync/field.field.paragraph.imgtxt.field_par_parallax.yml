@@ -1,0 +1,21 @@
+uuid: 2236d4de-e1f2-4a31-9c08-cc47cf4b4e9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_parallax
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - options
+id: paragraph.imgtxt.field_par_parallax
+field_name: field_par_parallax
+entity_type: paragraph
+bundle: imgtxt
+label: Parallax
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

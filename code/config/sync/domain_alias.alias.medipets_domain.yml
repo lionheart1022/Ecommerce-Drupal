@@ -1,0 +1,9 @@
+uuid: 5119559f-0e77-45a3-99d0-64808d1f0a22
+langcode: en
+status: true
+dependencies: {  }
+id: medipets_domain
+domain_id: medipets_domain
+pattern: medipets.diamondcommerce.docker.localhost
+redirect: 0
+environment: local

@@ -1,0 +1,22 @@
+uuid: aa918901-536b-4923-a812-4c6b4afdbec7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cpl_base_commerce
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: cpl_base_commerce_content
+theme: cpl_base_commerce
+region: content
+weight: 2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

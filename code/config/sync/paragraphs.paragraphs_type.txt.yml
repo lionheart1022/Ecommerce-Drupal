@@ -1,0 +1,9 @@
+uuid: f1943a6f-f437-4af7-9c29-58c068dc6cfd
+langcode: en
+status: true
+dependencies: {  }
+id: txt
+label: 'Text Column'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,20 @@
+stock_notification.settings_tab:
+  route_name: stock_notification.settings
+  title: Settings
+  base_route: stock_notification.settings
+
+stock_notification.view:
+  route_name: entity.stock_notification.canonical
+  base_route: entity.stock_notification.canonical
+  title: View
+
+stock_notification.page_edit:
+  route_name: entity.stock_notification.edit_form
+  base_route: entity.stock_notification.canonical
+  title: Edit
+
+stock_notification.delete_confirm:
+  route_name:  entity.stock_notification.delete_form
+  base_route:  entity.stock_notification.canonical
+  title: Delete
+  weight: 10

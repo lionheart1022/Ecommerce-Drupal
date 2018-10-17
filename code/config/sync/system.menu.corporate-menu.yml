@@ -1,0 +1,8 @@
+uuid: d42910dd-48bb-4260-99ba-82129759c1fb
+langcode: en
+status: true
+dependencies: {  }
+id: corporate-menu
+label: Corporate
+description: 'Mbio footer menu 3'
+locked: false

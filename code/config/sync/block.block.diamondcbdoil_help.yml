@@ -1,0 +1,22 @@
+uuid: d5b5643a-19e3-4e5b-8e36-f35ea53ca13a
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - diamondcbdoil
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: diamondcbdoil_help
+theme: diamondcbdoil
+region: content
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

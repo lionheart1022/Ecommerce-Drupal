@@ -1,0 +1,18 @@
+uuid: 75e2b00f-3042-4a4b-838a-201a6b6dac65
+langcode: en
+status: false
+dependencies: {  }
+id: shopify_other
+label: 'Shopify: Other'
+weight: null
+plugin: manual
+configuration:
+  instructions:
+    value: ''
+    format: plain_text
+  display_label: 'Shopify: Other'
+  mode: n/a
+  payment_method_types:
+    - credit_card
+conditions: {  }
+conditionOperator: AND

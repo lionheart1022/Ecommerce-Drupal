@@ -1,0 +1,125 @@
+<?php
+
+/**
+ * @file
+ * Dcom_profile module implementation.
+ */
+
+use Drupal\commerce_order\Element\ProfileSelect;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function dcom_profile_element_info_alter(array &$info) {
+  if (!empty($info['commerce_profile_select'])) {
+    // Replace submit and validate handlers.
+    foreach (['#commerce_element_submit', '#element_validate'] as $key) {
+      if (!empty($info['commerce_profile_select'][$key])) {
+        foreach ($info['commerce_profile_select'][$key] as &$callback) {
+          if (is_array($callback) && reset($callback) == ProfileSelect::class) {
+            $callback[0] = 'Drupal\dcom_profile\ProfileSelect';
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function dcom_profile_form_profile_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['#validate'][] = 'dcom_profile_profile_form_validate';
+}
+
+/**
+ * Validates profile_form to make sure the profile is unique.
+ *
+ * @param array $form
+ *   The form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
+ */
+function dcom_profile_profile_form_validate(array $form, FormStateInterface $form_state) {
+  /** @var \Drupal\profile\Form\ProfileForm $form_object */
+  $form_object = $form_state->getFormObject();
+  /** @var \Drupal\profile\Entity\ProfileInterface $profile */
+  $profile = $form_object->buildEntity($form, $form_state);
+
+  // Try to find an existing profile if the current one has a phone number
+  // and address.
+  $phone = $profile->get('field_phone_number');
+  $address = $profile->get('address');
+
+  if (!$phone->isEmpty() && !$address->isEmpty()) {
+    /** @var \Drupal\dcom_profile\Util\ProfileComparatorInterface $comparator */
+    $comparator = \Drupal::service('dcom_profile.profile_comparator');
+
+    if ($comparator->findProfileByProfile($profile)) {
+      $form_state->setError($form, t('The address you have just entered already exists on your account.'));
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function dcom_profile_profile_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  // Do not allow to change the billing address once the order is placed.
+  // Do not allow to change the shipping address once the order is shipped.
+  // Do not allow to delete profile once the order is placed/shipped.
+  if ($entity->bundle() == 'customer' && in_array($operation, ['update', 'delete'])) {
+    $order_ids = \Drupal::entityQuery('commerce_order');
+
+    $billing_reference = $order_ids->andConditionGroup()
+      ->condition('billing_profile.target_id', $entity->id(), '=')
+      ->exists('placed');
+    $shipping_reference = $order_ids->andConditionGroup()
+      ->condition('shipments.entity.state', 'shipped', '=')
+      ->condition('shipments.entity.shipping_profile.target_id', $entity->id(), '=');
+    $or = $order_ids->orConditionGroup()
+      ->condition($billing_reference)
+      ->condition($shipping_reference);
+    $order_ids->condition($or);
+
+    $payment_ids = \Drupal::entityQuery('commerce_payment')
+      ->exists('order_id.entity.placed')
+      ->condition('payment_method.entity.billing_profile.target_id', $entity->id(), '=');
+
+    return AccessResult::forbiddenIf($order_ids->count()->execute())
+      ->orIf(AccessResult::forbiddenIf($payment_ids->count()->execute()));
+  }
+  // No opinion.
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function dcom_profile_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
+  if ($entity_type->id() == 'profile' && $bundle == 'customer') {
+    $phone_field_name = 'field_phone_number';
+    if (!empty($fields[$phone_field_name])) {
+      $fields[$phone_field_name]->addConstraint('DcomProfileTelephoneNumber');
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function dcom_profile_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  switch ($context['widget']->getPluginId()) {
+    case 'telephone_default':
+      $entity = !empty($context['items']->getParent()) ? $context['items']->getEntity() : NULL;
+      if ($entity && $entity->getEntityTypeId() == 'profile' && $entity->bundle() == 'customer') {
+        $element['#attached']['library'][] = 'dcom_profile/input_mask';
+      }
+      break;
+  }
+}

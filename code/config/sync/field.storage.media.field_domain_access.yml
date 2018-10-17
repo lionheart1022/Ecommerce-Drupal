@@ -1,0 +1,20 @@
+uuid: bd22f9fa-4bd5-4e0e-ba04-3c1099ffa803
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain
+    - media
+id: media.field_domain_access
+field_name: field_domain_access
+entity_type: media
+type: entity_reference
+settings:
+  target_type: domain
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

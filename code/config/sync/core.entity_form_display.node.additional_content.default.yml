@@ -1,0 +1,166 @@
+uuid: 98f2514f-b45b-4f57-87e8-555ca4eee75c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.additional_content.field_domain_access
+    - field.field.node.additional_content.field_domain_all_affiliates
+    - field.field.node.additional_content.field_parc_body
+    - field.field.node.additional_content.field_parc_header
+    - field.field.node.additional_content.field_parc_image
+    - field.field.node.additional_content.field_parc_link
+    - field.field.node.additional_content.field_parc_link_type
+    - field.field.node.additional_content.field_parc_location
+    - field.field.node.additional_content.field_parc_media_ref
+    - field.field.node.additional_content.field_parc_video_link
+    - field.field.node.additional_content.field_parc_webform
+    - image.style.thumbnail
+    - node.type.additional_content
+  module:
+    - allowed_formats
+    - image
+    - link
+    - path
+    - text
+    - video_embed_field
+    - webform
+_core:
+  default_config_hash: d1oXN3mNW5Lde5sLiuE4u_d6WcxOhXVXZAXlF4b2e4Q
+id: node.additional_content.default
+targetEntityType: node
+bundle: additional_content
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 17
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_parc_body:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textarea
+    region: content
+  field_parc_header:
+    weight: 1
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_parc_image:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_parc_link:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_parc_link_type:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_parc_location:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_parc_media_ref:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_parc_video_link:
+    type: video_embed_field_textfield
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_parc_webform:
+    weight: 10
+    settings:
+      default_data: true
+    third_party_settings: {  }
+    type: webform_entity_reference_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true

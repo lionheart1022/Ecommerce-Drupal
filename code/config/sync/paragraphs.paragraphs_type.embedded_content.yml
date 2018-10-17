@@ -1,0 +1,9 @@
+uuid: 37dfd05f-b1a3-4029-9e24-f69c63e5dc03
+langcode: en
+status: true
+dependencies: {  }
+id: embedded_content
+label: 'Embedded content'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

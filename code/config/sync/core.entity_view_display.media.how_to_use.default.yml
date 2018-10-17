@@ -1,0 +1,35 @@
+uuid: 2fe74d2e-4ba0-40d3-b836-fd0f3a7dcc2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.how_to_use.field_media_product_ref
+    - field.field.media.how_to_use.field_media_term_ref
+    - field.field.media.how_to_use.field_media_video_embed_field
+    - media.type.how_to_use
+  module:
+    - video_embed_field
+id: media.how_to_use.default
+targetEntityType: media
+bundle: how_to_use
+mode: default
+content:
+  field_media_video_embed_field:
+    label: hidden
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: false
+    third_party_settings: {  }
+    type: video_embed_field_video
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_product_ref: true
+  field_media_term_ref: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

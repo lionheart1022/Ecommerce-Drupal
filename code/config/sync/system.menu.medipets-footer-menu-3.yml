@@ -1,0 +1,8 @@
+uuid: 65492df3-735a-4212-aa9a-7347c3830ffd
+langcode: en
+status: true
+dependencies: {  }
+id: medipets-footer-menu-3
+label: Corporate
+description: 'Medipets footer menu 3'
+locked: false

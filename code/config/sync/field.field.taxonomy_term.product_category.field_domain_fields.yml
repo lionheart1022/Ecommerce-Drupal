@@ -1,0 +1,23 @@
+uuid: 0e3b818f-0a82-4dc9-a1e8-425d020f3eae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_domain_fields
+    - taxonomy.vocabulary.product_category
+  module:
+    - field_collection
+id: taxonomy_term.product_category.field_domain_fields
+field_name: field_domain_fields
+entity_type: taxonomy_term
+bundle: product_category
+label: 'Domain fields'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:field_collection_item'
+  handler_settings: {  }
+field_type: field_collection

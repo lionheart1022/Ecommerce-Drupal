@@ -1,0 +1,10 @@
+uuid: 22e21abb-595d-4cf6-9679-d7a4d9b1274e
+langcode: en
+status: true
+dependencies: {  }
+id: imgtxt
+label: 'Image Text'
+icon_uuid: null
+description: ''
+save_empty: false
+behavior_plugins: {  }

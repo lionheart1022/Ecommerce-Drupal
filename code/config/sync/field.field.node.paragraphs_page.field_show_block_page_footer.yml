@@ -1,0 +1,23 @@
+uuid: bc1874fd-08b4-4622-ae98-c2a2e887ddc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_block_page_footer
+    - node.type.paragraphs_page
+id: node.paragraphs_page.field_show_block_page_footer
+field_name: field_show_block_page_footer
+entity_type: node
+bundle: paragraphs_page
+label: 'Show Page Footer'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

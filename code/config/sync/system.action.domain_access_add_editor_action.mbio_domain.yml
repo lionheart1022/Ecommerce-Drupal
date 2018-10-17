@@ -1,0 +1,14 @@
+uuid: 93ec74c5-3ed2-4fa2-9a4b-de826544776e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mbio_domain
+  module:
+    - domain_access
+id: domain_access_add_editor_action.mbio_domain
+label: 'Add editors to the Meds Biotech domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: mbio_domain

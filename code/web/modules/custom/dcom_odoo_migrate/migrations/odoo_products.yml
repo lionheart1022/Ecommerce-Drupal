@@ -1,0 +1,157 @@
+id: odoo_products
+label: Odoo Products
+migration_group: odoo
+migration_tags:
+  - dcom_odoo_migrate_cron
+
+source:
+  plugin: odoo_api
+  model: product.template
+  filters:
+    -
+      - x_export_to_drupal
+      - '='
+      - true
+    -
+      # Do not import products with the category or Flavor (45).
+      - 'categ_id'
+      - 'not in'
+      -
+        - 45
+  fields:
+    - name
+    - product_variant_ids
+    - write_date
+    - x_cbd_brand
+    - categ_id
+    - x_product_type
+    - x_characteristics
+    - x_ingredients
+    - x_drupal_description
+    - x_drupal_volume
+    - x_drupal_weight
+    - x_drupal_domain
+    - x_product_image_ids
+    - x_drupal_visibility_options
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:commerce_product'
+  destination_module: commerce_product
+
+process:
+  title: name
+  type:
+    plugin: default_value
+    default_value: cbd_product
+  variations:
+    plugin: migration_lookup
+    migration: odoo_product_variants
+    source: product_variant_ids
+  field_cbd_brand:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: x_cbd_brand
+    -
+      plugin: array_shift
+    -
+      plugin: migration_lookup
+      migration: odoo_brands
+      no_stub: true
+  field_product_category:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: categ_id
+    -
+      plugin: array_shift
+    -
+      plugin: migration_lookup
+      migration: odoo_product_categories
+      no_stub: true
+  field_product_type:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: x_product_type
+    -
+      plugin: array_shift
+    -
+      plugin: migration_lookup
+      migration: odoo_product_types
+      no_stub: true
+  field_product_characteristics:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: x_characteristics
+    -
+      plugin: migration_lookup
+      migration: odoo_product_characteristics
+      no_stub: true
+  field_product_ingredients/0/value: x_ingredients
+  field_product_ingredients/0/format:
+    plugin: default_value
+    default_value: basic_html
+  body/0/value: x_drupal_description
+  body/0/format:
+    plugin: default_value
+    default_value: basic_html
+  field_product_volume/0/number:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: x_drupal_volume
+    -
+      plugin: dcom_measurement_convert
+      measurement_type: volume
+      from_units: m3
+      to_units: ml
+  field_product_volume/0/unit:
+    -
+      plugin: default_value
+      default_value: ml
+  field_product_weight/0/number:
+    -
+     plugin: skip_on_empty
+     method: process
+     source: x_drupal_weight
+    -
+     plugin: dcom_measurement_convert
+     measurement_type: weight
+     from_units: kg
+     to_units: g
+     precision: 1
+  field_product_weight/0/unit:
+    -
+      plugin: default_value
+      default_value: g
+  field_domain:
+    -
+     plugin: skip_on_empty
+     method: process
+     source: x_drupal_domain
+    -
+     plugin: dcom_odoo_domain_id
+  field_product_image:
+    plugin: migration_lookup
+    migration: odoo_product_images
+    source: x_product_image_ids
+  field_force_odoo_migrate:
+    plugin: default_value
+    default_value: 0
+  stores/0/target_id:
+    # TODO: Find default store.
+    plugin: default_value
+    default_value: 1
+  field_visibility_option/0/value:
+    plugin: default_value
+    default_value: everywhere
+    source: x_drupal_visibility_options
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

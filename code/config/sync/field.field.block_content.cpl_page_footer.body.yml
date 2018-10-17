@@ -1,0 +1,32 @@
+uuid: 75feff04-245c-425b-acab-50a683372386
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_footer
+    - field.storage.block_content.body
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    text_paragraph_html: text_paragraph_html
+    article_html: '0'
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+    paragraph_custom_html: '0'
+id: block_content.cpl_page_footer.body
+field_name: body
+entity_type: block_content
+bundle: cpl_page_footer
+label: HTML
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

@@ -1,0 +1,51 @@
+id: odoo_product_categories
+label: Odoo Product Categories
+migration_group: odoo
+migration_tags:
+  - dcom_odoo_migrate_cron
+
+source:
+  plugin: odoo_api
+  model: product.category
+  filters:
+    -
+      # Do not import products with the category Flavor (45).
+      - 'id'
+      - 'not in'
+      -
+        - 45
+  fields:
+    - name
+    - write_date
+    - id
+    - parent_id
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:taxonomy_term'
+  destination_module: taxonomy
+
+process:
+  name: name
+  vid:
+    plugin: default_value
+    default_value: product_category
+  # TODO - it has to be a field for "domain" value in Odoo. For now it doesn't exist.
+  field_domain:
+    plugin: empty_field_default_value
+    default_value: diamondcbd_domain
+  # TODO - it has to be a field for "is collection" value in Odoo. For now it doesn't exist.
+  field_is_collection:
+    plugin: empty_field_default_value
+    default_value: 1
+  parent:
+    plugin: term_parent_migration_lookup
+    migration: odoo_product_categories
+    source: parent_id
+    no_stub: true
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

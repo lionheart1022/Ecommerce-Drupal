@@ -1,0 +1,21 @@
+uuid: 7bf1d285-f807-42ed-b21c-a1df27f03a1e
+langcode: en
+status: true
+dependencies: {  }
+id: page_variant__diamond_commerce_shop_page-panels_variant-0
+label: 'Page Variant: Diamond Commerce Shop Page: Panels'
+tags:
+  image_src: '[cpl_commerce_facet:active_image:max_1300x1300]'
+  description: '[cpl_commerce_facet:active_term_description]'
+  title: '[cpl_commerce_facet:active_title] | [current-domain:name]'
+  head_title: '[cpl_commerce_facet:active_title] | [current-domain:name]'
+  og_image_height: '[cpl_commerce_facet:active_image:max_1300x1300:height]'
+  og_image: '[cpl_commerce_facet:active_image:max_1300x1300]'
+  og_description: '[cpl_commerce_facet:active_term_description]'
+  og_image_width: '[cpl_commerce_facet:active_image:max_1300x1300:width]'
+  og_title: '[cpl_commerce_facet:active_title]'
+  twitter_cards_image: '[cpl_commerce_facet:active_image:max_1300x1300]'
+  twitter_cards_description: '[cpl_commerce_facet:active_term_description]'
+  twitter_cards_title: '[cpl_commerce_facet:active_title]'
+  twitter_cards_image_width: '[cpl_commerce_facet:active_image:max_1300x1300:width]'
+  twitter_cards_image_height: '[cpl_commerce_facet:active_image:max_1300x1300:height]'

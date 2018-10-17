@@ -1,0 +1,81 @@
+id: diamondcbd_product_variations
+label: DiamondCBD Product Variations
+migration_group: diamondcbd
+
+source:
+  plugin: shopify_product_variant
+  shopify:
+    shop_domain: diamondcbd.myshopify.com
+    api_key: 221f9ce80f304929059c9588617f88b6
+    password: 1529dce859e0c59d2a061452ecdab421
+    shared_secret: 72be699ffe843f37a3aed4cf9e456d4b
+
+destination:
+  plugin: 'entity:commerce_product_variation'
+  destination_module: commerce_product
+
+process:
+  title: title
+  created:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: created_at
+    settings:
+      validate_format: false
+  changed:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: updated_at
+    settings:
+      validate_format: false
+  type:
+      plugin: default_value
+      default_value: cbd_product_variation
+  sku: sku
+  'price/0/number': price
+  'price/0/currency_code':
+      plugin: default_value
+      default_value: 'USD'
+  'weight/0/number': weight
+  'weight/0/unit': weight_unit
+  product_tags:
+    plugin: explode
+    delimiter: ', '
+    source: tags
+  attribute_strength:
+    -
+      plugin: shopify_attribute_lookup
+      attribute: strength_value
+      source:
+        - title
+        - '@product_tags'
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: attribute
+      bundle: strength
+      entity_type: commerce_product_attribute_value
+      ignore_case: true
+  attribute_flavor:
+    -
+      plugin: shopify_product_variant_option_lookup
+      option_name: Flavor
+      source:
+        - options
+        - option1
+        - option2
+        - option3
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: attribute
+      bundle: flavor
+      entity_type: commerce_product_attribute_value
+      ignore_case: true
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

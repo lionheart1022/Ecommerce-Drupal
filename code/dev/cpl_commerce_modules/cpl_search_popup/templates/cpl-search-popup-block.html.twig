@@ -1,0 +1,54 @@
+{% if block.delta != 'main' %}
+{# TODO: add effect selection to theme settings #}
+<section{{ attributes.addClass('search-popup-block animate-slide-top') }}>
+    {% endif %}
+
+    {{ title_prefix }}
+    {% if label %}
+        <h2 {{ title_attributes }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+
+    {% if content_attributes|length %}
+    <div {{ content_attributes }}>
+        {% endif %}
+
+        {% block content %}
+            <div class="search-container">
+                <button class="close-button" aria-label="Close menu" type="button" data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="search-inner">
+                    <form class="search-form" action="{{ path('page_manager.page_view_diamond_commerce_shop_page_diamond_commerce_shop_page-panels_variant-0', {'facets_query': 'all'}) }}" method="get" id="search-form">
+                        <div class="form-container">
+                            <button type="button" class="button-clear" hidden><span aria-hidden="true">&times;</span></button>
+                            <input id="search-autocomplete" type="search" name="search" placeholder="What you are searching for?">
+                            <button type="submit" class="button-search"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+
+                    <div class="search-popular">
+                        <h3 class="search-popular-title">{{ 'Popular Searches'|t }}</h3>
+                        <ul>
+                            {# TODO: Remove hardcoded values. #}
+                            <li>Diamond</li>
+                            <li>Cream</li>
+                            <li>Gummies</li>
+                        </ul>
+                    </div>
+
+                    <div class="search-view-all upper">
+                        <a href="{{ path('page_manager.page_view_diamond_commerce_shop_page_diamond_commerce_shop_page-panels_variant-0', {'facets_query': 'all'}) }}">View All <span class="search-items-quantity">{{ items_count }}</span> Items</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endblock %}
+
+        {% if content_attributes|length %}
+    </div>
+    {% endif %}
+
+    {% if block.delta != 'main' %}
+</section>
+{% endif %}

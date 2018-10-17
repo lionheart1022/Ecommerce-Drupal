@@ -1,0 +1,302 @@
+# Main navigation menu for Mbio.
+dcom_menu.about_cbd:
+  title: 'What is CBD?'
+  description: 'What is CBD page'
+  parent: main
+  menu_name: main
+  url: 'internal:/about-cbd'
+  weight: 0
+dcom_menu.faqs:
+  title: 'FAQs'
+  description: 'FAQs page'
+  parent: main
+  menu_name: main
+  route_name: page_manager.page_view_diamond_commerce_faqs_page_diamond_commerce_faqs_page-panels_variant-0
+  weight: 2
+dcom_menu.about:
+  title: 'About'
+  description: 'About page'
+  parent: main
+  menu_name: main
+  url: 'internal:/mbio-about'
+  weight: 3
+dcom_menu.blog:
+  title: 'Blog'
+  description: 'Blog page'
+  parent: main
+  menu_name: main
+  url: 'internal:/mbio-blog'
+  weight: 4
+dcom_menu.corporate:
+  title: 'Corporate'
+  description: 'Corporate page'
+  parent: main
+  menu_name: main
+  url: 'internal:/corporate'
+  weight: 5
+dcom_menu.contact:
+  title: 'Contact'
+  description: 'Contact page'
+  parent: main
+  menu_name: main
+  url: 'internal:/mbio-contact'
+  weight: 6
+
+# Main navigation menu for Diamond Cbd.
+dcom_menu.diamondcbd_about_cbd:
+  title: 'What is CBD?'
+  description: 'What is CBD page'
+  parent: diamond-cbd-navigation
+  menu_name: diamond-cbd-navigation
+  url: 'internal:/diamondcbd-about-cbd'
+  weight: 0
+dcom_menu.diamondcbd_faqs:
+  title: 'FAQs'
+  description: 'FAQs page'
+  parent: diamond-cbd-navigation
+  menu_name: diamond-cbd-navigation
+  route_name: page_manager.page_view_diamond_commerce_faqs_page_diamond_commerce_faqs_page-panels_variant-0
+  weight: 2
+dcom_menu.diamondcbd_about:
+  title: 'About'
+  description: 'About page'
+  parent: diamond-cbd-navigation
+  menu_name: diamond-cbd-navigation
+  url: 'internal:/diamondcbd-about'
+  weight: 3
+dcom_menu.diamondcbd_blog:
+  title: 'Blog'
+  description: 'Blog page'
+  parent: diamond-cbd-navigation
+  menu_name: diamond-cbd-navigation
+  url: 'internal:/diamondcbd-blog'
+  weight: 4
+dcom_menu.diamondcbd_corporate:
+  title: 'Corporate'
+  description: 'Corporate page'
+  parent: diamond-cbd-navigation
+  menu_name: diamond-cbd-navigation
+  url: 'internal:/diamondcbd-corporate'
+  weight: 5
+dcom_menu.diamondcbd_contact:
+  title: 'Contact'
+  description: 'Contact page'
+  parent: diamond-cbd-navigation
+  menu_name: diamond-cbd-navigation
+  url: 'internal:/diamondcbd-contact'
+  weight: 6
+
+# Main navigation menu for Medipets.
+dcom_menu.medipets_about_cbd:
+  title: 'What is CBD?'
+  description: 'What is CBD page'
+  parent: medipets-navigation
+  menu_name: medipets-navigation
+  url: 'internal:/medipets-about-cbd'
+  weight: 0
+dcom_menu.medipets_faqs:
+  title: 'FAQs'
+  description: 'FAQs page'
+  parent: medipets-navigation
+  menu_name: medipets-navigation
+  route_name: page_manager.page_view_diamond_commerce_faqs_page_diamond_commerce_faqs_page-panels_variant-0
+  weight: 2
+dcom_menu.medipets_about:
+  title: 'About'
+  description: 'About page'
+  parent: medipets-navigation
+  menu_name: medipets-navigation
+  url: 'internal:/medipets-about'
+  weight: 3
+dcom_menu.medipets_blog:
+  title: 'Blog'
+  description: 'Blog page'
+  parent: medipets-navigation
+  menu_name: medipets-navigation
+  url: 'internal:/medipets-blog'
+  weight: 4
+dcom_menu.medipets_corporate:
+  title: 'Corporate'
+  description: 'Corporate page'
+  parent: medipets-navigation
+  menu_name: medipets-navigation
+  url: 'internal:/medipets-corporate'
+  weight: 5
+dcom_menu.medipets_contact:
+  title: 'Contact'
+  description: 'Contact page'
+  parent: medipets-navigation
+  menu_name: medipets-navigation
+  url: 'internal:/medipets-contact'
+  weight: 6
+
+# Main navigation menu for Diamondhemp.
+dcom_menu.diamondhemp_beauty:
+  title: 'Hemp & Beauty'
+  description: 'Hemp & Beauty page'
+  parent: diamondhemp-navigation
+  menu_name: diamondhemp-navigation
+  url: 'internal:/hemp-beauty'
+  weight: 1
+dcom_menu.diamondhemp_faqs:
+  title: 'FAQs'
+  description: 'FAQs page'
+  parent: diamondhemp-navigation
+  menu_name: diamondhemp-navigation
+  route_name: page_manager.page_view_diamond_commerce_faqs_page_diamond_commerce_faqs_page-panels_variant-0
+  weight: 2
+dcom_menu.diamondhemp_about:
+  title: 'About'
+  description: 'About page'
+  parent: diamondhemp-navigation
+  menu_name: diamondhemp-navigation
+  url: 'internal:/diamondhemp-about'
+  weight: 3
+dcom_menu.diamondhemp_blog:
+  title: 'Blog'
+  description: 'Blog page'
+  parent: diamondhemp-navigation
+  menu_name: diamondhemp-navigation
+  url: 'internal:/diamondhemp-blog'
+  weight: 4
+dcom_menu.diamondhemp_corporate:
+  title: 'Corporate'
+  description: 'Corporate page'
+  parent: diamondhemp-navigation
+  menu_name: diamondhemp-navigation
+  url: 'internal:/diamondhemp-corporate'
+  weight: 5
+dcom_menu.diamondhemp_contact:
+  title: 'Contact'
+  description: 'Contact page'
+  parent: diamondhemp-navigation
+  menu_name: diamondhemp-navigation
+  url: 'internal:/diamondhemp-contact'
+  weight: 6
+
+# Commerce menu
+# commerce-menu
+dcom_menu.commerce-menu.search:
+  title: 'Search'
+#  TODO
+  description: 'TODO'
+  menu_name: commerce-menu
+  url: 'internal:/<front>'
+  weight: 0
+dcom_menu.commerce-menu.login:
+  title: 'Login'
+  description: 'User login page'
+  parent: main
+  menu_name: commerce-menu
+  route_name: user.login
+  weight: 1
+dcom_menu.commerce-menu.account:
+  title: 'Account'
+  description: 'User account'
+  parent: main
+  menu_name: commerce-menu
+  route_name: cpl_commerce_user.my_account
+  weight: 2
+dcom_menu.commerce-menu.cart:
+  title: 'My Cart'
+  description: 'Shopping cart'
+  parent: main
+  menu_name: commerce-menu
+  route_name: commerce_cart.page
+  weight: 3
+
+# Mbio Shop menu
+# mbio-menu
+dcom_menu.mbio-menu.show_all:
+  title: 'Show All'
+  description: 'Shop page'
+  menu_name: mbio-menu
+  route_name: page_manager.page_view_diamond_commerce_shop_page_diamond_commerce_shop_page-panels_variant-0
+  route_parameters: { facets_query: 'all' }
+  weight: 0
+
+# Medipets Shop menu
+# medipets-menu
+dcom_menu.medipets-menu.show_all:
+  title: 'Show All'
+  description: 'Shop page'
+  menu_name: medipets-menu
+  route_name: page_manager.page_view_diamond_commerce_shop_page_diamond_commerce_shop_page-panels_variant-0
+  route_parameters: { facets_query: 'all' }
+  weight: 0
+
+# Diamondhemp Shop menu
+# diamondhemp-menu
+dcom_menu.diamondhemp-menu.show_all:
+  title: 'Show All'
+  description: 'Shop page'
+  menu_name: diamondhemp-menu
+  route_name: page_manager.page_view_diamond_commerce_shop_page_diamond_commerce_shop_page-panels_variant-0
+  route_parameters: { facets_query: 'all' }
+  weight: 0
+
+# Footer Links Menu
+dcom_menu.footer-policy-links.privacy:
+  title: 'Privacy policy'
+  description: 'Privacy policy'
+  menu_name: footer-policy-links
+  url: 'internal:/privacy-policy'
+  weight: 1
+dcom_menu.footer-policy-links.terms:
+  title: 'Terms & Conditions'
+  description: 'Terms & Conditions'
+  menu_name: footer-policy-links
+  url: 'internal:/terms-and-conditions'
+  weight: 2
+
+# Checkout Footer Links Menu
+dcom_menu.checkout-policy-links.refund:
+  title: 'Refund policy'
+  description: 'Refund policy'
+  menu_name: checkout-policy-links
+  url: 'internal:/refund-policy'
+  weight: 1
+dcom_menu.checkout-policy-links.privacy:
+  title: 'Privacy policy'
+  description: 'Privacy policy'
+  menu_name: checkout-policy-links
+  url: 'internal:/privacy-policy'
+  weight: 2
+dcom_menu.checkout-policy-links.terms:
+  title: 'Terms & Conditions'
+  description: 'Terms & Conditions'
+  menu_name: checkout-policy-links
+  url: 'internal:/terms-and-conditions'
+  weight: 3
+
+# User menu for mobile
+dcom_menu.user-menu-mobile.account:
+  title: 'My Account'
+  description: 'My Account'
+  menu_name: user-menu-mobile
+  route_name: cpl_commerce_user.my_account
+  weight: 1
+dcom_menu.user-menu-mobile.cart:
+  title: 'Cart'
+  description: 'Cart'
+  menu_name: user-menu-mobile
+  route_name: commerce_cart.page
+  weight: 2
+dcom_menu.user-menu-mobile.logout:
+  title: 'Logout'
+  description: 'Logout'
+  menu_name: user-menu-mobile
+  route_name: user.logout
+  weight: 3
+dcom_menu.user-menu-mobile.login:
+  title: 'Login'
+  description: 'Login'
+  menu_name: user-menu-mobile
+  route_name: user.login
+  weight: 4
+dcom_menu.user-menu-mobile.register:
+  title: 'Register'
+  description: 'Register'
+  menu_name: user-menu-mobile
+  route_name: user.register
+  weight: 5

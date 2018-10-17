@@ -1,0 +1,7 @@
+name: 'Shopify Migrate'
+type: module
+description: 'Collection of Migrate source plugins for Shopify.'
+core: 8.x
+package: 'Migrate'
+dependencies:
+  - drupal:migrate

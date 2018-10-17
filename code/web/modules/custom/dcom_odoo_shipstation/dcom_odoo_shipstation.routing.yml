@@ -1,0 +1,7 @@
+dcom_odoo_shipstation.endpoint:
+  path: '/shipstation/endpoint'
+  defaults:
+    _controller: '\Drupal\dcom_odoo_shipstation\Controller\ShipstationController::endpoint'
+    _title: 'endpoint'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,14 @@
+uuid: 2c824f73-3a70-4b63-9c5a-14ec4febf264
+langcode: en
+status: true
+dependencies: {  }
+name: lab_report
+label: 'Lab Report'
+effects:
+  87bf0c10-d052-479f-aa9a-424304f9846c:
+    uuid: 87bf0c10-d052-479f-aa9a-424304f9846c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 270
+      height: 350

@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: meta_image
+label: 'Meta Image (1200x630)'
+effects:
+  b6d8824d-f5e0-4110-90fa-c57c5eef2b65:
+    uuid: b6d8824d-f5e0-4110-90fa-c57c5eef2b65
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 630

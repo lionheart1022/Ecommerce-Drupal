@@ -1,0 +1,19 @@
+uuid: fc25aa56-4d27-4092-b27c-4dc7df431944
+langcode: en
+status: true
+dependencies: {  }
+id: staff_order_manager
+label: 'Staff - Order Manager'
+weight: -3
+is_admin: null
+permissions:
+  - 'access commerce administration pages'
+  - 'access commerce_order overview'
+  - 'access toolbar'
+  - 'administer commerce_payment'
+  - 'administer commerce_shipment'
+  - 'create default commerce_order'
+  - 'delete default commerce_order'
+  - 'update default commerce_order'
+  - 'view commerce_order'
+  - 'view the administration theme'

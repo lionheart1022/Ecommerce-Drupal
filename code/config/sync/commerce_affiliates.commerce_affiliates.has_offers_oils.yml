@@ -1,0 +1,22 @@
+uuid: 1dd796ce-b6b7-4106-bc7c-fa4c538ef3ec
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: has_offers_oils
+label: 'Has Offers - Oils'
+plugin: hasoffers_affiliate
+configuration:
+  network_id: diamondcbd
+  offer_id: '45'
+  affiliate_id: ''
+  type: https_iframe
+  api_key: ''
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: 0

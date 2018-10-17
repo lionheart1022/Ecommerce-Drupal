@@ -1,0 +1,248 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce - Odoo Migrate module file.
+ */
+
+use Drupal\Component\Render\FormattableMarkup;
+use Drupal\dcom_odoo_migrate\CronMigrateExecutable;
+use Drupal\dcom_odoo_migrate\MigrateMessageCapture;
+use Drupal\migrate\Plugin\migrate\destination\EntityContentBase as EntityContentBaseDestination;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\odoo_api_migrate\OdooCronMigrationSourceInterface;
+use Drupal\odoo_api_migrate\OdooHighwaterSourceInterface;
+use Psr\Log\LogLevel;
+
+/**
+ * Implements hook_cron().
+ */
+function dcom_odoo_migrate_cron() {
+  dcom_odoo_migrate_cleanup();
+
+  $message = new MigrateMessageCapture();
+  $logger = \Drupal::logger('dcom_odoo_migrate');
+
+  $migrations = \Drupal::service('plugin.manager.migration')
+    ->createInstancesByTag('dcom_odoo_migrate_cron');
+
+  uasort($migrations, 'dcom_odoo_migrate_sort');
+
+  foreach ($migrations as $migration) {
+    /** @var \Drupal\migrate\Plugin\MigrationInterface $migration */
+    // Reset status if migration is status is 'importing' more than two hours.
+    // Most likely it was interrupted, so try to recover.
+    $last_imported = \Drupal::keyValue('migrate_last_imported')
+      ->get($migration->id(), FALSE) / 1000;
+
+    if ($migration->getStatus() === MigrationInterface::STATUS_IMPORTING
+      && $last_imported
+      && $last_imported <= \Drupal::time()->getRequestTime() - 7200) {
+      $migration->setStatus(MigrationInterface::STATUS_IDLE);
+      $logger
+        ->log(LogLevel::WARNING, 'The migration %id status was reset due to being set running for more than 2 hours.', ['%id' => $migration->id()]);
+    }
+
+    $executable = new CronMigrateExecutable($migration, $message);
+
+    $migrate_source = $migration->getSourcePlugin();
+    $highwater = NULL;
+    if ($migrate_source instanceof OdooHighwaterSourceInterface) {
+      $highwater = $migrate_source->getOdooHighWaterValue();
+    }
+    if ($migrate_source instanceof OdooCronMigrationSourceInterface) {
+      $migrate_source->setCronMode(TRUE);
+      if ($forced_import_ids = dcom_odoo_migrate_forced_import_ids($migration)) {
+        foreach ($forced_import_ids as $forced_import_id) {
+          $migration->getIdMap()->setUpdate(['id' => $forced_import_id]);
+        }
+        $migrate_source->forceCronImportObjects($forced_import_ids);
+      }
+    }
+
+    if ($highwater) {
+      $count = $migrate_source->count();
+      $context = [
+        '@id' => $migration->id(),
+        '@highwater' => $highwater,
+        '@count' => $count,
+      ];
+      $logger
+        ->log('info', 'Started running @id, highwater: @highwater, count: @count.', $context);
+
+      if ($count > CronMigrateExecutable::CRON_RUN_ROWS_LIMIT) {
+        $context = [
+          '@id' => $migration->id(),
+          '@count' => $count,
+          '@limit' => CronMigrateExecutable::CRON_RUN_ROWS_LIMIT,
+        ];
+        $logger->log('warning', 'The migration @id imports @count rows which is above cron limit @limit. Only @limit items will be processed.', $context);
+        $executable->setLimit(CronMigrateExecutable::CRON_RUN_ROWS_LIMIT);
+      }
+
+      $executable->import();
+    }
+    else {
+      $logger
+        ->log('warning', 'Skipped cron run for migration @id: no highwater value.', ['@id' => $migration->id()]);
+    }
+
+    // Store messages.
+    foreach ($message->getMessages() as $type => $messages) {
+      $all_messages = implode(PHP_EOL, $messages);
+      if ($executable->getProcessedCount()) {
+        $logger
+          ->log(dcom_odoo_migrate_log_level($type), $all_messages);
+      }
+      $message->clear();
+    }
+  }
+}
+
+/**
+ * Log level validation helper.
+ */
+function dcom_odoo_migrate_log_level($type) {
+  $known_levels = [
+    LogLevel::EMERGENCY,
+    LogLevel::ALERT,
+    LogLevel::CRITICAL,
+    LogLevel::ERROR,
+    LogLevel::WARNING,
+    LogLevel::NOTICE,
+    LogLevel::INFO,
+    LogLevel::DEBUG,
+  ];
+
+  if (in_array($type, $known_levels)) {
+    return $type;
+  }
+
+  return LogLevel::NOTICE;
+}
+
+/**
+ * Migrations sort callback to push odoo_products to the top.
+ *
+ * This is required since odoo_products may trigger re-import of variations.
+ */
+function dcom_odoo_migrate_sort($a, $b) {
+  $priority = ['odoo_products' => 10, 'odoo_product_images' => 20];
+
+  if (!($a instanceof MigrationInterface) || !($b instanceof MigrationInterface)) {
+    // Only sort migrations.
+    return 0;
+  }
+
+  $priority_a = isset($priority[$a->id()]) ? $priority[$a->id()] : 0;
+  $priority_b = isset($priority[$b->id()]) ? $priority[$b->id()] : 0;
+
+  if ($priority_b > $priority_a) {
+    return 1;
+  }
+  if ($priority_a > $priority_b) {
+    return -1;
+  }
+
+  // Do not change order by default.
+  return 0;
+}
+
+/**
+ * Find Odoo IDs of objects which are forced to re-import.
+ *
+ * @param \Drupal\migrate\Plugin\MigrationInterface $migration
+ *   Migration object.
+ *
+ * @return array|null
+ *   Array of IDs of Odoo objects which should be always imported or NULL.
+ */
+function dcom_odoo_migrate_forced_import_ids(MigrationInterface $migration) {
+  $destination = $migration->getDestinationPlugin();
+  $product_or_variation_import = in_array($destination->getPluginId(), [
+    'entity:commerce_product',
+    'entity:commerce_product_variation',
+  ]);
+  if (!($destination instanceof EntityContentBaseDestination) || !$product_or_variation_import) {
+    // Only process products and product variations importers.
+    return NULL;
+  }
+
+  $logger = \Drupal::logger('dcom_odoo_migrate');
+  $cron_limit = 100;
+
+  $entity_type = substr($destination->getPluginId(), 7);
+  $force_import_entities = \Drupal::entityQuery($entity_type)
+    ->condition('field_force_odoo_migrate', TRUE)
+    // Limit to 50 entities. We're limiting to 51 to find if there are some
+    // entities not fitting the limit.
+    ->range(0, $cron_limit + 1)
+    ->execute();
+
+  if (count($force_import_entities) > $cron_limit) {
+    $logger->error('More than @count @type entities are forced to import, only @count will be processed.', [
+      '@count' => $cron_limit,
+      '@type' => $entity_type,
+    ]);
+    $force_import_entities = array_slice($force_import_entities, 0, $cron_limit);
+  }
+
+  if (!$force_import_entities) {
+    return NULL;
+  }
+
+  $entity_id_field = \Drupal::entityTypeManager()
+    ->getDefinition($entity_type)
+    ->getKey('id');
+
+  $odoo_ids = [];
+  $id_map = $migration->getIdMap();
+  foreach ($force_import_entities as $entity_id) {
+    $odoo_id = $id_map->lookupSourceID([$entity_id_field => $entity_id]);
+    if (!empty($odoo_id['id'])) {
+      $odoo_ids[$odoo_id['id']] = $odoo_id['id'];
+    }
+  }
+
+  return array_values($odoo_ids);
+}
+
+/**
+ * Remove Migrate mapping for removed entities.
+ */
+function dcom_odoo_migrate_cleanup() {
+  $migrations = [
+    'odoo_products' => 'commerce_product',
+    'odoo_product_variants' => 'commerce_product_variation',
+  ];
+
+  foreach ($migrations as $migration_name => $entity_type) {
+    $entity_type_def = \Drupal::entityTypeManager()->getDefinition($entity_type);
+    $table = $entity_type_def->getBaseTable();
+    $id_field = $entity_type_def->getKey('id');
+
+    $migrate_map_table = 'migrate_map_' . $migration_name;
+    if (!\Drupal::database()->schema()->tableExists($migrate_map_table)) {
+      continue;
+    }
+
+    $query = \Drupal::database()
+      ->select($migrate_map_table, 'm')
+      ->fields('m', ['destid1']);
+    $query
+      ->leftJoin($table, 'e', 'e.{' . $id_field . '} = m.destid1');
+    $query->isNull('e.' . $id_field);
+    $ids = $query->execute()->fetchCol();
+
+    if ($ids) {
+      $logger = \Drupal::logger('dcom_odoo_migrate');
+      $message = (string) new FormattableMarkup('Removing @count orphan entries from @table.', ['@count' => count($ids), '@table' => $migrate_map_table]);
+      $logger->warning($message);
+
+      \Drupal::database()
+        ->delete($migrate_map_table)
+        ->condition('destid1', $ids, 'IN')
+        ->execute();
+    }
+  }
+}

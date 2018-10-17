@@ -1,0 +1,41 @@
+uuid: 6cdd7ab1-20c9-44fd-90cc-56c68366fe83
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c8d21f53-9fea-4414-b1e1-e1eabb2def4a'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - diamondhemp
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondhemp_contactblock
+theme: diamondhemp
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:c8d21f53-9fea-4414-b1e1-e1eabb2def4a'
+settings:
+  id: 'block_content:c8d21f53-9fea-4414-b1e1-e1eabb2def4a'
+  label: 'Diamondhemp Contact block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /diamondhemp-contact
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,10 @@
+uuid: 11508c61-2761-4520-bc83-75537aea14bc
+langcode: en
+status: true
+dependencies: {  }
+id: icntxt
+label: 'Icon Text'
+icon_uuid: null
+description: ''
+save_empty: false
+behavior_plugins: {  }

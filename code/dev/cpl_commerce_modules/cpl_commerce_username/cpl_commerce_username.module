@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * CPL Commerce Username module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Apply ucfirst() to usernames.
+ *
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function cpl_commerce_username_user_presave(EntityInterface $entity) {
+  $ucfirst_fields = [
+    'field_first_name',
+    'field_last_name',
+  ];
+  foreach ($ucfirst_fields as $field) {
+    if (!empty($entity->{$field}->value)) {
+      $entity->{$field}->value = ucfirst(trim(strtolower($entity->{$field}->value)));
+    }
+  }
+}
+
+/**
+ * Apply ucfirst() to profile address first name / last name.
+ *
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function cpl_commerce_username_profile_presave(EntityInterface $entity) {
+  if ($address = $entity->address->first()) {
+    /** @var \Drupal\address\Plugin\Field\FieldType\AddressItem $address */
+    $first_name = $address->given_name;
+    $last_name = $address->family_name;
+    if (ucfirst(trim(strtolower($first_name))) != $first_name
+      || ucfirst(trim(strtolower($last_name))) != $last_name) {
+      $address->set('given_name', ucfirst(trim(strtolower($first_name))));
+      $address->set('family_name', ucfirst(trim(strtolower($last_name))));
+    }
+  }
+}

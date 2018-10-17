@@ -1,0 +1,10 @@
+uuid: ad2e3765-15b8-4e50-b78d-a44735863b87
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Q2Ra3jfoIVk0f3SjxJX61byRQFVBAbpzYDQOiY-kno8
+id: main
+label: 'Mbio Navigation'
+description: 'Site section links'
+locked: true

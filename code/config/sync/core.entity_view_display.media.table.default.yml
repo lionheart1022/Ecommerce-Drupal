@@ -1,0 +1,33 @@
+uuid: 7a1869ec-22bd-4e14-9c24-ef8dc28a9015
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.table.field_body
+    - field.field.media.table.field_media_image
+    - field.field.media.table.field_media_product_ref
+    - field.field.media.table.field_media_term_ref
+    - media.type.table
+  module:
+    - text
+id: media.table.default
+targetEntityType: media
+bundle: table
+mode: default
+content:
+  field_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  created: true
+  field_media_image: true
+  field_media_product_ref: true
+  field_media_term_ref: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

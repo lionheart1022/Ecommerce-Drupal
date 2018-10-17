@@ -1,0 +1,21 @@
+uuid: 13db6aa8-53d0-4cec-9965-2ef118635a57
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_parallax
+    - paragraphs.paragraphs_type.imgtxtbanner
+  module:
+    - options
+id: paragraph.imgtxtbanner.field_par_parallax
+field_name: field_par_parallax
+entity_type: paragraph
+bundle: imgtxtbanner
+label: Parallax
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

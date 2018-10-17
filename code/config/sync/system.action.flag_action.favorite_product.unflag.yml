@@ -1,0 +1,13 @@
+uuid: 8abdd828-f166-4087-a56b-3ad546d9f1ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.favorite_product.unflag
+label: Unlike
+type: commerce_product
+plugin: 'flag_action:favorite_product.unflag'
+configuration:
+  flag_id: favorite_product
+  flag_action: unflag

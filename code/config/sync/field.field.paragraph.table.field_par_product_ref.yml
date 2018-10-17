@@ -1,0 +1,28 @@
+uuid: b688d060-b514-4a11-80fa-22687aded3b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.paragraph.field_par_product_ref
+    - paragraphs.paragraphs_type.table
+id: paragraph.table.field_par_product_ref
+field_name: field_par_product_ref
+entity_type: paragraph
+bundle: table
+label: 'Displayed content: product reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      cbd_product: cbd_product
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

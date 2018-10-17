@@ -1,0 +1,52 @@
+domain.record.*.third_party.domain_info:
+  type: mapping
+  label: 'Domain Information'
+  mapping:
+    contact_page_path:
+      type: sequence
+      label: 'Contact Page'
+      sequence:
+        type: string
+        label: 'Path'
+    company_email:
+      type: sequence
+      label: 'Email'
+      sequence:
+        type: email
+        label: 'Email'
+    company_logo:
+      type: sequence
+      label: 'Logo'
+      sequence:
+        type: string
+        label: 'Logo'
+    company_phone:
+      type: sequence
+      label: 'Phone'
+      sequence:
+        type: string
+        label: 'Phone'
+    company_address:
+      type: sequence
+      label: 'Address'
+      sequence:
+        type: string
+        label: 'Address'
+    company_fb:
+      type: sequence
+      label: 'Facebook'
+      sequence:
+        type: string
+        label: 'Facebook'
+    company_twitter:
+      type: sequence
+      label: 'Twitter'
+      sequence:
+        type: string
+        label: 'Twitter'
+    company_instagram:
+      type: sequence
+      label: 'Instagram'
+      sequence:
+        type: string
+        label: 'Instagram'

@@ -1,0 +1,9 @@
+uuid: 3e803f24-49c5-4749-9dcc-d8932635398c
+langcode: en
+status: true
+dependencies: {  }
+id: www_chillgummies
+domain_id: chillgummies_domain
+pattern: chillgummies.com
+redirect: 301
+environment: default

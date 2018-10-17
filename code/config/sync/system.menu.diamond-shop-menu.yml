@@ -1,0 +1,8 @@
+uuid: 60fd1a42-f950-4ee6-86bf-0e0bfed24ca4
+langcode: en
+status: true
+dependencies: {  }
+id: diamond-shop-menu
+label: 'Diamond Shop Menu'
+description: ''
+locked: false

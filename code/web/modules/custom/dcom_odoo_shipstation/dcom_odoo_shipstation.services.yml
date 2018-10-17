@@ -1,0 +1,10 @@
+services:
+  dcom_odoo_shipstation.orders_list:
+    class: Drupal\dcom_odoo_shipstation\OrdersList
+    arguments: ['@odoo_api.api_client', '@odoo_api.address_resolver']
+  dcom_odoo_shipstation.formatter:
+    class: Drupal\dcom_odoo_shipstation\ShipstationFormatter
+    arguments: ['@logger.factory', '@dcom_odoo_entity_sync.carrier_resolver']
+  dcom_odoo_shipstation.transfer_processor:
+    class: Drupal\dcom_odoo_shipstation\TransferProcessor
+    arguments: ['@odoo_api.api_client']

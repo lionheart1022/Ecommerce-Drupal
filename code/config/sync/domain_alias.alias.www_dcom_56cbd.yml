@@ -1,0 +1,9 @@
+uuid: f1b45502-e239-47a8-8255-31f69949b966
+langcode: en
+status: true
+dependencies: {  }
+id: www_dcom_56cbd
+domain_id: dcom_56cbd_domain
+pattern: 56cbd.com
+redirect: 301
+environment: default

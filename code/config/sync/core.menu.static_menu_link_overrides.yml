@@ -1,0 +1,81 @@
+definitions:
+  dcom_menu__mbio-menu__show_all:
+    weight: -47
+    menu_name: mbio-menu
+    parent: ''
+    enabled: true
+    expanded: false
+  dcom_menu__mbio-menu__capsules:
+    weight: -48
+    menu_name: mbio-menu
+    parent: ''
+    expanded: false
+    enabled: true
+  dcom_menu__mbio-menu__edibles:
+    weight: -47
+    menu_name: mbio-menu
+    parent: ''
+    expanded: false
+    enabled: true
+  dcom_menu__mbio-menu__oils:
+    weight: -46
+    menu_name: mbio-menu
+    parent: ''
+    expanded: false
+    enabled: true
+  dcom_menu__mbio-menu__vapes:
+    weight: -45
+    menu_name: mbio-menu
+    parent: ''
+    expanded: false
+    enabled: true
+  dcom_menu__medipets_contact:
+    enabled: true
+    menu_name: medipets-navigation
+    parent: ''
+    expanded: false
+    weight: 6
+  dcom_menu__medipets-menu__show_all:
+    weight: -47
+    menu_name: medipets-menu
+    parent: ''
+    enabled: true
+    expanded: false
+  dcom_menu__diamondhemp_faqs:
+    enabled: true
+    menu_name: diamondhemp-navigation
+    parent: ''
+    weight: 2
+    expanded: false
+  dcom_menu__diamondhemp_about:
+    enabled: true
+    menu_name: diamondhemp-navigation
+    parent: ''
+    weight: 3
+    expanded: false
+  dcom_menu__diamondhemp_blog:
+    enabled: true
+    menu_name: diamondhemp-navigation
+    parent: ''
+    weight: 4
+    expanded: false
+  dcom_menu__diamondhemp_corporate:
+    enabled: true
+    menu_name: diamondhemp-navigation
+    parent: ''
+    weight: 5
+    expanded: false
+  dcom_menu__diamondhemp-menu__show_all:
+    weight: -47
+    menu_name: diamondhemp-menu
+    parent: ''
+    enabled: true
+    expanded: false
+  dcom_menu__diamondhemp_beauty:
+    enabled: false
+    menu_name: diamondhemp-navigation
+    parent: ''
+    expanded: false
+    weight: 1
+_core:
+  default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM

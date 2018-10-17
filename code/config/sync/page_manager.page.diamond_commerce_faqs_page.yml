@@ -1,0 +1,12 @@
+uuid: dc68f7b9-0e3c-44f2-a86b-616501301521
+langcode: en
+status: true
+dependencies: {  }
+id: diamond_commerce_faqs_page
+label: 'Diamond Commerce FAQs Page'
+description: 'Main Diamond Commerce FAQs Page.'
+use_admin_theme: false
+path: /faqs
+access_logic: and
+access_conditions: {  }
+parameters: {  }

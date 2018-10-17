@@ -1,0 +1,23 @@
+uuid: a2c257cd-5fbc-4768-add6-6e2483babefa
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_mobile_menu
+    - field.storage.block_content.field_block_menu_type
+  module:
+    - options
+id: block_content.cpl_mobile_menu.field_block_menu_type
+field_name: field_block_menu_type
+entity_type: block_content
+bundle: cpl_mobile_menu
+label: 'Mobile Menu Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: M1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

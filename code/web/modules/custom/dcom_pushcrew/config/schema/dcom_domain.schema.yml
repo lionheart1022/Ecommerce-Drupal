@@ -1,0 +1,10 @@
+domain.record.*.third_party.pushcrew_api_key:
+  type: mapping
+  label: 'Push Crew API Key'
+  mapping:
+    pushcrew_api_key:
+      type: sequence
+      label: 'Push Crew API'
+      sequence:
+        type: string
+        label: 'API key'

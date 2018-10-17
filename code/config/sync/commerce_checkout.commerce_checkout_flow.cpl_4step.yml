@@ -1,0 +1,84 @@
+uuid: 31a87f93-7d89-4d9d-bd87-e377e7f1e795
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_affiliates
+    - commerce_payment
+    - commerce_promotion
+    - commerce_shipping
+    - cpl_commerce_checkout
+    - dcom_checkout
+    - dcom_rakuten
+_core:
+  default_config_hash: wwkDVBiXUqSzRifJbb71ajFBklJdNJ_DgS67IF-_qgY
+id: cpl_4step
+label: '4 Step CPL Commerce Checkout'
+plugin: cpl_commerce_checkout_4step
+configuration:
+  display_checkout_progress: true
+  panes:
+    cpl_commerce_checkout_contact_information:
+      double_entry: false
+      step: customer_information
+      weight: '0'
+      auto_register: true
+    cpl_commerce_checkout_shipping_profile:
+      step: customer_information
+      weight: '1'
+    cpl_commerce_checkout_confirmation_checkbox:
+      step: customer_information
+      weight: '2'
+      confirmation_checkbox_title: 'I confirm I am 18 years of age or older.'
+      confirmation_checkbox_validation_message: 'Please confirm your age.'
+    cpl_commerce_checkout_shipping_method:
+      step: shipping_method
+      weight: '3'
+      require_shipping_profile: true
+    payment_information:
+      reuse_profile: true
+      reuse_profile_label: 'My billing address is the same as my shipping address.'
+      reuse_profile_default: true
+      step: payment_information
+      weight: '4'
+    payment_process:
+      capture: true
+      step: payment
+      weight: '5'
+    completion_message:
+      step: complete
+      weight: '6'
+    affiliates_processing:
+      step: complete
+      weight: '7'
+    dcom_rakuten_marketing:
+      step: complete
+      weight: '8'
+    order_summary:
+      view: commerce_checkout_order_summary
+      step: _sidebar
+      weight: '9'
+    coupon_redemption:
+      allow_multiple: false
+      step: _sidebar
+      weight: '10'
+    contact_information:
+      double_entry: false
+      step: _disabled
+      weight: '11'
+    shipping_information:
+      require_shipping_profile: true
+      reuse_profile: false
+      reuse_profile_label: 'My shipping address is the same as my billing address.'
+      reuse_profile_default: false
+      step: _disabled
+      weight: '12'
+    login:
+      allow_guest_checkout: true
+      allow_registration: false
+      step: _disabled
+      weight: '13'
+    review:
+      step: _disabled
+      weight: '14'
+  display_cart_link: 1

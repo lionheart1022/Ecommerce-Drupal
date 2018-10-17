@@ -1,0 +1,15 @@
+services:
+  commerce_klaviyo_review.order_subscriber:
+    class: \Drupal\commerce_klaviyo_review\EventSubscriber\OrderEventSubscriber
+    arguments: ['@commerce_klaviyo_review.review_builder']
+    tags:
+      - { name: 'event_subscriber' }
+  commerce_klaviyo_review.config_helper:
+    class: Drupal\commerce_klaviyo_review\CommerceKlaviyoReviewConfigHelper
+    arguments: ['@config.factory']
+  commerce_klaviyo_review.review_builder:
+    class: Drupal\commerce_klaviyo_review\ReviewBuilder
+    arguments: ['@config.factory', '@event_dispatcher', '@entity_type.manager']
+  commerce_klaviyo_review.current_user:
+    class: Drupal\commerce_klaviyo_review\CurrentUser
+    arguments: ['@current_route_match', '@current_user']

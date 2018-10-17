@@ -1,0 +1,30 @@
+uuid: 2213f7ae-fc61-405a-a730-0a122d0cd7cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_content_items
+    - field_collection.field_collection.field_par_content_items
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - field_collection
+id: paragraph.imgtxt.field_par_content_items
+field_name: field_par_content_items
+entity_type: paragraph
+bundle: imgtxt
+label: 'Displayed content: custom'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:field_collection_item'
+  handler_settings:
+    target_bundles:
+      field_par_content_items: field_par_content_items
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: field_collection

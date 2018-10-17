@@ -1,0 +1,6 @@
+uuid: 90eb3958-c0e8-4489-8c43-bd98c8bb02d0
+langcode: en
+status: true
+dependencies: {  }
+id: field_domain_fields
+label: field_domain_fields

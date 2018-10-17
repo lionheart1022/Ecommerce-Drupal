@@ -1,0 +1,105 @@
+uuid: 4f8c20dc-9aed-49fc-851c-948831968e1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.view.field_par_background_color
+    - field.field.paragraph.view.field_par_class
+    - field.field.paragraph.view.field_par_constraint
+    - field.field.paragraph.view.field_par_row_style
+    - field.field.paragraph.view.field_par_view
+    - field.field.paragraph.view.field_par_vmargin
+    - field.field.paragraph.view.field_par_vpadding
+    - paragraphs.paragraphs_type.view
+  module:
+    - field_group
+    - viewsreference
+third_party_settings:
+  field_group:
+    group_container:
+      children:
+        - field_par_constraint
+        - field_par_row_style
+        - field_par_vmargin
+        - field_par_vpadding
+        - field_par_background_color
+        - field_par_class
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Container
+      region: content
+    group_content:
+      children:
+        - field_par_view
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: false
+      label: Content
+      region: content
+id: paragraph.view.default
+targetEntityType: paragraph
+bundle: view
+mode: default
+content:
+  field_par_background_color:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_class:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_par_constraint:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_row_style:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_view:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: '60'
+      placeholder: ''
+    third_party_settings: {  }
+    type: viewsreference_autocomplete
+    region: content
+  field_par_vmargin:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_vpadding:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

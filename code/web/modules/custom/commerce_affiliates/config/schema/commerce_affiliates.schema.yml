@@ -1,0 +1,18 @@
+commerce_affiliates.commerce_affiliate_type.*:
+  type: config_entity
+  label: 'Affiliate type'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    plugin:
+      type: string
+      label: 'Plugin'
+    configuration:
+      type: commerce_affiliates.commerce_affiliate_type.plugin.[%parent.plugin]
+
+commerce_affiliates.commerce_affiliate_type.plugin.*:
+  type: commerce_affiliate_type_configuration

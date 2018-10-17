@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.product_row_style_1
+label: 'Product Row Style 1'
+targetEntityType: commerce_product
+cache: true

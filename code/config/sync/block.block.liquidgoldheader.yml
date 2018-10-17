@@ -1,0 +1,35 @@
+uuid: e2615cb1-feb4-4df4-ac66-cb687ecd1bc7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_header:6477e8f5-246b-4ea4-9a04-91dfa417d895'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - cbdliquidgold
+third_party_settings:
+  block_class:
+    classes: ''
+id: liquidgoldheader
+theme: cbdliquidgold
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:6477e8f5-246b-4ea4-9a04-91dfa417d895'
+settings:
+  id: 'block_content:6477e8f5-246b-4ea4-9a04-91dfa417d895'
+  label: 'LiquidGold Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

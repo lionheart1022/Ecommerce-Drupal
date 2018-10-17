@@ -1,0 +1,9 @@
+uuid: a84e6a22-e253-4d87-9933-652cec6c249e
+langcode: en
+status: true
+dependencies: {  }
+id: dev_diamondhemp
+domain_id: diamondhemp_domain
+pattern: diamondhemp.dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

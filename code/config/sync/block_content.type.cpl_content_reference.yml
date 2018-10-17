@@ -1,0 +1,8 @@
+uuid: 93d0b749-ec03-4e9c-977e-478643d644f2
+langcode: en
+status: true
+dependencies: {  }
+id: cpl_content_reference
+label: 'CPL Content Reference'
+revision: 0
+description: 'Create reusable blocks with content.'

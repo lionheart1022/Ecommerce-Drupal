@@ -1,0 +1,8 @@
+uuid: 074ec22d-307f-419d-a231-5060ea832be6
+langcode: en
+status: true
+dependencies: {  }
+id: diamondhemp-mobile-menu
+label: 'DiamondHemp Mobile Menu'
+description: ''
+locked: false

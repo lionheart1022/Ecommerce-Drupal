@@ -1,0 +1,8 @@
+address_helper.search_controller_search:
+  path: '/address_helper/search/{service_id}/{country_code}'
+  defaults:
+    _controller: '\Drupal\address_helper\Controller\SearchController::search'
+    _format: 'json'
+  # TODO: Access control.
+  requirements:
+    _access: 'TRUE'

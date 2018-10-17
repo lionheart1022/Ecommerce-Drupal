@@ -1,0 +1,12 @@
+{% extends '@cpl_base_commerce/commerce-product--default.html.twig' %}
+
+{% block product_label %}
+  {% set product_category = product_entity.field_product_category.entity.machine_name.value %}
+
+  {% if product_category == 'vapes' %}
+    <div class="product-ribbon">
+      <div>{{ 'New improved formula with more CBD'|t }}</div>
+      <i></i><i></i><i></i><i></i>
+    </div>
+  {% endif %}
+{% endblock %}

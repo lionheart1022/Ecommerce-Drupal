@@ -1,0 +1,9 @@
+uuid: e714b7fb-e9dc-4e71-b7a8-ffd8c63f3d06
+langcode: en
+status: true
+dependencies: {  }
+id: dev_dcom_56cbd
+domain_id: dcom_56cbd_domain
+pattern: 56cbd.dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

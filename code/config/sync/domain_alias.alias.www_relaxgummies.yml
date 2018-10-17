@@ -1,0 +1,9 @@
+uuid: 286a4f4f-15ce-460b-b3e2-d2fb104655e5
+langcode: en
+status: true
+dependencies: {  }
+id: www_relaxgummies
+domain_id: relaxgummies_domain
+pattern: relaxgummies.com
+redirect: 301
+environment: default

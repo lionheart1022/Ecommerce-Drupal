@@ -1,0 +1,47 @@
+uuid: 51426e24-3450-4d84-a75a-520fcc827f4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.mbio-menu.field_menu_product_ref
+  module:
+    - link
+    - menu_link_content
+id: menu_link_content.mbio-menu.default
+targetEntityType: menu_link_content
+bundle: mbio-menu
+mode: default
+content:
+  field_menu_product_ref:
+    weight: 21
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  view_mode:
+    weight: 22
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden: {  }

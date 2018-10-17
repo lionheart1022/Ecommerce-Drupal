@@ -1,0 +1,29 @@
+uuid: fd3139cf-5dda-4a69-aec2-9fa7cc037c42
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 92bXZdyYJ5xqukdfmGRr_CYcwm1vfuS8b8aJ7X_G7E0
+id: taxonomy_term
+label: 'Taxonomy term'
+tags:
+  abstract: '[cpl_commerce_facet:active_term_description]'
+  description: '[cpl_commerce_facet:active_term_description]'
+  title: '[cpl_commerce_facet:active_title] | [current-domain:name]'
+  canonical_url: '[term:url]'
+  head_title: '[cpl_commerce_facet:active_title] | [current-domain:name]'
+  og_image_height: '[cpl_commerce_facet:active_image:max_1300x1300:height]'
+  og_image: '[cpl_commerce_facet:active_image:max_1300x1300]'
+  og_description: '[cpl_commerce_facet:active_term_description]'
+  og_image_width: '[cpl_commerce_facet:active_image:max_1300x1300:width]'
+  og_image_url: '[cpl_commerce_facet:active_image:max_1300x1300]'
+  og_url: '[current-page:url]'
+  og_site_name: '[site:name]'
+  og_title: '[cpl_commerce_facet:active_title]'
+  twitter_cards_type: summary_large_image
+  twitter_cards_image: '[cpl_commerce_facet:active_image:max_1300x1300]'
+  twitter_cards_description: '[cpl_commerce_facet:active_term_description]'
+  twitter_cards_title: '[cpl_commerce_facet:active_title]'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_image_width: '[cpl_commerce_facet:active_image:max_1300x1300:width]'
+  twitter_cards_image_height: '[cpl_commerce_facet:active_image:max_1300x1300:height]'

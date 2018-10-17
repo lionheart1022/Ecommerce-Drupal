@@ -1,0 +1,43 @@
+uuid: cd1f1bee-fcff-4a15-8807-2a784d7a3caa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.diamond_commerce_brand.field_domain
+    - field.field.taxonomy_term.diamond_commerce_brand.field_domain_fields
+    - field.field.taxonomy_term.diamond_commerce_brand.field_image
+    - field.field.taxonomy_term.diamond_commerce_brand.field_is_collection
+    - field.field.taxonomy_term.diamond_commerce_brand.field_meta_description
+    - field.field.taxonomy_term.diamond_commerce_brand.field_meta_title
+    - field.field.taxonomy_term.diamond_commerce_brand.field_url_value
+    - taxonomy.vocabulary.diamond_commerce_brand
+  module:
+    - text
+id: taxonomy_term.diamond_commerce_brand.default
+targetEntityType: taxonomy_term
+bundle: diamond_commerce_brand
+mode: default
+content:
+  description:
+    type: text_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_domain:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  field_domain_fields: true
+  field_image: true
+  field_is_collection: true
+  field_meta_description: true
+  field_meta_title: true
+  field_url_value: true
+  langcode: true

@@ -1,0 +1,106 @@
+uuid: e0ed0030-bdf8-448c-bfe7-27f4d25df087
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.block.field_par_background_color
+    - field.field.paragraph.block.field_par_block_ref
+    - field.field.paragraph.block.field_par_class
+    - field.field.paragraph.block.field_par_constraint
+    - field.field.paragraph.block.field_par_row_style
+    - field.field.paragraph.block.field_par_vmargin
+    - field.field.paragraph.block.field_par_vpadding
+    - paragraphs.paragraphs_type.block
+  module:
+    - block_field
+    - field_group
+third_party_settings:
+  field_group:
+    group_container:
+      children:
+        - field_par_constraint
+        - field_par_row_style
+        - field_par_vmargin
+        - field_par_vpadding
+        - field_par_background_color
+        - field_par_class
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Container
+      region: content
+    group_content:
+      children:
+        - field_par_block_ref
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        label: Content
+        open: true
+        id: ''
+        classes: ''
+        required_fields: false
+      label: Content
+      region: content
+id: paragraph.block.default
+targetEntityType: paragraph
+bundle: block
+mode: default
+content:
+  field_par_background_color:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_block_ref:
+    weight: 1
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
+    third_party_settings: {  }
+    type: block_field_default
+    region: content
+  field_par_class:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_par_constraint:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_row_style:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_vmargin:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_vpadding:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

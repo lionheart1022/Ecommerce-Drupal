@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * CPL Search Popup module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function cpl_search_popup_theme($existing, $type, $theme, $path) {
+  return [
+    'cpl_search_popup_block' => [
+      'variables' => [
+        'items_count' => 1,
+      ],
+    ],
+  ];
+}

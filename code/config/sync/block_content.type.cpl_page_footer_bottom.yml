@@ -1,0 +1,8 @@
+uuid: 8a1c3687-acc6-4d2d-b2b2-ef25e8169495
+langcode: en
+status: true
+dependencies: {  }
+id: cpl_page_footer_bottom
+label: 'CPL Page Footer Bottom'
+revision: 0
+description: 'Footer bottom bar.'

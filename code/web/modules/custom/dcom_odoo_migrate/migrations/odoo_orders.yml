@@ -1,0 +1,65 @@
+id: odoo_orders
+label: Odoo Orders
+migration_group: odoo
+migration_tags:
+  - dcom_odoo_migrate_cron
+  - odoo_api_entity_sync_save_mapping
+  - odoo_api_entity_sync_export_type_default
+  - odoo_two_way_sync
+
+source:
+  plugin: odoo_api
+  model: sale.order
+  filters:
+    -
+      - 'state'
+      - 'in'
+      -
+        - 'sale'
+        - 'done'
+        - 'cancel'
+  fields:
+    - partner_id
+    - picking_ids
+    - state
+    - write_date
+  join:
+    -
+      target_model: 'stock.picking'
+      base_field: 'picking_ids'
+      fields:
+        - state
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:commerce_order'
+  destination_module: commerce_order
+
+process:
+  # TODO Support Odoo sale, locked states (Drupal fulfillment, completed).
+  # TODO Pull order address?
+  state:
+    -
+      plugin: skip_row_if_no_destination
+    -
+      plugin: dcom_order_state_from_odoo_transfer
+      source:
+        - picking_ids
+        - state
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'The order is not fulfilled or canceled'
+  uid:
+    -
+      plugin: array_shift
+      source: partner_id
+    -
+      plugin: migration_lookup
+      migration: odoo_users
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

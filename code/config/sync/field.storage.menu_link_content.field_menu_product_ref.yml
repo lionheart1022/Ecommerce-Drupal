@@ -1,0 +1,20 @@
+uuid: e1f1020b-a918-4cfc-9252-b619635420aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - menu_link_content
+id: menu_link_content.field_menu_product_ref
+field_name: field_menu_product_ref
+entity_type: menu_link_content
+type: entity_reference
+settings:
+  target_type: commerce_product
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

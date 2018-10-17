@@ -1,0 +1,20 @@
+uuid: f789b800-72ec-46a0-b34a-22ab6a1bc0bb
+langcode: en
+status: true
+dependencies:
+  theme:
+    - mbio
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: mbio_local_actions
+theme: mbio
+region: content
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

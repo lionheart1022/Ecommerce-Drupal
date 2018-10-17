@@ -1,0 +1,14 @@
+uuid: 24013b76-8fa1-4926-b153-5c72325774c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.staff_customer_service
+  module:
+    - user
+id: user_add_role_action.staff_customer_service
+label: 'Add the Staff - Customer Service role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: staff_customer_service

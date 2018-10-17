@@ -1,0 +1,169 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce Product review module.
+ */
+
+use Drupal\comment\Entity\Comment;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ *
+ * Save products vote when product review was written.
+ */
+function dcom_product_review_comment_insert(Comment $entity) {
+  if ($entity->getFieldName() != 'field_review') {
+    return;
+  }
+
+  $storage = \Drupal::service('entity.manager')->getStorage('vote');
+  $currentUser = \Drupal::currentUser();
+  $entity_type = 'commerce_product';
+  $entity_id = $entity->getCommentedEntityId();
+  $type = 'dcom_average_review';
+  $field_name = 'field_average_review';
+
+  $voteData = [
+    'entity_type' => $entity_type,
+    'entity_id'   => $entity_id,
+    'type'        => $type,
+    'field_name'  => $field_name,
+    'user_id'     => $currentUser->id(),
+  ];
+
+  $vote = $storage->create($voteData);
+  $vote->value = $entity->get('field_review_vote')->getValue();
+  $vote->save();
+
+  $entity->field_vote_reference->setValue($vote);
+  $entity->save();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function dcom_product_review_theme() {
+  return [
+    'dcom_product_review_formatter' => [
+      'variables' => ['results' => NULL],
+      'template' => 'dcom-product-formatter',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function dcom_product_review_comment_delete(Comment $entity) {
+  if ($entity->getFieldName() != 'field_review') {
+    return;
+  }
+
+  if ($vote = $entity->field_vote_reference->entity) {
+    $vote->delete();
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function dcom_product_review_comment_update(Comment $entity) {
+  if ($entity->getFieldName() != 'field_review') {
+    return;
+  }
+
+  if ($vote = $entity->field_vote_reference->entity) {
+    $vote->value = $entity->get('field_review_vote')->getValue();
+    $vote->save();
+  }
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function dcom_product_review_token_info() {
+  $tokens['commerce_product']['product_reviews_value'] = [
+    'name' => t('Product Reviews Value'),
+    'description' => t('The value of the commerce product reviews.'),
+  ];
+
+  $tokens['commerce_product']['product_reviews_count'] = [
+    'name' => t('Product Reviews Count'),
+    'description' => t('The count of the commerce product reviews.'),
+  ];
+
+  $tokens['commerce_product']['product_price_min'] = [
+    'name' => t('Product Price Minimum'),
+    'description' => t('Minimum price of the commerce product.'),
+  ];
+
+  $tokens['commerce_product']['product_price_max'] = [
+    'name' => t('Product Price Maximum'),
+    'description' => t('Maximum price of the commerce product.'),
+  ];
+
+  return [
+    'tokens' => $tokens,
+  ];
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function dcom_product_review_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+
+  $replacements = [];
+
+  if ($type == 'commerce_product' && !empty($data['commerce_product'])) {
+    /** @var \Drupal\commerce_product\Entity\Product $product */
+    $product = $data['commerce_product'];
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'product_reviews_value':
+          $results = \Drupal::service('plugin.manager.votingapi.resultfunction')
+            ->getResults('commerce_product', $product->id());
+          $bubbleable_metadata->addCacheableDependency($product);
+          $replacements[$original] = !empty($results['dcom_average_review']['vote_average']) ? round($results['dcom_average_review']['vote_average'], 1) : 0;
+          break;
+
+        case 'product_reviews_count':
+          $results = \Drupal::service('plugin.manager.votingapi.resultfunction')
+            ->getResults('commerce_product', $product->id());
+          $bubbleable_metadata->addCacheableDependency($product);
+          $replacements[$original] = !empty($results['dcom_average_review']['vote_count']) ? $results['dcom_average_review']['vote_count'] : 0;
+          break;
+
+        case 'product_price_min':
+          $product_variations = $product->getVariations();
+          foreach ($product_variations as $variation) {
+            /** @var \Drupal\commerce_product\Entity\ProductVariation $product_variations */
+            $prices[] = $variation->getPrice()->getNumber();
+            $bubbleable_metadata->addCacheableDependency($variation);
+          }
+          $bubbleable_metadata->addCacheableDependency($product);
+          if (!empty($prices)) {
+            $replacements[$original] = round(min($prices), 2);
+          }
+          break;
+
+        case 'product_price_max':
+          $product_variations = $product->getVariations();
+          foreach ($product_variations as $variation) {
+            /** @var \Drupal\commerce_product\Entity\ProductVariation $product_variations */
+            $prices[] = $variation->getPrice()->getNumber();
+            $bubbleable_metadata->addCacheableDependency($variation);
+          }
+          $bubbleable_metadata->addCacheableDependency($product);
+          if (!empty($prices)) {
+            $replacements[$original] = round(max($prices), 2);
+          }
+          break;
+      }
+    }
+
+  }
+
+  return $replacements;
+}

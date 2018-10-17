@@ -1,0 +1,21 @@
+uuid: bad3a536-72fe-4fa7-a7c5-e3170b5d6a32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media_type
+    - node.type.media
+  module:
+    - options
+id: node.media.field_media_type
+field_name: field_media_type
+entity_type: node
+bundle: media
+label: Type
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

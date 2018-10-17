@@ -1,0 +1,14 @@
+uuid: 42690ef9-20e0-4565-aae6-c5d44cf5519c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.default
+  module:
+    - domain_access
+id: domain_access_add_action.default
+label: 'Add selected content to the Default domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: default

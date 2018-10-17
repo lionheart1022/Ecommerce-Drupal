@@ -1,0 +1,41 @@
+uuid: 5af629c1-0f9c-470a-985d-f1ee89570cf8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_footer_bottom:b4cfc18d-04bc-4463-a8e3-d9e25c91cdfb'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - mbio
+third_party_settings:
+  block_class:
+    classes: ''
+id: mbio_bottom_bar
+theme: mbio
+region: footer_wide
+weight: -7
+provider: null
+plugin: 'block_content:b4cfc18d-04bc-4463-a8e3-d9e25c91cdfb'
+settings:
+  id: 'block_content:b4cfc18d-04bc-4463-a8e3-d9e25c91cdfb'
+  label: 'Global Footer Bottom bar with FDA'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/cart\r\n/profile/*\r\n/user/*"
+    negate: true
+    context_mapping: {  }

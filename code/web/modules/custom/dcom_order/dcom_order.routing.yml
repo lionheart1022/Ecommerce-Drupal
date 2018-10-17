@@ -1,0 +1,11 @@
+dcom_order.commerce_shipment.form:
+  path: '/admin/commerce/orders/{commerce_order}/shipment'
+  defaults:
+    _form: '\Drupal\dcom_order\Form\ShipmentForm'
+    _title: 'Shipment'
+  options:
+    parameters:
+      commerce_order:
+        type: 'entity:commerce_order'
+  requirements:
+    _entity_create_access: 'commerce_shipment'

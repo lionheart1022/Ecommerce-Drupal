@@ -1,0 +1,131 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce - Facets module file.
+ */
+
+use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Link;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\facets\FacetInterface;
+use Drupal\facets\FacetSource\FacetSourcePluginBase;
+
+/**
+ * Mostly copy-paste of facets_system_breadcrumb_alter().
+ *
+ * Implements hook_system_breadcrumb_alter().
+ */
+function dcom_facets_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterface $route_match, array $context) {
+  /** @var \Drupal\facets\FacetSource\FacetSourcePluginManager $facet_source_manager */
+  $facet_source_manager = \Drupal::service('plugin.manager.facets.facet_source');
+
+  /** @var \Drupal\facets\FacetManager\DefaultFacetManager $facet_manager */
+  $facet_manager = \Drupal::service('facets.manager');
+
+  /** @var \Drupal\Core\Entity\EntityTypeManager $entity_type_manager */
+  $entity_type_manager = \Drupal::service('entity_type.manager');
+
+  /** @var \Drupal\Core\Entity\EntityStorageInterface $facet_source_storage */
+  $facet_source_storage = $entity_type_manager->getStorage('facets_facet_source');
+
+  $facet_sources_definitions = $facet_source_manager->getDefinitions();
+
+  // No facet sources found, so don't do anything.
+  if (empty($facet_sources_definitions)) {
+    return;
+  }
+
+  foreach ($facet_sources_definitions as $definition) {
+    /* @var \Drupal\facets\FacetSource\FacetSourcePluginBase $facet_source_plugin */
+    $facetsource_id = $definition['id'];
+    $facet_source_plugin = $facet_source_manager->createInstance($facetsource_id);
+
+    // If the current facet source is not being rendered, don't do anything with
+    // these facet sources.
+    if (!dcom_facets_is_rendered($facet_source_plugin)) {
+      continue;
+    }
+
+    $source_id = str_replace(':', '__', $facetsource_id);
+    /** @var \Drupal\facets\FacetSourceInterface $facet_source */
+    $facet_source = $facet_source_storage->load($source_id);
+
+    // If the facet source is not loaded, or the facet source doesn't have
+    // breadcrumbs enabled, don't do anything.
+    if (!($facet_source && !empty($facet_source->getBreadcrumbSettings()['active']))) {
+      continue;
+    }
+
+    // Rewrite breadcrumbs.
+    $links = $breadcrumb->getLinks();
+    array_pop($links);
+    $breadcrumb = new Breadcrumb();
+    $breadcrumb->setLinks($links);
+    $breadcrumb->addLink(Link::fromTextAndUrl(t('Collections'), Url::fromUri('internal:/collections/all')));
+
+    // Add the required cacheability metadata.
+    $breadcrumb->addCacheContexts(['url']);
+    $breadcrumb->addCacheableDependency($facet_source);
+
+    // Process the facets if they are not already processed.
+    $facet_manager->processFacets($facetsource_id);
+    $facets = $facet_manager->getFacetsByFacetSourceId($facetsource_id);
+
+    // Sort facets by weight.
+    uasort($facets, function (FacetInterface $a, FacetInterface $b) {
+      if ($a->getWeight() == $b->getWeight()) {
+        return 0;
+      }
+      return ($a->getWeight() < $b->getWeight()) ? -1 : 1;
+    });
+
+    /** @var \Drupal\facets\UrlProcessor\UrlProcessorPluginManager $url_processor_manager */
+    $url_processor_manager = \Drupal::service('plugin.manager.facets.url_processor');
+
+    // Get active facets and results to use them at building the crumbs.
+    $active_results = [];
+    $active_facets = [];
+    foreach ($facets as $facet) {
+      if (count($facet->getActiveItems()) > 0) {
+        // Add the facet as a cacheable dependency.
+        $breadcrumb->addCacheableDependency($facet);
+        /** @var \Drupal\facets\UrlProcessor\UrlProcessorInterface $url_processor */
+        $url_processor = $url_processor_manager->createInstance($facet_source->getUrlProcessorName(), ['facet' => $facet]);
+        $facet_manager->build($facet);
+
+        foreach ($facet->getResults() as $result) {
+          if ($result->isActive() || $result->hasActiveChildren()) {
+            // Clone the result so we can mark it as inactive to be added to the
+            // url parameters when calling buildUrls.
+            $cloned_result = clone $result;
+            $cloned_result->setActiveState(FALSE);
+            $active_results[$facet->getUrlAlias()][] = $cloned_result;
+          }
+        }
+        if (!empty($active_results[$facet->getUrlAlias()])) {
+          $url_processor->buildUrls($facet, $active_results[$facet->getUrlAlias()]);
+        }
+        $active_facets[$facet->getUrlAlias()] = $facet;
+      }
+    }
+
+  }
+}
+
+/**
+ * Checks if shop facets are rendered.
+ *
+ * @param \Drupal\facets\FacetSource\FacetSourcePluginBase $facet_source_plugin
+ *   Facet source plugin.
+ *
+ * @return bool
+ *   Whether facet is rendered.
+ */
+function dcom_facets_is_rendered(FacetSourcePluginBase $facet_source_plugin) {
+  $is_shop = \Drupal::routeMatch()->getRouteName() == 'page_manager.page_view_diamond_commerce_shop_page_diamond_commerce_shop_page-panels_variant-0';
+  $is_shop_facet = $facet_source_plugin->getPluginId() == 'search_api:views_block__diamond_commerce_shop__diamond_commerce_shop_block';
+
+  return $is_shop && $is_shop_facet;
+}

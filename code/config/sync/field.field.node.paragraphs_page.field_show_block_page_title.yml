@@ -1,0 +1,23 @@
+uuid: 9102da7d-e5e8-4456-b868-54a84e3857ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_block_page_title
+    - node.type.paragraphs_page
+id: node.paragraphs_page.field_show_block_page_title
+field_name: field_show_block_page_title
+entity_type: node
+bundle: paragraphs_page
+label: 'Show Page Title'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

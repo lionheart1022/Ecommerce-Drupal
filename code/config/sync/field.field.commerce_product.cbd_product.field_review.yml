@@ -1,0 +1,42 @@
+uuid: c2116a8d-a585-4f20-aef1-bef3cafb33d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.commerce_product.field_review
+  module:
+    - comment
+    - comments_order
+    - commerce_klaviyo_review
+third_party_settings:
+  comments_order:
+    order: DESC
+    children_natural_order: 1
+  commerce_klaviyo_review:
+    klaviyo_reviews: 1
+    klaviyo_reviews_field: field_review_vote
+id: commerce_product.cbd_product.field_review
+field_name: field_review
+entity_type: commerce_product
+bundle: cbd_product
+label: Review
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 0
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 0
+field_type: comment

@@ -1,0 +1,7 @@
+name: 'Address Helper SmartyStreets'
+type: module
+description: 'Provides SmartyStreets API integration for Address Helper.'
+core: 8.x
+package: 'Address'
+dependencies:
+  - address_helper:address_helper

@@ -1,0 +1,69 @@
+uuid: fd9564f8-0c3a-4b51-852f-1435972cd268
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.simple_mega_menu.megamenu.field_megamenu_item
+    - field.field.simple_mega_menu.megamenu.field_menu_constraint
+    - field.field.simple_mega_menu.megamenu.field_menu_content_ref
+    - field.field.simple_mega_menu.megamenu.field_menu_megamenu_style
+    - field.field.simple_mega_menu.megamenu.field_menu_slideshow
+    - simple_megamenu.simple_mega_menu_type.megamenu
+  module:
+    - field_collection
+id: simple_mega_menu.megamenu.default
+targetEntityType: simple_mega_menu
+bundle: megamenu
+mode: default
+content:
+  field_megamenu_item:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+    region: content
+  field_menu_constraint:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_menu_content_ref:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_menu_megamenu_style:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_menu_slideshow:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  status: true
+  user_id: true

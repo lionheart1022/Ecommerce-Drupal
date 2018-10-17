@@ -1,0 +1,23 @@
+uuid: a44e3bff-f2b2-4da4-afdc-081599061ef3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_footer
+    - field.storage.block_content.field_block_footer_type
+  module:
+    - options
+id: block_content.cpl_page_footer.field_block_footer_type
+field_name: field_block_footer_type
+entity_type: block_content
+bundle: cpl_page_footer
+label: 'Footer Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: F1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

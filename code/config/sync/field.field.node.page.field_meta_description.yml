@@ -1,0 +1,19 @@
+uuid: 65fd5d26-5407-4753-bffe-6fdf34c280b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_description
+    - node.type.page
+id: node.page.field_meta_description
+field_name: field_meta_description
+entity_type: node
+bundle: page
+label: 'Meta Description'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

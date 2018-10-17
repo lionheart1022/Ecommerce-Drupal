@@ -1,0 +1,23 @@
+uuid: 116446aa-ef00-463a-b35c-cba82e2c62b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_position
+    - paragraphs.paragraphs_type.icntxt
+  module:
+    - options
+id: paragraph.icntxt.field_par_position
+field_name: field_par_position
+entity_type: paragraph
+bundle: icntxt
+label: Alignment
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: RI
+default_value_callback: ''
+settings: {  }
+field_type: list_string

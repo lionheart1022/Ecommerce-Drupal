@@ -1,0 +1,18 @@
+services:
+  dcom_sitemap.generator:
+    class: Drupal\dcom_sitemap\DcomDomainSimpleSitemap
+    public: true
+    decorates: domain_simple_sitemap.generator
+    decoration_priority: 1
+    arguments:
+      - '@domain_simple_sitemap.sitemap_generator'
+      - '@simple_sitemap.entity_helper'
+      - '@config.factory'
+      - '@database'
+      - '@entity_type.manager'
+      - '@path.validator'
+      - '@date.formatter'
+      - '@datetime.time'
+      - '@domain_simple_sitemap.batch'
+      - '@plugin.manager.simple_sitemap.url_generator'
+      - '@domain.negotiator'

@@ -1,0 +1,23 @@
+uuid: 0311da2f-030c-4287-99d6-5a140b341ef1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_header
+    - field.storage.block_content.field_block_shop_menu
+id: block_content.cpl_page_header.field_block_shop_menu
+field_name: field_block_shop_menu
+entity_type: block_content
+bundle: cpl_page_header
+label: 'Primary Menu'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

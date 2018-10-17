@@ -1,0 +1,23 @@
+uuid: 5d83c864-bcf5-4d26-902a-23143bee74bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_constraint_text
+    - paragraphs.paragraphs_type.txt
+  module:
+    - options
+id: paragraph.txt.field_par_constraint_text
+field_name: field_par_constraint_text
+entity_type: paragraph
+bundle: txt
+label: 'Text Box Constraint'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: FW
+default_value_callback: ''
+settings: {  }
+field_type: list_string

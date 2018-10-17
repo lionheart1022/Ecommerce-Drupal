@@ -1,0 +1,28 @@
+uuid: feae27b7-e1c4-4559-a85b-a3b9528b85b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.menu_link_content.field_menu_product_ref
+    - system.menu.mbio-menu
+id: menu_link_content.mbio-menu.field_menu_product_ref
+field_name: field_menu_product_ref
+entity_type: menu_link_content
+bundle: mbio-menu
+label: 'Product Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      cbd_product: cbd_product
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

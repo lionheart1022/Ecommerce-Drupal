@@ -1,0 +1,8 @@
+uuid: 9f2e86d4-f644-43ed-9e73-7c8d4711ef70
+langcode: en
+status: true
+dependencies: {  }
+id: cpl_date_short
+label: 'CPL - Short date'
+locked: false
+pattern: 'F j, Y'

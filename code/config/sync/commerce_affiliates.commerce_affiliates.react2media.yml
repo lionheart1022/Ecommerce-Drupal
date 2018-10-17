@@ -1,0 +1,16 @@
+uuid: 8fddd3f6-a0eb-43c8-aaac-c7be50150c2d
+langcode: en
+status: 0
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: react2media
+label: React2Media
+plugin: custom_html_affiliate
+configuration:
+  html_tag: img
+  uri: 'https://www.cvrtrk1.com/?nid=28&transaction_id=[commerce_order:order_number]&amount=[commerce_order:total_price]'

@@ -1,0 +1,17 @@
+uuid: c76a12cf-63ec-4ab4-affc-7fdbe63932d0
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: dcom_conversant_cj
+label: 'Conversant CJ - DiamondCBD'
+plugin: conversant_cj_affiliate
+configuration:
+  container_tag_id: '27251'
+  action_id: '405623'
+  cid: '1549515'

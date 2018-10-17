@@ -1,0 +1,6 @@
+allow_non_ascii: false
+www_prefix: false
+login_paths: /user/login\r\n/user/password
+css_classes: ''
+_core:
+  default_config_hash: cGy1RN-NwgFrdUwA-OY7bvwtQ6Nz6UxhenvnJ4Pp4-k

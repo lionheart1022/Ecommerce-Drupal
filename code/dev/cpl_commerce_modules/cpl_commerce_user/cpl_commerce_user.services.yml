@@ -1,0 +1,5 @@
+services:
+  cpl_commerce_user.html_error_pages:
+    class: Drupal\cpl_commerce_user\EventSubscriber\ErrorPagesSubscriber
+    tags:
+      - { name: event_subscriber }

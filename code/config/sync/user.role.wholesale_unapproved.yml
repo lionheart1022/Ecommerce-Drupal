@@ -1,0 +1,9 @@
+uuid: 03ca70e5-5829-4a48-b337-7e0d0d36f319
+langcode: en
+status: true
+dependencies: {  }
+id: wholesale_unapproved
+label: 'Wholesale - Unapproved'
+weight: -1
+is_admin: null
+permissions: {  }

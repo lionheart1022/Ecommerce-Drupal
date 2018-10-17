@@ -1,0 +1,21 @@
+dependencies:
+  module:
+  - entity
+display:
+  default:
+    display_options:
+      style:
+        type: default
+        options:
+          row_class: 'medium-6 large-4 columns'
+          default_row_class: true
+  profile_type_listing:
+    display_options:
+      css_class: profile-type-listing
+      defaults:
+        css_class: false
+  user_view:
+    display_options:
+      css_class: profile-user-listing
+      defaults:
+        css_class: false

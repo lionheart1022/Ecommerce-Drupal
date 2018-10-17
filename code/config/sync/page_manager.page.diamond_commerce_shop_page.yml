@@ -1,0 +1,12 @@
+uuid: 7a8975b6-2df3-48a2-ab3a-f425ff419d25
+langcode: en
+status: true
+dependencies: {  }
+id: diamond_commerce_shop_page
+label: 'Diamond Commerce Shop Page'
+description: ''
+use_admin_theme: false
+path: '/collections/{facets_query}'
+access_logic: and
+access_conditions: {  }
+parameters: {  }

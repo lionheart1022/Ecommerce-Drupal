@@ -1,0 +1,23 @@
+uuid: 9b951cdb-2b3f-465b-b4fe-0c12ce7b139a
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - ctools
+id: product
+label: Product
+type: 'canonical_entities:commerce_product'
+pattern: 'products/[commerce_product:title]'
+selection_criteria:
+  bf852e6e-1b97-4cb8-97a0-b5266e2aaaf6:
+    id: 'entity_bundle:commerce_product'
+    bundles:
+      cbd_product: cbd_product
+    negate: false
+    context_mapping:
+      commerce_product: commerce_product
+    uuid: bf852e6e-1b97-4cb8-97a0-b5266e2aaaf6
+selection_logic: and
+weight: -5
+relationships: {  }

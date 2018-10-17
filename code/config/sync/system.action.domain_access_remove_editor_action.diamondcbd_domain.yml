@@ -1,0 +1,14 @@
+uuid: 48848ebf-43f8-4112-b42e-7f973c33b145
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.diamondcbd_domain
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.diamondcbd_domain
+label: 'Remove editors from the Diamond CBD domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: diamondcbd_domain

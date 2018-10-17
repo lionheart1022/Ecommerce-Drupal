@@ -1,0 +1,22 @@
+uuid: fd560527-08f3-4bdf-8cc0-24d7fbdc538a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - mbio
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: mbio_local_tasks
+theme: mbio
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

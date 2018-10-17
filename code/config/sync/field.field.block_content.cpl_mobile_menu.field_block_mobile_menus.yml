@@ -1,0 +1,23 @@
+uuid: 34e24320-9e93-4711-af81-d75a60182111
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_mobile_menu
+    - field.storage.block_content.field_block_mobile_menus
+id: block_content.cpl_mobile_menu.field_block_mobile_menus
+field_name: field_block_mobile_menus
+entity_type: block_content
+bundle: cpl_mobile_menu
+label: 'Mobile Menus'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

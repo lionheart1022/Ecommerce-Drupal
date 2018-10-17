@@ -1,0 +1,33 @@
+uuid: 5737a066-0998-48d1-aa2e-3ec048ae25a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ein_file
+  module:
+    - file
+    - multiple_registration
+    - user
+third_party_settings:
+  multiple_registration:
+    user_additional_register_form:
+      wholesale_unapproved: wholesale_unapproved
+      100: 0
+id: user.user.field_ein_file
+field_name: field_ein_file
+entity_type: user
+bundle: user
+label: 'EIN File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf jpeg png jpg'
+  max_filesize: 2MB
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

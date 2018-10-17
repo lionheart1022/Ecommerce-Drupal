@@ -1,0 +1,212 @@
+id: diamondcbd_products
+label: DiamondCBD Products
+migration_group: diamondcbd
+
+source:
+  plugin: shopify_product
+  shopify:
+    shop_domain: diamondcbd.myshopify.com
+    api_key: 221f9ce80f304929059c9588617f88b6
+    password: 1529dce859e0c59d2a061452ecdab421
+    shared_secret: 72be699ffe843f37a3aed4cf9e456d4b
+    fetch_metafields: true
+
+destination:
+  plugin: 'entity:commerce_product'
+  destination_module: commerce_product
+
+process:
+  title: title
+  created:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: created_at
+    settings:
+      validate_format: false
+  changed:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: updated_at
+    settings:
+      validate_format: false
+  type:
+    plugin: default_value
+    default_value: cbd_product
+  'body/0/value': body_html
+  'body/0/format':
+    plugin: default_value
+    default_value: basic_html
+  'field_product_ingredients/0/value':
+    plugin: extract
+    source: metafields
+    default: ''
+    index:
+      - Ingredients
+      - 0
+      - value
+  'field_product_ingredients/0/format':
+    plugin: default_value
+    default_value: basic_html
+  variations:
+    plugin: migration_lookup
+    migration: diamondcbd_product_variations
+    no_stub: true
+    source: variants
+  field_product_image:
+    plugin: migration_lookup
+    migration: diamondcbd_product_images
+    no_stub: true
+    source: images
+  field_domain:
+    -
+      plugin: explode
+      delimiter: ', '
+      source: tags
+    -
+      plugin: shopify_tags_filter
+      tag_type: domain_value
+  field_cbd_brand:
+    -
+      plugin: explode
+      delimiter: ', '
+      source: tags
+    -
+      plugin: shopify_tags_filter
+      tag_type: brand_value
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: diamond_commerce_brand
+      entity_type: taxonomy_term
+      ignore_case: true
+  field_product_category:
+    -
+      plugin: explode
+      delimiter: ', '
+      source: tags
+    -
+      plugin: shopify_tags_filter
+      tag_type: category_value
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: product_category
+      entity_type: taxonomy_term
+      ignore_case: true
+  field_product_type:
+    -
+      plugin: explode
+      delimiter: ', '
+      source: tags
+    -
+      plugin: shopify_tags_filter
+      tag_type: type_value
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: product_type
+      entity_type: taxonomy_term
+      ignore_case: true
+  field_product_characteristics:
+    -
+      plugin: explode
+      delimiter: ', '
+      source: tags
+    -
+      plugin: shopify_tags_filter
+      tag_type: characteristics_value
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: entity_lookup
+      value_key: machine_name
+      bundle_key: vid
+      bundle: product_characteristics
+      entity_type: taxonomy_term
+      ignore_case: true
+    -
+      plugin: skip_on_empty
+      method: process
+
+  # Extract metafield value.
+  size_or_weight_metafield:
+    plugin: extract
+    source: metafields
+    default: ''
+    index:
+      - 'Size/Weight'
+      - 0
+      - value
+
+  # Volume.
+  'field_product_volume/0/unit':
+    -
+      plugin: shopify_tags_filter
+      tag_type: volume_value_unit
+      source: '@size_or_weight_metafield'
+    -
+      plugin: array_shift
+    -
+      plugin: skip_on_empty
+      method: process
+  'field_product_volume/0/number':
+    -
+      plugin: shopify_tags_filter
+      tag_type: volume_value_number
+      source: '@size_or_weight_metafield'
+    -
+      plugin: array_shift
+    -
+      plugin: skip_on_empty
+      method: process
+
+  # Weight.
+  'field_product_weight/0/unit':
+    -
+      plugin: shopify_tags_filter
+      tag_type: weight_value_unit
+      source: '@size_or_weight_metafield'
+    -
+      plugin: array_shift
+    -
+      plugin: skip_on_empty
+      method: process
+  'field_product_weight/0/number':
+    -
+      plugin: shopify_tags_filter
+      tag_type: weight_value_number
+      source: '@size_or_weight_metafield'
+    -
+      plugin: array_shift
+    -
+      plugin: skip_on_empty
+      method: process
+
+  field_product_quantity:
+    plugin: extract
+    source: metafields
+    default: ''
+    index:
+      - Quantity
+      - 0
+      - value
+  stores/0/target_id:
+    # TODO: Find default store.
+    plugin: default_value
+    default_value: 1
+
+migration_dependencies:
+  required:
+    - diamondcbd_product_variations
+    - diamondcbd_product_images
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

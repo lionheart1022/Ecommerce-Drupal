@@ -1,0 +1,5 @@
+services:
+  dcom_user_register.route_subscriber:
+    class: Drupal\dcom_user_register\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

@@ -1,0 +1,19 @@
+name: 'CPL FAQs'
+description: 'Provides FAQs content type and related configuration. FAQs Page.'
+type: module
+core: 8.x
+dependencies:
+  - allowed_formats
+  - better_exposed_filters
+  - block_content
+  - field
+  - menu_ui
+  - node
+  - options
+  - page_manager
+  - panels
+  - search_api
+  - taxonomy
+  - text
+  - user
+  - views

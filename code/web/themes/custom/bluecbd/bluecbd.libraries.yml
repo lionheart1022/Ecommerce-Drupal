@@ -1,0 +1,12 @@
+global:
+  version: VERSION
+  css:
+    base:
+      fonts/stylesheet.css: {}
+      css/bluecbd.css: {}
+  js:
+    js/bluecbd.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

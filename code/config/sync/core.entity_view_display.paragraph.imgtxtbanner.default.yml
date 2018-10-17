@@ -1,0 +1,117 @@
+uuid: 15994a50-830c-470c-be30-3efaaf7243e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.imgtxtbanner.field_par_alternating
+    - field.field.paragraph.imgtxtbanner.field_par_background_color
+    - field.field.paragraph.imgtxtbanner.field_par_background_image
+    - field.field.paragraph.imgtxtbanner.field_par_class
+    - field.field.paragraph.imgtxtbanner.field_par_constraint
+    - field.field.paragraph.imgtxtbanner.field_par_constraint_text
+    - field.field.paragraph.imgtxtbanner.field_par_content_items
+    - field.field.paragraph.imgtxtbanner.field_par_content_media_ref
+    - field.field.paragraph.imgtxtbanner.field_par_content_ref
+    - field.field.paragraph.imgtxtbanner.field_par_display_mode
+    - field.field.paragraph.imgtxtbanner.field_par_displayed_con
+    - field.field.paragraph.imgtxtbanner.field_par_header_size
+    - field.field.paragraph.imgtxtbanner.field_par_image_height
+    - field.field.paragraph.imgtxtbanner.field_par_max_qty
+    - field.field.paragraph.imgtxtbanner.field_par_media_ref
+    - field.field.paragraph.imgtxtbanner.field_par_media_type
+    - field.field.paragraph.imgtxtbanner.field_par_mobile_layout
+    - field.field.paragraph.imgtxtbanner.field_par_overlay
+    - field.field.paragraph.imgtxtbanner.field_par_parallax
+    - field.field.paragraph.imgtxtbanner.field_par_position
+    - field.field.paragraph.imgtxtbanner.field_par_product_ref
+    - field.field.paragraph.imgtxtbanner.field_par_row_padding
+    - field.field.paragraph.imgtxtbanner.field_par_row_style
+    - field.field.paragraph.imgtxtbanner.field_par_slideshow_center
+    - field.field.paragraph.imgtxtbanner.field_par_slideshow_control
+    - field.field.paragraph.imgtxtbanner.field_par_slideshow_rows
+    - field.field.paragraph.imgtxtbanner.field_par_text_box_options
+    - field.field.paragraph.imgtxtbanner.field_par_video
+    - field.field.paragraph.imgtxtbanner.field_par_view_ref
+    - field.field.paragraph.imgtxtbanner.field_par_vmargin
+    - field.field.paragraph.imgtxtbanner.field_par_vpadding
+    - paragraphs.paragraphs_type.imgtxtbanner
+  module:
+    - field_collection
+    - viewsreference
+id: paragraph.imgtxtbanner.default
+targetEntityType: paragraph
+bundle: imgtxtbanner
+mode: default
+content:
+  field_par_content_items:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: field_collection_items
+    region: content
+  field_par_content_media_ref:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_par_content_ref:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: embed_in_paragraph
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_par_product_ref:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: product_row_style_1
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_par_view_ref:
+    weight: 4
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    type: viewsreference_formatter
+    region: content
+hidden:
+  field_par_alternating: true
+  field_par_background_color: true
+  field_par_background_image: true
+  field_par_class: true
+  field_par_constraint: true
+  field_par_constraint_text: true
+  field_par_display_mode: true
+  field_par_displayed_con: true
+  field_par_header_size: true
+  field_par_image_height: true
+  field_par_max_qty: true
+  field_par_media_ref: true
+  field_par_media_type: true
+  field_par_mobile_layout: true
+  field_par_overlay: true
+  field_par_parallax: true
+  field_par_position: true
+  field_par_row_padding: true
+  field_par_row_style: true
+  field_par_slideshow_center: true
+  field_par_slideshow_control: true
+  field_par_slideshow_rows: true
+  field_par_text_box_options: true
+  field_par_video: true
+  field_par_vmargin: true
+  field_par_vpadding: true

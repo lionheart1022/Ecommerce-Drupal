@@ -1,0 +1,14 @@
+uuid: e623cfc1-9b52-4d94-86cd-dfbf7797b966
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.default
+  module:
+    - domain_access
+id: domain_access_add_editor_action.default
+label: 'Add editors to the Default domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: default

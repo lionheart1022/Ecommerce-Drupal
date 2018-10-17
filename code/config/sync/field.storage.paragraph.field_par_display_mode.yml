@@ -1,0 +1,33 @@
+uuid: 2c907c8d-0272-44af-9b3a-c34c1256a204
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_display_mode
+field_name: field_par_display_mode
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: SL
+      label: Slideshow
+    -
+      value: SM
+      label: 'Slideshow Mobile'
+    -
+      value: MS
+      label: Masonry
+    -
+      value: PR
+      label: Parallax
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

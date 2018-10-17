@@ -1,0 +1,53 @@
+uuid: 8437da98-ce0a-429e-ab36-cc6d75aa7936
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.txt.field_par_background_color
+    - field.field.paragraph.txt.field_par_class
+    - field.field.paragraph.txt.field_par_constraint
+    - field.field.paragraph.txt.field_par_heading_color
+    - field.field.paragraph.txt.field_par_link
+    - field.field.paragraph.txt.field_par_parallax
+    - field.field.paragraph.txt.field_par_position
+    - field.field.paragraph.txt.field_par_tags
+    - field.field.paragraph.txt.field_par_text_1
+    - field.field.paragraph.txt.field_par_text_2
+    - field.field.paragraph.txt.field_par_text_box_options
+    - field.field.paragraph.txt.field_par_vmargin
+    - field.field.paragraph.txt.field_par_vpadding
+    - paragraphs.paragraphs_type.txt
+  module:
+    - options
+id: paragraph.txt.preview
+targetEntityType: paragraph
+bundle: txt
+mode: preview
+content:
+  field_par_position:
+    type: list_default
+    weight: 1
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_par_tags:
+    type: list_default
+    weight: 0
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_par_background_color: true
+  field_par_class: true
+  field_par_constraint: true
+  field_par_heading_color: true
+  field_par_link: true
+  field_par_parallax: true
+  field_par_text_1: true
+  field_par_text_2: true
+  field_par_text_box_options: true
+  field_par_vmargin: true
+  field_par_vpadding: true

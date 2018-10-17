@@ -1,0 +1,22 @@
+uuid: a3327a58-23d3-4435-8856-490a11e23c5c
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: offer_conversion_blue_cbd_crystals_isolate
+label: 'Offer Conversion: Blue CBD Crystals Isolate'
+plugin: hasoffers_affiliate
+configuration:
+  network_id: diamondcbd
+  offer_id: '27'
+  affiliate_id: ''
+  type: https_iframe
+  api_key: NETXZIHhJyKc9XISwpwUj9ftgrEoEs
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: order_canceled

@@ -1,0 +1,9 @@
+uuid: feecf24d-9c02-41e0-9c91-15a055d6aec4
+langcode: en
+status: true
+dependencies: {  }
+id: www_medipetscbd_com
+domain_id: medipets_domain
+pattern: medipetscbd.com
+redirect: 301
+environment: default

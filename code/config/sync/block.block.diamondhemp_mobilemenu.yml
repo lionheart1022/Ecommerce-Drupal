@@ -1,0 +1,36 @@
+uuid: 30b6c80b-d393-4332-86b3-77c27c089adc
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_mobile_menu:ad11fe7b-19d3-432b-acea-f18ef4c79d00'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - diamondhemp
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondhemp_mobilemenu
+theme: diamondhemp
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:ad11fe7b-19d3-432b-acea-f18ef4c79d00'
+settings:
+  id: 'block_content:ad11fe7b-19d3-432b-acea-f18ef4c79d00'
+  label: 'Diamondhemp Mobile Menu'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_header
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

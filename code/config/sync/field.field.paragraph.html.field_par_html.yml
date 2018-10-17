@@ -1,0 +1,32 @@
+uuid: f665e0a4-1335-4469-a20c-695fd9bd8df5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_html
+    - paragraphs.paragraphs_type.html
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    paragraph_custom_html: paragraph_custom_html
+    article_html: '0'
+    basic_html: '0'
+    restricted_html: '0'
+    text_paragraph_html: '0'
+    full_html: '0'
+    html: '0'
+    plain_text: '0'
+id: paragraph.html.field_par_html
+field_name: field_par_html
+entity_type: paragraph
+bundle: html
+label: 'Custom HTML'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

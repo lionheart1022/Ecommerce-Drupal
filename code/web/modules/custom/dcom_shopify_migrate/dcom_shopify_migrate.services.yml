@@ -1,0 +1,8 @@
+services:
+  dcom_shopify_migrate.sku_resolver:
+    class: Drupal\dcom_shopify_migrate\SkuResolver
+    arguments: []
+
+  dcom_shopify_migrate.customer_orders_resolver:
+    class: Drupal\dcom_shopify_migrate\CustomerOrdersResolver
+    arguments: []

@@ -1,0 +1,7 @@
+name: 'Diamond Commerce Domains'
+type: module
+description: 'Provides additional settings for domains.'
+core: 8.x
+package: 'Custom'
+dependencies:
+    - domain:domain

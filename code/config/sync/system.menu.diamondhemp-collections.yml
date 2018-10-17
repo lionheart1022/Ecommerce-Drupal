@@ -1,0 +1,8 @@
+uuid: 71113aa1-4434-44b4-9ee0-3d900379a9c6
+langcode: en
+status: true
+dependencies: {  }
+id: diamondhemp-collections
+label: 'Diamondhemp Collections Mobile'
+description: ''
+locked: false

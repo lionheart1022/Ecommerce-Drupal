@@ -1,0 +1,38 @@
+uuid: fe332736-36ff-434f-be25-97d89dd5c951
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - cpl_paragraphs
+    - system
+  theme:
+    - mbio
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: mbio_breadcrumbs
+theme: mbio
+region: content
+weight: -6
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/collections\r\n/collections/*\r\n/checkout/*\r\n/user/*\r\n/profile/*\r\n/faqs\r\n/privacy-policy\r\n/terms-and-conditions"
+    negate: true
+    context_mapping: {  }
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_breadcrumb
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

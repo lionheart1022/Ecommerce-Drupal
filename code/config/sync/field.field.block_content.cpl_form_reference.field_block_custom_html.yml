@@ -1,0 +1,30 @@
+uuid: 0637b947-12e1-464c-88de-2b7c779d4dfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_form_reference
+    - field.storage.block_content.field_block_custom_html
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_html: full_html
+    article_html: '0'
+    basic_html: '0'
+    restricted_html: '0'
+    text_paragraph_html: '0'
+    plain_text: '0'
+id: block_content.cpl_form_reference.field_block_custom_html
+field_name: field_block_custom_html
+entity_type: block_content
+bundle: cpl_form_reference
+label: 'Custom HTML'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

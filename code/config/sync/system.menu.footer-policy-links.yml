@@ -1,0 +1,8 @@
+uuid: deaa73e8-e842-4a43-8cc4-7af276c89bdb
+langcode: en
+status: true
+dependencies: {  }
+id: footer-policy-links
+label: 'Footer Policy Links'
+description: ''
+locked: false

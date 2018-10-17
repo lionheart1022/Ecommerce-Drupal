@@ -1,0 +1,8 @@
+name: 'Diamond Commerce - Sitemap'
+type: module
+description: 'Provides Sitemap rewrites.'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - domain_simple_sitemap
+  - dcom_facets

@@ -1,0 +1,16 @@
+uuid: a7fe291e-5fb2-47a3-975e-102826c1a3b1
+langcode: en
+status: true
+dependencies: {  }
+id: diamond_commerce_product_page
+label: 'Diamond Commerce Product Page'
+description: 'Show single product.'
+use_admin_theme: false
+path: '/product/{commerce_product}'
+access_logic: and
+access_conditions: {  }
+parameters:
+  commerce_product:
+    machine_name: commerce_product
+    type: 'entity:commerce_product'
+    label: Product

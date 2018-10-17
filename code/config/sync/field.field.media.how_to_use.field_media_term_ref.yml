@@ -1,0 +1,33 @@
+uuid: a4810b96-5680-41f6-bccf-c6f5491c4e16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_term_ref
+    - media.type.how_to_use
+    - taxonomy.vocabulary.diamond_commerce_brand
+    - taxonomy.vocabulary.product_category
+    - taxonomy.vocabulary.product_type
+id: media.how_to_use.field_media_term_ref
+field_name: field_media_term_ref
+entity_type: media
+bundle: how_to_use
+label: 'Collection Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      diamond_commerce_brand: diamond_commerce_brand
+      product_category: product_category
+      product_type: product_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: diamond_commerce_brand
+field_type: entity_reference

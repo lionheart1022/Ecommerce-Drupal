@@ -1,0 +1,43 @@
+uuid: 84afb863-37c0-4b3d-bc2a-9401e3f46c14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.product_characteristics.field_domain
+    - field.field.taxonomy_term.product_characteristics.field_domain_fields
+    - field.field.taxonomy_term.product_characteristics.field_image
+    - field.field.taxonomy_term.product_characteristics.field_is_collection
+    - field.field.taxonomy_term.product_characteristics.field_meta_description
+    - field.field.taxonomy_term.product_characteristics.field_meta_title
+    - field.field.taxonomy_term.product_characteristics.field_url_value
+    - taxonomy.vocabulary.product_characteristics
+  module:
+    - text
+id: taxonomy_term.product_characteristics.default
+targetEntityType: taxonomy_term
+bundle: product_characteristics
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  field_domain_fields: true
+  field_image: true
+  field_is_collection: true
+  field_meta_description: true
+  field_meta_title: true
+  field_url_value: true
+  langcode: true

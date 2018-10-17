@@ -1,0 +1,200 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce - Odoo Entity Sync module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\dcom_odoo_entity_sync\Plugin\OdooEntitySync\User;
+use Drupal\dcom_odoo_migrate\EventSubscriber\CurrentMigration;
+
+/**
+ * Implements hook_entity_insert().
+ */
+function dcom_odoo_entity_sync_entity_insert(EntityInterface $entity) {
+  dcom_odoo_entity_sync_handle_entity($entity);
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function dcom_odoo_entity_sync_entity_update(EntityInterface $entity) {
+  dcom_odoo_entity_sync_handle_entity($entity);
+}
+
+/**
+ * Trigger delayed entity sync.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   Entity object.
+ */
+function dcom_odoo_entity_sync_handle_entity(EntityInterface $entity) {
+  $map = dcom_odoo_entity_sync_map();
+
+  $entity_type = $entity->getEntityTypeId();
+  if (empty($map[$entity_type])) {
+    // This entity type is not synced. Simply skip.
+    return;
+  }
+
+  if (dcom_odoo_entity_sync_skip($entity)) {
+    // Do not export changes to Odoo to do not go circles if there is
+    // a migration which saves the entity.
+    return;
+  }
+
+  if ($migration = CurrentMigration::getCurrentMigration()) {
+    $register_entity = in_array('odoo_skip_sync', $migration->getMigrationTags());
+  }
+
+  /** @var \Drupal\odoo_api_entity_sync\SyncManagerInterface $sync_service */
+  $sync_service = \Drupal::service('odoo_api_entity_sync.sync');
+  foreach ($map[$entity_type] as $odoo_model => $export_types) {
+    foreach ($export_types as $export_type) {
+      if (!empty($register_entity)) {
+        $sync_service->registerEntity($entity_type, $odoo_model, $export_type, $entity->id());
+      }
+      else {
+        $sync_service->delayedSync($entity_type, $odoo_model, $export_type, $entity->id());
+      }
+    }
+  }
+}
+
+/**
+ * Checks whether the entity sync should be skipped due to a running migration.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   Entity object.
+ *
+ * @return bool
+ *   TRUE if migration is in the process and so the entity sync should be
+ *   skipped.
+ */
+function dcom_odoo_entity_sync_skip(EntityInterface $entity) {
+  $migration_is_running = FALSE;
+
+  $migration = CurrentMigration::getCurrentMigration();
+  if ($migration && in_array('odoo_two_way_sync', $migration->getMigrationTags())) {
+    $dest_plugin_id = $migration->getDestinationPlugin()->getPluginId();
+    $parts = explode(':', $dest_plugin_id);
+
+    if (count($parts) == 2 && $parts[0] == 'entity') {
+      $migrate_entity_type = $parts[1];
+      // Validate the migrate entity type.
+      $entity_type_definition = \Drupal::entityTypeManager()
+        ->getDefinition($migrate_entity_type, FALSE);
+
+      $force_export = FALSE;
+      if ($entity->getEntityTypeId() == 'commerce_order' && !empty($entity->original)) {
+        /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+        $order = $entity;
+        $order_state = $order->getState()->getValue();
+        /** @var \Drupal\commerce_order\Entity\OrderInterface $original_order */
+        $original_order = $entity->original;
+        $original_order_state = $original_order->getState()->getValue();
+
+        $force_export = $original_order_state && $original_order_state['value'] == 'fulfillment';
+        $force_export = $force_export && $order_state && $order_state['value'] == 'completed';
+      }
+
+      if ($entity_type_definition && !$force_export) {
+        $migration_is_running = TRUE;
+      }
+    }
+  }
+  return $migration_is_running;
+}
+
+/**
+ * Get the list of entity types to export to Odoo.
+ *
+ * @return array
+ *   A multi-dimensional array of:
+ *   entity_type => odoo_model => export_types.
+ */
+function dcom_odoo_entity_sync_map() {
+  $map = [
+    'commerce_order' => [
+      'sale.order' => ['default'],
+      'sale.order.line' => [
+        'shipping_line',
+        'shopify_shipping_line',
+      ],
+      'account.invoice' => ['default'],
+    ],
+    'commerce_order_item' => [
+      'sale.order.line' => ['default'],
+    ],
+    'user' => [
+      'res.partner' => ['default', 'company'],
+    ],
+    'profile' => [
+      'res.partner' => ['default'],
+    ],
+    'domain' => [
+      'x_product.domain' => ['default'],
+    ],
+    'user_role' => [
+      'x_drupal_user.role' => ['default'],
+    ],
+    'commerce_payment_gateway' => [
+      'payment.acquirer' => ['default'],
+    ],
+  ];
+
+  return $map;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function dcom_odoo_entity_sync_commerce_order_update(EntityInterface $entity) {
+  // Make sure order items are synced when the order is updated.
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $entity */
+  foreach ($entity->getItems() as $item) {
+    dcom_odoo_entity_sync_handle_entity($item);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function dcom_odoo_entity_sync_commerce_payment_update(EntityInterface $entity) {
+  // Sync order if payment is updated.
+  if ($order = $entity->getOrder()) {
+    dcom_odoo_entity_sync_handle_entity($order);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function dcom_odoo_entity_sync_user_update(EntityInterface $entity) {
+  // Updating user account should trigger export of all user's profiles.
+  /** @var \Drupal\user\UserInterface $entity */
+  $profile_ids = \Drupal::entityQuery('profile')
+    ->accessCheck(FALSE)
+    ->condition('uid', $entity->id())
+    ->execute();
+
+  if ($profiles = \Drupal::entityTypeManager()
+    ->getStorage('profile')
+    ->loadMultiple($profile_ids)) {
+    foreach ($profiles as $profile) {
+      dcom_odoo_entity_sync_handle_entity($profile);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dcom_odoo_entity_sync_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form[User::DCOM_ODOO_USER_SYNC_EXCLUDE_FIELD])) {
+    $form[User::DCOM_ODOO_USER_SYNC_EXCLUDE_FIELD]['#access'] = AccessResult::allowedIfHasPermission(\Drupal::currentUser(), 'manage odoo user sync settings');
+  }
+}

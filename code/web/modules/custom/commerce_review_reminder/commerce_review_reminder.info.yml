@@ -1,0 +1,12 @@
+name: 'Commerce Review Reminder'
+type: module
+description: 'Provides ability to send a reminder email for review of product after x days.'
+core: 8.x
+package: 'Custom'
+configure: commerce_review_reminder.admin_settings_form
+dependencies:
+  - rules
+  - commerce
+  - commerce_order
+  - commerce_product
+

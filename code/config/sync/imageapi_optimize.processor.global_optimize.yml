@@ -1,0 +1,22 @@
+uuid: 6dc081e4-a963-4e30-ab7b-c4d587dffd3d
+langcode: en
+status: true
+dependencies: {  }
+name: global_optimize
+label: 'Global optimize'
+processors:
+  01e2efae-b578-4233-9864-844351f1220a:
+    uuid: 01e2efae-b578-4233-9864-844351f1220a
+    id: jpegtran
+    weight: '1'
+    data:
+      manual_executable_path: ''
+      progressive: 0
+  63a2bcda-22bb-4b01-9ae2-57776b6bdc47:
+    uuid: 63a2bcda-22bb-4b01-9ae2-57776b6bdc47
+    id: optipng
+    weight: '3'
+    data:
+      manual_executable_path: ''
+      level: '5'
+      interlace: ''

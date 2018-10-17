@@ -1,0 +1,20 @@
+uuid: 7d9f05e4-eb64-4e63-8963-4d0a61d80ff4
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - taxonomy
+id: field_collection_item.field_menu_ref_term
+field_name: field_menu_ref_term
+entity_type: field_collection_item
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

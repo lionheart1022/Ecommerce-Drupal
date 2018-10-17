@@ -1,0 +1,28 @@
+cpl_commerce_order_fulfillment:
+  id: cpl_commerce_order_fulfillment
+  group: commerce_order
+  label: 'CPL Commerce - Fulfillment'
+  states:
+    draft:
+      label: Draft
+    fulfillment:
+      # The workflow is the same order_fulfillment.
+      # Just the fulfillment label is different.
+      label: Pending
+    completed:
+      label: Completed
+    canceled:
+      label: Canceled
+  transitions:
+    place:
+      label: 'Place order'
+      from: [draft]
+      to:   fulfillment
+    fulfill:
+      label: 'Fulfill order'
+      from: [fulfillment]
+      to: completed
+    cancel:
+      label: 'Cancel order'
+      from: [draft, fulfillment]
+      to:   canceled

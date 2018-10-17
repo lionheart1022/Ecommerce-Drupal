@@ -1,0 +1,17 @@
+track_drush: bg
+track_cron: bg
+module_deployment: true
+ignore_urls: ''
+bg_urls: ''
+exclusive_urls: ''
+api_key: ''
+override_exception_handler: true
+watchdog_severities: {  }
+views_log_slow: false
+views_log_threshold: 100
+_core:
+  default_config_hash: VKseMw8c145-TkGeqJaBJ_EjELdTd-meY10IYEw3pp8
+actions: null
+form_build_id: form-YabxDbmnTox_5EGzj1BRSh0yjuEYXuDPuLVvtnH3Fgg
+form_token: ulg8-Q2V9Djsjss6jiuzWZhOznKflCpOq8nblOKHQGU
+form_id: new_relic_rpm_settings

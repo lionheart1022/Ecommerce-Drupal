@@ -1,0 +1,92 @@
+uuid: 0612658d-ebd0-444d-9cfe-0a49071a2d8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.cbd_product_variation
+    - field.field.commerce_product_variation.cbd_product_variation.attribute_flavor
+    - field.field.commerce_product_variation.cbd_product_variation.attribute_strength
+    - field.field.commerce_product_variation.cbd_product_variation.field_force_availability
+    - field.field.commerce_product_variation.cbd_product_variation.field_force_odoo_migrate
+    - field.field.commerce_product_variation.cbd_product_variation.field_odoo_attribute_price_id
+    - field.field.commerce_product_variation.cbd_product_variation.field_product_availability
+    - field.field.commerce_product_variation.cbd_product_variation.weight
+  module:
+    - commerce_price
+    - physical
+id: commerce_product_variation.cbd_product_variation.default
+targetEntityType: commerce_product_variation
+bundle: cbd_product_variation
+mode: default
+content:
+  attribute_flavor:
+    type: options_select
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  attribute_strength:
+    type: options_select
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_force_availability:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_force_odoo_migrate:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_product_availability:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  price:
+    type: commerce_price_default
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  sku:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  weight:
+    type: physical_measurement_default
+    weight: 4
+    settings:
+      default_unit: ''
+      allow_unit_change: true
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_odoo_attribute_price_id: true
+  uid: true

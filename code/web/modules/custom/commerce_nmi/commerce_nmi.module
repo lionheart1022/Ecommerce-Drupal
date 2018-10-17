@@ -1,0 +1,145 @@
+<?php
+
+/**
+ * @file
+ * Defines the NMI Commerce payment gateway.
+ */
+
+use Drupal\commerce_price\Price;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function commerce_nmi_form_commerce_checkout_flow_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\Core\Routing\RouteMatchInterface $route_match */
+  $route_match = \Drupal::service('current_route_match');
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+  $order = $route_match->getParameter('commerce_order');
+  /** @var \Drupal\commerce_payment\PaymentStorageInterface $payment_storage */
+  $payment_storage = \Drupal::entityTypeManager()->getStorage('commerce_payment');
+
+  // Avoid double payments.
+  if ($payments = $payment_storage->loadMultipleByOrder($order)) {
+    $paid = new Price(0, $order->getTotalPrice()->getCurrencyCode());
+
+    foreach ($payments as $payment) {
+      if (in_array($payment->getState()->value, ['completed', 'partially_refunded'])) {
+        $paid = $paid->add($payment->getBalance());
+      }
+    }
+
+    // The order is already paid.
+    if ($paid->compareTo($order->getTotalPrice()) === 0) {
+      /** @var \Drupal\commerce_checkout\Entity\CheckoutFlowInterface $checkout_flow */
+      $checkout_flow = $order->get('checkout_flow')->entity;
+      $checkout_flow_plugin = $checkout_flow->getPlugin();
+      $steps = array_keys($checkout_flow_plugin->getVisibleSteps());
+      /** @var \Drupal\commerce_checkout\CheckoutOrderManagerInterface $checkout_order_manager */
+      $checkout_order_manager = \Drupal::service('commerce_checkout.checkout_order_manager');
+      $current_step_id = $checkout_order_manager->getCheckoutStepId($order);
+      $last_step = end($steps);
+
+      if ($current_step_id != $last_step) {
+        $checkout_flow_plugin->redirectToStep($last_step);
+      }
+    }
+  }
+
+  /*
+   * Before sending to NMI a credit card data we need to validate it and save to
+   * the payment method. Validate & save credit card details with Ajax and then
+   * redirect the user to NMI using JS. An issue is that we can make an impact
+   * on the complete checkout form from the commerce_payment_gateway_form only
+   * through #process callbacks. #process callbacks for 'actions' are called
+   * firstly, then commerce checkout panes. Move 'actions' at the end of the
+   * form, so panes can add #ajax to the actions.
+   * @see Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\
+   * CheckoutFlowWithPanesBase::buildForm()
+   * @see Drupal\commerce_nmi\PluginForm\NmiCom\
+   * PaymentOffsiteForm::ajaxifyForm().
+   */
+  $actions = $form['actions'];
+  unset($form['actions']);
+  $form['actions'] = $actions;
+
+  /*
+   * Right now an amount to charge is sent to NMI on the payment_information
+   * pane. Then, on the payment process step we can't change anyhow the order
+   * amount. So remove the ability to add/remove coupons.
+   * Also there is an option to enter a coupon on the payment information pane.
+   * In this case payment information pane submit fired first, then coupon.
+   * Meaning discount is applied after an amount to pay has been sent, which is
+   * not acceptable.
+   */
+  if (isset($form['payment_information']) || isset($form['payment_process']) || $form['#step_id'] == 'complete') {
+    foreach (Element::children($form) as $element_name) {
+      if (isset($form[$element_name]['coupon_redemption'])) {
+        $form[$element_name]['coupon_redemption']['#access'] = FALSE;
+      }
+    }
+  }
+
+  /*
+   * With NMI, the user doesn't enter credit card details at the
+   * payment_information pane, but Drupal Commerce expects to have credit card
+   * details at this step if the payment method is attached to the order.
+   * So if the user goes to payment_information->->payment->return back to
+   * "payment_information" he will see "New credit card" and the existing
+   * nmi_3sr_cc payment method with no credit card details. With this scenario
+   * NmiThreeStepRedirectCreditCard::buildLabel() will fail due to no credit
+   * card details. Remove the empty payment method to fix it.
+   */
+  // Make sure that there is the "payment_information" CommerceCheckoutPane.
+  if (!empty($form['payment_information']['payment_method']['#options'])) {
+    /** @var \Drupal\commerce_payment\Entity\PaymentMethodInterface $order_payment_method */
+    $order_payment_method = $order->get('payment_method')->entity;
+
+    $type = $order_payment_method && $order_payment_method->getType()->getPluginId() == 'nmi_3sr_cc';
+    $empty_card_type = empty($order_payment_method->card_type) || empty($order_payment_method->card_type->value);
+    $empty_card_number = empty($order_payment_method->card_number) || empty($order_payment_method->card_number->value);
+
+    if ($type && ($empty_card_type || $empty_card_number)) {
+      $order_payment_method->delete();
+      $order->get('payment_method')->setValue(NULL);
+      $order->save();
+
+      // We can have empty credit card only if we have chosen "New credit card"
+      // and then moved to "payment process" pane>then back to the "payment
+      // information". Set the default value to "New credit card" again.
+      /** @var \Drupal\commerce_payment\PaymentGatewayStorageInterface $payment_gateway_storage */
+      $payment_gateway_storage = \Drupal::service('entity_type.manager')->getStorage('commerce_payment_gateway');
+
+      // Load the payment gateways. This fires an event for filtering the
+      // available gateways, and then evaluates conditions
+      // on all remaining ones.
+      $payment_gateways = $payment_gateway_storage->loadMultipleForOrder($order);
+      $payment_method_field = &$form['payment_information']['payment_method'];
+
+      foreach ($payment_gateways as $payment_gateway) {
+        $key = 'new--nmi_3sr_cc--' . $payment_gateway->id();
+        if (isset($payment_method_field['#options'][$key])) {
+          $user_input = $form_state->getUserInput();
+          $user_input['payment_information']['payment_method'] = $key;
+          $form_state->setUserInput($user_input);
+          break;
+        }
+      }
+
+      // Rebuild the pane.
+      /** @var \Drupal\commerce_checkout\CheckoutPaneManager $pane_manager */
+      $pane_manager = \Drupal::service('plugin.manager.commerce_checkout_pane');
+      /** @var \Drupal\commerce_checkout\CheckoutOrderManagerInterface $checkout_order_manager */
+      $checkout_order_manager = \Drupal::service('commerce_checkout.checkout_order_manager');
+      /** @var \Drupal\commerce_checkout\Entity\CheckoutFlowInterface $checkout_flow */
+      $checkout_flow = $checkout_order_manager->getCheckoutFlow($order);
+      /** @var \Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowWithPanesInterface $checkout_flow_plugin */
+      $checkout_flow_plugin = $checkout_flow->getPlugin();
+      $payment_info_pane_configuration = $checkout_flow_plugin->getConfiguration()['panes']['payment_information'];
+      /** @var \Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneInterface $payment_info_pane */
+      $payment_info_pane = $pane_manager->createInstance('payment_information', $payment_info_pane_configuration, $checkout_flow_plugin);
+      $form['payment_information'] = $payment_info_pane->buildPaneForm($form['payment_information'], $form_state, $form);
+    }
+  }
+}

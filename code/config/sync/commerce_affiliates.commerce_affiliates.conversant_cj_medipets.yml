@@ -1,0 +1,17 @@
+uuid: b2f32222-8c75-418a-b34e-8a52c174a225
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      medipets_domain: medipets_domain
+id: conversant_cj_medipets
+label: 'Conversant CJ - MediPets'
+plugin: conversant_cj_affiliate
+configuration:
+  container_tag_id: '28386'
+  action_id: '407324'
+  cid: '1549515'

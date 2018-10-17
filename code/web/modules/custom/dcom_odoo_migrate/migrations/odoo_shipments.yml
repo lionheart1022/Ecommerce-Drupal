@@ -1,0 +1,100 @@
+id: odoo_shipments
+label: Odoo Shipments
+migration_group: odoo
+migration_tags:
+  - dcom_odoo_migrate_cron
+
+source:
+  plugin: odoo_api
+  model: stock.picking
+  filters:
+    -
+      - 'state'
+      - 'in'
+      -
+        - 'waiting'
+        - 'confirmed'
+        - 'assigned'
+        - 'done'
+        - 'cancel'
+  fields:
+    - carrier_tracking_ref
+    - sale_id
+    - state
+    # TODO Remove this field once we fixed wrong old tracking numbers.
+    - create_date
+    - write_date
+  join:
+    -
+      target_model: 'sale.order'
+      base_field: 'sale_id'
+      fields:
+        - id
+        - picking_ids
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:commerce_shipment'
+  destination_module: commerce_shipping
+
+process:
+  shipment_id:
+    -
+      plugin: sub_process
+      source: sale_id
+      process:
+        # Keep the sale id in place. Otherwise - will be removed by
+        # the "sub_process" plugin.
+        id: id
+        # For now, Ignore row if there are few transfers on Odoo.
+        picking_ids:
+          -
+            plugin: skip_row_if_multiple_values_array
+            source: picking_ids
+            message: 'There are few transfers for the order on Odoo'
+    # Tie the single Odoo transfer to the single Drupal shipment.
+    -
+      plugin: array_shift
+    -
+      plugin: extract
+      index:
+        - id
+    -
+      plugin: migration_lookup
+      migration: odoo_orders
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'Missing Odoo order id for the shipment.'
+    -
+      plugin: entity_lookup
+      value_key: order_id
+      entity_type: commerce_shipment
+      ignore_case: true
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'Did not find a shipment for the Odoo transfer.'
+  tracking_code:
+    -
+      plugin: dcom_odoo_transfer_tracking_code
+      source: carrier_tracking_ref
+  state:
+    -
+      plugin: static_map
+      source: state
+      map:
+        # Odoo Waiting Another Operation => Drupal draft.
+        waiting: 'draft'
+        # Odoo Waiting => Drupal draft.
+        confirmed: 'draft'
+        # Odoo Ready => Drupal ready.
+        assigned: 'ready'
+        done: 'shipped'
+        cancel: 'canceled'
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

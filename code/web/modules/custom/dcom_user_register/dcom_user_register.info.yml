@@ -1,0 +1,7 @@
+name: 'Diamond Commerce User Registration'
+type: module
+description: 'Provides multiple user registration for Diamond Commerce.'
+core: 8.x
+package: Custom
+dependencies:
+  - multiple_registration

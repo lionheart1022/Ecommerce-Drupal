@@ -1,0 +1,20 @@
+uuid: 94f62fe1-756c-44f8-9d0b-5ee1553d76ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_odoo_attribute_line_id
+field_name: field_odoo_attribute_line_id
+entity_type: commerce_product
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

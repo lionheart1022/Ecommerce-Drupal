@@ -1,0 +1,10 @@
+uuid: f32e2e6f-5c20-4d2e-9ea5-48f472600049
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_shipping
+id: commerce_shipment.tracking_code
+label: 'Tracking code'
+targetEntityType: commerce_shipment
+cache: true

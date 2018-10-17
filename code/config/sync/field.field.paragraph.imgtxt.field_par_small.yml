@@ -1,0 +1,23 @@
+uuid: 182d631b-da1f-49e3-a28f-4385bae82597
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_small
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - options
+id: paragraph.imgtxt.field_par_small
+field_name: field_par_small
+entity_type: paragraph
+bundle: imgtxt
+label: 'Small Columns'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 1C
+default_value_callback: ''
+settings: {  }
+field_type: list_string

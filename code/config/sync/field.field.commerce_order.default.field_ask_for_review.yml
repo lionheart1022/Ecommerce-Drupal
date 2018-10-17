@@ -1,0 +1,23 @@
+uuid: 0dd293a8-89a2-44d8-a0a4-68e8941d1430
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.default
+    - field.storage.commerce_order.field_ask_for_review
+id: commerce_order.default.field_ask_for_review
+field_name: field_ask_for_review
+entity_type: commerce_order
+bundle: default
+label: 'Ask For Review'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,22 @@
+uuid: 5216e800-a7f2-4718-a8c2-cc651a93445e
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - dcom_56cbd
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: dcom_56cbd_breadcrumbs
+theme: dcom_56cbd
+region: content
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

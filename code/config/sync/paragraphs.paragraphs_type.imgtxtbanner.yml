@@ -1,0 +1,10 @@
+uuid: 1407d129-4d9e-4fe4-9073-f14a97f04be1
+langcode: en
+status: true
+dependencies: {  }
+id: imgtxtbanner
+label: 'Image Text Banner'
+icon_uuid: null
+description: ''
+save_empty: false
+behavior_plugins: {  }

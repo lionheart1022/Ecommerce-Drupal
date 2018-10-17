@@ -1,0 +1,14 @@
+uuid: 6773ef94-574e-49a9-978b-3f6ee8a359fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.default
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.default
+label: 'Remove editors from the Default domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: default

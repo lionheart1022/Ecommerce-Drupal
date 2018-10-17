@@ -1,0 +1,10 @@
+uuid: 6dfe9b82-75b3-4da8-ab71-07a5d65dcc65
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.term_megamenu_style_1
+label: 'Term Megamenu Style 1'
+targetEntityType: taxonomy_term
+cache: true

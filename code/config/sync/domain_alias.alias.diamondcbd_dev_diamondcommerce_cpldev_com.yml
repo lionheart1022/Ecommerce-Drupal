@@ -1,0 +1,9 @@
+uuid: 54f7154c-0002-419d-9614-df1ea777e688
+langcode: en
+status: true
+dependencies: {  }
+id: diamondcbd_dev_diamondcommerce_cpldev_com
+domain_id: diamondcbd_domain
+pattern: diamondcbd.dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

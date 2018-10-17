@@ -1,0 +1,21 @@
+uuid: bbfb013c-3850-453b-8e1e-834ac0005a6f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  title: '[current-page:title] | [current-domain:name]'
+  head_title: '[current-page:title] | [current-domain:name]'
+  canonical_url: '[current-page:url]'
+  og_url: '[current-page:url]'
+  og_type: website
+  og_site_name: '[site:name]'
+  og_locale: en_US
+  og_title: '[current-page:title]'
+  twitter_cards_type: summary
+  twitter_cards_description: '[current-page:title]'
+  twitter_cards_title: '[current-page:title]'
+  twitter_cards_page_url: '[current-page:url]'

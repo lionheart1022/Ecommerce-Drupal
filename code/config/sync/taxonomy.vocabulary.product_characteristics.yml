@@ -1,0 +1,9 @@
+uuid: 4930e50e-f253-44df-991e-b42be8d75e0f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Product characteristics'
+vid: product_characteristics
+description: ''
+hierarchy: 0
+weight: 0

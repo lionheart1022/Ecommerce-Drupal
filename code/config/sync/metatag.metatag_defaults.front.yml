@@ -1,0 +1,22 @@
+uuid: d64dd001-7e51-4774-bbea-618f70c9a453
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  title: '[node:field_meta_title]'
+  head_title: '[node:field_meta_title]'
+  keywords: 'CBD, Oils, Gummies, Edibles, Vaping, Vape Pens'
+  image_src: '[node:field_image:meta_image]'
+  shortlink: '[site:url]'
+  canonical_url: '[site:url]'
+  description: '[node:field_meta_description]'
+  og_image: '[node:field_image:meta_image]'
+  og_title: '[node:field_meta_title]'
+  og_description: '[node:field_meta_description]'
+  twitter_cards_description: '[node:field_meta_description]'
+  twitter_cards_image: '[node:field_image:meta_image]'
+  twitter_cards_title: '[node:field_meta_title]'

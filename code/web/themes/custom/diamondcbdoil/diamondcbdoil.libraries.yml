@@ -1,0 +1,12 @@
+global:
+  version: VERSION
+  css:
+    base:
+      fonts/stylesheet.css: {}
+      css/diamondcbdoil.css: {}
+  js:
+    js/diamondcbdoil.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

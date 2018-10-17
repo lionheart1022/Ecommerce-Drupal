@@ -1,0 +1,23 @@
+uuid: 1195fe81-cefe-48e2-81d4-825a0a3ef1b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_slideshow_center
+    - paragraphs.paragraphs_type.icntxt
+id: paragraph.icntxt.field_par_slideshow_center
+field_name: field_par_slideshow_center
+entity_type: paragraph
+bundle: icntxt
+label: 'Slideshow Center Mode '
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

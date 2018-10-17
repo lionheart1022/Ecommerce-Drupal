@@ -1,0 +1,27 @@
+uuid: f55ab44e-da9e-494a-9bfb-b460a343f88a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - simple_megamenu
+id: simple_mega_menu.field_menu_slideshow
+field_name: field_menu_slideshow
+entity_type: simple_mega_menu
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'OFF'
+      label: 'Off'
+    -
+      value: 'ON'
+      label: 'On'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

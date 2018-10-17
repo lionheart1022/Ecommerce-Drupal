@@ -1,0 +1,95 @@
+uuid: 72ed30c5-f958-4e22-b3f6-9ad24ba9c9bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.imgtxtbanner.field_par_alternating
+    - field.field.paragraph.imgtxtbanner.field_par_background_color
+    - field.field.paragraph.imgtxtbanner.field_par_background_image
+    - field.field.paragraph.imgtxtbanner.field_par_class
+    - field.field.paragraph.imgtxtbanner.field_par_constraint
+    - field.field.paragraph.imgtxtbanner.field_par_constraint_text
+    - field.field.paragraph.imgtxtbanner.field_par_content_items
+    - field.field.paragraph.imgtxtbanner.field_par_content_media_ref
+    - field.field.paragraph.imgtxtbanner.field_par_content_ref
+    - field.field.paragraph.imgtxtbanner.field_par_display_mode
+    - field.field.paragraph.imgtxtbanner.field_par_displayed_con
+    - field.field.paragraph.imgtxtbanner.field_par_header_size
+    - field.field.paragraph.imgtxtbanner.field_par_image_height
+    - field.field.paragraph.imgtxtbanner.field_par_max_qty
+    - field.field.paragraph.imgtxtbanner.field_par_media_ref
+    - field.field.paragraph.imgtxtbanner.field_par_media_type
+    - field.field.paragraph.imgtxtbanner.field_par_mobile_layout
+    - field.field.paragraph.imgtxtbanner.field_par_overlay
+    - field.field.paragraph.imgtxtbanner.field_par_parallax
+    - field.field.paragraph.imgtxtbanner.field_par_position
+    - field.field.paragraph.imgtxtbanner.field_par_product_ref
+    - field.field.paragraph.imgtxtbanner.field_par_row_padding
+    - field.field.paragraph.imgtxtbanner.field_par_row_style
+    - field.field.paragraph.imgtxtbanner.field_par_slideshow_center
+    - field.field.paragraph.imgtxtbanner.field_par_slideshow_control
+    - field.field.paragraph.imgtxtbanner.field_par_slideshow_rows
+    - field.field.paragraph.imgtxtbanner.field_par_text_box_options
+    - field.field.paragraph.imgtxtbanner.field_par_video
+    - field.field.paragraph.imgtxtbanner.field_par_view_ref
+    - field.field.paragraph.imgtxtbanner.field_par_vmargin
+    - field.field.paragraph.imgtxtbanner.field_par_vpadding
+    - paragraphs.paragraphs_type.imgtxtbanner
+  module:
+    - options
+id: paragraph.imgtxtbanner.preview
+targetEntityType: paragraph
+bundle: imgtxtbanner
+mode: preview
+content:
+  field_par_position:
+    type: list_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_par_row_style:
+    type: list_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_par_text_box_options:
+    type: list_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_par_alternating: true
+  field_par_background_color: true
+  field_par_background_image: true
+  field_par_class: true
+  field_par_constraint: true
+  field_par_constraint_text: true
+  field_par_content_items: true
+  field_par_content_media_ref: true
+  field_par_content_ref: true
+  field_par_display_mode: true
+  field_par_displayed_con: true
+  field_par_header_size: true
+  field_par_image_height: true
+  field_par_max_qty: true
+  field_par_media_ref: true
+  field_par_media_type: true
+  field_par_mobile_layout: true
+  field_par_overlay: true
+  field_par_parallax: true
+  field_par_product_ref: true
+  field_par_row_padding: true
+  field_par_slideshow_center: true
+  field_par_slideshow_control: true
+  field_par_slideshow_rows: true
+  field_par_video: true
+  field_par_view_ref: true
+  field_par_vmargin: true
+  field_par_vpadding: true

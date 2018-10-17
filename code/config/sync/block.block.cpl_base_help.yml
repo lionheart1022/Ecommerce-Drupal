@@ -1,0 +1,22 @@
+uuid: 13236a56-7945-447a-8b86-0287e1a8da13
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - cpl_base
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: cpl_base_help
+theme: cpl_base
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

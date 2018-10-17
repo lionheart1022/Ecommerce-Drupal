@@ -1,0 +1,31 @@
+uuid: 3f2f4065-197d-4b42-abc4-fc1c18faf2e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_cart
+    - cpl_paragraphs
+  theme:
+    - diamondcbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondcbd_cart
+theme: diamondcbd
+region: right_off_canvas
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: true
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

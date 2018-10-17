@@ -1,0 +1,8 @@
+uuid: 38427acf-200d-4e5a-a48a-df18bf322761
+langcode: en
+status: true
+dependencies: {  }
+id: cpl_form_reference
+label: 'CPL Form Reference'
+revision: 0
+description: 'Displays logo, text and form.'

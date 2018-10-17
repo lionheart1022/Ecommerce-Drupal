@@ -1,0 +1,100 @@
+uuid: 60109ccd-c690-43ab-b77d-591ad50f3670
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_footer
+    - field.field.block_content.cpl_page_footer.body
+    - field.field.block_content.cpl_page_footer.field_block_display_title
+    - field.field.block_content.cpl_page_footer.field_block_footer_type
+    - field.field.block_content.cpl_page_footer.field_block_logo
+    - field.field.block_content.cpl_page_footer.field_block_mail
+    - field.field.block_content.cpl_page_footer.field_block_menu_ref
+    - field.field.block_content.cpl_page_footer.field_block_telephone
+    - field.field.block_content.cpl_page_footer.field_social_icons
+    - image.style.thumbnail
+  module:
+    - field_collection
+    - image
+    - telephone
+    - text
+id: block_content.cpl_page_footer.default
+targetEntityType: block_content
+bundle: cpl_page_footer
+mode: default
+content:
+  body:
+    weight: 7
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_block_display_title:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_block_footer_type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_block_logo:
+    weight: 6
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_block_mail:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_block_menu_ref:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_block_telephone:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_social_icons:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

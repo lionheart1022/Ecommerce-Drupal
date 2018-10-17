@@ -1,0 +1,37 @@
+uuid: 2cb7790e-82c3-45ac-b00f-9624bbd16fef
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_recent_purchase_popup
+    - cpl_paragraphs
+    - system
+  theme:
+    - mbio
+id: recentpurchasepopupblock_mbio
+theme: mbio
+region: content
+weight: 0
+provider: null
+plugin: recent_purchase_popup_block
+settings:
+  id: recent_purchase_popup_block
+  label: 'Recent Purchase Popup block'
+  provider: commerce_recent_purchase_popup
+  label_display: '0'
+  delay: '10000'
+  interval: '60000'
+  time_to_show: '4000'
+  user_info: '[profile:address:given_name] from [profile:address:locality] purchased a'
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/user\r\n/user/*\r\n/cart\r\n/checkout/*"
+    negate: true
+    context_mapping: {  }

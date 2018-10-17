@@ -1,0 +1,20 @@
+uuid: fd8b3844-6d74-4d53-9108-d4c0ebc3f548
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cpl_base_commerce
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: cpl_base_commerce_local_actions
+theme: cpl_base_commerce
+region: content
+weight: -1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,82 @@
+<?php
+
+/**
+ * @file
+ * CPL Commerce Facet Token module file.
+ */
+
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\cpl_commerce_facet_token\TokenGeneratorInterface;
+
+/**
+ * Implements hook_token_info().
+ */
+function cpl_commerce_facet_token_token_info() {
+  $type = [
+    'name' => t('Diamond Commerce - Facets'),
+    'description' => t('Tokens related to active facets.'),
+  ];
+
+  $token[TokenGeneratorInterface::TOKEN_TITLE] = [
+    'name' => t('Active facets title'),
+    'description' => t('Page title generated from active facets.'),
+  ];
+
+  $token[TokenGeneratorInterface::TOKEN_DESCRIPTION] = [
+    'name' => t('Active facets description'),
+    'description' => t('Page description generated from active facets.'),
+  ];
+
+  $token[TokenGeneratorInterface::TOKEN_TERM_TITLE] = [
+    'name' => t('Active facet term title'),
+    'description' => t('The title of active facet term.'),
+  ];
+
+  $token[TokenGeneratorInterface::TOKEN_TERM_DESCRIPTION] = [
+    'name' => t('Active facet term description'),
+    'description' => t('The description of active facet term.'),
+  ];
+
+  $token[TokenGeneratorInterface::TOKEN_IMAGE] = [
+    'name' => t('Active facet term image'),
+    'description' => t('The image of active facet term.'),
+  ];
+
+  return [
+    'types' => ['cpl_commerce_facet' => $type],
+    'tokens' => ['cpl_commerce_facet' => $token],
+  ];
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function cpl_commerce_facet_token_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  if ($type == 'cpl_commerce_facet') {
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case TokenGeneratorInterface::TOKEN_TITLE:
+        case TokenGeneratorInterface::TOKEN_DESCRIPTION:
+        case TokenGeneratorInterface::TOKEN_TERM_TITLE:
+        case TokenGeneratorInterface::TOKEN_TERM_DESCRIPTION:
+          $replacements[$original] = \Drupal::service('cpl_commerce_facet_token.generator')
+            ->getTokenValue($name);
+          break;
+
+      }
+      if (strpos($name, TokenGeneratorInterface::TOKEN_IMAGE) !== FALSE) {
+        $replacements[$original] = \Drupal::service('cpl_commerce_facet_token.generator')
+          ->getImageToken($name, $original);
+      }
+    }
+
+    if (!empty($replacements)) {
+      // Cache depends on active URL.
+      $bubbleable_metadata->addCacheContexts(['url']);
+    }
+  }
+
+  return $replacements;
+}

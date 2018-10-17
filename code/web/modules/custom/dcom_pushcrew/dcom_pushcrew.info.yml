@@ -1,0 +1,8 @@
+name: 'Diamond Commerce - Push Crew'
+type: module
+description: 'Provides Push Crew JS integration.'
+core: 8.x
+package: Custom
+dependencies:
+  - domain:domain
+  - system

@@ -1,0 +1,28 @@
+uuid: 160308dd-b75a-470c-a4c5-50acee3d635e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.simple_mega_menu.field_menu_content_ref
+    - node.type.additional_content
+    - simple_megamenu.simple_mega_menu_type.megamenu
+id: simple_mega_menu.megamenu.field_menu_content_ref
+field_name: field_menu_content_ref
+entity_type: simple_mega_menu
+bundle: megamenu
+label: Ads
+description: 'Additional content.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      additional_content: additional_content
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

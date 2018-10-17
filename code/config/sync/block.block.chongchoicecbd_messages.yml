@@ -1,0 +1,22 @@
+uuid: 5bfca8e0-2aac-4f9a-b25d-3b99f8871e2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - chongchoicecbd
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: chongchoicecbd_messages
+theme: chongchoicecbd
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

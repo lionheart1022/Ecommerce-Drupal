@@ -1,0 +1,12 @@
+global:
+  version: VERSION
+  css:
+    base:
+      fonts/stylesheet.css: {}
+      css/relaxgummies.css: {}
+  js:
+    js/relaxgummies.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

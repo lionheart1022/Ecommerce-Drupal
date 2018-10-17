@@ -1,0 +1,35 @@
+uuid: 4281a226-ab9a-4881-9259-31744f46c532
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ae78fada-c0ef-4e93-a970-ca594859979f'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - medipets
+third_party_settings:
+  block_class:
+    classes: ''
+id: medipets_checkout_footer
+theme: medipets
+region: footer_checkout_form
+weight: 0
+provider: null
+plugin: 'block_content:ae78fada-c0ef-4e93-a970-ca594859979f'
+settings:
+  id: 'block_content:ae78fada-c0ef-4e93-a970-ca594859979f'
+  label: 'Medipets Checkout Footer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

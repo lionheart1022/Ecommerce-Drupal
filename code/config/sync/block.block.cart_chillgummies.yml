@@ -1,0 +1,31 @@
+uuid: 89bcd17e-a74a-418a-937c-383c4bd4a705
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_cart
+    - cpl_paragraphs
+  theme:
+    - chillgummies
+third_party_settings:
+  block_class:
+    classes: ''
+id: cart_chillgummies
+theme: chillgummies
+region: right_off_canvas
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: true
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

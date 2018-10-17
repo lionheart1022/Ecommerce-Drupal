@@ -1,0 +1,22 @@
+uuid: 24904ea3-9632-4402-8579-d112c1222a3b
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - dcom_56cbd
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: dcom_56cbd_help
+theme: dcom_56cbd
+region: content
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

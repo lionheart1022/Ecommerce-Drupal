@@ -1,0 +1,19 @@
+uuid: 75a657cb-d571-4737-8222-93434194477b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_class
+    - paragraphs.paragraphs_type.imgtxtbanner
+id: paragraph.imgtxtbanner.field_par_class
+field_name: field_par_class
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'Additional Class'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

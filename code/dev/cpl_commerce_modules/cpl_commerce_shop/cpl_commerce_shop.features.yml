@@ -1,0 +1,3 @@
+excluded:
+  - field.storage.taxonomy_term.field_image
+required: true

@@ -1,0 +1,6 @@
+{
+  "require": {
+    "drupal/migrate_plus": "*",
+    "drupal/migrate_tools": "*"
+  }
+}

@@ -1,0 +1,7 @@
+input_mask:
+  version: VERSION
+  js:
+    js/input-mask.js: {}
+  dependencies:
+      - core/jquery
+      - core/jquery.once

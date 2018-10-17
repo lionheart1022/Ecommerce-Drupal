@@ -1,0 +1,14 @@
+uuid: 0604e82e-1418-4414-80ab-972a29dd1652
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.medipets_domain
+  module:
+    - domain_access
+id: domain_access_add_editor_action.medipets_domain
+label: 'Add editors to the Medipets domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: medipets_domain

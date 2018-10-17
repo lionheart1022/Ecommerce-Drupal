@@ -1,0 +1,32 @@
+uuid: 51745fe3-3d8f-4dcf-8ed9-719fdce0ae3e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access cart'
+  - 'access checkout'
+  - 'access comments'
+  - 'access content'
+  - 'access profile overview'
+  - 'create customer profile'
+  - 'delete own customer profile'
+  - 'download media'
+  - 'flag favorite_product'
+  - 'manage own commerce_payment_method'
+  - 'post comments'
+  - 'unflag favorite_product'
+  - 'update own customer profile'
+  - 'use text format basic_html'
+  - 'use text format mailchimp_campaign'
+  - 'view commerce_product'
+  - 'view media'
+  - 'view own commerce_order'
+  - 'view own customer profile'
+  - 'view profile'
+  - 'view published simple mega menu entities'

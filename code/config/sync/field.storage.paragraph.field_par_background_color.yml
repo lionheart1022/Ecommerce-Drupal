@@ -1,0 +1,36 @@
+uuid: 9032ba63-e5ba-4451-8ff7-6155f8222841
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_background_color
+field_name: field_par_background_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: BC1
+      label: 'Background color 1'
+    -
+      value: BC2
+      label: 'Background color 2'
+    -
+      value: BC3
+      label: 'Background color 3'
+    -
+      value: BC4
+      label: 'Background color 4'
+    -
+      value: BC5
+      label: 'Background color 5'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

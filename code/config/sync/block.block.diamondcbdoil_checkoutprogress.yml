@@ -1,0 +1,24 @@
+uuid: 27f587ea-8eb1-4adb-a2b5-c8f8608c5ffc
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+  theme:
+    - diamondcbdoil
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondcbdoil_checkoutprogress
+theme: diamondcbdoil
+region: content
+weight: -4
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility: {  }

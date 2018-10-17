@@ -1,0 +1,42 @@
+uuid: e5f4362a-be47-4d31-944b-461e8f46b59c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_header:cb5779fb-36b7-4c71-828d-18b566cbf5cc'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - mbio
+third_party_settings:
+  block_class:
+    classes: ''
+id: mbiopageheader
+theme: mbio
+region: header
+weight: -6
+provider: null
+plugin: 'block_content:cb5779fb-36b7-4c71-828d-18b566cbf5cc'
+settings:
+  id: 'block_content:cb5779fb-36b7-4c71-828d-18b566cbf5cc'
+  label: 'Mbio Page Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '/checkout/*'
+    negate: true
+    context_mapping: {  }
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_header
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

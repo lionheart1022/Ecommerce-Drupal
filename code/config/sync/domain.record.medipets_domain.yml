@@ -1,0 +1,19 @@
+uuid: 5d3fa1fd-d23e-4344-843c-cfc838583a32
+langcode: en
+status: true
+dependencies:
+  module:
+    - dcom_domain
+    - dcom_pushcrew
+third_party_settings:
+  dcom_domain:
+    contact_page_path: /medipets-contact
+  dcom_pushcrew:
+    pushcrew_api_key: b80cc6bbff184d987775e9b4b0de171f
+id: medipets_domain
+domain_id: 10416785
+hostname: www.medipetscbd.com
+name: Medipets
+scheme: variable
+weight: 5
+is_default: false

@@ -1,0 +1,9 @@
+uuid: 11459c09-6875-4001-90ae-9fd1cde4c69c
+langcode: en
+status: true
+dependencies: {  }
+id: bluecbd_prod_diamondcommerce_cpldev_com
+domain_id: bluecbd_domain
+pattern: bluecbd.prod.diamondcommerce.cpldev.com
+redirect: 0
+environment: default

@@ -1,0 +1,23 @@
+uuid: 70e0cb49-4ddf-41c5-a052-ae451b4d508a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_small
+    - paragraphs.paragraphs_type.icntxt
+  module:
+    - options
+id: paragraph.icntxt.field_par_small
+field_name: field_par_small
+entity_type: paragraph
+bundle: icntxt
+label: 'Small Columns'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1C
+default_value_callback: ''
+settings: {  }
+field_type: list_string

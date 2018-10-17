@@ -1,0 +1,43 @@
+uuid: 8ace7c51-6a5e-4783-a512-cadf3436e06e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.product_type.field_domain
+    - field.field.taxonomy_term.product_type.field_domain_fields
+    - field.field.taxonomy_term.product_type.field_image
+    - field.field.taxonomy_term.product_type.field_is_collection
+    - field.field.taxonomy_term.product_type.field_meta_description
+    - field.field.taxonomy_term.product_type.field_meta_title
+    - field.field.taxonomy_term.product_type.field_url_value
+    - taxonomy.vocabulary.product_type
+  module:
+    - text
+id: taxonomy_term.product_type.default
+targetEntityType: taxonomy_term
+bundle: product_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  field_domain_fields: true
+  field_image: true
+  field_is_collection: true
+  field_meta_description: true
+  field_meta_title: true
+  field_url_value: true
+  langcode: true

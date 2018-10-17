@@ -1,0 +1,24 @@
+uuid: 1d504858-4a79-4a5f-8346-20612af62e11
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+  theme:
+    - relaxgummies
+third_party_settings:
+  block_class:
+    classes: ''
+id: relaxgummies_checkoutprogress
+theme: relaxgummies
+region: content
+weight: -4
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility: {  }

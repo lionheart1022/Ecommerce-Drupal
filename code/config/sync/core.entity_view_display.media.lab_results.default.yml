@@ -1,0 +1,43 @@
+uuid: e56b288e-32ac-4ff4-adc8-3b4ad50d5d1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.lab_results.field_domain_access
+    - field.field.media.lab_results.field_media_image_1
+    - field.field.media.lab_results.field_media_product_ref
+    - field.field.media.lab_results.field_media_term_ref
+    - image.style.max_1300x1300
+    - media.type.lab_results
+  module:
+    - image
+id: media.lab_results.default
+targetEntityType: media
+bundle: lab_results
+mode: default
+content:
+  field_media_image_1:
+    label: hidden
+    settings:
+      image_style: max_1300x1300
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    weight: 1
+    region: content
+  name:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_domain_access: true
+  field_media_product_ref: true
+  field_media_term_ref: true
+  langcode: true
+  thumbnail: true
+  uid: true

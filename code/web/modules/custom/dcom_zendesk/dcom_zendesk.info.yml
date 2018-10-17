@@ -1,0 +1,7 @@
+name: 'Diamond Commerce - Zendesk'
+type: module
+description: 'Provides Zendesk integration.'
+core: 8.x
+package: Custom
+dependencies:
+  - system

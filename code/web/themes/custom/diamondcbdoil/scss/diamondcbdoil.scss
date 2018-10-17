@@ -1,0 +1,31 @@
+@charset 'utf-8';
+
+// Foundation utilites
+@import '../node_modules/foundation-sites/scss/util/util';
+
+// Foundation variables
+@import '@cpl_base/settings';
+@import '@cpl_commerce/settings';
+@import 'settings';
+
+// Theme variables
+@import '@cpl_base/cpl-settings';
+@import '@cpl_commerce/cpl-settings';
+@import 'cpl-settings';
+
+// Foundation bootstrap
+@import '../node_modules/foundation-sites/scss/foundation';
+@import '../node_modules/motion-ui/src/motion-ui';
+
+// Set flex to true to enable the new Foundation 6 flex grid.
+$flex: false;
+
+@include foundation-everything($flex);
+
+// Motion UI
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+// Base theme styles
+@import '@cpl_base/common';
+@import '@cpl_commerce/common';

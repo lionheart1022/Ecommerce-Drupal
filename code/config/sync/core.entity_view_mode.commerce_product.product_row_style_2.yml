@@ -1,0 +1,10 @@
+uuid: 06b6bd30-3300-4a47-9539-0023a1c83348
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.product_row_style_2
+label: 'Product Row Style 2'
+targetEntityType: commerce_product
+cache: true

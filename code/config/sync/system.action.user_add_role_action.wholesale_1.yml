@@ -1,0 +1,14 @@
+uuid: 490e88be-8488-4745-a555-b23d04135008
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.wholesale_1
+  module:
+    - user
+id: user_add_role_action.wholesale_1
+label: 'Add the Wholesale 1 role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: wholesale_1

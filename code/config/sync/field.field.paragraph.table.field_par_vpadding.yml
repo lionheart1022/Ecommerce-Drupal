@@ -1,0 +1,23 @@
+uuid: a67408b9-a2d3-40a5-9508-6f259dab62da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_vpadding
+    - paragraphs.paragraphs_type.table
+  module:
+    - options
+id: paragraph.table.field_par_vpadding
+field_name: field_par_vpadding
+entity_type: paragraph
+bundle: table
+label: 'Vertical Padding'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: NP
+default_value_callback: ''
+settings: {  }
+field_type: list_string

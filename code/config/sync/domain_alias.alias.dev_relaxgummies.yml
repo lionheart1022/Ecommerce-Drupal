@@ -1,0 +1,9 @@
+uuid: 6b9e1f6f-afec-4636-bf63-ae3146d9aa9d
+langcode: en
+status: true
+dependencies: {  }
+id: dev_relaxgummies
+domain_id: relaxgummies_domain
+pattern: relaxgummies.dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

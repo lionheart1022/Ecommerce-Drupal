@@ -1,0 +1,20 @@
+uuid: d7e0c25d-aac4-44f2-ac7e-c7556e1ec48d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - webform
+id: field_collection_item.field_parc_webform
+field_name: field_parc_webform
+entity_type: field_collection_item
+type: webform
+settings:
+  target_type: webform
+module: webform
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

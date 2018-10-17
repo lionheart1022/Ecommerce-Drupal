@@ -1,0 +1,14 @@
+uuid: 96d92d20-4dea-48b9-90d5-ee160ae512d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mbio_domain
+  module:
+    - domain_access
+id: domain_access_remove_action.mbio_domain
+label: 'Remove selected content from the Meds Biotech domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: mbio_domain

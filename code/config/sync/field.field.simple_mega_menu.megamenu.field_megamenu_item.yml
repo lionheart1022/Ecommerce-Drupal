@@ -1,0 +1,30 @@
+uuid: 740ff42a-6ea0-4bd3-8364-41ee3bc06459
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.simple_mega_menu.field_megamenu_item
+    - field_collection.field_collection.field_megamenu_item
+    - simple_megamenu.simple_mega_menu_type.megamenu
+  module:
+    - field_collection
+id: simple_mega_menu.megamenu.field_megamenu_item
+field_name: field_megamenu_item
+entity_type: simple_mega_menu
+bundle: megamenu
+label: 'Megamenu Item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:field_collection_item'
+  handler_settings:
+    target_bundles:
+      field_megamenu_item: field_megamenu_item
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: field_collection

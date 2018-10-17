@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the dcom_deploy module.
+ */
+
+use Drupal\commerce_promotion\Entity\Promotion;
+use Drupal\commerce_store\Entity\Store;
+use Drupal\user\Entity\Role;
+
+/**
+ * Implements hook_install().
+ */
+function dcom_deploy_install() {
+  if ($wholesale_role = Role::load('wholesale_1')) {
+    // Add "50% off for wholesales" promotion.
+    $stores = Store::loadMultiple();
+    $store = reset($stores);
+    $promotion = Promotion::create([
+      'name' => '50% off for wholesales',
+      'order_types' => ['default'],
+      'start_date' => '2018-02-07',
+      'status' => TRUE,
+      'stores' => [$store->id()],
+      'offer' => [
+        'target_plugin_id' => 'order_item_percentage_off',
+        'target_plugin_configuration' => [
+          'percentage' => '0.5',
+        ],
+      ],
+      'conditions' => [
+        [
+          'target_plugin_id' => 'order_customer_role',
+          'target_plugin_configuration' => [
+            'roles' => [$wholesale_role->id() => $wholesale_role->id()],
+          ],
+        ],
+      ],
+    ]);
+    $promotion->save();
+  }
+}
+
+/**
+ * Revert Address module schema version since we removed the behavior patch.
+ */
+function dcom_deploy_update_8101() {
+  drupal_set_installed_schema_version('address', 8103);
+}

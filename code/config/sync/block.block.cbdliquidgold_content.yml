@@ -1,0 +1,22 @@
+uuid: 0d1b8073-58b8-4927-8bf5-be355bbb0c55
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cbdliquidgold
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: cbdliquidgold_content
+theme: cbdliquidgold
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

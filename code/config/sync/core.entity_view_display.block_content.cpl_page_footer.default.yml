@@ -1,0 +1,91 @@
+uuid: d39db323-198f-48e5-89b3-efb3dc6c4b76
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_footer
+    - field.field.block_content.cpl_page_footer.body
+    - field.field.block_content.cpl_page_footer.field_block_display_title
+    - field.field.block_content.cpl_page_footer.field_block_footer_type
+    - field.field.block_content.cpl_page_footer.field_block_logo
+    - field.field.block_content.cpl_page_footer.field_block_mail
+    - field.field.block_content.cpl_page_footer.field_block_menu_ref
+    - field.field.block_content.cpl_page_footer.field_block_telephone
+    - field.field.block_content.cpl_page_footer.field_social_icons
+    - image.style.max_325x325
+  module:
+    - field_collection
+    - image
+    - options
+    - telephone_formatter
+    - text
+id: block_content.cpl_page_footer.default
+targetEntityType: block_content
+bundle: cpl_page_footer
+mode: default
+content:
+  body:
+    weight: 8
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_block_display_title:
+    weight: 7
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_block_footer_type:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_block_logo:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: max_325x325
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_block_mail:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+    region: content
+  field_block_menu_ref:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: entity_reference_entity_id
+    region: content
+  field_block_telephone:
+    weight: 6
+    label: hidden
+    settings:
+      format: 2
+      link: true
+      default_country: US
+    third_party_settings: {  }
+    type: telephone_formatter
+    region: content
+  field_social_icons:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: field_collection_items
+    region: content
+hidden:
+  langcode: true

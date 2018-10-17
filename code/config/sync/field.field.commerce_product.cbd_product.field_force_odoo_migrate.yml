@@ -1,0 +1,23 @@
+uuid: 4b79c4b8-b8e3-41ed-a73f-5eddd5ce5b79
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.commerce_product.field_force_odoo_migrate
+id: commerce_product.cbd_product.field_force_odoo_migrate
+field_name: field_force_odoo_migrate
+entity_type: commerce_product
+bundle: cbd_product
+label: 'Force Odoo Migrate'
+description: 'Setting this field will force re-import product from Odoo on next cron run.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

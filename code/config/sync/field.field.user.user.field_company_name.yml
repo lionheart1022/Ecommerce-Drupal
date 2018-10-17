@@ -1,0 +1,26 @@
+uuid: 957235b2-c9b2-42e7-8297-b977559fff2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_name
+  module:
+    - multiple_registration
+    - user
+third_party_settings:
+  multiple_registration:
+    user_additional_register_form:
+      wholesale_unapproved: wholesale_unapproved
+      100: 0
+id: user.user.field_company_name
+field_name: field_company_name
+entity_type: user
+bundle: user
+label: 'Company Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

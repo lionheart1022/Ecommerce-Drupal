@@ -1,0 +1,17 @@
+uuid: f8eaa0e9-164c-44bc-ae47-4447510b1fc9
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Media
+type: media
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,28 @@
+uuid: 98858a51-dafc-4ea9-bd54-9cd29dd19288
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.commerce_product.field_product_how_to_use
+    - media.type.how_to_use
+id: commerce_product.cbd_product.field_product_how_to_use
+field_name: field_product_how_to_use
+entity_type: commerce_product
+bundle: cbd_product
+label: 'How To Use'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      how_to_use: how_to_use
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

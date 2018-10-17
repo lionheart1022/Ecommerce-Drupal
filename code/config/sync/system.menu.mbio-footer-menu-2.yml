@@ -1,0 +1,8 @@
+uuid: 2e497f25-1c23-4d90-9d08-166457a7335a
+langcode: en
+status: true
+dependencies: {  }
+id: mbio-footer-menu-2
+label: Learn
+description: 'Mbio footer menu 2'
+locked: false

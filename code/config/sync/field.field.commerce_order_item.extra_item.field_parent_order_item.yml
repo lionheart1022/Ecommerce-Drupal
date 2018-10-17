@@ -1,0 +1,30 @@
+uuid: c19ff7b0-7ded-4ef2-8637-5c524e57535b
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.default
+    - commerce_order.commerce_order_item_type.extra_item
+    - field.storage.commerce_order_item.field_parent_order_item
+_core:
+  default_config_hash: 6fYCvv84lnkKaJvnvPSUkAHExYSUXtnJgfNcCQ3Pia8
+id: commerce_order_item.extra_item.field_parent_order_item
+field_name: field_parent_order_item
+entity_type: commerce_order_item
+bundle: extra_item
+label: 'Parent order item'
+description: 'Reference to the parent order item, which invoked the offer.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_order_item'
+  handler_settings:
+    target_bundles:
+      default: default
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

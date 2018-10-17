@@ -1,0 +1,22 @@
+uuid: ab170cf1-c656-410b-b3ed-564072179179
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dcom_56cbd
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: dcom_56cbd_local_tasks
+theme: dcom_56cbd
+region: content
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

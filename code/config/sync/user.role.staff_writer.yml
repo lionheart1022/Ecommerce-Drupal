@@ -1,0 +1,20 @@
+uuid: 1b34ed5e-d5da-496e-845d-6623f24c9981
+langcode: en
+status: true
+dependencies: {  }
+id: staff_writer
+label: 'Staff - Writer'
+weight: -5
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create article content'
+  - 'delete any article content'
+  - 'delete article revisions'
+  - 'delete own article content'
+  - 'edit any article content'
+  - 'edit own article content'
+  - 'revert article revisions'
+  - 'use text format article_html'
+  - 'view the administration theme'

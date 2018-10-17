@@ -1,0 +1,20 @@
+uuid: 81d3701f-3803-4bb2-9c42-36bc52d99b9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - system
+id: block_content.field_block_mobile_menus
+field_name: field_block_mobile_menus
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: menu
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

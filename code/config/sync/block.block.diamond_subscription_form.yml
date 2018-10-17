@@ -1,0 +1,42 @@
+uuid: 035c16c9-1b00-416a-9bf5-669c1f86c451
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_form_reference:6e6fe46c-3fdd-447c-9d61-42995eb6c0eb'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - diamondcbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamond_subscription_form
+theme: diamondcbd
+region: footer_wide
+weight: -8
+provider: null
+plugin: 'block_content:6e6fe46c-3fdd-447c-9d61-42995eb6c0eb'
+settings:
+  id: 'block_content:6e6fe46c-3fdd-447c-9d61-42995eb6c0eb'
+  label: 'Diamond Subscription Form'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_footer
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/cart\r\n/checkout/*\r\n/profile/*\r\n/user/*"
+    negate: true
+    context_mapping: {  }

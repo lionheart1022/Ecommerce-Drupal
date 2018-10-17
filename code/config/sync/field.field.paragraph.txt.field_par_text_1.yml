@@ -1,0 +1,31 @@
+uuid: c1309eb6-5106-4d79-9f3c-8fe0066bab27
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_text_1
+    - paragraphs.paragraphs_type.txt
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    article_html: '0'
+    basic_html: '0'
+    text_paragraph_html: '0'
+    full_html: '0'
+    plain_text: '0'
+    paragraph_custom_html: '0'
+id: paragraph.txt.field_par_text_1
+field_name: field_par_text_1
+entity_type: paragraph
+bundle: txt
+label: 'Content Heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

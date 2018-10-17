@@ -1,0 +1,41 @@
+uuid: b41f2fe5-4ac2-4806-9e0a-89f00c668032
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d6c9d888-933c-415d-8652-9079ddc70e81'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - medipets
+third_party_settings:
+  block_class:
+    classes: ''
+id: medipets_contactblock
+theme: medipets
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:d6c9d888-933c-415d-8652-9079ddc70e81'
+settings:
+  id: 'block_content:d6c9d888-933c-415d-8652-9079ddc70e81'
+  label: 'Medipets Contact block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /medipets-contact
+    negate: false
+    context_mapping: {  }

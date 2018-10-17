@@ -1,0 +1,8 @@
+uuid: 756b697b-94a9-4eed-b08c-2e05ea2dbf97
+langcode: en
+status: true
+dependencies: {  }
+id: diamond-cbd-footer-menu-1
+label: Shop
+description: 'Diamond CBD footer menu 1'
+locked: false

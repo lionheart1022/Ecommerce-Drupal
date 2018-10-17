@@ -1,0 +1,14 @@
+uuid: 26ffc74f-3c9e-487b-b05f-3cddfef5b114
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.default
+  module:
+    - domain_access
+id: domain_access_remove_action.default
+label: 'Remove selected content from the Default domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: default

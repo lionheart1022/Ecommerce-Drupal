@@ -1,0 +1,23 @@
+uuid: 1dc13c96-3342-46a5-84e1-b8313cf0afe9
+langcode: en
+status: true
+dependencies: {  }
+id: manual_pay_by_wire_transfer
+label: 'Manual - Pay by Wire Transfer'
+weight: -4
+plugin: manual
+configuration:
+  instructions:
+    value: 'You will receive the instructions regarding wire transfer via email.'
+    format: plain_text
+  display_label: 'Pay by Wire Transfer'
+  mode: n/a
+  payment_method_types:
+    - credit_card
+conditions:
+  -
+    plugin: order_customer_role
+    configuration:
+      roles:
+        - wholesale_1
+conditionOperator: AND

@@ -1,0 +1,7 @@
+name: 'Address Helper Google'
+type: module
+description: 'Provides Google Places API integration for Address Helper.'
+core: 8.x
+package: 'Address'
+dependencies:
+  - address_helper:address_helper

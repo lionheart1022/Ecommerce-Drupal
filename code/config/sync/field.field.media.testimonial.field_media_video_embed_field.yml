@@ -1,0 +1,22 @@
+uuid: 3710ee95-d5a9-4f2f-9d76-63b1ff63a5e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_video_embed_field
+    - media.type.testimonial
+  module:
+    - video_embed_field
+id: media.testimonial.field_media_video_embed_field
+field_name: field_media_video_embed_field
+entity_type: media
+bundle: testimonial
+label: 'Video Url'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers: {  }
+field_type: video_embed_field

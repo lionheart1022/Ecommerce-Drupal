@@ -1,0 +1,14 @@
+uuid: 8e939409-2c70-4082-b359-cf5ac55ec4a7
+langcode: en
+status: true
+dependencies: {  }
+name: megamenu_ad
+label: 'Megamenu Ad'
+effects:
+  0aca2e5b-8aa4-435c-84e8-88264a194c13:
+    uuid: 0aca2e5b-8aa4-435c-84e8-88264a194c13
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 850
+      height: 700

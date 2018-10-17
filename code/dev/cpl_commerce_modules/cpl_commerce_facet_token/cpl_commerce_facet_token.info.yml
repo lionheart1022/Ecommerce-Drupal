@@ -1,0 +1,10 @@
+name: 'CPL Commerce Facet Token'
+type: module
+description: 'Provides tokens based on active facets.'
+core: 8.x
+package: Commerce
+dependencies:
+  - cpl_commerce_shop
+  - facets:facets
+  - facets_pretty_paths:facets_pretty_paths
+  - taxonomy_machine_name:taxonomy_machine_name

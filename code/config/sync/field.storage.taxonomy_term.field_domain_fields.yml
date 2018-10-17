@@ -1,0 +1,20 @@
+uuid: 372752c0-3e3b-487d-976f-50f475b75119
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - taxonomy
+id: taxonomy_term.field_domain_fields
+field_name: field_domain_fields
+entity_type: taxonomy_term
+type: field_collection
+settings:
+  target_type: field_collection_item
+module: field_collection
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

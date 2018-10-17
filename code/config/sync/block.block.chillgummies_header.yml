@@ -1,0 +1,42 @@
+uuid: 54bff8ff-df63-49c2-af4a-f1812dbbffdb
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_header:4d50c358-b4f2-41f3-a449-12fcd8a4f795'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - chillgummies
+third_party_settings:
+  block_class:
+    classes: ''
+id: chillgummies_header
+theme: chillgummies
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:4d50c358-b4f2-41f3-a449-12fcd8a4f795'
+settings:
+  id: 'block_content:4d50c358-b4f2-41f3-a449-12fcd8a4f795'
+  label: 'ChillGummies Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_header
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '/checkout/*'
+    negate: true
+    context_mapping: {  }

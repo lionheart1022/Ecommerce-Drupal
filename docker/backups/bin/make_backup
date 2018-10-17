@@ -1,0 +1,29 @@
+#!/bin/bash
+
+MONTH=`date +%Y-%m`
+BACKUP_PATH=${AWS_S3_BACKUP_PATH}/${MONTH}
+
+mkdir -p /opt/duplicity/tmp /opt/duplicity/archive
+
+rm -rf /opt/backup/*
+mysqldump --single-transaction -u drupal -pdrupal -h mariadb drupal > /opt/backup/database.sql
+
+duplicity \
+  --verbosity info \
+  --full-if-older-than 7D \
+  --s3-use-new-style \
+  --archive-dir /opt/duplicity/archive \
+  --tempdir /opt/duplicity/tmp \
+  --asynchronous-upload \
+  --name ${BACKUP_NAME_DB} \
+  /opt/backup ${BACKUP_PATH}/database
+
+duplicity \
+  --verbosity info \
+  --full-if-older-than 7D \
+  --s3-use-new-style \
+  --archive-dir /opt/duplicity/archive \
+  --tempdir /opt/duplicity/tmp \
+  --asynchronous-upload \
+  --name ${BACKUP_NAME_FILES} \
+  /var/www/html/web/sites/default ${BACKUP_PATH}/files

@@ -1,0 +1,23 @@
+uuid: 10c41c4e-a0c1-44c5-a23c-0ec0a06b7197
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_row_style
+    - paragraphs.paragraphs_type.imgtxtbanner
+  module:
+    - options
+id: paragraph.imgtxtbanner.field_par_row_style
+field_name: field_par_row_style
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'Row Style'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: RS1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

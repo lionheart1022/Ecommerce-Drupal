@@ -1,0 +1,14 @@
+uuid: 902605eb-fc30-44c7-9f3a-d0f7c4259a4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.diamondcbd_domain
+  module:
+    - domain_access
+id: domain_access_remove_action.diamondcbd_domain
+label: 'Remove selected content from the Diamond CBD domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: diamondcbd_domain

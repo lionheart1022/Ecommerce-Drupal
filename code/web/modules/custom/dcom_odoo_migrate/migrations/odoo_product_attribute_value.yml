@@ -1,0 +1,39 @@
+id: odoo_product_attribute_value
+label: Odoo Product Attribute Value
+migration_group: odoo
+migration_tags:
+  - dcom_odoo_migrate_cron
+
+source:
+  plugin: odoo_api
+  model: product.attribute.value
+  fields:
+    - name
+    - create_date
+    - write_date
+    - id
+    - attribute_id
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:commerce_product_attribute_value'
+  destination_module: commerce_product
+
+process:
+  name: name
+  attribute:
+    -
+      plugin: extract
+      source: attribute_id
+      index:
+        - 0
+    -
+      plugin: static_map
+      map:
+        3: 'strength'
+        2: 'flavor'
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

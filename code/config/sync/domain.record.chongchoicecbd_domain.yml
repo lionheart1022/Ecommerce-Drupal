@@ -1,0 +1,11 @@
+uuid: de83f001-0d60-4027-bfef-f5e112d22ad0
+langcode: en
+status: true
+dependencies: {  }
+id: chongchoicecbd_domain
+domain_id: 11424887
+hostname: www.chongchoicecbd.com
+name: ChongChoiceCBD.com
+scheme: variable
+weight: 5
+is_default: false

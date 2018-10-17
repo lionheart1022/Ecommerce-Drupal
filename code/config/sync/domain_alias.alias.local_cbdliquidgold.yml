@@ -1,0 +1,9 @@
+uuid: 23196ad0-9373-4134-97a0-a62fd662d0f6
+langcode: en
+status: true
+dependencies: {  }
+id: local_cbdliquidgold
+domain_id: cbdliquidgold_domain
+pattern: cbdliquidgold.diamondcommerce.docker.localhost
+redirect: 0
+environment: local

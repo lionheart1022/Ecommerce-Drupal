@@ -1,0 +1,22 @@
+uuid: 3f97929a-870a-4386-bb10-c65ebd4d317e
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: offer_conversion_cbd_relax_gummies
+label: 'Offer Conversion: CBD Relax Gummies'
+plugin: hasoffers_affiliate
+configuration:
+  network_id: diamondcbd
+  offer_id: '31'
+  affiliate_id: ''
+  type: https_iframe
+  api_key: NETXZIHhJyKc9XISwpwUj9ftgrEoEs
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: order_canceled

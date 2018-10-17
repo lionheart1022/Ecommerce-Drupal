@@ -1,0 +1,51 @@
+uuid: 479811d9-2682-4528-bb60-98fc2a49f39b
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.extra_item
+    - field.field.commerce_order_item.extra_item.field_parent_order_item
+  module:
+    - commerce_order
+_core:
+  default_config_hash: '-BdX8kGGvfobFhkPm8xdbnR49jIBnAMBEXT0pW4uFpY'
+id: commerce_order_item.extra_item.default
+targetEntityType: commerce_order_item
+bundle: extra_item
+mode: default
+content:
+  field_parent_order_item:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  purchased_entity:
+    type: entity_reference_autocomplete
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  quantity:
+    type: commerce_quantity
+    weight: 1
+    region: content
+    settings:
+      step: '1'
+      placeholder: ''
+    third_party_settings: {  }
+  unit_price:
+    type: commerce_unit_price
+    weight: 2
+    settings:
+      require_confirmation: true
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true

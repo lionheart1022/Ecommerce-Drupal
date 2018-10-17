@@ -1,0 +1,9 @@
+name: 'Commerce NMI'
+type: module
+description: 'Implements Network Merchants, Inc. payment services for use with Drupal Commerce.'
+core: 8.x
+package: Commerce (contrib)
+dependencies:
+  - commerce:commerce_checkout
+  - commerce:commerce_order
+  - commerce:commerce_payment

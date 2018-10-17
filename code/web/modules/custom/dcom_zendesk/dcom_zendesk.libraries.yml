@@ -1,0 +1,6 @@
+dcom_zendesk:
+  js:
+    js/dcom_zendesk.js: { scope: footer }
+  dependencies:
+    - core/drupal
+    - core/jquery.once

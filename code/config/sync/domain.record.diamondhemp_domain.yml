@@ -1,0 +1,19 @@
+uuid: ee7bd12d-5767-4ccd-b491-cba13b93d37b
+langcode: en
+status: true
+dependencies:
+  module:
+    - dcom_domain
+    - dcom_pushcrew
+third_party_settings:
+  dcom_domain:
+    contact_page_path: /diamondhemp-contact
+  dcom_pushcrew:
+    pushcrew_api_key: 173f0277cd5799c661159d10c6d3b26f
+id: diamondhemp_domain
+domain_id: 3012809
+hostname: www.diamondhemp.com
+name: 'Diamond Hemp'
+scheme: variable
+weight: 10
+is_default: false

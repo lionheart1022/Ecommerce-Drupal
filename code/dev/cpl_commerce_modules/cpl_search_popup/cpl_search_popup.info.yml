@@ -1,0 +1,7 @@
+name: 'CPL Search Popup'
+type: module
+description: 'Provides Search Popup Block.'
+core: 8.x
+dependencies:
+  - block
+  - views

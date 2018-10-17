@@ -1,0 +1,7 @@
+name: 'Diamond Commerce Blog'
+description: 'Provides Blog adjustment for Diamond Commerce.'
+type: module
+core: 8.x
+dependencies:
+  - cpl_blog
+  - domain

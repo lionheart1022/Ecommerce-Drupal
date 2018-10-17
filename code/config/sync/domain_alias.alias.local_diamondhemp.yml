@@ -1,0 +1,9 @@
+uuid: 5eb0f1d7-8cad-4be7-9c6e-4bacf8b5107a
+langcode: en
+status: true
+dependencies: {  }
+id: local_diamondhemp
+domain_id: diamondhemp_domain
+pattern: diamondhemp.diamondcommerce.docker.localhost
+redirect: 0
+environment: local

@@ -1,0 +1,8 @@
+uuid: f8b745dc-8d52-49e2-ba02-fd1c39488767
+langcode: en
+status: true
+dependencies: {  }
+id: user-menu-mobile
+label: 'User Menu Mobile'
+description: 'User menu with login, logout, account, cart links.'
+locked: false

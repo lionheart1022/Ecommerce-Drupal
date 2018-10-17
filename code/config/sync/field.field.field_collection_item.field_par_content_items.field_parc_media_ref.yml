@@ -1,0 +1,26 @@
+uuid: 574955ee-1ceb-42ce-8465-e7a66f7e79e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_parc_media_ref
+    - field_collection.field_collection.field_par_content_items
+id: field_collection_item.field_par_content_items.field_parc_media_ref
+field_name: field_parc_media_ref
+entity_type: field_collection_item
+bundle: field_par_content_items
+label: 'Internal Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

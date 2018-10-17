@@ -1,0 +1,49 @@
+uuid: cdc616c8-ce66-4a73-9e35-f504622dd90d
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:cpl_age_confirmation:145dc92c-4926-40b7-a959-d7d7658cc15b'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+    - user
+  theme:
+    - diamondcbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondcbd_age_confirmation
+theme: diamondcbd
+region: meta_header
+weight: 0
+provider: null
+plugin: 'block_content:145dc92c-4926-40b7-a959-d7d7658cc15b'
+settings:
+  id: 'block_content:145dc92c-4926-40b7-a959-d7d7658cc15b'
+  label: 'Diamond CBD Age confirmation'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: /not-legal-age
+    negate: true
+    context_mapping: {  }

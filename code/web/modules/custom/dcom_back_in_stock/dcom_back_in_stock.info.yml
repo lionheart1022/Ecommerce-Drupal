@@ -1,0 +1,8 @@
+name: 'Diamond Commerce Back In Stock'
+type: module
+description: 'Provides back in stock notification for Diamond Commerce.'
+core: 8.x
+package: Custom
+dependencies:
+  - commerce
+  - entity_reference

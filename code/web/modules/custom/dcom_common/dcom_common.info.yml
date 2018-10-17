@@ -1,0 +1,11 @@
+name: 'Diamondcommerce common'
+type: module
+description: 'Provides some common plugins/features for the Diamondcommerce.'
+core: 8.x
+package: Custom
+dependencies:
+# TODO Remove commerce_extra_items dependency once DcomCommonServiceProvider::
+# TODO ::alter(commerce_extra_items service) is removed.
+  - commerce_extra_items:commerce_extra_items
+  - commerce_product:commerce_product
+  - drupal:views

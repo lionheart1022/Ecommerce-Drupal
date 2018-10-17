@@ -1,0 +1,17 @@
+cpl_commerce_shop.configuration:
+  path: '/admin/commerce/config/cpl_commerce'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'CPL Commerce'
+  requirements:
+    _permission: 'access commerce administration pages'
+
+cpl_commerce_shop.product_breadcrumbs:
+  path: '/admin/commerce/config/cpl_commerce/product_breadcrumbs'
+  defaults:
+    _form: '\Drupal\cpl_commerce_shop\Form\BreadcrumbsForm'
+    _title: 'Product breadcrumbs'
+  requirements:
+    _permission: 'access commerce administration pages'
+  options:
+    _admin_route: TRUE

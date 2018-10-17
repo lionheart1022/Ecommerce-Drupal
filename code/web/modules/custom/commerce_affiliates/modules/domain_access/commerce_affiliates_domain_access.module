@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * Domain-based access control for Commerce Affiliates.
+ */
+
+use Drupal\commerce_affiliates\Entity\AffiliateTypeInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function commerce_affiliates_domain_access_form_commerce_affiliate_type_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\commerce_affiliates\Form\AffiliateTypeForm $form_object */
+  $form_object = $form_state->getFormObject();
+  /** @var \Drupal\commerce_affiliates\Entity\AffiliateTypeInterface $affiliate_type */
+  $affiliate_type = $form_object->getEntity();
+  /** @var \Drupal\domain\DomainStorageInterface $domain_storage */
+  $domain_storage = \Drupal::entityTypeManager()->getStorage('domain');
+
+  $domains = array_map(function ($domain) {
+    /** @var \Drupal\domain\DomainInterface $domain */
+    return $domain->label();
+  }, $domain_storage->loadMultipleSorted());
+
+  $form[DOMAIN_ACCESS_FIELD] = [
+    '#type' => 'checkboxes',
+    '#title' => t('Limit domains'),
+    '#options' => $domains,
+    '#description' => t('Limit affiliate tracking code to following domains. Selecting none will enable tracking on all domains.'),
+    '#default_value' => $affiliate_type->getThirdPartySetting('commerce_affiliates_domain_access', 'domain_access'),
+  ];
+
+  $form['#entity_builders'][] = 'commerce_affiliates_domain_access_form_commerce_affiliate_type_form_builder';
+}
+
+/**
+ * Entity builder for the commerce_affiliate_type config entity.
+ *
+ * @param string $entity_type
+ *   The entity type.
+ * @param \Drupal\commerce_affiliates\Entity\AffiliateTypeInterface $affiliate_type
+ *   The Affiliate type.
+ * @param array $form
+ *   The form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
+ */
+function commerce_affiliates_domain_access_form_commerce_affiliate_type_form_builder($entity_type, AffiliateTypeInterface $affiliate_type, array &$form, FormStateInterface $form_state) {
+  $domain_ids = $form_state->getValue(DOMAIN_ACCESS_FIELD);
+  $domain_ids = array_filter($domain_ids);
+  if ($domain_ids) {
+    $affiliate_type->setThirdPartySetting('commerce_affiliates_domain_access', 'domain_access', $domain_ids);
+    return;
+  }
+
+  $affiliate_type->unsetThirdPartySetting('commerce_affiliates_domain_access', 'domain_access');
+}
+
+/**
+ * Implements hook_commerce_affiliate_types_alter().
+ */
+function commerce_affiliates_domain_access_commerce_affiliate_types_alter(array &$affiliate_types, array $context) {
+  /** @var \Drupal\domain\DomainNegotiatorInterface $domain_negotiator */
+  $domain_negotiator = \Drupal::service('domain.negotiator');
+
+  if (!($active_domain = $domain_negotiator->getActiveDomain())) {
+    return;
+  }
+
+  $affiliate_types = array_filter($affiliate_types, function ($affiliate_type) use ($active_domain) {
+    /** @var \Drupal\commerce_affiliates\Entity\AffiliateTypeInterface $affiliate_type */
+    $domains = $affiliate_type->getThirdPartySetting('commerce_affiliates_domain_access', 'domain_access');
+
+    if (!$domains) {
+      // If no domain selected - show on every domain.
+      return TRUE;
+    }
+
+    return (bool) in_array($active_domain->id(), $domains);
+  });
+}

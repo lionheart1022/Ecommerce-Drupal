@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: faqs_page
+label: 'FAQs Page'
+description: 'Main FAQs Page.'
+use_admin_theme: false
+path: /faqs
+access_logic: and
+access_conditions: {  }
+parameters: {  }

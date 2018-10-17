@@ -1,0 +1,4 @@
+database: dcbd-staging-35200
+username: mkuzomko@creativepl.com
+password: xmlrpc
+url: 'https://dcbd-staging-35200.dev.odoo.com'

@@ -1,0 +1,22 @@
+uuid: c34736d0-2841-407f-82d3-2a975951f1c4
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: offer_conversion_cbd_crystal_dabs
+label: 'Offer Conversion: CBD Crystal Dabs'
+plugin: hasoffers_affiliate
+configuration:
+  network_id: diamondcbd
+  offer_id: '35'
+  affiliate_id: ''
+  type: https_iframe
+  api_key: NETXZIHhJyKc9XISwpwUj9ftgrEoEs
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: order_canceled

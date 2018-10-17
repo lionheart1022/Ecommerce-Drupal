@@ -1,0 +1,10 @@
+name: 'CPL Commerce - Checkout'
+type: module
+description: 'Provides CPL Commerce Checkout plugins.'
+core: 8.x
+package: Commerce
+dependencies:
+  - commerce:commerce_checkout
+  - commerce:commerce_payment
+  - commerce_shipping:commerce_shipping
+  - email_registration:email_registration

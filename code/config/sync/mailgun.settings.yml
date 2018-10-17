@@ -1,0 +1,13 @@
+api_key: key-daa5c263295ad90f61aa7e2743435b50
+working_domain: diamondcbd.com
+debug_mode: true
+test_mode: false
+tracking_opens: ''
+tracking_clicks: ''
+tracking_exception: ''
+format_filter: full_html
+use_queue: false
+use_theme: true
+tagging_mailkey: false
+_core:
+  default_config_hash: bMOl3jD7ZuzZMuaUYzyqadr56G486ldo28NYIkK_54g

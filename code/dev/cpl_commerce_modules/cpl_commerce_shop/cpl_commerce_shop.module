@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * CPL Commerce Shop module file.
+ */
+
+use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Link;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Mostly copy-paste of facets_system_breadcrumb_alter().
+ *
+ * Implements hook_system_breadcrumb_alter().
+ */
+function cpl_commerce_shop_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterface $route_match, array $context) {
+  if (cpl_commerce_shop_is_shop_page()) {
+    // Rewrite breadcrumbs.
+    $links = $breadcrumb->getLinks();
+    array_pop($links);
+    $breadcrumb = new Breadcrumb();
+    $breadcrumb->setLinks($links);
+    $breadcrumb->addLink(Link::fromTextAndUrl(t('Collections'), Url::fromUri('internal:/collections/all')));
+
+    // Add the required cacheability metadata.
+    $breadcrumb->addCacheContexts(['url']);
+  }
+}
+
+/**
+ * Checks if current page is a Shop.
+ */
+function cpl_commerce_shop_is_shop_page() {
+  return \Drupal::routeMatch()->getRouteName() == 'page_manager.page_view_commerce_shop_page_commerce_shop_page-panels_variant-0';
+}
+
+/**
+ * Gets the taxonomy term collection for the URL.
+ *
+ * @param bool $single_only
+ *   Make sure only one collection is queried.
+ * @param bool $allow_all
+ *   TRUE to allow loading 'all' term.
+ *
+ * @return bool|\Drupal\taxonomy\TermInterface
+ *   The taxonomy term collection or FALSE otherwise.
+ *
+ * @deprecated This method is kept for backward compatibility.
+ */
+function cpl_commerce_shop_get_collection_term_from_url($single_only = FALSE, $allow_all = FALSE) {
+  return \Drupal::service('cpl_commerce_shop.collections_url_helper')
+    ->getCollectionTermFromUrl($single_only, $allow_all);
+}
+
+/**
+ * Returns whether is current route path /collections/{facets_query} or not.
+ *
+ * @return bool
+ *   Whether is current route path /collections/{facets_query} or not.
+ *
+ * @deprecated This method is kept for backward compatibility.
+ */
+function cpl_commerce_shop_is_collection_page() {
+  return \Drupal::service('cpl_commerce_shop.collections_url_helper')
+    ->isCollectionPage();
+}

@@ -1,0 +1,9 @@
+uuid: 8dc40826-9098-4f67-b350-6feed07cf021
+langcode: en
+status: true
+dependencies: {  }
+id: blogvideo
+label: 'Blog Video'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

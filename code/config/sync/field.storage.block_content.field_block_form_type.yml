@@ -1,0 +1,30 @@
+uuid: 1e45d39d-4f37-4c74-877a-540bdb0a669c
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_block_form_type
+field_name: field_block_form_type
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: F1
+      label: 'Form Type 1'
+    -
+      value: F2
+      label: 'Form Type 2'
+    -
+      value: F3
+      label: 'Form Type 3'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

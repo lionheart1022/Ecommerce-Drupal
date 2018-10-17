@@ -1,0 +1,51 @@
+uuid: 0c97eb61-7dab-492f-9ee3-dd0b9f5797e8
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_vmargin
+field_name: field_par_vmargin
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: NP
+      label: 'No Margin'
+    -
+      value: MT1
+      label: 'Margin Top 1'
+    -
+      value: MT2
+      label: 'Margin Top 2'
+    -
+      value: MT3
+      label: 'Margin Top 3'
+    -
+      value: MB1
+      label: 'Margin Bottom 1'
+    -
+      value: MB2
+      label: 'Margin Bottom 2'
+    -
+      value: MB3
+      label: 'Margin Bottom 3'
+    -
+      value: MBO1
+      label: 'Margin Both 1'
+    -
+      value: MBO2
+      label: 'Margin Both 2'
+    -
+      value: MBO3
+      label: 'Margin Both 3'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

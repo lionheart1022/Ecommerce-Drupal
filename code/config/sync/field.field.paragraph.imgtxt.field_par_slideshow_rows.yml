@@ -1,0 +1,23 @@
+uuid: 93390c1a-f395-4cc0-b75f-908589dc7331
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_slideshow_rows
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - options
+id: paragraph.imgtxt.field_par_slideshow_rows
+field_name: field_par_slideshow_rows
+entity_type: paragraph
+bundle: imgtxt
+label: 'Slideshow Rows'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: '1'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

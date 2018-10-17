@@ -1,0 +1,8 @@
+uuid: a143bc4d-8f97-4489-9621-5bed22c82e6b
+langcode: en
+status: true
+dependencies: {  }
+id: cpl_page_header
+label: 'CPL Page Header'
+revision: 0
+description: 'Page header block.'

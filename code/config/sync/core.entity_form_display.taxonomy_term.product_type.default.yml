@@ -1,0 +1,93 @@
+uuid: 4996ed53-6c4c-42b2-adb1-15fd69a4dfab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.product_type.field_domain
+    - field.field.taxonomy_term.product_type.field_domain_fields
+    - field.field.taxonomy_term.product_type.field_image
+    - field.field.taxonomy_term.product_type.field_is_collection
+    - field.field.taxonomy_term.product_type.field_meta_description
+    - field.field.taxonomy_term.product_type.field_meta_title
+    - field.field.taxonomy_term.product_type.field_url_value
+    - image.style.thumbnail
+    - taxonomy.vocabulary.product_type
+  module:
+    - field_collection
+    - image
+    - text
+id: taxonomy_term.product_type.default
+targetEntityType: taxonomy_term
+bundle: product_type
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_domain:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_domain_fields:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+    region: content
+  field_image:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_is_collection:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_meta_description:
+    weight: 3
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_meta_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_url_value:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  path: true

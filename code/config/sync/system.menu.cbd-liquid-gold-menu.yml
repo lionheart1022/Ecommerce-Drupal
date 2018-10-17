@@ -1,0 +1,8 @@
+uuid: de3da0cb-9855-4f42-b3e5-095444d7d975
+langcode: en
+status: true
+dependencies: {  }
+id: cbd-liquid-gold-menu
+label: 'CBD liquid Gold Menu'
+description: 'CBD liquid Gold Menu'
+locked: false

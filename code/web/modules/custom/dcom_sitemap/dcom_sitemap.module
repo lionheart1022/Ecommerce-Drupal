@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce - Sitemap module.
+ */
+
+/**
+ * The name of the field which is needed for assigning Commerce Product entity
+ * to domain.
+ */
+define('DCOM_SITEMAP_DOMAIN_ACCESS_FIELD', 'field_domain');
+
+/**
+ * Implements hook_simple_sitemap_url_generators_alter().
+ */
+function dcom_sitemap_simple_sitemap_url_generators_alter(array &$generators) {
+  unset($generators['domain_entity']);
+}

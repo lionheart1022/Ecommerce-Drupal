@@ -1,0 +1,28 @@
+uuid: f15a84a9-8d9e-4d1b-8411-5e2fe8a8f501
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.diamond_commerce_product_review
+    - field.storage.comment.field_vote_reference
+    - votingapi.vote_type.dcom_average_review
+id: comment.diamond_commerce_product_review.field_vote_reference
+field_name: field_vote_reference
+entity_type: comment
+bundle: diamond_commerce_product_review
+label: 'Vote reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:vote'
+  handler_settings:
+    target_bundles:
+      dcom_average_review: dcom_average_review
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

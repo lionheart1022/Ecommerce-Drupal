@@ -1,0 +1,5 @@
+dcom_order.commerce_shipment.form:
+  route_name: dcom_order.commerce_shipment.form
+  base_route: entity.commerce_order.canonical
+  title: 'Shipment'
+  weight: 10

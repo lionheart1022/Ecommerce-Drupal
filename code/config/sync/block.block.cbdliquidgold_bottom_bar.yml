@@ -1,0 +1,41 @@
+uuid: 70aac3f8-9ff6-436e-87a1-7402281dee87
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_footer_bottom:504fb304-fa21-481a-b7c2-92dc43fc0ae8'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - cbdliquidgold
+third_party_settings:
+  block_class:
+    classes: ''
+id: cbdliquidgold_bottom_bar
+theme: cbdliquidgold
+region: footer_wide
+weight: 0
+provider: null
+plugin: 'block_content:504fb304-fa21-481a-b7c2-92dc43fc0ae8'
+settings:
+  id: 'block_content:504fb304-fa21-481a-b7c2-92dc43fc0ae8'
+  label: 'Global Footer Bottom bar'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/cart\r\n/profile/*\r\n/user/*"
+    negate: true
+    context_mapping: {  }

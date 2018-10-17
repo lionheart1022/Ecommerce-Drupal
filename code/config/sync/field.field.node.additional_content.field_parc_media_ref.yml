@@ -1,0 +1,26 @@
+uuid: 37835274-4a4c-4c1a-9a0d-3731b5700caa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parc_media_ref
+    - node.type.additional_content
+id: node.additional_content.field_parc_media_ref
+field_name: field_parc_media_ref
+entity_type: node
+bundle: additional_content
+label: 'Internal Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

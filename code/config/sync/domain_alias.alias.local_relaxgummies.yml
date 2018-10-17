@@ -1,0 +1,9 @@
+uuid: d637bd36-34f7-4fed-ba81-e4a6fba6f040
+langcode: en
+status: true
+dependencies: {  }
+id: local_relaxgummies
+domain_id: relaxgummies_domain
+pattern: relaxgummies.diamondcommerce.docker.localhost
+redirect: 0
+environment: local

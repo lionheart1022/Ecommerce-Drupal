@@ -1,0 +1,8 @@
+name: 'Diamond Commerce Cart'
+type: module
+description: 'Provides custom Diamond Commerce cart tweaks.'
+core: 8.x
+package: Commerce
+dependencies:
+  - cpl_commerce_cart
+  - dcom_checkout

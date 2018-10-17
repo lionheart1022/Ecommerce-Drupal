@@ -1,0 +1,86 @@
+version: "2.1"
+
+services:
+  mariadb:
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
+
+  nginx:
+    environment:
+      VIRTUAL_HOST: 'medsbiotech.com,diamondcbd.com,bluecbd.com,cbdliquidgold.com,chillgummies.com,chongchoicecbd.com,56cbd.com,diamondcbdoil.com,medipetscbd.com,relaxgummies.com,diamondhemp.com,www.medsbiotech.com,www.diamondcbd.com,www.bluecbd.com,www.cbdliquidgold.com,www.chillgummies.com,www.chongchoicecbd.com,www.56cbd.com,www.diamondcbdoil.com,www.medipetscbd.com,www.relaxgummies.com,www.diamondhemp.com,bluecbd.prod.diamondcommerce.cpldev.com,cbdliquidgold.prod.diamondcommerce.cpldev.com,chillgummies.prod.diamondcommerce.cpldev.com,chongchoicecbd.prod.diamondcommerce.cpldev.com,56cbd.prod.diamondcommerce.cpldev.com,diamondcbdoil.prod.diamondcommerce.cpldev.com,relaxgummies.prod.diamondcommerce.cpldev.com,diamondhemp.prod.diamondcommerce.cpldev.com'
+      LETSENCRYPT_HOST: 'medsbiotech.com,diamondhemp.com,www.medsbiotech.com,www.diamondhemp.com,medipetscbd.com,www.medipetscbd.com,diamondcbd.com,www.diamondcbd.com'
+      LETSENCRYPT_EMAIL: 'webadmin@creativepl.com'
+    restart: always
+    networks:
+      - "default"
+      - "nginx-proxy"
+
+  php:
+    restart: always
+    environment:
+      PHP_NEWRELIC_ENABLED: 1
+      PHP_NEWRELIC_LICENSE: "8b7d5247267dea1c646c905ce45e628adbe80998"
+      PHP_NEWRELIC_APPNAME: "DiamondCBD Website"
+      PHP_FPM_PM: static
+      PHP_FPM_PM_MAX_CHILDREN: 32
+      PHP_OPCACHE_MAX_ACCELERATED_FILES: 10000
+      PHP_OPCACHE_MEMORY_CONSUMPTION: 512
+    sysctls:
+      net.core.somaxconn: 1024
+
+  solr:
+    restart: always
+
+  memcached:
+    restart: always
+
+  nginx-redirect-wholesale:
+    image: schmunk42/nginx-redirect
+    environment:
+      SERVER_REDIRECT: www.diamondcbd.com
+      SERVER_REDIRECT_PATH: /dcbd/wholesale
+      SERVER_REDIRECT_SCHEME: https
+      SERVER_REDIRECT_CODE: 301
+      VIRTUAL_HOST: 'diamondcbdwholesale.com,www.diamondcbdwholesale.com'
+      LETSENCRYPT_HOST: 'diamondcbdwholesale.com,www.diamondcbdwholesale.com'
+      LETSENCRYPT_EMAIL: 'webadmin@creativepl.com'
+    restart: always
+    networks:
+      - "nginx-proxy"
+
+  nginx-redirect-wholesale-catalog:
+    image: schmunk42/nginx-redirect
+    environment:
+      SERVER_REDIRECT: wholesalecatalog.diamondcbd.com
+      SERVER_REDIRECT_PATH: /
+      SERVER_REDIRECT_SCHEME: http
+      SERVER_REDIRECT_CODE: 301
+      VIRTUAL_HOST: 'catalog.diamondcbdwholesale.com,www.catalog.diamondcbdwholesale.com'
+      LETSENCRYPT_HOST: 'catalog.diamondcbdwholesale.com,www.catalog.diamondcbdwholesale.com'
+      LETSENCRYPT_EMAIL: 'webadmin@creativepl.com'
+    restart: always
+    networks:
+      - "nginx-proxy"
+
+  backups:
+    build: docker/backups
+    restart: always
+    hostname: backups
+    volumes_from:
+      - "php:ro"
+    environment:
+      AWS_ACCESS_KEY_ID: "AKIAIDRT4WZJNVYRCH7A"
+      AWS_SECRET_ACCESS_KEY: "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"
+      AWS_S3_BACKUP_PATH: "s3://s3.us-east-2.amazonaws.com/diamondcbd-backup/backups"
+      PASSPHRASE: "diamond"
+      BACKUP_NAME_DB: "diamond_database"
+      BACKUP_NAME_FILES: "diamond_files"
+
+volumes:
+  db-data:
+
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy

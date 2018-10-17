@@ -1,0 +1,30 @@
+uuid: f4be21df-f131-4087-8fec-7c67b9527b35
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - options
+id: commerce_product.field_visibility_option
+field_name: field_visibility_option
+entity_type: commerce_product
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: everywhere
+      label: Everywhere
+    -
+      value: wholesale
+      label: 'Show Only on wholesale'
+    -
+      value: retail
+      label: 'Show Only on Retail'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

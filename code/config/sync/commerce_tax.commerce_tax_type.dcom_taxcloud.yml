@@ -1,0 +1,15 @@
+uuid: 9924d73c-42fb-4ed8-858c-0fe86fe7557c
+langcode: en
+status: true
+dependencies:
+  module:
+    - dcom_tax
+id: dcom_taxcloud
+label: 'DCOM TaxCloud (Retail Only)'
+plugin: dcom_taxcloud_retail
+configuration:
+  display_label: 'Florida Tax'
+  allowed_states:
+    - FL
+  round_tax_amount: 0
+  display_inclusive: false

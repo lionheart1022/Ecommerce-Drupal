@@ -1,0 +1,277 @@
+<?php
+
+/**
+ * @file
+ * Contains dcom_back_in_stock.module.
+ */
+
+use Drupal\commerce_product\Entity\ProductVariation;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\OpenModalDialogCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\dcom_back_in_stock\BackInStockClassService;
+use Drupal\dcom_back_in_stock\Entity\StockNotification;
+
+/**
+ * Implements hook_theme().
+ */
+function dcom_back_in_stock_theme($existing, $type, $theme, $path) {
+  return [
+    'dcom_back_in_stock_email' => [
+      'variables' => [
+        'product_entity' => NULL,
+        'base_path' => \Drupal::request()->getSchemeAndHttpHost(),
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function dcom_back_in_stock_form_commerce_order_item_add_to_cart_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $variation_id = $form_state->get('selected_variation');
+  $variation = ProductVariation::load($variation_id);
+  $back_in_stock_class_service = \Drupal::getContainer()
+    ->get('dcom_back_in_stock.back_in_stock_class');
+
+  $stock_policy = $back_in_stock_class_service->getStockPolicy($variation);
+  if ($stock_policy == BackInStockClassService::AVAIL_FORCE_AVAIL
+    || ($stock_policy == BackInStockClassService::AVAIL_ODOO && !empty($variation->field_product_availability->value))) {
+    // Do not add 'Notify me' button if either:
+    // - availability is forced somehow, OR
+    // - availability is fetched from Odoo AND product is known to be available.
+    return;
+  }
+
+  $form['#back_in_stock_form'] = \Drupal::formBuilder()
+    ->getForm('Drupal\dcom_back_in_stock\Form\DcomBackInStockNotificationForm', $variation_id);
+
+  $form['quantity']['#access'] = FALSE;
+  $form['actions']['#access'] = FALSE;
+
+  $form['back_in_stock'] = [
+    '#cache' => [
+      'contexts' => ['stock_notification_cc'],
+    ],
+    '#type' => 'container',
+    '#prefix' => '<div id="cpl-back-in-stock-form-wrapper" class="product-sold-out">',
+    '#suffix' => '</div>',
+  ];
+
+  if (!$subscribe = $back_in_stock_class_service->checkUserWaitingForProduct($variation)) {
+    $form['back_in_stock']['help'] = [
+      '#plain_text' => t("This product is out of stock. We can notify you once it's available."),
+    ];
+
+    $form['back_in_stock']['notify'] = [
+      '#type' => 'button',
+      '#value' => t('Notify Me'),
+      '#default_value' => 0,
+      '#required' => TRUE,
+      '#ajax' => [
+        'callback' => 'dcom_back_in_stock_add_to_cart_ajax',
+      ],
+    ];
+  }
+  else {
+    $form['back_in_stock']['help'] = [
+      '#plain_text' => t("We will notify you once this product will be available."),
+    ];
+  }
+}
+
+/**
+ * Ajax callback function for subscribe on product.
+ */
+function dcom_back_in_stock_add_to_cart_ajax(&$form, FormStateInterface $form_state) {
+  $response = new AjaxResponse();
+  if (\Drupal::currentUser()->isAnonymous()) {
+    // Force save session for anonymous.
+    // @see \Drupal\Core\Session\SessionManager::start()
+    $_SESSION['save'] = 1;
+
+    $content['#attached']['library'][] = 'core/drupal.dialog.ajax';
+    $content['form'] = $form['#back_in_stock_form'];
+    $title = t('Put your email here');
+
+    $response->addCommand(new OpenModalDialogCommand($title, $content, [
+      'width' => '600',
+      'height' => '600',
+    ]));
+  }
+  else {
+    StockNotification::create([
+      'user_id' => Drupal::currentUser()->id(),
+      'product_variation' => $form_state->get('selected_variation'),
+      'theme_id' => \Drupal::service('theme.manager')->getActiveTheme()->getName(),
+    ])->save();
+
+    $message = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['back-in-stock-message', 'product-sold-out'],
+      ],
+      '#plain_text' => t("We will notify you once this product will be available."),
+    ];
+
+    $response->addCommand(new ReplaceCommand('#cpl-back-in-stock-form-wrapper', $message));
+  }
+
+  return $response;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function dcom_back_in_stock_cron() {
+  $query = \Drupal::service('entity.query')
+    ->get('stock_notification');
+
+  /** @var \Drupal\Core\Entity\Query\QueryInterface $query */
+  $or = $query->orConditionGroup();
+  $or->condition('last_check', \Drupal::time()->getRequestTime() - 3600, '<')
+    ->notExists('last_check');
+
+  $query
+    ->condition($or)
+    ->condition('email_sent', 0)
+    ->sort('last_check', 'ASC')
+    ->range(0, 50);
+
+  $stock_notification_ids = $query->execute();
+
+  /** @var \Drupal\dcom_back_in_stock\BackInStockClassService $back_in_stock_class_service */
+  $back_in_stock_class_service = \Drupal::getContainer()
+    ->get('dcom_back_in_stock.back_in_stock_class');
+
+  if ($notifications = StockNotification::loadMultiple($stock_notification_ids)) {
+    foreach ($notifications as $notification) {
+      $notification->get('last_check')->value = \Drupal::time()->getRequestTime();
+
+      /** @var \Drupal\commerce_product\Entity\ProductVariation $variation */
+      $variation = $notification->get('product_variation')->entity;
+
+      if (!empty($variation)) {
+        $stock_policy = $back_in_stock_class_service->getStockPolicy($variation);
+        if ($stock_policy == BackInStockClassService::AVAIL_FORCE_AVAIL
+          || ($stock_policy == BackInStockClassService::AVAIL_ODOO && !empty($variation->field_product_availability->value))) {
+          $notification->get('email_sent')->value = 1;
+          $notification->get('email_created')->value = \Drupal::time()
+            ->getRequestTime();
+
+          /** @var \Drupal\commerce_product\Entity\Product $product */
+          $product = $variation->getProduct();
+
+          if (!$email = $notification->get('email')->value) {
+            $user = $notification->get('user_id')->entity;
+            $email = $user->get('mail')->value;
+          }
+
+          $theme_name = 'diamondcbd';
+          if ($notification->hasField('theme_id') && !$notification->theme_id->isEmpty()) {
+            $theme_name = $notification->theme_id->value;
+          }
+          $back_in_stock_class_service->sendBackInStockEmail($product, $email, $theme_name);
+        }
+      }
+      $notification->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function dcom_back_in_stock_preprocess_commerce_product__product_row_style_1(&$variables) {
+  /** @var \Drupal\commerce_product\Entity\ProductInterface $product */
+  $product = $variables['elements']['#commerce_product'];
+  $back_in_stock_class_service = \Drupal::getContainer()
+    ->get('dcom_back_in_stock.back_in_stock_class');
+
+  $cache = CacheableMetadata::createFromRenderArray($variables);
+  $variables['sold_out'] = TRUE;
+
+  // Cache should depend on global configuration.
+  $cache->addCacheableDependency(\Drupal::config('dcom_back_in_stock.config'));
+
+  foreach ($product->getVariations() as $variation) {
+    $stock_policy = $back_in_stock_class_service->getStockPolicy($variation);
+
+    if ($stock_policy == BackInStockClassService::AVAIL_FORCE_AVAIL
+      || ($stock_policy == BackInStockClassService::AVAIL_ODOO
+        && !empty($variation->field_product_availability->value))) {
+      $variables['sold_out'] = FALSE;
+    }
+
+    $cache->addCacheableDependency($variation);
+  }
+
+  $cache->applyTo($variables);
+}
+
+/**
+ * Implements hook_mail().
+ */
+function dcom_back_in_stock_mail($key, &$message, $params) {
+  if ($message['module'] == 'dcom_back_in_stock' && $key == 'email') {
+    if (isset($params['headers'])) {
+      $message['headers'] = array_merge($message['headers'], $params['headers']);
+    }
+    $message['body'] = $params['body'];
+    $message['subject'] = $params['subject'];
+  }
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function dcom_back_in_stock_token_info() {
+  $tokens['commerce_product']['product_availability_google'] = [
+    'name' => t('Product availability for Google'),
+  ];
+
+  return [
+    'tokens' => $tokens,
+  ];
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function dcom_back_in_stock_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+
+  $replacements = [];
+
+  if ($type == 'commerce_product' && !empty($data['commerce_product'])) {
+    /** @var \Drupal\commerce_product\Entity\Product $product */
+    $product = $data['commerce_product'];
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'product_availability_google':
+          $back_in_stock_class_service = \Drupal::getContainer()
+            ->get('dcom_back_in_stock.back_in_stock_class');
+          $product_variations = $product->getVariations();
+
+          foreach ($product_variations as $variation) {
+            $stock_policy = $back_in_stock_class_service->getStockPolicy($variation);
+            if ($stock_policy == BackInStockClassService::AVAIL_FORCE_AVAIL
+              || ($stock_policy == BackInStockClassService::AVAIL_ODOO && !empty($variation->field_product_availability->value))) {
+              $replacements[$original] = 'InStock';
+              break;
+            }
+            else {
+              $replacements[$original] = 'OutOfStock';
+            }
+          }
+          break;
+      }
+    }
+  }
+
+  return $replacements;
+}

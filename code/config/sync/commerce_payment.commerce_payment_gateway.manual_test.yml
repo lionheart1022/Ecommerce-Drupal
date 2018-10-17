@@ -1,0 +1,23 @@
+uuid: 85fb21ef-892d-4236-b411-031d31e70702
+langcode: en
+status: true
+dependencies: {  }
+id: manual_test
+label: 'Manual - Test'
+weight: -3
+plugin: manual
+configuration:
+  instructions:
+    value: ''
+    format: plain_text
+  display_label: Manual
+  mode: n/a
+  payment_method_types:
+    - credit_card
+conditions:
+  -
+    plugin: order_customer_role
+    configuration:
+      roles:
+        - administrator
+conditionOperator: AND

@@ -1,0 +1,23 @@
+uuid: a9592187-b76a-4313-a930-bfe66d169ae9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_row_padding
+    - paragraphs.paragraphs_type.imgtxtbanner
+  module:
+    - options
+id: paragraph.imgtxtbanner.field_par_row_padding
+field_name: field_par_row_padding
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'Row Padding'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: NP
+default_value_callback: ''
+settings: {  }
+field_type: list_string

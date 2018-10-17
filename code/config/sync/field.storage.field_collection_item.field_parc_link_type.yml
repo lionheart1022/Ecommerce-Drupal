@@ -1,0 +1,30 @@
+uuid: 60bb28a7-771a-4fed-a0a5-30f36f154b51
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - options
+id: field_collection_item.field_parc_link_type
+field_name: field_parc_link_type
+entity_type: field_collection_item
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: RE
+      label: 'Regular Link'
+    -
+      value: EX
+      label: 'External Video'
+    -
+      value: IN
+      label: 'Internal Video'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

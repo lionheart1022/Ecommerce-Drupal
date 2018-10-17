@@ -1,0 +1,18 @@
+uuid: 4d1d489a-5fcd-455d-850c-1f51af4993cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+id: commerce_order.field_ask_for_review
+field_name: field_ask_for_review
+entity_type: commerce_order
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

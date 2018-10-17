@@ -1,0 +1,19 @@
+uuid: 62d04070-a894-439e-bb29-e2fbdf8ee606
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_meta_title
+    - taxonomy.vocabulary.product_characteristics
+id: taxonomy_term.product_characteristics.field_meta_title
+field_name: field_meta_title
+entity_type: taxonomy_term
+bundle: product_characteristics
+label: 'Meta Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

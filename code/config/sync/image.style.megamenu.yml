@@ -1,0 +1,14 @@
+uuid: 6262cb7e-1703-4e9b-ba5d-69a96afa9d94
+langcode: en
+status: true
+dependencies: {  }
+name: megamenu
+label: 'Megamenu 325x325'
+effects:
+  a8edf339-3206-416b-8c9b-be9a73c64d6b:
+    uuid: a8edf339-3206-416b-8c9b-be9a73c64d6b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 325
+      height: 325

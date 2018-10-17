@@ -1,0 +1,21 @@
+uuid: 9b4f4279-d44e-4ef4-8514-2e9792e3f6a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_parc_link_type
+    - field_collection.field_collection.field_par_content_items
+  module:
+    - options
+id: field_collection_item.field_par_content_items.field_parc_link_type
+field_name: field_parc_link_type
+entity_type: field_collection_item
+bundle: field_par_content_items
+label: 'Link Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,10 @@
+uuid: 036a004a-5817-4b63-9005-56c59705ca77
+langcode: en
+status: true
+dependencies: {  }
+id: wholesale_1
+label: 'Wholesale 1'
+weight: -7
+is_admin: null
+permissions:
+  - 'view user business page'

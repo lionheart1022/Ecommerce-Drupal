@@ -1,0 +1,15 @@
+<ul class="stars" data-vote-average="{{- results.vote_average -}}">
+  <li class="star-1">1</li>
+  <li class="star-2">2</li>
+  <li class="star-3">3</li>
+  <li class="star-4">4</li>
+  <li class="star-5">5</li>
+</ul>
+<p>
+  {% trans %}
+    Based on {{ results.vote_count }} review
+  {% plural results.vote_count %}
+    Based on {{ results.vote_count }} reviews
+  {% endtrans %}
+  <span><a href="#reviews">{{ 'See all reviews'|t }}</a></span>
+</p>

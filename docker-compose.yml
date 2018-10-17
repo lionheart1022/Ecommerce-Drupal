@@ -1,0 +1,46 @@
+version: "2.1"
+
+services:
+  mariadb:
+    image: wodby/mariadb:10.2-3.0.2
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+
+  php:
+    build: docker/php
+    environment:
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      PHP_FPM_CLEAR_ENV: "no"
+      PHP_MEMORY_LIMIT: 2048M
+      DB_HOST: mariadb
+      DB_USER: drupal
+      DB_PASSWORD: drupal
+      DB_NAME: drupal
+      DB_DRIVER: mysql
+      COLUMNS: 160
+    volumes:
+      - ./code:/var/www/html
+    working_dir: /var/www/html/web
+
+  nginx:
+    image: wodby/drupal-nginx:8-1.13-3.0.2
+    depends_on:
+      - php
+    environment:
+      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
+      NGINX_BACKEND_HOST: php
+      NGINX_SERVER_ROOT: /var/www/html/web
+    volumes:
+      - ./code:/var/www/html:cached
+
+  solr:
+    build: docker/solr
+    environment:
+      SOLR_HEAP: 1024m
+
+  memcached:
+    image: memcached:1.5-alpine
+    command: "memcached -m 512"

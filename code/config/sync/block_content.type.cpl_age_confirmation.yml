@@ -1,0 +1,8 @@
+uuid: 492f73bf-4acc-42d9-a51d-5214041eb967
+langcode: en
+status: true
+dependencies: {  }
+id: cpl_age_confirmation
+label: 'CPL Age Confirmation'
+revision: 0
+description: 'Displays age confirmation in popup block.'

@@ -1,0 +1,21 @@
+# Commerce Klaviyo Review routing definition
+commerce_klaviyo_review.settings_tab:
+  route_name: commerce_klaviyo_review.settings
+  title: 'Settings'
+  base_route: commerce_klaviyo_review.settings
+
+entity.klaviyo_review.canonical:
+  route_name: entity.klaviyo_review.canonical
+  base_route: entity.klaviyo_review.canonical
+  title: 'View'
+
+entity.klaviyo_review.edit_form:
+  route_name: entity.klaviyo_review.edit_form
+  base_route: entity.klaviyo_review.canonical
+  title: 'Edit'
+
+entity.klaviyo_review.delete_form:
+  route_name:  entity.klaviyo_review.delete_form
+  base_route:  entity.klaviyo_review.canonical
+  title: Delete
+  weight: 10

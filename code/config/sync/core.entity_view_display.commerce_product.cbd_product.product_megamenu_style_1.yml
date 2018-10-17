@@ -1,0 +1,82 @@
+uuid: 560eb193-6062-400c-ac2e-bbb3f9b6e1e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - core.entity_view_mode.commerce_product.product_megamenu_style_1
+    - field.field.commerce_product.cbd_product.body
+    - field.field.commerce_product.cbd_product.field_average_review
+    - field.field.commerce_product.cbd_product.field_cbd_brand
+    - field.field.commerce_product.cbd_product.field_domain
+    - field.field.commerce_product.cbd_product.field_force_availability
+    - field.field.commerce_product.cbd_product.field_force_odoo_migrate
+    - field.field.commerce_product.cbd_product.field_meta_description
+    - field.field.commerce_product.cbd_product.field_meta_title
+    - field.field.commerce_product.cbd_product.field_odoo_attribute_line_id
+    - field.field.commerce_product.cbd_product.field_product_category
+    - field.field.commerce_product.cbd_product.field_product_characteristics
+    - field.field.commerce_product.cbd_product.field_product_how_to_use
+    - field.field.commerce_product.cbd_product.field_product_image
+    - field.field.commerce_product.cbd_product.field_product_ingredients
+    - field.field.commerce_product.cbd_product.field_product_lab_results
+    - field.field.commerce_product.cbd_product.field_product_quantity
+    - field.field.commerce_product.cbd_product.field_product_type
+    - field.field.commerce_product.cbd_product.field_product_volume
+    - field.field.commerce_product.cbd_product.field_product_weight
+    - field.field.commerce_product.cbd_product.field_review
+    - field.field.commerce_product.cbd_product.field_visibility_option
+    - field.field.commerce_product.cbd_product.stores
+    - field.field.commerce_product.cbd_product.variations
+    - image.style.megamenu
+  module:
+    - image
+id: commerce_product.cbd_product.product_megamenu_style_1
+targetEntityType: commerce_product
+bundle: cbd_product
+mode: product_megamenu_style_1
+content:
+  field_product_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: megamenu
+      image_link: content
+    third_party_settings: {  }
+    type: image
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 1
+    region: content
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+hidden:
+  body: true
+  created: true
+  field_average_review: true
+  field_cbd_brand: true
+  field_domain: true
+  field_force_availability: true
+  field_force_odoo_migrate: true
+  field_meta_description: true
+  field_meta_title: true
+  field_odoo_attribute_line_id: true
+  field_product_category: true
+  field_product_characteristics: true
+  field_product_how_to_use: true
+  field_product_ingredients: true
+  field_product_lab_results: true
+  field_product_quantity: true
+  field_product_type: true
+  field_product_volume: true
+  field_product_weight: true
+  field_review: true
+  field_visibility_option: true
+  flag_favorite_product: true
+  langcode: true
+  stores: true
+  uid: true
+  variations: true

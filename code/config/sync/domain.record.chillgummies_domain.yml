@@ -1,0 +1,11 @@
+uuid: eccb53ae-d857-48ef-a8aa-86ee67b51b93
+langcode: en
+status: true
+dependencies: {  }
+id: chillgummies_domain
+domain_id: 10884138
+hostname: www.chillgummies.com
+name: ChillGummies.com
+scheme: variable
+weight: 5
+is_default: false

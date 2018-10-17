@@ -1,0 +1,20 @@
+uuid: 7cda1a2e-86fe-45fc-95b0-ef13f3bb736b
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - field_collection
+id: field_collection_item.field_menu_ref_product
+field_name: field_menu_ref_product
+entity_type: field_collection_item
+type: entity_reference
+settings:
+  target_type: commerce_product
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

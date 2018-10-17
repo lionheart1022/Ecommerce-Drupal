@@ -1,0 +1,23 @@
+uuid: f29dbf5c-1464-4573-b230-0e9b9bf942be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_vmargin
+    - paragraphs.paragraphs_type.imgtxt
+  module:
+    - options
+id: paragraph.imgtxt.field_par_vmargin
+field_name: field_par_vmargin
+entity_type: paragraph
+bundle: imgtxt
+label: 'Vertical Margin'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: NP
+default_value_callback: ''
+settings: {  }
+field_type: list_string

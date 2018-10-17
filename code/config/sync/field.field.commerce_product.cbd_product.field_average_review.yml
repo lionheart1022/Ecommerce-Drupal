@@ -1,0 +1,27 @@
+uuid: 6d94eecc-aaf0-4d7d-8d40-feb3b18324a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.commerce_product.field_average_review
+  module:
+    - votingapi_widgets
+id: commerce_product.cbd_product.field_average_review
+field_name: field_average_review
+entity_type: commerce_product
+bundle: cbd_product
+label: 'Average Review'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: '1'
+default_value_callback: ''
+settings:
+  anonymous_window: '0'
+  user_window: '0'
+  result_function: vote_average
+  widget_format: fivestar
+field_type: voting_api_field

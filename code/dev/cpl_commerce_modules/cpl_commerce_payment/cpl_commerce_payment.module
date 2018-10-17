@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * CPL Commerce Payment module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function cpl_commerce_payment_entity_type_alter(array &$entity_types) {
+  /** @var Drupal\Core\Entity\EntityTypeInterface[] $entity_types */
+  if (isset($entity_types['commerce_payment_method'])) {
+    $entity_type = $entity_types['commerce_payment_method'];
+    $entity_type->setListBuilderClass('Drupal\cpl_commerce_payment\PaymentMethodListBuilder');
+    $handler_classes = $entity_type->getHandlerClasses();
+
+    if (isset($handler_classes['form']['delete'])) {
+      $handler_classes['form']['delete'] = 'Drupal\cpl_commerce_payment\Form\PaymentMethodDeleteForm';
+      $entity_type->setHandlerClass('form', $handler_classes['form']);
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_local_actions_alter().
+ */
+function cpl_commerce_payment_menu_local_actions_alter(&$local_actions) {
+  if (isset($local_actions['entity.commerce_payment_method.add_form']['id'])
+    &&  $local_actions['entity.commerce_payment_method.add_form']['id'] == 'entity.commerce_payment_method.add_form') {
+    unset($local_actions['entity.commerce_payment_method.add_form']);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function cpl_commerce_payment_commerce_payment_method_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  // Do not allow add/edit for now, since it is not ready yet.
+  // TODO Add the add/ability to edit payment methods with NMI.
+
+  if ($operation == 'update') {
+    return AccessResult::forbidden();
+  }
+
+  // No opinion.
+  return AccessResult::neutral();
+}

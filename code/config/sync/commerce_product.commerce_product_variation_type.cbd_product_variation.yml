@@ -1,0 +1,11 @@
+uuid: 39920056-faed-4090-8122-b58a124384e0
+langcode: en
+status: true
+dependencies: {  }
+id: cbd_product_variation
+label: 'CBD Product variation'
+orderItemType: default
+generateTitle: true
+traits:
+  - purchasable_entity_shippable
+locked: false

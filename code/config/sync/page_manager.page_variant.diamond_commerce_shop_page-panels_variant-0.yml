@@ -1,0 +1,135 @@
+uuid: 629a82fb-ad33-4d8b-808b-3d97e0aa4fd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.cbd_brand
+    - facets.facet.product_category
+    - facets.facet.product_type
+    - facets.facet.product_volume_string
+    - facets.facet.product_weight_string
+    - facets.facet.variations_product_variation_strength
+    - page_manager.page.diamond_commerce_shop_page
+    - views.view.diamond_commerce_shop
+  module:
+    - dcom_shop
+    - facets
+    - panels
+    - system
+    - views
+id: diamond_commerce_shop_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    d30351f1-3fad-4142-9c96-559aa813013c:
+      id: 'facet_block:cbd_brand'
+      label: Brand
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: -2
+      uuid: d30351f1-3fad-4142-9c96-559aa813013c
+      context_mapping: {  }
+    477ebcf1-84b4-45ad-b768-8a58ad6843b2:
+      id: 'facet_block:product_category'
+      label: Category
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: -3
+      uuid: 477ebcf1-84b4-45ad-b768-8a58ad6843b2
+      context_mapping: {  }
+    e0381579-561a-4404-85c6-47327ee58c36:
+      id: 'views_block:diamond_commerce_shop-diamond_commerce_shop_block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: -3
+      uuid: e0381579-561a-4404-85c6-47327ee58c36
+      context_mapping: {  }
+    58f2059e-2a18-4668-bd53-7a495565f587:
+      id: system_breadcrumb_block
+      label: Breadcrumbs
+      provider: system
+      label_display: '0'
+      region: main
+      weight: -5
+      uuid: 58f2059e-2a18-4668-bd53-7a495565f587
+      context_mapping: {  }
+    b3d3f1f6-ab83-471f-a685-f3f4f3a95849:
+      id: exposed_search
+      label: 'Diamond Commerce - Shop Search'
+      provider: dcom_shop
+      label_display: '0'
+      sort: 0
+      search: 1
+      region: sidebar
+      weight: -4
+      uuid: b3d3f1f6-ab83-471f-a685-f3f4f3a95849
+      context_mapping: {  }
+    b49db1ea-733e-46ae-bb9f-054e01d04cf0:
+      id: 'facet_block:product_type'
+      label: Type
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: -1
+      uuid: b49db1ea-733e-46ae-bb9f-054e01d04cf0
+      context_mapping: {  }
+    6ec9cc73-9fed-4fe6-bb6e-18d373968085:
+      id: 'facet_block:variations_product_variation_strength'
+      label: Strength
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: 0
+      uuid: 6ec9cc73-9fed-4fe6-bb6e-18d373968085
+      context_mapping: {  }
+    5777c787-8229-43d5-acab-694545ed6df4:
+      id: 'facet_block:product_weight_string'
+      label: Weight
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: 0
+      uuid: 5777c787-8229-43d5-acab-694545ed6df4
+      context_mapping: {  }
+    3a6ba93b-8595-4479-a057-72e408f03062:
+      id: 'facet_block:product_volume_string'
+      label: Volume
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: 0
+      uuid: 3a6ba93b-8595-4479-a057-72e408f03062
+      context_mapping: {  }
+    05810e65-0f78-490c-af76-7a858b79fc5c:
+      id: exposed_search
+      label: 'Diamond Commerce - Shop Search'
+      provider: dcom_shop
+      label_display: '0'
+      sort: 1
+      search: 0
+      region: main
+      weight: -4
+      uuid: 05810e65-0f78-490c-af76-7a858b79fc5c
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 22aab142-cc65-4890-a3a3-7fb41556ca1b
+  label: null
+  weight: 0
+  layout: cpl_shop_page_style_1
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: diamond_commerce_shop_page-panels_variant-0
+  builder: standard
+page: diamond_commerce_shop_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

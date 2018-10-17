@@ -1,0 +1,48 @@
+uuid: cd8ad9c3-f82e-47c9-ba58-a1561bb7fd9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.blog_popular_articles
+  module:
+    - block_class
+    - cpl_paragraphs
+    - ctools
+    - system
+    - views
+  theme:
+    - mbio
+third_party_settings:
+  block_class:
+    classes: block-blog-popular-articles
+id: views_block__blog_popular_articles_popular_articles
+theme: mbio
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:blog_popular_articles-popular_articles'
+settings:
+  id: 'views_block:blog_popular_articles-popular_articles'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/node/*/edit'
+    negate: true
+    context_mapping: {  }
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: commerce_shop_page
+label: 'Commerce Shop Page'
+description: ''
+use_admin_theme: false
+path: '/collections/{facets_query}'
+access_logic: and
+access_conditions: {  }
+parameters: {  }

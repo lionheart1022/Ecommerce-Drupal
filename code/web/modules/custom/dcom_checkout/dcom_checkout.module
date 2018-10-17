@@ -1,0 +1,131 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce Checkout module.
+ */
+
+use Drupal\commerce_payment\CreditCard;
+use Drupal\commerce_price\Price;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dcom_checkout_form_commerce_checkout_flow_cpl_commerce_checkout_4step_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Get domain name dynamically.
+  $form['site_title']['#markup'] = \Drupal::service('domain.negotiator')
+    ->getActiveDomain()->get('name');
+
+  // Add a title to the credit card form.
+  if (isset($form['payment_process']['offsite_payment']['#default_value'])) {
+    /** @var \Drupal\commerce_payment\Entity\Payment $payment */
+    $payment = $form['payment_process']['offsite_payment']['#default_value'];
+
+    if ($payment->getPaymentGateway()->getPlugin()->getPluginId() == 'nmicom') {
+      $form['payment_process']['offsite_payment']['#after_build'][] = 'dcom_checkout_form_payment_process_title';
+      $form['payment_process']['offsite_payment']['#after_build'][] = 'dcom_checkout_form_payment_process_restrict_credit_card_types';
+    }
+  }
+
+  $form['#validate'][] = 'dcom_checkout_form_validate';
+}
+
+/**
+ * After-build callback for adding a title to the credit card form.
+ *
+ * @param array $element
+ *   The form element.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ *
+ * @return array
+ *   The form element.
+ */
+function dcom_checkout_form_payment_process_title(array $element, FormStateInterface $form_state) {
+  $offsite_form_title['offsite_payment_title'] = [
+    '#type' => 'container',
+    '#attributes' => ['class' => ['credit-card-form-title']],
+  ];
+  $offsite_form_title['offsite_payment_title']['title'] = [
+    '#type' => 'item',
+    '#markup' => t('Credit card'),
+  ];
+  return $offsite_form_title + $element;
+}
+
+/**
+ * After-build callback for adding a credit card type validation.
+ *
+ * @param array $element
+ *   The form element.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ *
+ * @return array
+ *   The form element.
+ */
+function dcom_checkout_form_payment_process_restrict_credit_card_types(array $element, FormStateInterface $form_state) {
+  $element['#element_validate'][] = 'dcom_checkout_form_payment_process_restrict_credit_card_types_validate';
+  return $element;
+}
+
+/**
+ * Restricts credit card types to Visa and MasterCard.
+ *
+ * @param array $element
+ *   The form element.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ */
+function dcom_checkout_form_payment_process_restrict_credit_card_types_validate(array $element, FormStateInterface $form_state) {
+  $values = $form_state->getValue($element['#parents']);
+
+  // Drupal\commerce_nmi\PluginForm\NmiCom\PaymentOffsiteForm will throw
+  // an error if a credit card type is not detected.
+  if ($card_type = CreditCard::detectType($values['number'])) {
+    if (!in_array($card_type->getId(), ['visa', 'mastercard'])) {
+      $form_state->setError($element['number'], t('Only VISA and MasterCard are supported.'));
+    }
+  }
+}
+
+/**
+ * Custom checkout form validation step.
+ *
+ * @see dcom_checkout_form_commerce_checkout_flow_cpl_commerce_checkout_4step_alter()
+ */
+function dcom_checkout_form_validate(array &$form, FormStateInterface $form_state) {
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+  if (!($order = $form_state->getFormObject()->getOrder())) {
+    // No order object. This should never happen.
+    return;
+  }
+
+  if (!($user = $order->getCustomer())) {
+    // No order user.
+    return;
+  }
+
+  // @TODO: Implement multiple wholesale roles.
+  if ($user->hasRole('wholesale_1')) {
+    $order_total = $order->getTotalPrice();
+    $minimum = dcom_checkout_minimum_wholesale_amount();
+    if ($order_total->lessThan($minimum)) {
+      /** @var \CommerceGuys\Intl\Formatter\CurrencyFormatterInterface $currency_formatter */
+      $currency_formatter = \Drupal::service('commerce_price.currency_formatter');
+      $formatted = $currency_formatter->format($minimum->getNumber(), $minimum->getCurrencyCode());
+      $form_state->setError($form, t('The minimum wholesale order amount is @min.', ['@min' => $formatted]));
+    }
+  }
+}
+
+/**
+ * Get minimum order amount for wholesale.
+ *
+ * @return \Drupal\commerce_price\Price
+ *   Price object.
+ */
+function dcom_checkout_minimum_wholesale_amount() {
+  return new Price(500, 'USD');
+}

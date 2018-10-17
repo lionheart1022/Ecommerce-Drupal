@@ -1,0 +1,26 @@
+uuid: 12fa7adf-163a-47df-ab1b-0a4a52bf05be
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.view.field_par_background_color
+    - field.field.paragraph.view.field_par_class
+    - field.field.paragraph.view.field_par_constraint
+    - field.field.paragraph.view.field_par_view
+    - field.field.paragraph.view.field_par_vmargin
+    - field.field.paragraph.view.field_par_vpadding
+    - paragraphs.paragraphs_type.view
+id: paragraph.view.preview
+targetEntityType: paragraph
+bundle: view
+mode: preview
+content: {  }
+hidden:
+  field_par_background_color: true
+  field_par_class: true
+  field_par_constraint: true
+  field_par_row_style: true
+  field_par_view: true
+  field_par_vmargin: true
+  field_par_vpadding: true

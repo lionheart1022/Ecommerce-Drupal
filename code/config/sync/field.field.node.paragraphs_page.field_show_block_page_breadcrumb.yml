@@ -1,0 +1,23 @@
+uuid: 85fc4ae4-a266-4ba3-b00d-ea06b5e95a82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_block_page_breadcrumb
+    - node.type.paragraphs_page
+id: node.paragraphs_page.field_show_block_page_breadcrumb
+field_name: field_show_block_page_breadcrumb
+entity_type: node
+bundle: paragraphs_page
+label: 'Show Page Breadcrumbs'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

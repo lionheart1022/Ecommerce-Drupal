@@ -1,0 +1,22 @@
+uuid: 14e94a2c-7428-41be-a6dc-267d1e936ca6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cpl_base
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: cpl_base_messages
+theme: cpl_base
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

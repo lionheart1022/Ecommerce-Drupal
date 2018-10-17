@@ -1,0 +1,24 @@
+uuid: b4f19c9f-eb9b-47df-a4da-326e25c69793
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - cpl_commerce_profile
+  module:
+    - profile
+    - telephone
+_core:
+  default_config_hash: SeDqi9ko7TSaTcIN-PtsEkDTLO5mRYOxnSaFJrc7NY4
+id: profile.field_phone_number
+field_name: field_phone_number
+entity_type: profile
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

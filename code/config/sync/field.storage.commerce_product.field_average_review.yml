@@ -1,0 +1,22 @@
+uuid: 98f242c8-6710-4144-afc6-979c6296b512
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - votingapi_widgets
+id: commerce_product.field_average_review
+field_name: field_average_review
+entity_type: commerce_product
+type: voting_api_field
+settings:
+  vote_type: dcom_average_review
+  vote_plugin: fivestar
+  status: ''
+module: votingapi_widgets
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,24 @@
+uuid: 338be4d6-c92c-44e9-8a6a-3cf9f2ee316e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+  theme:
+    - diamondhemp
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondhemp_checkoutprogress
+theme: diamondhemp
+region: content
+weight: 1
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility: {  }

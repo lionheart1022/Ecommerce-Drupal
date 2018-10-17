@@ -1,0 +1,18 @@
+uuid: 32387439-57c0-44e9-8f22-ab3f3be6bd6f
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_odoo_sync_exclude
+field_name: field_odoo_sync_exclude
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

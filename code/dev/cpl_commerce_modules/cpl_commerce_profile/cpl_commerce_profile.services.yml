@@ -1,0 +1,5 @@
+services:
+  cpl_commerce_profile.route_subscriber:
+    class: Drupal\cpl_commerce_profile\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

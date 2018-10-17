@@ -1,0 +1,6 @@
+stock_notification.add:
+  route_name: stock_notification.add
+  title: 'Add stock_notification'
+  appears_on:
+    - entity.stock_notification.collection
+    - entity.stock_notification.canonical

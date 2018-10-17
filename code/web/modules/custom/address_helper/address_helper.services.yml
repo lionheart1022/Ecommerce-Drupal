@@ -1,0 +1,4 @@
+services:
+  plugin.manager.address_helper_autocomplete_service:
+    class: Drupal\address_helper\Plugin\AutocompleteServiceManager
+    parent: default_plugin_manager

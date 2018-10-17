@@ -1,0 +1,35 @@
+uuid: 8aed40be-e6f8-4309-aad4-d941804de70a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_header:3098e08b-5fda-4580-aad0-8729d6277935'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - chongchoicecbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: chongchoiceheader
+theme: chongchoicecbd
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:3098e08b-5fda-4580-aad0-8729d6277935'
+settings:
+  id: 'block_content:3098e08b-5fda-4580-aad0-8729d6277935'
+  label: 'Chong Choice Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

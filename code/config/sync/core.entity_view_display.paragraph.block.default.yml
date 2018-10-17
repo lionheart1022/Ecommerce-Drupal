@@ -1,0 +1,34 @@
+uuid: 2f72efe1-ab60-452d-aa75-635583a966eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.block.field_par_background_color
+    - field.field.paragraph.block.field_par_block_ref
+    - field.field.paragraph.block.field_par_class
+    - field.field.paragraph.block.field_par_constraint
+    - field.field.paragraph.block.field_par_row_style
+    - field.field.paragraph.block.field_par_vmargin
+    - field.field.paragraph.block.field_par_vpadding
+    - paragraphs.paragraphs_type.block
+  module:
+    - block_field
+id: paragraph.block.default
+targetEntityType: paragraph
+bundle: block
+mode: default
+content:
+  field_par_block_ref:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+hidden:
+  field_par_background_color: true
+  field_par_class: true
+  field_par_constraint: true
+  field_par_row_style: true
+  field_par_vmargin: true
+  field_par_vpadding: true

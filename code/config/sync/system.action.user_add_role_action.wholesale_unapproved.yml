@@ -1,0 +1,14 @@
+uuid: 76d7cd1b-843b-4598-b906-24145d1599cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.wholesale_unapproved
+  module:
+    - user
+id: user_add_role_action.wholesale_unapproved
+label: 'Add the Wholesale - Unapproved role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: wholesale_unapproved

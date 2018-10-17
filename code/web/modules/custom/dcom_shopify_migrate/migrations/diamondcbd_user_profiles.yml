@@ -1,0 +1,70 @@
+id: diamondcbd_user_profiles
+label: DiamondCBD User Profiles
+migration_group: diamondcbd
+
+source:
+  plugin: dcom_shopify_customer_address
+
+destination:
+  plugin: 'entity_reference_revisions:profile'
+
+process:
+  uid:
+    -
+      plugin: dcom_shopify_resolve_uid
+      migration: diamondcbd_users
+      source: customer_id
+    -
+      plugin: skip_on_empty
+      method: row
+      # Some orders don't have a customer attached - skip it.
+      message: 'Uid is missing'
+  profile_id:
+    -
+      # Pass uid to the next processor.
+      plugin: dcom_shopify_resolve_uid
+      migration: diamondcbd_users
+      source: customer_id
+    -
+      plugin: find_profile_by_profile
+      get_default_destination: true
+      type: customer
+      status: true
+      field_phone_number: phone
+      address:
+        given_name: first_name
+        family_name: last_name
+        organization: company
+        address_line1: address1
+        address_line2: address2
+        locality: city
+        administrative_area: province_code
+        postal_code: zip
+        country_code: country_code
+  type:
+    plugin: default_value
+    default_value: customer
+  field_phone_number/0/value: phone
+  address/0/given_name: first_name
+  address/0/family_name: last_name
+  address/0/organization: company
+  address/0/address_line1: address1
+  address/0/address_line2: address2
+  address/0/locality: city
+  address/0/administrative_area:
+    plugin: dcom_shopify_extract_administrative_area
+    source:
+      - province_code
+      - country_code
+  address/0/postal_code: zip
+  address/0/country_code: country_code
+  is_default: default
+
+migration_dependencies:
+  required:
+    - diamondcbd_users
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

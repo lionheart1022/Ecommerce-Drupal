@@ -1,0 +1,16 @@
+{
+  "name": "drupal/address_helper_google",
+  "type": "drupal-module",
+  "description": "Provides Google Places API integration for Address Helper",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/address_helper_google",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/address_helper_google",
+    "source": "http://cgit.drupalcode.org/address_helper_google"
+  },
+  "require": {
+    "skagarwal/google-places-api": "~1.2"
+  }
+}

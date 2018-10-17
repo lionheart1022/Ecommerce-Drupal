@@ -1,0 +1,42 @@
+uuid: 2e4542f5-61e7-4bb2-a05d-fe5a7f8fbe90
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_mobile_menu:53714db1-5aa0-433f-9c7d-964d92dda9ba'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - diamondcbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondcbd_mobile_menu
+theme: diamondcbd
+region: header
+weight: -3
+provider: null
+plugin: 'block_content:53714db1-5aa0-433f-9c7d-964d92dda9ba'
+settings:
+  id: 'block_content:53714db1-5aa0-433f-9c7d-964d92dda9ba'
+  label: 'Diamond CBD Mobile Menu'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_header
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '/checkout/*'
+    negate: true
+    context_mapping: {  }

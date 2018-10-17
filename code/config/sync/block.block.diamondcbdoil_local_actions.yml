@@ -1,0 +1,20 @@
+uuid: cca02b4d-1c83-49fe-805a-edd9f6d02da5
+langcode: en
+status: true
+dependencies:
+  theme:
+    - diamondcbdoil
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: diamondcbdoil_local_actions
+theme: diamondcbdoil
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

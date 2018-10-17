@@ -1,0 +1,9 @@
+uuid: 16ff1b18-84f8-4b9c-8fa0-aba9cd635f98
+langcode: en
+status: true
+dependencies: {  }
+id: parallax
+label: Parallax
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

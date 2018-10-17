@@ -1,0 +1,8 @@
+uuid: 4eb01d27-835d-416b-b034-78f7f62968ea
+langcode: en
+status: true
+dependencies: {  }
+id: diamondhemp-footer-menu-1
+label: SHOP
+description: 'Diamondhemp Footer Menu 1'
+locked: false

@@ -1,0 +1,38 @@
+id: odoo_product_characteristics
+label: Odoo Product Characteristics
+migration_group: odoo
+migration_tags:
+  - dcom_odoo_migrate_cron
+
+source:
+  plugin: odoo_api
+  model: x_product.characteristics
+  fields:
+    - x_name
+    - write_date
+    - id
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:taxonomy_term'
+  destination_module: taxonomy
+
+process:
+  name: x_name
+  vid:
+    plugin: default_value
+    default_value: product_characteristics
+  # TODO - it has to be a field for "domain" value in Odoo. For now it doesn't exist.
+  field_domain:
+    plugin: empty_field_default_value
+    default_value: diamondcbd_domain
+  # TODO - it has to be a field for "is collection" value in Odoo. For now it doesn't exist.
+  field_is_collection:
+    plugin: empty_field_default_value
+    default_value: 1
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

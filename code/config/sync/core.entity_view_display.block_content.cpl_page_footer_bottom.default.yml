@@ -1,0 +1,31 @@
+uuid: c9600d08-2c08-4981-902a-b9b3453939c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_footer_bottom
+    - field.field.block_content.cpl_page_footer_bottom.body
+    - field.field.block_content.cpl_page_footer_bottom.field_block_nav_menu
+  module:
+    - text
+id: block_content.cpl_page_footer_bottom.default
+targetEntityType: block_content
+bundle: cpl_page_footer_bottom
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_block_nav_menu:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: entity_reference_entity_id
+    region: content
+hidden:
+  langcode: true

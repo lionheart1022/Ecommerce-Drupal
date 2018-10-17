@@ -1,0 +1,30 @@
+uuid: 38c2dfbf-95a5-4ae1-9744-c483563883ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_domain_fields
+    - field_collection.field_collection.field_domain_fields
+    - taxonomy.vocabulary.product_characteristics
+  module:
+    - field_collection
+id: taxonomy_term.product_characteristics.field_domain_fields
+field_name: field_domain_fields
+entity_type: taxonomy_term
+bundle: product_characteristics
+label: 'Domain fields'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:field_collection_item'
+  handler_settings:
+    target_bundles:
+      field_domain_fields: field_domain_fields
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: field_collection

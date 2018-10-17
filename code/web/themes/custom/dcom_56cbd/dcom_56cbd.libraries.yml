@@ -1,0 +1,12 @@
+global:
+  version: VERSION
+  css:
+    base:
+      fonts/stylesheet.css: {}
+      css/dcom_56cbd.css: {}
+  js:
+    js/dcom_56cbd.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

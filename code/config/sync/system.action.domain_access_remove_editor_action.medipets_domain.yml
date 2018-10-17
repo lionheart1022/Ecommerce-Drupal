@@ -1,0 +1,14 @@
+uuid: 885de16a-e3cb-49dc-89ae-81e077f7ac60
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.medipets_domain
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.medipets_domain
+label: 'Remove editors from the Medipets domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: medipets_domain

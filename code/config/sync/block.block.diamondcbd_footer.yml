@@ -1,0 +1,42 @@
+uuid: 6451aeda-64bd-43be-a421-bb46c15a64cd
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_footer:dc914f16-2a65-4e8c-bc97-db7f2288c303'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+    - system
+  theme:
+    - diamondcbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondcbd_footer
+theme: diamondcbd
+region: footer_wide
+weight: -7
+provider: null
+plugin: 'block_content:dc914f16-2a65-4e8c-bc97-db7f2288c303'
+settings:
+  id: 'block_content:dc914f16-2a65-4e8c-bc97-db7f2288c303'
+  label: 'Diamond CBD Footer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_footer
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/cart\r\n/profile/*\r\n/user/*"
+    negate: true
+    context_mapping: {  }

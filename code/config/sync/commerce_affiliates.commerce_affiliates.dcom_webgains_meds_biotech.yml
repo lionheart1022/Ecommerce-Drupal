@@ -1,0 +1,22 @@
+uuid: 1ca16e1d-cb99-4fbb-9e03-9e6e6b9f05f4
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      mbio_domain: mbio_domain
+id: dcom_webgains_meds_biotech
+label: 'Webgains - Meds Biotech'
+plugin: webgains_affiliate
+configuration:
+  program_id: '266985'
+  event_id: '1032065'
+  vouchercode: none
+  customerid: ''
+  api_key: ''
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: 0

@@ -1,0 +1,22 @@
+uuid: 0b4a2908-ab11-4f9c-be91-0df8c9436a4a
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: offer_conversion_liquid_gold
+label: 'Offer Conversion: Liquid Gold'
+plugin: hasoffers_affiliate
+configuration:
+  network_id: diamondcbd
+  offer_id: '25'
+  affiliate_id: ''
+  type: https_iframe
+  api_key: NETXZIHhJyKc9XISwpwUj9ftgrEoEs
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: order_canceled

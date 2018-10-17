@@ -1,0 +1,12 @@
+global:
+  version: VERSION
+  css:
+    base:
+      fonts/stylesheet.css: {}
+      css/vhemp.css: {}
+  js:
+    js/vhemp.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

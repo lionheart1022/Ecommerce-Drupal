@@ -1,0 +1,41 @@
+uuid: 23420349-2dac-4859-93b2-306795b20271
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.diamond_commerce_testimonials_page
+    - views.view.diamond_commerce_testimonials
+  module:
+    - panels
+    - views
+id: diamond_commerce_testimonials_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    0b55750a-5b90-4574-b006-6638765c62b0:
+      id: 'views_block:diamond_commerce_testimonials-testimonials_block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: 0b55750a-5b90-4574-b006-6638765c62b0
+      context_mapping: {  }
+  id: panels_variant
+  uuid: ab5187c3-188f-4b61-9b08-39c5b0e99d1c
+  label: null
+  weight: 0
+  layout: layout_twocol_bricks
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: diamond_commerce_testimonials_page-panels_variant-0
+  builder: standard
+page: diamond_commerce_testimonials_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

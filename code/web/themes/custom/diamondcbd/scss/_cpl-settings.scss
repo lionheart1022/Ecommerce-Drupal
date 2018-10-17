@@ -1,0 +1,284 @@
+// CPL settings for the diamondcbd theme
+
+$text-colors: (#2ba950, #767676);
+
+$bg-colors: (#ffffff, #e6e6e6, #2ba950, #383838, #72d28e);
+
+$condensed-font-family: 'Roboto Condensed', sans-serif;
+
+// ImgTxtBanner
+$imgbnr-opacity-dark: rgba(0, 0, 0, 0.3);
+$imgbnr-opacity-light: rgba(255, 255, 255, 0.3);
+
+// Search
+$search-input-border-color: #2ba950;
+
+// FAQ
+$faq-active-title-bg: $primary-color;
+$faq-active-title-text: $white;
+$faq-active-content-bg: #c8ffd8;
+
+// Pager
+$pager-current-background: #2ba950;
+
+// ImageText options
+$imgtxt: (
+  1: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1,
+      text-transform: none
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #1a8439,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(0, 0, 0, 0.5),
+      padding: 15px
+    )
+  ),
+  2: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #1a8439,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(0, 0, 0, 0.5),
+      padding: 15px
+    )
+  ),
+  3: (
+    container: (
+      background-color: $primary-color,
+      box-shadow: none
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: #1a8439,
+      color: $white
+    ),
+    link-h: (
+      background-color: $black,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(26, 132, 57, 0.9),
+      padding: 15px
+    )
+  ),
+  4: (
+    container: (
+      background-color: $white,
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5)
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #1a8439,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(230, 230, 230, 0.9),
+      padding: 15px
+    )
+  )
+);
+
+// ImageTextBanner options
+$imgbnr: (
+  1: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #1a8439,
+      color: $white
+    )
+  ),
+  2: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #1a8439,
+      color: $white
+    )
+  ),
+  3: (
+    container: (
+      background-color: $primary-color,
+      box-shadow: none
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: #1a8439,
+      color: $white
+    ),
+    link-h: (
+      background-color: $black,
+      color: $white
+    )
+  ),
+  4: (
+    container: (
+      background-color: $white,
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5)
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #1a8439,
+      color: $white
+    )
+  )
+);
+
+// Product ribbon
+$ribon-text-color: $white;
+$ribbon-color-1: #d03d3d;
+$ribbon-color-2: #c11d1d;
+$ribbon-color-3: #400404;

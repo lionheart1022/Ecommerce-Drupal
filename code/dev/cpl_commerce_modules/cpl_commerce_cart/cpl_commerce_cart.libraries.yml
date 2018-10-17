@@ -1,0 +1,8 @@
+ajax_quantity_update:
+  version: VERSION
+  js:
+    js/ajax_quantity_update.js: {}
+  dependencies:
+    - core/drupal.debounce
+    - core/jquery
+    - core/jquery.once

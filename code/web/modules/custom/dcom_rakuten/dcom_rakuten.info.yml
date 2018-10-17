@@ -1,0 +1,8 @@
+name: 'Diamond Commerce - Rakuten Marketing'
+type: module
+description: 'Provides Rakuten Marketing integration.'
+core: 8.x
+package: Custom
+dependencies:
+  - system
+  - commerce_checkout

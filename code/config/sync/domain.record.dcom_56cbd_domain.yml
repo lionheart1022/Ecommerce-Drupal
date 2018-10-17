@@ -1,0 +1,11 @@
+uuid: f5200221-5859-4530-900f-b8c4d08a596b
+langcode: en
+status: true
+dependencies: {  }
+id: dcom_56cbd_domain
+domain_id: 7683384
+hostname: www.56cbd.com
+name: 56cbd.com
+scheme: variable
+weight: 5
+is_default: false

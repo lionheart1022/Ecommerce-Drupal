@@ -1,0 +1,55 @@
+uuid: bb5faa80-aa49-4c22-a694-3b2953f3eccf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.paragraphs_page.field_body_class
+    - field.field.node.paragraphs_page.field_domain_access
+    - field.field.node.paragraphs_page.field_domain_all_affiliates
+    - field.field.node.paragraphs_page.field_image
+    - field.field.node.paragraphs_page.field_main_blogs_page
+    - field.field.node.paragraphs_page.field_meta_description
+    - field.field.node.paragraphs_page.field_meta_title
+    - field.field.node.paragraphs_page.field_metatags
+    - field.field.node.paragraphs_page.field_page_paragraphs
+    - field.field.node.paragraphs_page.field_seo
+    - field.field.node.paragraphs_page.field_show_block_page_breadcrumb
+    - field.field.node.paragraphs_page.field_show_block_page_footer
+    - field.field.node.paragraphs_page.field_show_block_page_header
+    - field.field.node.paragraphs_page.field_show_block_page_title
+    - node.type.paragraphs_page
+  module:
+    - entity_reference_revisions
+    - user
+_core:
+  default_config_hash: lmZiPIP9EOPx6cAOGkhfic3X-el6Wr-wn0uatd8Ewpw
+id: node.paragraphs_page.default
+targetEntityType: node
+bundle: paragraphs_page
+mode: default
+content:
+  field_page_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_body_class: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_image: true
+  field_main_blogs_page: true
+  field_meta_description: true
+  field_meta_title: true
+  field_metatags: true
+  field_seo: true
+  field_show_block_page_breadcrumb: true
+  field_show_block_page_footer: true
+  field_show_block_page_header: true
+  field_show_block_page_title: true
+  langcode: true
+  links: true

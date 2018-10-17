@@ -1,0 +1,36 @@
+uuid: 300e0652-aeee-45ef-9b0d-04e629b7d643
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.product_page
+    - field.field.media.how_to_use.field_media_product_ref
+    - field.field.media.how_to_use.field_media_term_ref
+    - field.field.media.how_to_use.field_media_video_embed_field
+    - media.type.how_to_use
+  module:
+    - video_embed_field
+id: media.how_to_use.product_page
+targetEntityType: media
+bundle: how_to_use
+mode: product_page
+content:
+  field_media_video_embed_field:
+    label: hidden
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: false
+    third_party_settings: {  }
+    type: video_embed_field_video
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_product_ref: true
+  field_media_term_ref: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

@@ -1,0 +1,9 @@
+uuid: 2462c770-134f-4430-a7c2-2d18d24989fa
+langcode: en
+status: true
+dependencies: {  }
+id: mbio_dev_diamondcommerce_cpldev_com
+domain_id: mbio_domain
+pattern: mbio.dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

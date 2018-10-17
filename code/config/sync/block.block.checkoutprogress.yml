@@ -1,0 +1,36 @@
+uuid: 415b889d-a26f-4da8-b28c-54ec7276e0e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+    - cpl_paragraphs
+    - system
+  theme:
+    - cpl_base_commerce
+third_party_settings:
+  block_class:
+    classes: ''
+id: checkoutprogress
+theme: cpl_base_commerce
+region: content
+weight: 1
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/checkout/*'
+    negate: false
+    context_mapping: {  }

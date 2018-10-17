@@ -1,0 +1,33 @@
+uuid: ed7cf7e1-b850-47ad-afd0-ba9e523bee5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.blogvideo.field_par_desc
+    - field.field.paragraph.blogvideo.field_par_video
+    - paragraphs.paragraphs_type.blogvideo
+  module:
+    - video_embed_field
+id: paragraph.blogvideo.default
+targetEntityType: paragraph
+bundle: blogvideo
+mode: default
+content:
+  field_par_desc:
+    weight: 1
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_par_video:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: video_embed_field_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

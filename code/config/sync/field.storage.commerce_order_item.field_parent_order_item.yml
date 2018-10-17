@@ -1,0 +1,24 @@
+uuid: 2ba3cf1b-8092-40e5-9608-1bb4d7f57d93
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - commerce_extra_items
+  module:
+    - commerce_order
+_core:
+  default_config_hash: N2ID-pgxXaGf41gBcrpYHTCtbz1TdUV2lcirD-yV2Fo
+id: commerce_order_item.field_parent_order_item
+field_name: field_parent_order_item
+entity_type: commerce_order_item
+type: entity_reference
+settings:
+  target_type: commerce_order_item
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

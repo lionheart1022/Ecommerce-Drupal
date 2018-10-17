@@ -1,0 +1,35 @@
+uuid: ce8ea958-f9e9-48fe-82ea-2d674dc1fdd3
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:935b303f-22d8-4cca-9114-210d942a2ffe'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - mbio
+third_party_settings:
+  block_class:
+    classes: ''
+id: mbio_checkout_footer
+theme: mbio
+region: footer_checkout_form
+weight: 0
+provider: null
+plugin: 'block_content:935b303f-22d8-4cca-9114-210d942a2ffe'
+settings:
+  id: 'block_content:935b303f-22d8-4cca-9114-210d942a2ffe'
+  label: 'Mbio: Checkout footer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

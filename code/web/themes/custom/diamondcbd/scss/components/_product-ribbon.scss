@@ -1,0 +1,67 @@
+// Product ribbon
+.product-ribbon {
+  margin-bottom: 10px;
+  height: 26px;
+  position: relative;
+  color: $ribon-text-color;
+  font-size: 11px;
+  line-height: 27px;
+  text-align: center;
+  text-transform: uppercase;
+  background: $ribbon-color-1;
+
+  @include breakpoint(large) {
+    max-width: 340px;
+  }
+
+  @include breakpoint(medium down) {
+    width: 90%;
+  }
+
+  @include breakpoint(small only) {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  i {
+    position: absolute;
+
+    &:first-of-type,
+    &:nth-of-type(2) {
+      position: absolute;
+      left: -12px;
+      top: -11px;
+      z-index: -1;
+      border: 12px solid transparent;
+      border-right-color: $ribbon-color-3;
+    }
+
+    &:nth-of-type(2) {
+      left: auto;
+      right: -12px;
+      top: -11px;
+      border-right-color: transparent;
+      border-left-color: $ribbon-color-3;
+    }
+
+    &:nth-of-type(3),
+    &:last-of-type {
+      left: -21px;
+      top: -11px;
+      z-index: -2;
+      border: 13px solid $ribbon-color-2;
+      border-left-color: transparent;
+      width: 33px;
+    }
+
+    &:last-of-type {
+      left: auto;
+      right: -21px;
+      top: -11px;
+      border: 13px solid $ribbon-color-2;
+      border-right-color: transparent;
+      width: 33px;
+    }
+  }
+}

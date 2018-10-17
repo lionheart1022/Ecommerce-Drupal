@@ -1,0 +1,29 @@
+uuid: 3bf6661e-88ac-4899-bfe7-f52792caa447
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.mbio-menu.field_menu_product_ref
+  module:
+    - menu_link_content
+id: menu_link_content.mbio-menu.default
+targetEntityType: menu_link_content
+bundle: mbio-menu
+mode: default
+content:
+  children:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_menu_product_ref:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: product_megamenu_style_1
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true

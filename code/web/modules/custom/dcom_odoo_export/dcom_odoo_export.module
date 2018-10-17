@@ -1,0 +1,85 @@
+<?php
+
+/**
+ * @file
+ * Dcom_odoo_export module implementation.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\domain\DomainInterface;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+//function dcom_odoo_export_form_domain_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+//  /** @var \Drupal\domain\DomainInterface $domain */
+//  $domain = $form_state->getFormObject()->getEntity();
+//  $form['dcom_odoo_export_odoo_sync_Id'] = [
+//    '#type' => 'number',
+//    '#min' => 1,
+//    '#step' => 1,
+//    '#title' => t('Odoo Sync ID'),
+//    '#default_value' => $domain->getThirdPartySetting('dcom_odoo_export', 'odoo_sync_Id'),
+//  ];
+//
+//  $form['#entity_builders'][] = 'dcom_odoo_export_domain_form_add_form_builder';
+//}
+
+/**
+ * Entity builder for the domain configuration entity.
+ *
+ * @param string $entity_type
+ *   The entity type.
+ * @param \Drupal\domain\DomainInterface $domain
+ *   The domain entity.
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ */
+//function dcom_odoo_export_domain_form_add_form_builder($entity_type, DomainInterface $domain, array &$form, FormStateInterface $form_state) {
+//  if ($odoo_id = $form_state->getValue('dcom_odoo_export_odoo_sync_Id')) {
+//    $domain->setThirdPartySetting('dcom_odoo_export', 'odoo_sync_Id', $odoo_id);
+//  }
+//  else {
+//    $domain->unsetThirdPartySetting('dcom_odoo_export', 'odoo_sync_Id');
+//  }
+//}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+//function dcom_odoo_export_commerce_order_presave(EntityInterface $entity) {
+//  /** @var \Drupal\commerce_order\Entity\OrderInterface $entity */
+//  \Drupal::service('dcom_odoo_export.sync_orders')
+//    ->handleOrderEvent($entity);
+//  \Drupal::service('dcom_odoo_export.sync_order_items')
+//    ->handleOrderEvent($entity);
+//}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+//function dcom_odoo_export_profile_presave(EntityInterface $entity) {
+//  /** @var \Drupal\profile\Entity\ProfileInterface $entity */
+//  \Drupal::service('dcom_odoo_export.sync_user_address')
+//    ->handleEvent($entity);
+//}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+//function dcom_odoo_export_commerce_order_item_delete(EntityInterface $entity) {
+//  // TODO Remove migrate mapping?
+//  \Drupal::service('dcom_odoo_export.sync_order_items')
+//    ->deleteOrderItemFromOdoo($entity);
+//}
+
+/**
+ * Implements hook_cron().
+ */
+//function dcom_odoo_export_cron() {
+//  \Drupal::service('dcom_odoo_export.sync_orders')
+//    ->runCron();
+//}

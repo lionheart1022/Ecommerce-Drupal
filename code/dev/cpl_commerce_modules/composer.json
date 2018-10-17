@@ -1,0 +1,27 @@
+{
+  "name": "creativepropulsionlabs/cpl_commerce_modules",
+  "type": "drupal-module",
+  "description": "CPL Commerce Modules",
+  "minimum-stability": "dev",
+  "require": {
+    "creativepropulsionlabs/cpl_paragraphs": "*",
+    "drupal/core": "^8.5",
+    "drupal/metatag": "*",
+    "drupal/commerce": "^2.7",
+    "drupal/email_registration": "*",
+    "drupal/page_manager": "*",
+    "drupal/panels": "*",
+    "drupal/config_rewrite": "*",
+    "drupal/search_api": "*",
+    "drupal/search_api_solr": "^2",
+    "drupal/facets": "*",
+    "drupal/facets_pretty_paths": "*",
+    "drupal/votingapi": "*",
+    "drupal/votingapi_widgets": "*",
+    "drupal/comments_order": "*",
+    "drupal/filefield_paths": "*",
+    "drupal/image_url_formatter": "*",
+    "drupal/taxonomy_machine_name": "*"
+  }
+}
+

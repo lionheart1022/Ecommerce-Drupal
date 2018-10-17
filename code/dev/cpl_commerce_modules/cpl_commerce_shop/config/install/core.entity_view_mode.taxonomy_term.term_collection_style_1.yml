@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.term_collection_style_1
+label: 'Term Collection Style 1'
+targetEntityType: taxonomy_term
+cache: true

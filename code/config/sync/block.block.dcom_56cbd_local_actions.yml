@@ -1,0 +1,20 @@
+uuid: bfe93f2f-74e8-4ca3-9589-e2b7929882f6
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dcom_56cbd
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: dcom_56cbd_local_actions
+theme: dcom_56cbd
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

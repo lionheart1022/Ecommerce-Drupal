@@ -1,0 +1,9 @@
+name: 'CPL Commerce Product Page'
+type: module
+core: 8.x
+dependencies:
+  - commerce_product
+  - page_manager
+  - panels
+  - views
+description: 'Commerce product page feature'

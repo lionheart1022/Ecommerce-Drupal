@@ -1,0 +1,29 @@
+uuid: 23bfd09b-93e1-4d78-85c4-46cdce30e6d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_seo
+    - node.type.paragraphs_page
+  module:
+    - yoast_seo
+id: node.paragraphs_page.field_seo
+field_name: field_seo
+entity_type: node
+bundle: paragraphs_page
+label: 'Real Time SEO'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    yoast_seo:
+      focus_keyword: ''
+      status: '0'
+    status: '0'
+    focus_keyword: ''
+    title: null
+    description: null
+default_value_callback: ''
+settings: {  }
+field_type: yoast_seo

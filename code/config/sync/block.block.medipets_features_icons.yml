@@ -1,0 +1,35 @@
+uuid: 37902249-1c24-481b-a07f-a77712210078
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_content_reference:9547a9de-b0a8-4b93-bd68-ee3c6a6d9212'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - medipets
+third_party_settings:
+  block_class:
+    classes: ''
+id: medipets_features_icons
+theme: medipets
+region: product_bottom
+weight: 0
+provider: null
+plugin: 'block_content:9547a9de-b0a8-4b93-bd68-ee3c6a6d9212'
+settings:
+  id: 'block_content:9547a9de-b0a8-4b93-bd68-ee3c6a6d9212'
+  label: 'MediPets Features Icons'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

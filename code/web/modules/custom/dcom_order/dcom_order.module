@@ -1,0 +1,257 @@
+<?php
+
+/**
+ * @file
+ * Provides helper functions for commerce orders.
+ */
+
+use Drupal\commerce_order\Element\ProfileSelect;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function dcom_order_commerce_order_presave(EntityInterface $entity) {
+  // Assigns the Order to the active domain.
+  if (!$entity->hasField('field_domain') || $entity->field_domain->isEmpty()) {
+    /** @var \Drupal\domain\DomainNegotiatorInterface $domain_negotiator */
+    $domain_negotiator = \Drupal::service('domain.negotiator');
+    $entity->set('field_domain', $domain_negotiator->getActiveId());
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function dcom_order_commerce_order_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  static $active_domain;
+
+  /** @var \Drupal\domain\DomainNegotiatorInterface $domain_negotiator */
+  $domain_negotiator = \Drupal::service('domain.negotiator');
+
+  if (!isset($active_domain)) {
+    // Ensure that the loader has run. In some tests, the kernel event has not.
+    $active = $domain_negotiator->getActiveDomain();
+    if (empty($active)) {
+      $active = $domain_negotiator->getActiveDomain(TRUE);
+    }
+    $active_domain = $active;
+  }
+  // Check to see that we have a valid active domain.
+  // Without one, we cannot assert an opinion about access.
+  if (!$active_domain || empty($active_domain->getDomainId())) {
+    return AccessResult::neutral();
+  }
+
+  switch ($operation) {
+    case 'view':
+      // Shows the Order for its owner only in the domain on which this order
+      // was created.
+      if ($account->id() == $entity->getCustomerId()
+        && ($entity->hasField('field_domain') && $entity_domains = $entity->field_domain->getValue())
+      ) {
+        $entity_domains = array_column($entity_domains, 'target_id');
+
+        if (in_array($active_domain->id(), $entity_domains)) {
+          return AccessResult::allowed()
+            ->cachePerUser()
+            ->addCacheContexts(['url.site'])
+            ->addCacheableDependency($entity);
+        }
+        else {
+          return AccessResult::forbidden()
+            ->cachePerUser()
+            ->addCacheContexts(['url.site'])
+            ->addCacheableDependency($entity);
+        }
+      }
+      break;
+  }
+
+  // No opinion.
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function dcom_order_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  switch ($view->id()) {
+    case 'commerce_user_orders':
+      if ($display_id == 'order_page') {
+        /** @var \Drupal\domain\DomainNegotiatorInterface $domain_negotiator */
+        $domain_negotiator = \Drupal::service('domain.negotiator');
+
+        $options = [
+          'id' => 'field_domain',
+          'table' => 'commerce_order__field_domain',
+          'field' => 'field_domain_target_id',
+          'value' => [$domain_negotiator->getActiveId()],
+          'group' => 2,
+        ];
+        // Sets filtering by field_domain. It is not possible to implement such
+        // filtering using Context Filter functionality because of the route
+        // "entity.commerce_order.user_view".
+        $view->addHandler('order_page', 'filter', 'commerce_order__field_domain', 'field_domain_target_id', $options);
+        $view->addCacheContext('url.site');
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function dcom_order_entity_operation(EntityInterface $entity) {
+  $operations = [];
+  if ($entity->getEntityTypeId() === 'commerce_order') {
+    if (\Drupal::currentUser()->hasPermission('administer commerce_shipment')) {
+      $operations['dcom_order_shipment'] = [
+        'title' => t('Shipment'),
+        'url' => Url::fromRoute('dcom_order.commerce_shipment.form', [
+          'commerce_order' => $entity->id(),
+        ]),
+        'weight' => 40,
+      ];
+    }
+  }
+  return $operations;
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function dcom_order_menu_local_tasks_alter(&$data, $route_name) {
+  if (isset($data['tabs'][0]['entity.commerce_payment.collection'])) {
+    $data['tabs'][0]['entity.commerce_payment.collection']['#weight'] = 20;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_create_access().
+ */
+function dcom_order_commerce_order_create_access(AccountInterface $account, array $context, $entity_bundle) {
+  return AccessResult::allowedIfHasPermission($account, 'create default commerce_order');
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ */
+function dcom_order_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  if ($entity_type->id() == 'commerce_order_item' && !empty($fields['purchased_entity'])) {
+    /** @var \Drupal\Core\Field\BaseFieldDefinition $purchased_entity */
+    $purchased_entity = $fields['purchased_entity'];
+    $purchased_entity->setSetting('handler', 'views_product_variation');
+    $purchased_entity->setSetting('handler_settings', [
+      'view' => [
+        'view_name' => 'product_variation_reference',
+        'display_name' => 'entity_reference_1',
+        'arguments' => [],
+      ],
+    ]);
+  }
+  elseif ($entity_type->id() == 'commerce_shipment' && !empty($fields['tracking_code'])) {
+    /** @var \Drupal\Core\Field\BaseFieldDefinition $tracking_code */
+    $tracking_code = $fields['tracking_code'];
+    $tracking_code->setLabel('Tracking number')
+      ->setDescription(t('The shipment tracking number.'));
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dcom_order_form_commerce_payment_payment_default_operation_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $operation_id = \Drupal::routeMatch()->getParameter('operation');
+  // Prevent double refund form submit.
+  if ($operation_id == 'refund') {
+    $form['#attached']['library'][] = 'core/drupal.form';
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function dcom_order_form_commerce_order_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // We need this spike due to the issue
+  // https://www.drupal.org/project/commerce/issues/2924818.
+  // TODO Remove it once #2924818 is fixed.
+  $form['#after_build'][] = 'dcom_order_form_commerce_order_form_after_build_billing';
+}
+
+/**
+ * Replaces the ProfileSelect::executeElementSubmitHandlers validate callback.
+ *
+ * Form after build callback, which replaces
+ * \Drupal\commerce_order\Element\ProfileSelect::executeElementSubmitHandlers()
+ * with a custom validation callback.
+ *
+ * @param array $element
+ *   The form element.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the complete form.
+ *
+ * @return array
+ *   The form element.
+ */
+function dcom_order_form_commerce_order_form_after_build_billing(array $element, FormStateInterface $form_state) {
+  if (isset($element['#validate'])) {
+    foreach ($element['#validate'] as $key => $process) {
+      if (is_array($process) && $process[0] == ProfileSelect::class) {
+        if ($process[1] == 'executeElementSubmitHandlers') {
+          $element['#validate'][$key] = 'dcom_order_form_commerce_order_profile_execute_submit_handlers';
+          break;
+        }
+      }
+    }
+  }
+  return $element;
+}
+
+/**
+ * Validates commerce_order_form.
+ *
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the complete form.
+ */
+function dcom_order_form_commerce_order_profile_execute_submit_handlers(array &$form, FormStateInterface $form_state) {
+  $triggering_element = $form_state->getTriggeringElement();
+
+  // Do not call ProfileSelect::executeElementSubmitHandlers for
+  // inline entity forms. Otherwise - it will trigger new profile save.
+  if ($triggering_element && empty($triggering_element['#ajax'])) {
+    ProfileSelect::executeElementSubmitHandlers($form, $form_state);
+  }
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function dcom_order_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  // Adding unlock link for locked orders.
+  if ($entity->getEntityTypeId() == 'commerce_order' && $entity->isLocked()) {
+    $destination = \Drupal::destination()->getAsArray();
+    $link = Link::createFromRoute(
+      t('Unlock order'),
+      'entity.commerce_order.unlock_form',
+      ['commerce_order' => $entity->id()],
+      ['query' => $destination])
+    ->toRenderable();
+
+    $build['state'][] = [
+      '#type' => 'item',
+      '#markup' => t('Order has been locked.'),
+    ];
+    $build['state'][] = $link;
+  }
+}

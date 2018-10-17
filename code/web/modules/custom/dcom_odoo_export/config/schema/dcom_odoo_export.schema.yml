@@ -1,0 +1,7 @@
+domain.record.*.third_party.dcom_odoo_export:
+  type: mapping
+  label: 'Dcom odoo export configuration'
+  mapping:
+    odoo_sync_Id:
+      type: integer
+      label: 'Odoo Sync ID'

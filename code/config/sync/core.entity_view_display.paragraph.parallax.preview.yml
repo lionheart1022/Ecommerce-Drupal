@@ -1,0 +1,23 @@
+uuid: 6b75180a-5061-49b2-bc98-e3d37cf1f94d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.parallax.field_par_parallax_item
+    - paragraphs.paragraphs_type.parallax
+  module:
+    - field_collection
+id: paragraph.parallax.preview
+targetEntityType: paragraph
+bundle: parallax
+mode: preview
+content:
+  field_par_parallax_item:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_list
+    region: content
+hidden: {  }

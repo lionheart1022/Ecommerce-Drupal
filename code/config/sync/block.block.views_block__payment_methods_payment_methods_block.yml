@@ -1,0 +1,41 @@
+uuid: f57e09d5-f2f4-4313-ad69-7176d5b6bddc
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.payment_methods
+  module:
+    - block_class
+    - cpl_paragraphs
+    - system
+    - views
+  theme:
+    - cpl_base_commerce
+third_party_settings:
+  block_class:
+    classes: ''
+id: views_block__payment_methods_payment_methods_block
+theme: cpl_base_commerce
+region: content
+weight: 3
+provider: null
+plugin: 'views_block:payment_methods-payment_methods_block'
+settings:
+  id: 'views_block:payment_methods-payment_methods_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/user/*/payment-methods'
+    negate: false
+    context_mapping: {  }

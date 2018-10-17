@@ -1,0 +1,10 @@
+uuid: b5346809-ada4-4705-beca-48fadbdafb19
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.megamenu_ad_slideshow
+label: 'Megamenu Ad Slideshow'
+targetEntityType: node
+cache: true

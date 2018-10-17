@@ -1,0 +1,16 @@
+{
+  "name": "drupal/shopify_migrate",
+  "type": "drupal-module",
+  "description": "Collection of Migrate source plugins for Shopify.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/shopify_migrate",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/shopify_migrate",
+    "source": "http://cgit.drupalcode.org/shopify_migrate"
+  },
+  "require": {
+    "donutdan4114/shopify": "dev-master"
+  }
+}

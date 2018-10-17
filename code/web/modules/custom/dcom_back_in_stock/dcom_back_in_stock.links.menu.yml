@@ -1,0 +1,12 @@
+entity.stock_notification.collection:
+  title: 'Stock Notification list'
+  route_name: entity.stock_notification.collection
+  description: 'List Stock Notification.'
+  parent: commerce.configuration
+  weight: 99
+stock_notification.admin.structure.settings:
+  title: 'Inventory'
+  description: 'Configure stock_notification entity'
+  route_name:  stock_notification.settings
+  parent: commerce.configuration
+  weight: 99

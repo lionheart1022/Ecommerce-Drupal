@@ -1,0 +1,42 @@
+uuid: 2e198e49-bb9c-4cce-bd9a-f2b2aafb35d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_heading_color
+field_name: field_par_heading_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: C1
+      label: 'Color 1'
+    -
+      value: C2
+      label: 'Color 2'
+    -
+      value: CW
+      label: White
+    -
+      value: CB
+      label: Black
+    -
+      value: CL
+      label: 'Light Gray'
+    -
+      value: CM
+      label: 'Medium Gray'
+    -
+      value: CD
+      label: 'Dark Gray'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

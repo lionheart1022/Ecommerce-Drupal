@@ -1,0 +1,17 @@
+uuid: 9a867c2d-a6ee-44a9-b37b-b2a42cdc5ac3
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      mbio_domain: mbio_domain
+id: conversant_cj_medsbiotech
+label: 'Conversant CJ - MedsBiotech'
+plugin: conversant_cj_affiliate
+configuration:
+  container_tag_id: '28387'
+  action_id: '407325'
+  cid: '1549515'

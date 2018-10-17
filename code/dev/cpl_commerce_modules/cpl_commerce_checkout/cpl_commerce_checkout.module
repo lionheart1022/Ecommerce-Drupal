@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * CPL Commerce Checkout module.
+ */
+
+use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\OffsitePaymentGatewayInterface;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+
+/**
+ * Add 'cart' link as first step of checkout progress.
+ *
+ * Implements template_preprocess_block().
+ */
+function cpl_commerce_checkout_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] == 'commerce_checkout_progress') {
+    $variables['attributes']['class'][] = 'cpl-commerce-checkout-progress';
+    $order = \Drupal::routeMatch()->getParameter('commerce_order');
+    if (!$order) {
+      // The block is being rendered outside of the checkout page.
+      return;
+    }
+    /** @var \Drupal\commerce_checkout\CheckoutOrderManagerInterface $checkout_order_manager */
+    $checkout_order_manager = \Drupal::service('commerce_checkout.checkout_order_manager');
+    $checkout_flow = $checkout_order_manager->getCheckoutFlow($order);
+    $checkout_flow_plugin = $checkout_flow->getPlugin();
+    $configuration = $checkout_flow_plugin->getConfiguration();
+
+    if (!empty($configuration['display_cart_link'])) {
+      $cart = [
+        'id' => 'cart',
+        'position' => 'cart',
+        'label' => Link::createFromRoute(t('Cart'), 'commerce_cart.page'),
+      ];
+      array_unshift($variables['content']['#steps'], $cart);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function cpl_commerce_checkout_form_commerce_checkout_flow_cpl_commerce_checkout_4step_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Add unique class to each step of checkout flow form.
+  if (isset($form['#step_id'])) {
+    $form['#attributes']['class'][] = Html::cleanCssIdentifier('checkout-step-' . $form['#step_id']);
+  }
+
+  // Change 'Proceed to @gateway' button's value of payment_process form.
+  if (isset($form['payment_process']['offsite_payment']['#default_value'])) {
+    /** @var \Drupal\commerce_payment\Entity\Payment $payment */
+    $payment = $form['payment_process']['offsite_payment']['#default_value'];
+
+    if ($payment->getPaymentGateway()->getPlugin() instanceof OffsitePaymentGatewayInterface) {
+      $form['actions']['next']['#value'] = t('Complete order');
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_commerce_checkout_completion_message().
+ */
+function cpl_commerce_checkout_preprocess_commerce_checkout_completion_message(&$variables) {
+  $variables['payment_method_card_number'] = NULL;
+  if (!$variables['order_entity']->payment_method->isEmpty()
+    && $payment_method = $variables['order_entity']->payment_method->referencedEntities()
+  ) {
+    $payment_method = end($payment_method);
+    $variables['payment_method_card_number'] = $payment_method->card_number->value;
+  }
+}

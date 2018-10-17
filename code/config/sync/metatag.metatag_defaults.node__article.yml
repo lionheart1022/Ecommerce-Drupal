@@ -1,0 +1,25 @@
+uuid: 3c27352f-9920-4106-8dd6-9535c50f8430
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: nYNYI6MrcvLP4gzfcpLvZOVTj47WP8I3E_BYhlaIRRg
+id: node__article
+label: 'Content: Article'
+tags:
+  title: '[current-page:title] | [current-domain:name]'
+  head_title: '[current-page:title] | [current-domain:name]'
+  image_src: '[node:field_image:meta_image]'
+  abstract: '[node:field_blog_description]'
+  description: '[node:field_blog_description]'
+  og_image: '[node:field_image:meta_image]'
+  og_type: article
+  og_title: '[current-page:title]'
+  og_site_name: '[site:name]'
+  og_url: '[current-page:url]'
+  og_description: '[node:field_blog_description]'
+  twitter_cards_type: summary_large_image
+  twitter_cards_description: '[node:field_blog_description]'
+  twitter_cards_image: '[node:field_image:meta_image]'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_title: '[current-page:title]'

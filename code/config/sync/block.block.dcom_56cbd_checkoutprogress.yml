@@ -1,0 +1,24 @@
+uuid: e2cdfca4-d989-48ee-ab44-a7255670bcc7
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+  theme:
+    - dcom_56cbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: dcom_56cbd_checkoutprogress
+theme: dcom_56cbd
+region: content
+weight: -4
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility: {  }

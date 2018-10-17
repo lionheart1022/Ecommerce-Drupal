@@ -1,0 +1,14 @@
+uuid: 430bdfd3-4067-467b-9756-cbbd3129e60a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.staff_store_manager
+  module:
+    - user
+id: user_add_role_action.staff_store_manager
+label: 'Add the Staff - Store Manager role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: staff_store_manager

@@ -1,0 +1,22 @@
+uuid: 36c2502c-927f-4b6c-b7b2-e1e0496c783c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - relaxgummies
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: relaxgummies_content
+theme: relaxgummies
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

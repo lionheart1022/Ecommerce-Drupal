@@ -1,0 +1,45 @@
+uuid: 145a2c31-e703-43f7-a92d-6bfcbc4c4d4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_block_bg_color
+field_name: field_block_bg_color
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: None
+      label: None
+    -
+      value: BG1
+      label: 'Background Color 1'
+    -
+      value: BG2
+      label: 'Background Color 2'
+    -
+      value: BG3
+      label: 'Background Color 3'
+    -
+      value: BG4
+      label: 'Background Color 4'
+    -
+      value: BG5
+      label: 'Background Color 5'
+    -
+      value: BGW
+      label: White
+    -
+      value: BGB
+      label: Black
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

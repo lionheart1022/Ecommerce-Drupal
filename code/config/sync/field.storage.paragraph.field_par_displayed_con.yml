@@ -1,0 +1,36 @@
+uuid: 7ec5df31-c97f-4fc5-acd3-9bbf01bb8d1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_displayed_con
+field_name: field_par_displayed_con
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: CS
+      label: 'Custom display'
+    -
+      value: RN
+      label: 'Refer content'
+    -
+      value: RP
+      label: 'Refer product'
+    -
+      value: RM
+      label: 'Refer media'
+    -
+      value: SG
+      label: 'Dynamic reference'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

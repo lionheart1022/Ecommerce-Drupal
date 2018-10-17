@@ -1,0 +1,9 @@
+services:
+  dcom_back_in_stock.back_in_stock_class:
+    class: Drupal\dcom_back_in_stock\BackInStockClassService
+    arguments: ['@config.factory', '@plugin.manager.mail', '@renderer', '@theme.manager', '@theme.initialization']
+  cache_context.stock_notification_cc:
+    class: Drupal\dcom_back_in_stock\CacheContext\StockNotificationCacheContext
+    arguments: ['@current_user', '@entity.query', '@session_manager']
+    tags:
+      - { name: cache.context }

@@ -1,0 +1,6 @@
+dcom_privy:
+  js:
+    js/dcom_privy.js: { scope: footer }
+  dependencies:
+    - core/drupal
+    - core/jquery.once

@@ -1,0 +1,30 @@
+uuid: 226f64d6-b26f-4ffb-99d6-0a06356b6b4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_content_ref
+    - node.type.additional_content
+    - node.type.article
+    - paragraphs.paragraphs_type.imgtxt
+id: paragraph.imgtxt.field_par_content_ref
+field_name: field_par_content_ref
+entity_type: paragraph
+bundle: imgtxt
+label: 'Displayed content: content reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      additional_content: additional_content
+      article: article
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: additional_content
+field_type: entity_reference

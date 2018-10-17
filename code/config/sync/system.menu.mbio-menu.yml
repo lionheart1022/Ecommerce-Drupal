@@ -1,0 +1,8 @@
+uuid: d2ae9ba1-690c-414d-a449-ccf7542a9fac
+langcode: en
+status: true
+dependencies: {  }
+id: mbio-menu
+label: 'Mbio Shop Menu'
+description: 'Shop menu'
+locked: false

@@ -1,0 +1,69 @@
+uuid: 7aaf4584-7e95-4328-9d5e-b277fd39d171
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.mobile_menu_teaser_1
+    - field.field.node.additional_content.field_domain_access
+    - field.field.node.additional_content.field_domain_all_affiliates
+    - field.field.node.additional_content.field_parc_body
+    - field.field.node.additional_content.field_parc_header
+    - field.field.node.additional_content.field_parc_image
+    - field.field.node.additional_content.field_parc_link
+    - field.field.node.additional_content.field_parc_link_type
+    - field.field.node.additional_content.field_parc_location
+    - field.field.node.additional_content.field_parc_media_ref
+    - field.field.node.additional_content.field_parc_video_link
+    - field.field.node.additional_content.field_parc_webform
+    - image.style.mobile_menu_teaser_1
+    - node.type.additional_content
+  module:
+    - image
+    - link
+    - user
+_core:
+  default_config_hash: Ec64zFEAUrkYhtWhgOPcqmsGb600hS6OHbEznwjRPSo
+id: node.additional_content.mobile_menu_teaser_1
+targetEntityType: node
+bundle: additional_content
+mode: mobile_menu_teaser_1
+content:
+  field_parc_header:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_parc_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: mobile_menu_teaser_1
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_parc_link:
+    type: link_separate
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_parc_body: true
+  field_parc_link_type: true
+  field_parc_location: true
+  field_parc_media_ref: true
+  field_parc_video_link: true
+  field_parc_webform: true
+  langcode: true
+  links: true

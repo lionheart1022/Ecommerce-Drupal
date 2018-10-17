@@ -1,0 +1,4 @@
+services:
+  commerce_nmi.nmi_request:
+    class: Drupal\commerce_nmi\Util\NmiRequest
+    arguments: ['@http_client']

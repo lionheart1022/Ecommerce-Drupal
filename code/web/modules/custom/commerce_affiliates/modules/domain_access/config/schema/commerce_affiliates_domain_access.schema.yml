@@ -1,0 +1,10 @@
+commerce_affiliates.commerce_affiliate_type.*.third_party.commerce_affiliates_domain_access:
+  type: mapping
+  label: 'Commerce Affiliates Domain Access configuration'
+  mapping:
+    domain_access:
+      type: sequence
+      label: 'Domain access'
+      sequence:
+        type: string
+        label: 'The affiliate domain ID'

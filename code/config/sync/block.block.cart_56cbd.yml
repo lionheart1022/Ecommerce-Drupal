@@ -1,0 +1,31 @@
+uuid: 03842d8e-6b87-40e2-aba1-7d79e576b834
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_cart
+    - cpl_paragraphs
+  theme:
+    - dcom_56cbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: cart_56cbd
+theme: dcom_56cbd
+region: right_off_canvas
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: true
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

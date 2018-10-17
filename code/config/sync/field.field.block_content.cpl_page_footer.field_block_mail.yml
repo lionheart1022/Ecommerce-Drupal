@@ -1,0 +1,19 @@
+uuid: c1959ace-2e54-4cfe-b29e-0409dff4dda6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_footer
+    - field.storage.block_content.field_block_mail
+id: block_content.cpl_page_footer.field_block_mail
+field_name: field_block_mail
+entity_type: block_content
+bundle: cpl_page_footer
+label: Mail
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

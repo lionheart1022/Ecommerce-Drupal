@@ -1,0 +1,12 @@
+uuid: dc73c5e0-44aa-4e6f-80b9-cd52a9f7bf87
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_block__diamond_commerce_shop__diamond_commerce_shop_block
+name: 'search_api:views_block__diamond_commerce_shop__diamond_commerce_shop_block'
+filter_key: ''
+url_processor: dcom_facets_pretty_paths
+breadcrumb:
+  active: true
+  before: true
+  group: false

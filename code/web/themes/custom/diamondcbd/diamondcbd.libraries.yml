@@ -1,0 +1,25 @@
+# Theme styles
+global:
+  version: VERSION
+  css:
+    base:
+      fonts/stylesheet.css: {}
+      css/diamondcbd.css: {}
+  js:
+    js/diamondcbd.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - diamondcbd/image_zoom
+
+image_zoom:
+  version: VERSION
+  css:
+    theme:
+      vendor/cloudzoom/cloudzoom.css: {}
+  js:
+    vendor/cloudzoom/cloudzoom.js: {}
+    js/libraries/cloudzoom.config.js: {}
+  dependencies:
+    - core/jquery

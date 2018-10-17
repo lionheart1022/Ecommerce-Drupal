@@ -1,0 +1,20 @@
+uuid: 3fa0fa56-ed24-44a6-a9d4-e0785d487802
+langcode: en
+status: true
+dependencies:
+  theme:
+    - chillgummies
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: chillgummies_local_actions
+theme: chillgummies
+region: content
+weight: 0
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

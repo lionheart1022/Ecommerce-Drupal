@@ -1,0 +1,22 @@
+uuid: 50739e51-f2d7-4248-880e-1facb0614ae0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_age_confirmation
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.cpl_age_confirmation.body
+field_name: body
+entity_type: block_content
+bundle: cpl_age_confirmation
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

@@ -1,0 +1,105 @@
+uuid: 6963aa22-9cf6-4bcc-a7bb-651190320194
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.product_characteristics.field_domain
+    - field.field.taxonomy_term.product_characteristics.field_domain_fields
+    - field.field.taxonomy_term.product_characteristics.field_image
+    - field.field.taxonomy_term.product_characteristics.field_is_collection
+    - field.field.taxonomy_term.product_characteristics.field_meta_description
+    - field.field.taxonomy_term.product_characteristics.field_meta_title
+    - field.field.taxonomy_term.product_characteristics.field_url_value
+    - image.style.thumbnail
+    - taxonomy.vocabulary.product_characteristics
+  module:
+    - field_collection
+    - image
+    - path
+    - text
+id: taxonomy_term.product_characteristics.default
+targetEntityType: taxonomy_term
+bundle: product_characteristics
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_domain:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_domain_fields:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+    region: content
+  field_image:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_is_collection:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_meta_description:
+    weight: 3
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_meta_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_url_value:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

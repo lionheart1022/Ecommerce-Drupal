@@ -1,0 +1,47 @@
+entity.stock_notification.canonical:
+  path: '/admin/commerce/config/stock_notification/{stock_notification}'
+  defaults:
+    _entity_view: 'stock_notification'
+    _title: 'StockNotification content'
+  requirements:
+    _entity_access: 'stock_notification.view'
+
+entity.stock_notification.collection:
+  path: '/admin/commerce/config/stock_notification/list'
+  defaults:
+    _entity_list: 'stock_notification'
+    _title: 'StockNotification list'
+  requirements:
+    _permission: 'view stock_notification entity'
+
+stock_notification.add:
+  path: '/admin/commerce/config/stock_notification/add'
+  defaults:
+    _entity_form: stock_notification.add
+    _title: 'Add stock_notification'
+  requirements:
+    _entity_create_access: 'stock_notification'
+
+entity.stock_notification.edit_form:
+  path: '/admin/commerce/config/stock_notification/{stock_notification}/edit'
+  defaults:
+    _entity_form: stock_notification.edit
+    _title: 'Edit stock_notification'
+  requirements:
+    _entity_access: 'stock_notification.edit'
+
+entity.stock_notification.delete_form:
+  path: '/admin/commerce/config/stock_notification/{stock_notification}/delete'
+  defaults:
+    _entity_form: stock_notification.delete
+    _title: 'Delete stock_notification'
+  requirements:
+    _entity_access: 'stock_notification.delete'
+
+stock_notification.settings:
+  path: '/admin/commerce/config/stock_notification_setting'
+  defaults:
+    _form: '\Drupal\dcom_back_in_stock\Form\StockNotificationSettingsForm'
+    _title: 'Inventory'
+  requirements:
+    _permission: 'administer stock_notification entity'

@@ -1,0 +1,24 @@
+global:
+  version: VERSION
+  css:
+    base:
+      fonts/stylesheet.css: {}
+      css/mbio.css: {}
+  js:
+    js/mbio.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - mbio/image_zoom
+
+image_zoom:
+  version: VERSION
+  css:
+    theme:
+      vendor/cloudzoom/cloudzoom.css: {}
+  js:
+    vendor/cloudzoom/cloudzoom.js: {}
+    js/libraries/cloudzoom.config.js: {}
+  dependencies:
+    - core/jquery

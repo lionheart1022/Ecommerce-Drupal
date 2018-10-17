@@ -1,0 +1,8 @@
+uuid: 1e4479b7-bb5e-4ac0-a351-a06c0d14d438
+langcode: en
+status: true
+dependencies: {  }
+id: checkout-policy-links
+label: 'Checkout Policy Links'
+description: ''
+locked: false

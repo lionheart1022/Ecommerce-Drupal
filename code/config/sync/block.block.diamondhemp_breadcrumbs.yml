@@ -1,0 +1,38 @@
+uuid: 56c6de43-f96a-4525-a93b-d40206815da5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - cpl_paragraphs
+    - system
+  theme:
+    - diamondhemp
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: diamondhemp_breadcrumbs
+theme: diamondhemp
+region: content
+weight: -3
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: field_show_block_page_breadcrumb
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/collections\r\n/collections/*\r\n/checkout/*\r\n/user/*\r\n/profile/*\r\n/faqs\r\n/privacy-policy\r\n/terms-and-conditions"
+    negate: true
+    context_mapping: {  }

@@ -1,0 +1,19 @@
+uuid: 301f953b-ce88-4431-8826-faa831c33ea4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_url_value
+    - taxonomy.vocabulary.product_type
+id: taxonomy_term.product_type.field_url_value
+field_name: field_url_value
+entity_type: taxonomy_term
+bundle: product_type
+label: 'URL Value'
+description: 'Use this field to add extra URL names.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

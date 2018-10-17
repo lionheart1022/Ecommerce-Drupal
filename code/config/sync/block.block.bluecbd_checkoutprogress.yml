@@ -1,0 +1,24 @@
+uuid: 0e2dacd6-96ed-4f4f-be61-316288ce5b4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+  theme:
+    - bluecbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: bluecbd_checkoutprogress
+theme: bluecbd
+region: content
+weight: -4
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,10 @@
+name: 'Diamond Commerce - Facets'
+type: module
+description: 'Provides custom facets for Diamond Commerce.'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - cpl_commerce_shop
+  - facets
+  - facets_pretty_paths
+  - taxonomy_machine_name

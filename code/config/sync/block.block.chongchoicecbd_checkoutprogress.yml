@@ -1,0 +1,24 @@
+uuid: 68a21b27-4066-4b8a-a988-8ba58a9d898f
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+  theme:
+    - chongchoicecbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: chongchoicecbd_checkoutprogress
+theme: chongchoicecbd
+region: content
+weight: -4
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility: {  }

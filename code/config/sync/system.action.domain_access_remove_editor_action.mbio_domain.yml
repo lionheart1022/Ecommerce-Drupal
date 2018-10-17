@@ -1,0 +1,14 @@
+uuid: 1569a3be-3e2e-404d-b014-d0d9d1beadd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mbio_domain
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.mbio_domain
+label: 'Remove editors from the Meds Biotech domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: mbio_domain

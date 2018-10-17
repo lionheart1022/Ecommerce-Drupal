@@ -1,0 +1,21 @@
+uuid: e08123d4-c691-41d8-bc25-3cf2d2f5df64
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_social_icon
+    - field_collection.field_collection.field_social_icons
+  module:
+    - options
+id: field_collection_item.field_social_icons.field_social_icon
+field_name: field_social_icon
+entity_type: field_collection_item
+bundle: field_social_icons
+label: 'Social Icon'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

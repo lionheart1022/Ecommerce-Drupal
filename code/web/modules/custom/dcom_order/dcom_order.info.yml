@@ -1,0 +1,9 @@
+name: 'Diamond Commerce Order'
+type: module
+description: 'Provides some helper features for orders.'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - commerce_order:commerce_order
+  - commerce_shipping:commerce_shipping
+  - dcom_common:dcom_common

@@ -1,0 +1,9 @@
+name: Commerce Affiliates Domain Access
+type: module
+description: 'Domain-based access control for Commerce Affiliates.'
+core: 8.x
+package: Commerce (contrib)
+dependencies:
+    - domain:domain
+    - domain:domain_access
+    - commerce_affiliates:commerce_affiliates

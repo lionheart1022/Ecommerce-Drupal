@@ -1,0 +1,21 @@
+enabled: 1
+_core:
+  default_config_hash: VwzMkTPurD4eXUBOO9IHEKC22bPC3nBHU3hTsU3PMsM
+fields_config:
+  commerce_product-cbd_product-field_review:
+    Good:
+      event_name: 'Good review'
+      min: '4'
+      max: '5'
+    Neutral:
+      event_name: 'Neutral review'
+      min: '3'
+      max: '3'
+    Bad:
+      event_name: 'Bad review'
+      min: '1'
+      max: '2'
+    entity_type: commerce_product
+    bundle: cbd_product
+    field_name: field_review
+klaviyo_review_url_property: KlaviyoReviewURL

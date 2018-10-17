@@ -1,0 +1,15 @@
+uuid: 53a2a4c2-4b32-4a5e-8e3f-22dce5de72d8
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - simple_megamenu
+  module:
+    - simple_megamenu
+_core:
+  default_config_hash: tO3hZgSkM69ldLZX33aXUtyGcRDIwmY0vH_LshNCAHQ
+id: simple_mega_menu.before
+label: Before
+targetEntityType: simple_mega_menu
+cache: true

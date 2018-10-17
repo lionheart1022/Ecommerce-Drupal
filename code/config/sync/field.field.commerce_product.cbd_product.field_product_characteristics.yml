@@ -1,0 +1,29 @@
+uuid: 4f87364b-335f-419f-8e65-69e7cb171392
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.commerce_product.field_product_characteristics
+    - taxonomy.vocabulary.product_characteristics
+id: commerce_product.cbd_product.field_product_characteristics
+field_name: field_product_characteristics
+entity_type: commerce_product
+bundle: cbd_product
+label: 'Product characteristics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      product_characteristics: product_characteristics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: product_category
+field_type: entity_reference

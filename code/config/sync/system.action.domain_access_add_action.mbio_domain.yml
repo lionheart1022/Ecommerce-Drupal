@@ -1,0 +1,14 @@
+uuid: bcd3d7e6-2474-4b24-b50a-5eeca7619877
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mbio_domain
+  module:
+    - domain_access
+id: domain_access_add_action.mbio_domain
+label: 'Add selected content to the Meds Biotech domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: mbio_domain

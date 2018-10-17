@@ -1,0 +1,28 @@
+uuid: 4820f06a-543c-493f-ad08-af38472537dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_menu_ref_content
+    - field_collection.field_collection.field_megamenu_item
+    - node.type.article
+id: field_collection_item.field_megamenu_item.field_menu_ref_content
+field_name: field_menu_ref_content
+entity_type: field_collection_item
+bundle: field_megamenu_item
+label: 'Content Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: article
+field_type: entity_reference

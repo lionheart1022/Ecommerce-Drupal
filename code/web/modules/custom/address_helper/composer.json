@@ -1,0 +1,16 @@
+{
+  "name": "drupal/address_helper",
+  "type": "drupal-module",
+  "description": "Provides suggestions and validation for address lines.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/address_helper",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/address_helper",
+    "source": "http://cgit.drupalcode.org/address_helper"
+  },
+  "require": {
+    "drupal/address": "~1.0"
+  }
+}

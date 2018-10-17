@@ -1,0 +1,10 @@
+uuid: b70f4235-731b-4b44-8992-025dc1dc4add
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.mobile_menu_teaser_1
+label: 'Mobile Menu Teaser 1'
+targetEntityType: node
+cache: true

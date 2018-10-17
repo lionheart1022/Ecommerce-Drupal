@@ -1,0 +1,17 @@
+uuid: aadae2f1-b1ae-4af2-a44b-e1da235ff11f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Additional content'
+type: additional_content
+description: 'Pieces of content to be used inside Paragraphs.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

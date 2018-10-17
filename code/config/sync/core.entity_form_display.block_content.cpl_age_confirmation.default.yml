@@ -1,0 +1,69 @@
+uuid: 79744144-4024-481a-a4f6-7bbd67e24529
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_age_confirmation
+    - field.field.block_content.cpl_age_confirmation.body
+    - field.field.block_content.cpl_age_confirmation.field_block_logo
+    - field.field.block_content.cpl_age_confirmation.field_block_title
+    - field.field.block_content.cpl_age_confirmation.field_block_url
+    - image.style.thumbnail
+  module:
+    - image
+    - link
+    - text
+id: block_content.cpl_age_confirmation.default
+targetEntityType: block_content
+bundle: cpl_age_confirmation
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_block_logo:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_block_title:
+    weight: 2
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_block_url:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

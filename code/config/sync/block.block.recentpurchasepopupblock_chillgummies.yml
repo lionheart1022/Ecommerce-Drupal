@@ -1,0 +1,37 @@
+uuid: 59c847ea-b035-4890-a4de-6165f4257b76
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_recent_purchase_popup
+    - cpl_paragraphs
+    - system
+  theme:
+    - chillgummies
+id: recentpurchasepopupblock_chillgummies
+theme: chillgummies
+region: content
+weight: 0
+provider: null
+plugin: recent_purchase_popup_block
+settings:
+  id: recent_purchase_popup_block
+  label: 'Recent Purchase Popup block'
+  provider: commerce_recent_purchase_popup
+  label_display: visible
+  delay: '10000'
+  interval: '60000'
+  time_to_show: '4000'
+  user_info: '[profile:address:given_name] from [profile:address:locality] purchased a'
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/user\r\n/user/*\r\n/cart\r\n/checkout/*"
+    negate: true
+    context_mapping: {  }

@@ -1,0 +1,22 @@
+uuid: af3cd2f4-9868-4c7f-89ca-20030ea9787f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bluecbd
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: bluecbd_messages
+theme: bluecbd
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

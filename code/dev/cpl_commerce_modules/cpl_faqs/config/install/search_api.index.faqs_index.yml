@@ -1,0 +1,72 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_faqs_type
+    - field.storage.node.field_faqs_category
+    - search_api.server.search_server
+  module:
+    - search_api
+    - node
+id: faqs_index
+name: 'FAQs Index'
+description: ''
+read_only: false
+field_settings:
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
+  faq_search:
+    label: 'FAQ Search'
+    property_path: aggregated_field
+    type: text
+    configuration:
+      type: concat
+      fields:
+        - 'entity:node/body'
+        - 'entity:node/title'
+  field_faqs_type:
+    label: 'FAQs Type'
+    datasource_id: 'entity:node'
+    property_path: field_faqs_type
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_faqs_type
+  field_faqs_category:
+    label: 'FAQs Category'
+    datasource_id: 'entity:node'
+    property_path: field_faqs_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_faqs_category
+  field_domain_access:
+    label: 'Domain Access'
+    datasource_id: 'entity:node'
+    property_path: field_domain_access
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_domain_access
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - faqs
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  aggregated_field: {  }
+  add_url: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: search_server

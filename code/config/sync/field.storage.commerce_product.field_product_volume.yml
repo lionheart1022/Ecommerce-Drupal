@@ -1,0 +1,20 @@
+uuid: accf9975-a861-4c79-85c2-f86ed4f80af8
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - physical
+id: commerce_product.field_product_volume
+field_name: field_product_volume
+entity_type: commerce_product
+type: physical_measurement
+settings:
+  measurement_type: volume
+module: physical
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

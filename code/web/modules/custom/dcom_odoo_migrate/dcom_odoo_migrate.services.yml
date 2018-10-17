@@ -1,0 +1,17 @@
+services:
+  dcom_odoo_migrate.id_mapper:
+    class: Drupal\dcom_odoo_migrate\EventSubscriber\OdooIdMapper
+    arguments: []
+    tags:
+      - { name: event_subscriber }
+
+  dcom_odoo_migrate.cascade_import:
+    class: Drupal\dcom_odoo_migrate\EventSubscriber\CascadeImporter
+    arguments: ['@entity_type.manager', '@logger.factory']
+    tags:
+      - { name: event_subscriber }
+
+  dcom_odoo_migrate.current_migration:
+    class: Drupal\dcom_odoo_migrate\EventSubscriber\CurrentMigration
+    tags:
+      - { name: event_subscriber }

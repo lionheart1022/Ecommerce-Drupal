@@ -1,0 +1,21 @@
+uuid: 9e716194-f01a-4623-8bf0-f0700fe426e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.commerce_product.field_product_weight
+  module:
+    - physical
+id: commerce_product.cbd_product.field_product_weight
+field_name: field_product_weight
+entity_type: commerce_product
+bundle: cbd_product
+label: Weight
+description: 'Product net weight.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: physical_measurement

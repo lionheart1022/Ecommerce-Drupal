@@ -1,0 +1,20 @@
+uuid: 16446729-78ce-4a80-bb80-b850329c66b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - votingapi
+id: comment.field_vote_reference
+field_name: field_vote_reference
+entity_type: comment
+type: entity_reference
+settings:
+  target_type: vote
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: c26e4dff-299c-43cf-adfe-4f00f3bd912f
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_block_display_title
+field_name: field_block_display_title
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'OFF'
+      label: 'OFF'
+    -
+      value: 'ON'
+      label: 'ON'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

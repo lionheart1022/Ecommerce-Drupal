@@ -1,0 +1,20 @@
+uuid: 680fb35e-b9d6-4006-86e6-53a3fbcd064f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cbdliquidgold
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: cbdliquidgold_local_actions
+theme: cbdliquidgold
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

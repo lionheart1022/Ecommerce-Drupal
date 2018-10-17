@@ -1,0 +1,22 @@
+uuid: cd6d1960-930a-48b2-9ea8-9ed22a20df8b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cbdliquidgold
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: cbdliquidgold_local_tasks
+theme: cbdliquidgold
+region: content
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

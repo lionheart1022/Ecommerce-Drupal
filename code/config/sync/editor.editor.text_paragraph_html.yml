@@ -1,0 +1,52 @@
+uuid: deceab5d-4120-4042-b768-f0a83ca955ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.text_paragraph_html
+  module:
+    - ckeditor
+format: text_paragraph_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Tools
+          items:
+            - Styles
+            - Blockquote
+            - Table
+        -
+          name: Source
+          items:
+            - Source
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: "p|Paragraph\r\nh1|Heading 1\r\nh2|Heading 2\r\nh3|Heading 3\r\nh4|Heading 4\r\nh5|Heading 5"
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

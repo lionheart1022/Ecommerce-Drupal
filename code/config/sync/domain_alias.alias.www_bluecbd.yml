@@ -1,0 +1,9 @@
+uuid: b9d09f89-3941-4f26-801e-5692a2222f29
+langcode: en
+status: true
+dependencies: {  }
+id: www_bluecbd
+domain_id: bluecbd_domain
+pattern: bluecbd.com
+redirect: 301
+environment: default

@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.default
+    - field.storage.commerce_order_item.field_odoo_sync_id
+  enforced:
+    module:
+      - dcom_odoo_export
+id: commerce_order_item.default.field_odoo_sync_id
+field_name: field_odoo_sync_id
+entity_type: commerce_order_item
+bundle: default
+label: 'Odoo Sync ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

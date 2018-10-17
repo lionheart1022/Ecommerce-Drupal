@@ -1,0 +1,86 @@
+<?php
+
+/**
+ * @file
+ * CPL Commerce User module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Add CSS classes to user account menu links.
+ *
+ * Implements hook_preprocess_HOOK().
+ */
+function cpl_commerce_user_preprocess_menu_local_task(&$variables) {
+  /** @var \Drupal\Core\Url $url */
+  $url = $variables['element']['#link']['url'];
+
+  $route_classes = [
+    'cpl_commerce_user.account' => 'my-account',
+    'cpl_commerce_user.my_account' => 'my-account',
+    'cpl_commerce_user.business' => 'my-business',
+    'user.logout' => 'user-logout',
+    'view.commerce_user_orders.order_page' => 'user-orders',
+    'view.favorite_products.favorite_products_page' => 'favorite-products',
+  ];
+  $route_name = $url->getRouteName();
+
+  if (array_key_exists($route_name, $route_classes)) {
+    // Drupal\Core\Url::setOption() doesn't support merging options.
+    $attributes = $url->getOption('attributes') ?: [];
+    $attributes['class'][] = $route_classes[$route_name];
+    $url->setOption('attributes', $attributes);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function cpl_commerce_user_form_user_pass_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['#submit'][] = 'cpl_commerce_user_add_additional_notice';
+}
+
+/**
+ * Add additional notice to reset password form.
+ */
+function cpl_commerce_user_add_additional_notice() {
+  drupal_set_message(t('If you do not see an email in your inbox, please be sure to check your junk mail and mark all correspondence from @site_name as safe.', ['@site_name' => \Drupal::config('system.site')->get('name')]));
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function cpl_commerce_user_menu_local_tasks_alter(&$data, $route_name) {
+  if (isset($data['tabs'][0]['entity.user.canonical'])) {
+    $current_user = \Drupal::currentUser();
+    $data['tabs'][0]['entity.user.canonical']['#access'] = AccessResult::allowedIfHasPermission($current_user, 'view user view default link');
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function cpl_commerce_user_preprocess_page__user(&$variables) {
+  if ($user_id = Drupal::currentUser()->id()) {
+    /** @var \Drupal\Core\Entity\Query\QueryInterface $query */
+    $query = Drupal::service('entity.query')
+      ->get('commerce_order')
+      ->condition('uid', $user_id)
+      ->condition('cart', FALSE);
+
+    // Apply project specific query options.
+    \Drupal::moduleHandler()->invokeAll('cpl_commerce_order_counter_query', [$query]);
+
+    $recent_orders = $query->count()
+      ->execute();
+
+    $variables['recent_orders'] = !empty($recent_orders) ? $recent_orders : 0;
+    CacheableMetadata::createFromRenderArray($variables)
+      ->addCacheContexts(['user'])
+      ->addCacheTags(['commerce_order_list'])
+      ->applyTo($variables);
+  }
+}

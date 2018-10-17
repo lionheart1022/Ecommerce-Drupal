@@ -1,0 +1,23 @@
+entity.commerce_payment.nmi_add_form:
+  path: '/admin/commerce/orders/{commerce_order}/payments/nmi/add'
+  defaults:
+    _form: '\Drupal\commerce_nmi\Form\PaymentAddForm'
+    _title: 'Add NMI payment'
+  options:
+    parameters:
+      commerce_order:
+        type: 'entity:commerce_order'
+  requirements:
+    _entity_create_access: 'commerce_payment'
+
+commerce_nmi.payment.return:
+  path: '/nmi_payment/{commerce_order}/{step}/return'
+  defaults:
+    _controller: '\Drupal\commerce_nmi\Controller\PaymentCheckoutController::returnPage'
+  requirements:
+    _custom_access: '\Drupal\commerce_nmi\Controller\PaymentCheckoutController::checkAccess'
+    _module_dependencies: commerce_checkout
+  options:
+    parameters:
+      commerce_order:
+        type: entity:commerce_order

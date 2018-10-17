@@ -1,0 +1,31 @@
+uuid: 332c5db5-22cc-46c6-a692-66a71fa49017
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_cart
+    - cpl_paragraphs
+  theme:
+    - medipets
+third_party_settings:
+  block_class:
+    classes: ''
+id: cart_medipets
+theme: medipets
+region: right_off_canvas
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: true
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

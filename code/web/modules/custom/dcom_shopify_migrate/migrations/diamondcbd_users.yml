@@ -1,0 +1,59 @@
+id: diamondcbd_users
+label: DiamondCBD Users
+migration_group: diamondcbd
+
+source:
+  plugin: dcom_shopify_customer
+
+destination:
+  plugin: 'dcom_shopify_entity:user'
+  skip_modify_entity_values: true
+  destination_module: user
+
+process:
+  uid:
+    plugin: entity_lookup
+    value_key: mail
+    entity_type: user
+    ignore_case: true
+    source: email
+  mail: email
+  created:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: created_at
+    settings:
+      validate_format: false
+  changed:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: updated_at
+    settings:
+      validate_format: false
+  name:
+    -
+      plugin: skip_on_value
+      method: row
+      source: last_order_id
+      value: ''
+    -
+      plugin: email_registration_user_name
+      source: email
+    -
+      plugin: dcom_unique_username
+      entity_type: user
+      field: name
+      postfix: _
+  status:
+    plugin: shopify_migrate_user_status
+    source: state
+  'field_first_name/0/value': first_name
+  'field_last_name/0/value': last_name
+  'field_phone/0/value': phone
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

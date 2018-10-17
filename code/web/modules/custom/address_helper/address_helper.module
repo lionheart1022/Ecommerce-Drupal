@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Address Helper module file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function address_helper_element_info_alter(array &$info) {
+  if (isset($info['address'])) {
+    $info['address']['#process'][] = 'address_helper_process_address';
+  }
+}
+
+/**
+ * Address element process callback.
+ *
+ * Adds address suggestion autocomplete.
+ */
+function address_helper_process_address($element, FormStateInterface $form_state, $form) {
+  if (!empty($element['#address_helper_service'])
+    && isset($element['address_line1'])) {
+    $service_id = $element['#address_helper_service'];
+    /** @var \Drupal\address_helper\Plugin\AutocompleteServiceManagerInterface $service_plugin_manager */
+    $service_plugin_manager = \Drupal::service('plugin.manager.address_helper_autocomplete_service');
+
+    if ($service_plugin_manager->hasDefinition($service_id)
+      && !empty($element['#value']['country_code'])) {
+      $element['address_line1']['#autocomplete_route_name'] = 'address_helper.search_controller_search';
+      $element['address_line1']['#autocomplete_route_parameters'] = [
+        'service_id' => $service_id,
+        'country_code' => $element['#value']['country_code'],
+      ];
+      $element['address_line1']['#attributes']['class'][] = 'address-suggestion-autocomplete';
+      $element['address_line1']['#attributes']['data-address-suggestion-service'] = $service_id;
+      $element['address_line1']['#attached']['library'][] = 'address_helper/autocomplete';
+    }
+  }
+
+  return $element;
+}

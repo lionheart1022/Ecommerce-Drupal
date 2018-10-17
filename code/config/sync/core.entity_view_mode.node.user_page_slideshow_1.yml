@@ -1,0 +1,10 @@
+uuid: a379691b-dd99-4b82-ac3b-f6ce829c70e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.user_page_slideshow_1
+label: 'User Page Slideshow 1'
+targetEntityType: node
+cache: true

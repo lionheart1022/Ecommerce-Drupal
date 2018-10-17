@@ -1,0 +1,9 @@
+uuid: fa4e0259-e7cc-4ee1-8466-c99a8d5b24fa
+langcode: en
+status: true
+dependencies: {  }
+id: dev_chillgummies
+domain_id: chillgummies_domain
+pattern: chillgummies.dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

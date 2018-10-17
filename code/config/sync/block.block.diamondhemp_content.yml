@@ -1,0 +1,22 @@
+uuid: a916f57f-7890-4211-ab4b-9cc013205131
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - diamondhemp
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: diamondhemp_content
+theme: diamondhemp
+region: content
+weight: 2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

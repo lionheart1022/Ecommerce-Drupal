@@ -1,0 +1,5 @@
+entity.klaviyo_review.add_form:
+  route_name: entity.klaviyo_review.add
+  title: 'Add Commerce Klaviyo Review'
+  appears_on:
+    - entity.klaviyo_review.collection

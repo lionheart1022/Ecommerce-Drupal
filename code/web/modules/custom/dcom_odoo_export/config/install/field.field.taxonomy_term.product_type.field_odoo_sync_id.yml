@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_odoo_sync_id
+    - taxonomy.vocabulary.product_type
+  enforced:
+    module:
+      - dcom_odoo_export
+id: taxonomy_term.product_type.field_odoo_sync_id
+field_name: field_odoo_sync_id
+entity_type: taxonomy_term
+bundle: product_type
+label: 'Odoo Sync ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

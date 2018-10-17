@@ -1,0 +1,9 @@
+uuid: b29649bd-7670-45ef-bc11-56d00322df2f
+langcode: en
+status: true
+dependencies: {  }
+id: blogimage
+label: 'Blog Image'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

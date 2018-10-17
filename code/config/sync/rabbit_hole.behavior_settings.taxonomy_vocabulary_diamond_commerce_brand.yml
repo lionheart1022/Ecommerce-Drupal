@@ -1,0 +1,9 @@
+uuid: 07f9ba5a-7814-438b-8f19-096b01d24c54
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_diamond_commerce_brand
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

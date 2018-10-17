@@ -1,0 +1,9 @@
+uuid: 338887eb-7ba5-4cc3-8801-6a3c1c615749
+langcode: en
+status: true
+dependencies: {  }
+id: dev_cbdliquidgold
+domain_id: cbdliquidgold_domain
+pattern: cbdliquidgold.dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

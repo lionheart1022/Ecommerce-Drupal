@@ -1,0 +1,23 @@
+uuid: 4f9f83e7-69e1-4662-92ea-93f09a8a820f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_age_confirmation
+    - field.storage.block_content.field_block_url
+  module:
+    - link
+id: block_content.cpl_age_confirmation.field_block_url
+field_name: field_block_url
+entity_type: block_content
+bundle: cpl_age_confirmation
+label: 'Redirect Url'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

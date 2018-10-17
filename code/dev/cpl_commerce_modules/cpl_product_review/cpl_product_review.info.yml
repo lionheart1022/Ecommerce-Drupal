@@ -1,0 +1,11 @@
+name: 'CPL Commerce Product Votes'
+type: module
+description: 'Provides ability to vote for product.'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - comment
+  - comments_order
+  - commerce_product
+  - votingapi
+  - votingapi_widgets

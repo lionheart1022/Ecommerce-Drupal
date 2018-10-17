@@ -1,0 +1,9 @@
+uuid: 835b60b6-a1e7-42bd-9a9b-3932b8f7654f
+langcode: en
+status: true
+dependencies: {  }
+id: local_diamondcbdoil
+domain_id: diamondcbdoil_domain
+pattern: diamondcbdoil.diamondcommerce.docker.localhost
+redirect: 0
+environment: local

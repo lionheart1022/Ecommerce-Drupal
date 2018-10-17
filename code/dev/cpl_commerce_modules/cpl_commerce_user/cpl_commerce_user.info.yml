@@ -1,0 +1,9 @@
+name: 'CPL Commerce User'
+type: module
+description: 'Provides CPL Commerce user/account pages.'
+core: 8.x
+package: Commerce
+dependencies:
+  - config_rewrite:config_rewrite
+  - commerce:commerce_order
+  - drupal:user

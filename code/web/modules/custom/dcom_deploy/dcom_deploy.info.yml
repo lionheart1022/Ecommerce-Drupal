@@ -1,0 +1,7 @@
+name: 'Diamondcommerce deploy'
+type: module
+description: 'Provides Diamondcommerce default data.'
+core: 8.x
+package: Commerce
+dependencies:
+  - drupal:commerce_extra_items

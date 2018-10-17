@@ -1,0 +1,10 @@
+'delete stock_notification entity':
+  title: Delete entity notice availability.
+'add stock_notification entity':
+  title: Add entity notice availability.
+'view stock_notification entity':
+  title: View entity notice availability.
+'edit stock_notification entity':
+  title: Edit entity notice availability.
+'administer stock_notification entity':
+  title: Administer settings

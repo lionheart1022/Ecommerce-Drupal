@@ -1,0 +1,23 @@
+entity.user.account:
+  route_name: cpl_commerce_user.account
+  base_route: entity.user.canonical
+  title: 'My account'
+  weight: -10
+
+entity.user.business:
+  route_name: cpl_commerce_user.business
+  base_route: entity.user.canonical
+  title: 'My business'
+  weight: -5
+
+entity.user.logout:
+  route_name: user.logout
+  base_route: entity.user.canonical
+  title: 'Logout'
+  weight: 100
+
+entity.commerce_order.user_view:
+  title: 'Order'
+  route_name: entity.commerce_order.user_view
+  parent_id: 'views_view:view.commerce_user_orders.order_page'
+  weight: 0

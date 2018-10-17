@@ -1,0 +1,80 @@
+domain_site_settings: null
+_core:
+  default_config_hash: tkmglv8nLQzpf1cBcgSWFvPzgDJEfiz6bifpEQYXq84
+mbio_domain:
+  site_name: 'Meds Biotech'
+  site_slogan: 'Pharmacist formulated CBD Oils, Gummies, and Capsules'
+  site_mail: support@medsbiotech.com
+  site_frontpage: /node/13
+  site_403: /node/249
+  site_404: /node/248
+medipets_domain:
+  site_name: Medipets
+  site_slogan: ''
+  site_mail: support@medipets.com
+  site_frontpage: /node/118
+  site_403: /node/252
+  site_404: /node/250
+diamondcbd_domain:
+  site_name: 'Diamond CBD'
+  site_slogan: ''
+  site_mail: support@diamondcbd.com
+  site_frontpage: /node/117
+  site_403: /node/251
+  site_404: /node/247
+chillgummies_domain:
+  site_name: ChillGummies
+  site_slogan: ''
+  site_mail: admin@example.com
+  site_frontpage: /node/138
+  site_403: ''
+  site_404: ''
+cbdliquidgold_domain:
+  site_name: 'CBD Store'
+  site_slogan: ''
+  site_mail: admin@example.com
+  site_frontpage: /node/255
+  site_403: ''
+  site_404: ''
+diamondcbdoil_domain:
+  site_name: 'CBD Store'
+  site_slogan: ''
+  site_mail: admin@example.com
+  site_frontpage: /node/259
+  site_403: ''
+  site_404: ''
+relaxgummies_domain:
+  site_name: 'CBD Store'
+  site_slogan: ''
+  site_mail: admin@example.com
+  site_frontpage: /node/258
+  site_403: ''
+  site_404: ''
+bluecbd_domain:
+  site_name: 'CBD Store'
+  site_slogan: ''
+  site_mail: admin@example.com
+  site_frontpage: /node/261
+  site_403: ''
+  site_404: ''
+chongchoicecbd_domain:
+  site_name: 'CBD Store'
+  site_slogan: ''
+  site_mail: admin@example.com
+  site_frontpage: /node/262
+  site_403: ''
+  site_404: ''
+dcom_56cbd_domain:
+  site_name: 'CBD Store'
+  site_slogan: ''
+  site_mail: admin@example.com
+  site_frontpage: /node/260
+  site_403: ''
+  site_404: ''
+diamondhemp_domain:
+  site_name: 'Diamond Hemp'
+  site_slogan: 'Natural Hemp Creams, Hemp Cosmetics, and Hemp Bath Products'
+  site_mail: support@diamondhemp.com
+  site_frontpage: /node/299
+  site_403: /node/308
+  site_404: /node/307

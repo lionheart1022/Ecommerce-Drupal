@@ -1,0 +1,10 @@
+uuid: da327ecf-47b6-445d-8db1-5b7885d011f4
+langcode: en
+status: true
+dependencies: {  }
+id: user.login
+label: /user/login
+tags:
+  description: 'Login to your account at [current-domain:name] to place orders, view your order history, mark your favorite products, and more.'
+  og_description: 'Login to your account at [current-domain:name] to place orders, view your order history, mark your favorite products, and more.'
+  twitter_cards_description: 'Login to your account at [current-domain:name] to place orders, view your order history, mark your favorite products, and more.'

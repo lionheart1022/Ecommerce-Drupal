@@ -1,0 +1,9 @@
+uuid: 0c81c486-9652-4859-950f-4a6c75fd2431
+langcode: en
+status: true
+dependencies: {  }
+id: local_bluecbd
+domain_id: bluecbd_domain
+pattern: bluecbd.diamondcommerce.docker.localhost
+redirect: 0
+environment: local

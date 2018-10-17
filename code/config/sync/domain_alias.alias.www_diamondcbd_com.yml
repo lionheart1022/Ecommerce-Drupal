@@ -1,0 +1,9 @@
+uuid: 20fd7a31-ff7d-4d29-a493-a21d555131f0
+langcode: en
+status: true
+dependencies: {  }
+id: www_diamondcbd_com
+domain_id: diamondcbd_domain
+pattern: diamondcbd.com
+redirect: 301
+environment: default

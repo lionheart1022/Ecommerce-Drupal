@@ -1,0 +1,8 @@
+uuid: 6e1e43b9-4c61-472f-bd32-86cd666919b7
+langcode: en
+status: true
+dependencies: {  }
+id: diamond-cbd-footer-menu-2
+label: Learn
+description: 'Diamond CBD footer menu 2'
+locked: false

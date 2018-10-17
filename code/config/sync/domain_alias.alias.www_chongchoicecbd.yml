@@ -1,0 +1,9 @@
+uuid: 5c4fc005-ce7d-4f78-8ca9-a4105eb68ac6
+langcode: en
+status: true
+dependencies: {  }
+id: www_chongchoicecbd
+domain_id: chongchoicecbd_domain
+pattern: chongchoicecbd.com
+redirect: 301
+environment: default

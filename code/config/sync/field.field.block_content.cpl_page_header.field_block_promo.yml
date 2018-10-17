@@ -1,0 +1,30 @@
+uuid: 3ed96707-737e-47f6-8f26-c6532fb59ae3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_header
+    - field.storage.block_content.field_block_promo
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    text_paragraph_html: text_paragraph_html
+    article_html: '0'
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: block_content.cpl_page_header.field_block_promo
+field_name: field_block_promo
+entity_type: block_content
+bundle: cpl_page_header
+label: Promo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

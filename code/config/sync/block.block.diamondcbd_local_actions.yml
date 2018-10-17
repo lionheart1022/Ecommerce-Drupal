@@ -1,0 +1,20 @@
+uuid: 274871f2-7fba-4b4d-864b-d9cfc6b426f0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - diamondcbd
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: diamondcbd_local_actions
+theme: diamondcbd
+region: content
+weight: -1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

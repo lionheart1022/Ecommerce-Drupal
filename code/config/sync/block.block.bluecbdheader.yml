@@ -1,0 +1,35 @@
+uuid: 22a9891d-ff20-4804-ada9-dc1d75f5d0be
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_header:dc2c0c18-2878-4b34-834f-1176fc6b4c47'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - bluecbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: bluecbdheader
+theme: bluecbd
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:dc2c0c18-2878-4b34-834f-1176fc6b4c47'
+settings:
+  id: 'block_content:dc2c0c18-2878-4b34-834f-1176fc6b4c47'
+  label: 'Blue CBD Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

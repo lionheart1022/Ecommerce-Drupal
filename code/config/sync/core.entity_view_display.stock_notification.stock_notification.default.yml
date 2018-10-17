@@ -1,0 +1,51 @@
+uuid: 715aecc9-04f7-48ce-ac92-f23b09287f2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - dcom_back_in_stock
+    - user
+id: stock_notification.stock_notification.default
+targetEntityType: stock_notification
+bundle: stock_notification
+mode: default
+content:
+  email:
+    label: above
+    type: basic_string
+    weight: -4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  product_variation:
+    weight: -3
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  session_id:
+    label: above
+    type: string
+    weight: -6
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  theme_id:
+    type: string
+    weight: 0
+    label: above
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: above
+    type: author
+    weight: -3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

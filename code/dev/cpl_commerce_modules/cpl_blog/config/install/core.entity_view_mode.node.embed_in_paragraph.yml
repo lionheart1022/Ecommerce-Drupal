@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.embed_in_paragraph
+label: 'Embed in Paragraph'
+targetEntityType: node
+cache: true

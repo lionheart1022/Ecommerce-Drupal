@@ -1,0 +1,9 @@
+uuid: 48da66cc-ead8-40dc-a287-7e3b404cafbc
+langcode: en
+status: true
+dependencies: {  }
+id: www_cbdliquidgold
+domain_id: cbdliquidgold_domain
+pattern: cbdliquidgold.com
+redirect: 301
+environment: default

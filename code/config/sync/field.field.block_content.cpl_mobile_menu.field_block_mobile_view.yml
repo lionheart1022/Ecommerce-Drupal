@@ -1,0 +1,70 @@
+uuid: 8c3ef27e-e5a9-43a4-9ab9-99077aa0e0a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_mobile_menu
+    - field.storage.block_content.field_block_mobile_view
+  module:
+    - viewsreference
+id: block_content.cpl_mobile_menu.field_block_mobile_view
+field_name: field_block_mobile_view
+entity_type: block_content
+bundle: cpl_mobile_menu
+label: 'Mobile Menu View'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: 0
+  plugin_types:
+    block: block
+    default: 0
+    embed: 0
+    page: 0
+    feed: 0
+  preselect_views:
+    additonal_content: 0
+    affiliated_content: 0
+    affiliated_editors: 0
+    block_content: 0
+    comment: 0
+    comments_recent: 0
+    commerce_activity: 0
+    commerce_carts: 0
+    commerce_cart_block: 0
+    commerce_cart_form: 0
+    commerce_checkout_order_summary: 0
+    commerce_orders: 0
+    commerce_order_item_table: 0
+    commerce_products: 0
+    commerce_stores: 0
+    commerce_user_orders: 0
+    content: 0
+    content_recent: 0
+    diamond_commerce_main_page_faqs: 0
+    diamond_commerce_product_page: 0
+    diamond_commerce_shop: 0
+    diamond_commerce_testimonials: 0
+    files: 0
+    frontpage: 0
+    media: 0
+    profiles: 0
+    redirect: 0
+    taxonomy_term: 0
+    user_admin_people: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+  enabled_settings:
+    offset: 0
+    title: 0
+    argument: 0
+    limit: 0
+    pager: 0
+field_type: viewsreference

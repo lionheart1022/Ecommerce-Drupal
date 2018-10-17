@@ -1,0 +1,15 @@
+uuid: 865f5003-6728-4e3f-878d-dccdb17258d6
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - commerce_extra_items
+      - commerce_product
+_core:
+  default_config_hash: vF4Z5KzCfkdaTUVSYiAYWZ9o9Xq2VVDPa_JTE1taK98
+label: 'Extra item'
+id: extra_item
+purchasableEntityType: commerce_product_variation
+orderType: default
+traits: {  }

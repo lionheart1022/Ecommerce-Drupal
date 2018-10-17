@@ -1,0 +1,22 @@
+uuid: e2729877-031a-4bdb-81e4-d21eeff6b510
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.embedded_content.field_par_content_ref
+    - paragraphs.paragraphs_type.embedded_content
+id: paragraph.embedded_content.preview
+targetEntityType: paragraph
+bundle: embedded_content
+mode: preview
+content:
+  field_par_content_ref:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

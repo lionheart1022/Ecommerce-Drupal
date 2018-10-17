@@ -1,0 +1,24 @@
+uuid: ff7e6453-c068-4ad2-81f6-5e8ba83bbaec
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: M4pZ5HTUsBnHSX9qz1IIjJkbcUeSnd2m7vtqtnowric
+id: blogs
+label: Blogs
+type: 'canonical_entities:node'
+pattern: 'blog/[node:title]'
+selection_criteria:
+  e699205a-c887-4166-bada-dabccf21b2fa:
+    id: node_type
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: node
+    uuid: e699205a-c887-4166-bada-dabccf21b2fa
+selection_logic: and
+weight: -5
+relationships: {  }

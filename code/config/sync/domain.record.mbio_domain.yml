@@ -1,0 +1,19 @@
+uuid: ab77b20a-813e-420c-a4f5-ed32ec112c05
+langcode: en
+status: true
+dependencies:
+  module:
+    - dcom_domain
+    - dcom_pushcrew
+third_party_settings:
+  dcom_domain:
+    contact_page_path: /mbio-contact
+  dcom_pushcrew:
+    pushcrew_api_key: a0b039572d3d56f0f16331abb0c51a7f
+id: mbio_domain
+domain_id: 14811959
+hostname: www.medsbiotech.com
+name: 'Meds Biotech'
+scheme: variable
+weight: 3
+is_default: false

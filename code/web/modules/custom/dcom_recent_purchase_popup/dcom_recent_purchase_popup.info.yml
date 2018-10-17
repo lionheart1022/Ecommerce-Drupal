@@ -1,0 +1,7 @@
+name: 'Diamond Commerce Recent Purchase Popup'
+type: module
+description: 'Diamond specific adjustments for Commerce Recent Purchase Popup module'
+core: 8.x
+package: 'Commerce'
+dependencies:
+  - commerce_recent_purchase_popup

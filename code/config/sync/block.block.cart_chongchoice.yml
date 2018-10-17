@@ -1,0 +1,31 @@
+uuid: b1058b04-f57d-4370-b517-d45f330ddbc9
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_cart
+    - cpl_paragraphs
+  theme:
+    - chongchoicecbd
+third_party_settings:
+  block_class:
+    classes: ''
+id: cart_chongchoice
+theme: chongchoicecbd
+region: right_off_canvas
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: true
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

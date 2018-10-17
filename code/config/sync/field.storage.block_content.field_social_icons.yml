@@ -1,0 +1,20 @@
+uuid: c7efb2ab-4fd6-4583-ab4e-056b097b5daf
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - field_collection
+id: block_content.field_social_icons
+field_name: field_social_icons
+entity_type: block_content
+type: field_collection
+settings:
+  target_type: field_collection_item
+module: field_collection
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

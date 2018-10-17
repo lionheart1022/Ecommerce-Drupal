@@ -1,0 +1,177 @@
+uuid: 765d2c37-7128-4657-afc0-b75d82f7eeae
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - core.entity_view_display.comment.diamond_commerce_product_review.default
+    - field.field.commerce_product.cbd_product.body
+    - field.field.commerce_product.cbd_product.field_average_review
+    - field.field.commerce_product.cbd_product.field_cbd_brand
+    - field.field.commerce_product.cbd_product.field_domain
+    - field.field.commerce_product.cbd_product.field_force_availability
+    - field.field.commerce_product.cbd_product.field_force_odoo_migrate
+    - field.field.commerce_product.cbd_product.field_meta_description
+    - field.field.commerce_product.cbd_product.field_meta_title
+    - field.field.commerce_product.cbd_product.field_odoo_attribute_line_id
+    - field.field.commerce_product.cbd_product.field_product_category
+    - field.field.commerce_product.cbd_product.field_product_characteristics
+    - field.field.commerce_product.cbd_product.field_product_how_to_use
+    - field.field.commerce_product.cbd_product.field_product_image
+    - field.field.commerce_product.cbd_product.field_product_ingredients
+    - field.field.commerce_product.cbd_product.field_product_lab_results
+    - field.field.commerce_product.cbd_product.field_product_quantity
+    - field.field.commerce_product.cbd_product.field_product_type
+    - field.field.commerce_product.cbd_product.field_product_volume
+    - field.field.commerce_product.cbd_product.field_product_weight
+    - field.field.commerce_product.cbd_product.field_review
+    - field.field.commerce_product.cbd_product.field_visibility_option
+    - field.field.commerce_product.cbd_product.stores
+    - field.field.commerce_product.cbd_product.variations
+    - image.style.max_650x650
+  module:
+    - comment
+    - commerce_product
+    - dcom_product_review
+    - image
+    - media
+    - physical
+    - text
+id: commerce_product.cbd_product.default
+targetEntityType: commerce_product
+bundle: cbd_product
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_average_review:
+    weight: 11
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: dcom_product_review_formatter
+    region: content
+  field_cbd_brand:
+    weight: 3
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_product_category:
+    weight: 4
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_product_how_to_use:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: product_page
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_product_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_product_ingredients:
+    weight: 8
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_product_lab_results:
+    weight: 9
+    label: hidden
+    settings:
+      image_style: max_650x650
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_product_quantity:
+    weight: 14
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_product_type:
+    weight: 5
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_product_volume:
+    weight: 13
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: physical_measurement_default
+    region: content
+  field_product_weight:
+    weight: 12
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: physical_measurement_default
+    region: content
+  field_review:
+    weight: 10
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  variations:
+    type: commerce_add_to_cart
+    weight: 7
+    label: hidden
+    settings:
+      combine: true
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_domain: true
+  field_force_availability: true
+  field_force_odoo_migrate: true
+  field_meta_description: true
+  field_meta_title: true
+  field_odoo_attribute_line_id: true
+  field_product_characteristics: true
+  field_visibility_option: true
+  flag_favorite_product: true
+  langcode: true
+  stores: true
+  uid: true

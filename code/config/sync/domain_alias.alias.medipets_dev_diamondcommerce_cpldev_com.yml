@@ -1,0 +1,9 @@
+uuid: 0578fd30-12ac-4b72-b96c-1825548ae23a
+langcode: en
+status: true
+dependencies: {  }
+id: medipets_dev_diamondcommerce_cpldev_com
+domain_id: medipets_domain
+pattern: medipets.dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

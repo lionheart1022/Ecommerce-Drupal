@@ -1,0 +1,128 @@
+<?php
+
+/**
+ * @file
+ * Provides some common plugins/features for the Diamondcommerce.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function dcom_common_form_commerce_product_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  drupal_set_message(t("The variations will be automatically sorted based on the attributes. A title for variations will be automatically generated based on the product's title and the product variation's attributes."), 'warning');
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function dcom_common_commerce_product_presave(EntityInterface $entity) {
+  /** @var \Drupal\commerce_product\Entity\ProductInterface $product */
+  $product = $entity;
+  /** @var \Drupal\dcom_common\Util\ProductVariationsSorterInterface $sorter */
+  $sorter = \Drupal::service('dcom_common.product_variation_subscriber');
+  $variations = $sorter->sortByAttributes($product->getVariations());
+  $product->setVariations($variations);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function dcom_common_commerce_product_variation_presave(EntityInterface $entity) {
+  /** @var \Drupal\commerce_product\Entity\ProductVariationInterface $product_variation */
+  $product_variation = $entity;
+  /** @var \Drupal\commerce_product\Entity\ProductVariationTypeInterface $variation_type */
+  $variation_type = \Drupal::entityTypeManager()
+    ->getStorage('commerce_product_variation_type')
+    ->load($product_variation->bundle());
+
+  if ($variation_type->shouldGenerateTitle()) {
+    if ($product = $product_variation->getProduct()) {
+      $variation_ids = $product->getVariationIds();
+
+      // If there is only one product variation - save only product title.
+      if (count($variation_ids) == 1) {
+        $product_title = $product_variation->getProduct()->getTitle();
+        $product_variation->setTitle($product_title);
+      }
+    }
+  }
+}
+
+/**
+ * Force loading all essentials CSS/JS libraries at all pages.
+ *
+ * This way we ensure our CSS and JS cache stay the same at all pages.
+ *
+ * Implements hook_page_attachments().
+ */
+function dcom_common_page_attachments(array &$attachments) {
+  $route = \Drupal::routeMatch()->getRouteObject();
+
+  if (\Drupal::service('router.admin_context')->isAdminRoute($route)) {
+    // Do not include all these libraries at admin pages.
+    return;
+  }
+
+  $essential_libraries = [
+    'big_pipe/big_pipe',
+    'comment/drupal.comment-by-viewer',
+    'commerce_cart/cart_block',
+    'commerce_klaviyo/drupal.commerce_klaviyo.analytics',
+    'core/html5shiv',
+    'core/jquery.form',
+    'cpl_base/age_confirmation',
+    'cpl_base/global',
+    'cpl_base/slideshow',
+    'cpl_base_commerce/global',
+    'cpl_base_commerce/image_zoom',
+    'dcom_privy/dcom_privy',
+    'diamondcbd/global',
+    'flag/flag.link_ajax',
+    'google_analytics/google_analytics',
+    'layout_discovery/onecol',
+    'photoswipe/photoswipe',
+    'photoswipe/photoswipe.init',
+    'simple_megamenu/base',
+    'system/base',
+    'video_embed_field/responsive-video',
+    'views/views.module',
+    'views/views.ajax',
+    'zurb_foundation/global',
+    'better_exposed_filters/auto_submit',
+    'better_exposed_filters/general',
+  ];
+
+  foreach ($essential_libraries as $library) {
+    if (empty($attachments['#attached']['library'])
+      || !in_array($library, $attachments['#attached']['library'])) {
+      $attachments['#attached']['library'][] = $library;
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function dcom_common_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  switch ($view->id()) {
+    case 'all_collections':
+      if ($display_id == 'collections_page') {
+        $domain_negotiator = \Drupal::service('domain.negotiator');
+
+        $options = [
+          'id' => 'field_domain',
+          'table' => 'taxonomy_term__field_domain',
+          'field' => 'field_domain_target_id',
+          'value' => [$domain_negotiator->getActiveId()],
+          'group' => 2,
+        ];
+        $view->addHandler('collections_page', 'filter', 'taxonomy_term__field_domain', 'field_domain_target_id', $options);
+        $view->addCacheContext('url.site');
+      }
+      break;
+  }
+}

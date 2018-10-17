@@ -1,0 +1,11 @@
+uuid: 86f462b8-b16a-4f72-9951-7a9e01f6d242
+langcode: en
+status: true
+dependencies: {  }
+id: bluecbd_domain
+domain_id: 11275364
+hostname: www.bluecbd.com
+name: BLUECBD.COM
+scheme: variable
+weight: 5
+is_default: false

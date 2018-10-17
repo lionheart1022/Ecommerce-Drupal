@@ -1,0 +1,15 @@
+uuid: 9a6cbc37-00bf-4175-8499-37327475e2d3
+langcode: en
+status: true
+dependencies: {  }
+id: page_variant__diamond_commerce_faqs_page-panels_variant-0
+label: 'Page Variant: Diamond Commerce FAQs Page: Panels'
+tags:
+  title: 'Frequently Asked Questions'
+  abstract: 'Common and frequently asked questions about [current-domain:name] products, orders, returns and services.'
+  description: 'Common and frequently asked questions about [current-domain:name] products, orders, returns and services.'
+  head_title: 'Frequently Asked Questions | [current-domain:name]'
+  og_title: 'Frequently Asked Questions'
+  og_description: 'Common and frequently asked questions about [current-domain:name] products, orders, returns and services.'
+  twitter_cards_description: 'Common and frequently asked questions about [current-domain:name] products, orders, returns and services.'
+  twitter_cards_title: 'Frequently Asked Questions'

@@ -1,0 +1,23 @@
+uuid: ca349878-e400-4b0a-b3c3-a2eb88c5850d
+langcode: en
+status: true
+dependencies: {  }
+id: staff_customer_service
+label: 'Staff - Customer Service'
+weight: -4
+is_admin: null
+permissions:
+  - 'access commerce administration pages'
+  - 'access commerce_order overview'
+  - 'access commerce_product overview'
+  - 'access commerce_product_attribute overview'
+  - 'access toolbar'
+  - 'administer commerce_payment'
+  - 'administer commerce_shipment'
+  - 'administer users'
+  - 'create default commerce_order'
+  - 'delete default commerce_order'
+  - 'update default commerce_order'
+  - 'view commerce_order'
+  - 'view the administration theme'
+  - 'view user business page'

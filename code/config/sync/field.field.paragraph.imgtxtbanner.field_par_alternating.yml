@@ -1,0 +1,23 @@
+uuid: 246a8a16-6e0f-4c12-a881-83f8be2559ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_alternating
+    - paragraphs.paragraphs_type.imgtxtbanner
+id: paragraph.imgtxtbanner.field_par_alternating
+field_name: field_par_alternating
+entity_type: paragraph
+bundle: imgtxtbanner
+label: Alternating
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

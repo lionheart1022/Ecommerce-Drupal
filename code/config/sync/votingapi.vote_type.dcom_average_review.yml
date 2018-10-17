@@ -1,0 +1,8 @@
+uuid: 3c88b678-70de-482a-a47b-3f24bc1e2281
+langcode: en
+status: true
+dependencies: {  }
+id: dcom_average_review
+label: 'Dcom Average Review'
+value_type: points
+description: ''

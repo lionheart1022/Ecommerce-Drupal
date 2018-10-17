@@ -1,0 +1,8 @@
+uuid: 9abeff18-3ea3-43b0-8f4a-3eae7e54fcda
+langcode: en
+status: true
+dependencies: {  }
+id: chill-gummies-menu
+label: 'Chill Gummies Menu'
+description: 'Chill Gummies Menu'
+locked: false

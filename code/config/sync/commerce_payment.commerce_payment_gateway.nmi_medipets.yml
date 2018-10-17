@@ -1,0 +1,33 @@
+uuid: cc56395d-4e30-4fb6-b022-0d7b594de4ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_nmi
+id: nmi_medipets
+label: 'NMI.com Medipets'
+weight: -8
+plugin: nmicom
+configuration:
+  api_key: e75PEeT3MwbJ2v98dqTW6e66Wrwr64Hx
+  phone_fields:
+    customer: field_phone_number
+  display_label: 'NMI.com (Network Merchants, Inc.) Medipets'
+  mode: test
+  payment_method_types:
+    - nmi_3sr_cc
+conditions:
+  -
+    plugin: dcom_order_customer_role
+    configuration:
+      roles:
+        wholesale_1: wholesale_1
+      negate: '1'
+  -
+    plugin: domain
+    configuration:
+      domains:
+        medipets_domain: medipets_domain
+      negate: 0
+      context_mapping: {  }
+conditionOperator: AND

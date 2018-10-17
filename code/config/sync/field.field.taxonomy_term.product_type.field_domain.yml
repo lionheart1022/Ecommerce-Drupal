@@ -1,0 +1,25 @@
+uuid: a0e74c76-4256-423f-b749-073cc0c9d3c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_domain
+    - taxonomy.vocabulary.product_type
+id: taxonomy_term.product_type.field_domain
+field_name: field_domain
+entity_type: taxonomy_term
+bundle: product_type
+label: Domain
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+field_type: entity_reference

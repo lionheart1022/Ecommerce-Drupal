@@ -1,0 +1,136 @@
+uuid: 7beb15da-5bb0-47a7-ad1e-449832eb26ac
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+uid: 1
+template: false
+id: take_the_first_step_form
+title: take_the_first_step_form
+description: ''
+category: ''
+elements: "first_step_html_list:\n  '#type': webform_markup\n  '#markup': \"<ul>\\n\\t<li>Up to $100,000.</li>\\n\\t<li>100% Financing.</li>\\n\\t<li>No Money Down.</li>\\n\\t<li>No Job Verification.</li>\\n\\t<li>Bad credit, No Credit.</li>\\n\\t<li>1st Payment After 1 Year.</li>\\n\\t<li>Fast Loan Process.</li>\\n\\t<li>Quick Approval.</li>\\n</ul>\"\nfirst_step_header:\n  '#type': webform_markup\n  '#markup': 'Take the first step in getting your home loan.'\nfirst_step_first_name:\n  '#type': textfield\n  '#title': 'First Name'\nfirst_step_last_name:\n  '#type': textfield\n  '#title': 'Last Name'\nfirst_step_telephone:\n  '#type': tel\n  '#title': 'Phone Number'\nfirst_step_email:\n  '#type': email\n  '#title': 'Email Address'\nfirst_step_address:\n  '#type': textfield\n  '#title': Address\nfirst_step_city:\n  '#type': textfield\n  '#title': City\nfirst_step_state:\n  '#type': select\n  '#title': State\n  '#options': state_names\nfirst_step_zip:\n  '#type': textfield\n  '#title': 'Postal / Zip Code'\nfirst_step_loan_amount:\n  '#type': select\n  '#title': 'Requested Loan Amount'\n  '#options':\n    $1M: $1M\nfirst_step_submit:\n  '#type': webform_actions\n  '#title': Submit\nfirst_step_congratulations:\n  '#type': webform_markup\n  '#markup': \"<h2>Congratulations!</h2>\\n\\n<h3>Your application has been received.</h3>\\n\\n<p>The home remodeling project of your dreams is just a few simple steps away. One of our specialists will be contacting you within 24 hours.</p>\"\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_login: false
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }

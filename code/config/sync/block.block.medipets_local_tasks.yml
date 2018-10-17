@@ -1,0 +1,22 @@
+uuid: 096ef9f8-c8b5-48d4-a564-91f9a008d80b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - medipets
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: medipets_local_tasks
+theme: medipets
+region: content
+weight: 1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

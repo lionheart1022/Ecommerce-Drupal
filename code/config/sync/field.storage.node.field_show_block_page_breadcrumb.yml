@@ -1,0 +1,18 @@
+uuid: 54ea7b9b-0675-4c7d-b02a-da5add7b79be
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_show_block_page_breadcrumb
+field_name: field_show_block_page_breadcrumb
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

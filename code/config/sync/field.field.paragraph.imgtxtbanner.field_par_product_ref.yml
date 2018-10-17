@@ -1,0 +1,21 @@
+uuid: 16ede8cf-68a1-4651-9af2-d97b0384c41a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_product_ref
+    - paragraphs.paragraphs_type.imgtxtbanner
+id: paragraph.imgtxtbanner.field_par_product_ref
+field_name: field_par_product_ref
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'Displayed content: product reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings: {  }
+field_type: entity_reference

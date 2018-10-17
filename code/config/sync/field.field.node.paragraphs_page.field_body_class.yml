@@ -1,0 +1,19 @@
+uuid: 71cbd2ec-0991-413b-a195-144ddb781626
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body_class
+    - node.type.paragraphs_page
+id: node.paragraphs_page.field_body_class
+field_name: field_body_class
+entity_type: node
+bundle: paragraphs_page
+label: 'Body Class String'
+description: 'This field can be used to add custom class to body.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,35 @@
+uuid: 5bdba88c-3a69-4a54-b86e-f128df77131a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:cpl_page_header:d09e155b-c00e-46a4-9484-6a73cf691f08'
+  module:
+    - block_class
+    - block_content
+    - cpl_paragraphs
+  theme:
+    - diamondcbdoil
+third_party_settings:
+  block_class:
+    classes: ''
+id: diamondcbdoilheader
+theme: diamondcbdoil
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:d09e155b-c00e-46a4-9484-6a73cf691f08'
+settings:
+  id: 'block_content:d09e155b-c00e-46a4-9484-6a73cf691f08'
+  label: 'Diamond CBD Oil Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

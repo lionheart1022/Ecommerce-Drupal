@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce - Privy module.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function dcom_rakuten_page_attachments(array &$page) {
+  $js = <<<'RAKUTEN_HEADER_JS'
+	(function (url) {
+			/*Tracking Bootstrap
+			Set Up DataLayer objects/properties here*/
+			if(!window.DataLayer){
+				window.DataLayer = {};
+			}
+			if(!DataLayer.events){
+				DataLayer.events = {};
+			}
+			DataLayer.events.SiteSection = "1";
+		var loc, ct = document.createElement("script"); 
+		ct.type = "text/javascript"; 
+		ct.async = true;
+		ct.src = url;
+		loc = document.getElementsByTagName('script')[0];
+		loc.parentNode.insertBefore(ct, loc);
+	}(document.location.protocol + "//intljs.rmtag.com/115628.ct.js"));
+RAKUTEN_HEADER_JS;
+
+  $is_admin_page = \Drupal::service('router.admin_context')->isAdminRoute();
+  if (!$is_admin_page) {
+    $page['#attached']['html_head'][] = [
+      [
+        '#type' => 'html_tag',
+        '#tag' => 'script',
+        '#value' => $js,
+        '#weight' => 1000,
+      ],
+      'dcom-rakuten',
+    ];
+  }
+}

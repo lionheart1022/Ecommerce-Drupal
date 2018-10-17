@@ -1,0 +1,99 @@
+id: diamondcbdwholesale_users
+label: DiamondCBD Wholesale Users
+migration_group: diamondcbdwholesale
+
+source:
+  plugin: shopify_customer
+  shopify:
+    shop_domain: diamondcbdwholesale.myshopify.com
+    api_key: 2cfa640a2566deacbabe0a9a9a288ceb
+    password: c1fbc742b8ea51cc2496bf0e2d53bb50
+    shared_secret: 6a01dee49b3f4d399e39d755496a3260
+
+destination:
+  plugin: 'entity:user'
+  destination_module: user
+
+process:
+  mail: email
+  created:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: created_at
+    settings:
+      validate_format: false
+  changed:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: updated_at
+    settings:
+      validate_format: false
+  name:
+    -
+      # Skip the following users from import as Adam asked.
+      plugin: skip_on_value
+      method: row
+      source: id
+      value:
+        - 5660016399
+        - 5708102223
+        - 67050766351
+        - 67050176527
+    -
+      plugin: email_registration_user_name
+      source: email
+    -
+      plugin: dcom_unique_username
+      entity_type: user
+      field: name
+      postfix: _
+  status:
+    plugin: shopify_migrate_user_status
+    source: state
+  'field_first_name/0/value': first_name
+  'field_last_name/0/value': last_name
+  roles:
+    plugin: default_value
+    default_value:
+      - authenticated
+      - wholesale_1
+  uid:
+    plugin: entity_lookup
+    source: email
+    value_key: mail
+    entity_type: user
+    ignore_case: true
+  field_ein_tax_number:
+    plugin: dcom_extract_ein
+    source: note
+  field_phone:
+    plugin: dcom_extract_phone
+    source: note
+  field_company_name:
+    -
+      plugin: dcom_extract_company
+      source: note
+      shop_domain: diamondcbdwholesale.myshopify.com
+      api_key: 2cfa640a2566deacbabe0a9a9a288ceb
+      password: c1fbc742b8ea51cc2496bf0e2d53bb50
+      shared_secret: 6a01dee49b3f4d399e39d755496a3260
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'A user company is not specified and the user has no orders.'
+  'field_address/0/country_code': 'default_address/country_code'
+  'field_address/0/administrative_area': 'default_address/province_code'
+  'field_address/0/locality': 'default_address/city'
+  'field_address/0/postal_code': 'default_address/zip'
+  'field_address/0/address_line1': 'default_address/address1'
+  'field_address/0/address_line1': 'default_address/address1'
+  'field_address/0/organization': 'default_address/company'
+  'field_address/0/given_name': 'default_address/last_name'
+  'field_address/0/family_name': 'default_address/last_name'
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

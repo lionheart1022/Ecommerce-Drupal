@@ -1,0 +1,66 @@
+uuid: df53369b-42d4-4516-8cb0-d4daee6f1553
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.txt.field_par_background_color
+    - field.field.paragraph.txt.field_par_class
+    - field.field.paragraph.txt.field_par_constraint
+    - field.field.paragraph.txt.field_par_constraint_text
+    - field.field.paragraph.txt.field_par_heading_color
+    - field.field.paragraph.txt.field_par_link
+    - field.field.paragraph.txt.field_par_parallax
+    - field.field.paragraph.txt.field_par_position
+    - field.field.paragraph.txt.field_par_tags
+    - field.field.paragraph.txt.field_par_text_1
+    - field.field.paragraph.txt.field_par_text_2
+    - field.field.paragraph.txt.field_par_text_box_options
+    - field.field.paragraph.txt.field_par_vmargin
+    - field.field.paragraph.txt.field_par_vpadding
+    - paragraphs.paragraphs_type.txt
+  module:
+    - link
+    - text
+id: paragraph.txt.default
+targetEntityType: paragraph
+bundle: txt
+mode: default
+content:
+  field_par_link:
+    type: link
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_par_text_1:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_par_text_2:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_par_background_color: true
+  field_par_class: true
+  field_par_constraint: true
+  field_par_constraint_text: true
+  field_par_heading_color: true
+  field_par_parallax: true
+  field_par_position: true
+  field_par_tags: true
+  field_par_text_box_options: true
+  field_par_vmargin: true
+  field_par_vpadding: true

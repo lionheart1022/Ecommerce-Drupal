@@ -1,0 +1,25 @@
+uuid: 0b9097fd-8438-4290-947e-b9b184bfd0d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_nmi
+id: nmi_com_wholesale
+label: 'NMI.com Wholesale'
+weight: -6
+plugin: nmicom
+configuration:
+  api_key: 6nrybF6Bg7mG52ZXZXZ2746nE7NG72pu
+  phone_fields:
+    customer: field_phone_number
+  display_label: 'NMI.com (Network Merchants, Inc.) Wholesale'
+  mode: test
+  payment_method_types:
+    - nmi_3sr_cc
+conditions:
+  -
+    plugin: order_customer_role
+    configuration:
+      roles:
+        - wholesale_1
+conditionOperator: AND

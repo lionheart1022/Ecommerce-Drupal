@@ -1,0 +1,12 @@
+name: 'Diamond Commerce - Odoo Entity Sync'
+type: module
+description: 'Provides syncing of entities with Odoo.'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - odoo_api:odoo_api_entity_sync
+  - commerce:commerce_product
+  - commerce:commerce_order
+  - dcom_order:dcom_order
+  - dcom_odoo_migrate:dcom_odoo_migrate
+  - domain:domain

@@ -1,0 +1,23 @@
+uuid: b0aa7f05-2765-441a-8d16-962a43584cc3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_form_reference
+    - field.storage.block_content.field_block_bg_color
+  module:
+    - options
+id: block_content.cpl_form_reference.field_block_bg_color
+field_name: field_block_bg_color
+entity_type: block_content
+bundle: cpl_form_reference
+label: 'Background Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: None
+default_value_callback: ''
+settings: {  }
+field_type: list_string

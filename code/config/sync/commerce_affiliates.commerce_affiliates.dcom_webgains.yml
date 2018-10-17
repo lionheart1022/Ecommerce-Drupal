@@ -1,0 +1,22 @@
+uuid: 1725f7ba-0f63-4f1d-a959-e33dbb260467
+langcode: en
+status: 1
+dependencies:
+  module:
+    - commerce_affiliates_domain_access
+third_party_settings:
+  commerce_affiliates_domain_access:
+    domain_access:
+      diamondcbd_domain: diamondcbd_domain
+id: dcom_webgains
+label: 'Webgains - DiamondCBD'
+plugin: webgains_affiliate
+configuration:
+  program_id: '265275'
+  event_id: '1029155'
+  vouchercode: none
+  customerid: ''
+  api_key: c88f563270a2decaa9a3687e9353b8fa
+  event_settings:
+    checkout_completion: checkout_completion
+    order_canceled: order_canceled

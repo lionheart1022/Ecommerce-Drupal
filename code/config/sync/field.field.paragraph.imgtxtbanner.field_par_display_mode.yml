@@ -1,0 +1,23 @@
+uuid: 5bb2bfd6-67b8-477a-9153-a23fe30fb98b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_display_mode
+    - paragraphs.paragraphs_type.imgtxtbanner
+  module:
+    - options
+id: paragraph.imgtxtbanner.field_par_display_mode
+field_name: field_par_display_mode
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'Display Mode'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'OFF'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

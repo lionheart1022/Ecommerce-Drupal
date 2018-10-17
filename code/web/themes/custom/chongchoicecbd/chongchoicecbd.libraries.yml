@@ -1,0 +1,12 @@
+global:
+  version: VERSION
+  css:
+    base:
+      fonts/stylesheet.css: {}
+      css/chongchoicecbd.css: {}
+  js:
+    js/chongchoicecbd.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

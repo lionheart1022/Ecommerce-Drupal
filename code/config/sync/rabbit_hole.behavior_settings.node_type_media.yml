@@ -1,0 +1,9 @@
+uuid: ce770f99-38c7-4223-9d0c-2f91b32ed4ef
+langcode: en
+status: true
+dependencies: {  }
+id: node_type_media
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

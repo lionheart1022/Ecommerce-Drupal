@@ -1,0 +1,33 @@
+uuid: 2650de0d-7c47-4c2d-adcc-2708637d17fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - options
+  enforced:
+    module:
+      - dcom_order
+id: commerce_order.field_order_source
+field_name: field_order_source
+entity_type: commerce_order
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: odoo
+      label: Odoo
+    -
+      value: shopify_retail
+      label: 'Shopify (retail)'
+    -
+      value: shopify_wholesale
+      label: 'Shopify (wholesale)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

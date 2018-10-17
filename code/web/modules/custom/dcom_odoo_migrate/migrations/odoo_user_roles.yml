@@ -1,0 +1,28 @@
+id: odoo_user_roles
+label: Odoo User Roles
+migration_group: odoo
+migration_tags:
+  - odoo_api_entity_sync_export_type_default
+  - odoo_api_entity_sync_save_mapping
+  - odoo_two_way_sync
+
+source:
+  plugin: odoo_api
+  model: x_drupal_user.role
+  fields:
+    - name
+    - write_date
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:user_role'
+  destination_module: user
+
+process:
+  label: name
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

@@ -1,0 +1,6 @@
+{
+  "require": {
+    "sabre/xml": "^2.1",
+    "dissolve/ship-station": "^1.3"
+  }
+}

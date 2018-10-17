@@ -1,0 +1,4 @@
+services:
+  dcom_common.product_variation_subscriber:
+    class: Drupal\dcom_common\Util\ProductVariationsSorter
+    arguments: ['@commerce_product.attribute_field_manager']

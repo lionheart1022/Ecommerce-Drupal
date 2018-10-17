@@ -1,0 +1,168 @@
+<?php
+
+/**
+ * @file
+ * Contains commerce_klaviyo_review.module.
+ */
+
+use Drupal\comment\Entity\Comment;
+use Drupal\commerce_klaviyo\CustomerProperties;
+use Drupal\commerce_klaviyo\ProductProperties;
+use Drupal\commerce_klaviyo\Util\KlaviyoRequestInterface;
+use Drupal\commerce_klaviyo_review\Entity\CommerceKlaviyoReview;
+use Drupal\commerce_klaviyo_review\Entity\CommerceKlaviyoReviewInterface;
+use Drupal\commerce_klaviyo_review\Form\CommerceKlaviyoReviewCommentForm;
+use Drupal\commerce_order\Entity\OrderInterface;
+use Drupal\commerce_product\Entity\Product;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\field\FieldConfigInterface;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_commerce_klaviyo_track_request_alter().
+ */
+function commerce_klaviyo_review_commerce_klaviyo_track_request_alter(array &$properties, array $context) {
+  if (\Drupal::service('commerce_klaviyo_review.config_helper')->isEnabled() && $context['event_name'] == KlaviyoRequestInterface::FULFILLED_ORDER_EVENT) {
+    $order = $context['klaviyo_request_properties']->getSourceEntity();
+    if ($order instanceof OrderInterface) {
+      $config = \Drupal::config('commerce_klaviyo_review.config');
+      $properties[$config->get('klaviyo_review_url_property', CommerceKlaviyoReviewInterface::DEFAULT_URL_PROPERTY)] = \Drupal::service('commerce_klaviyo_review.review_builder')->getReviewLink($order);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function commerce_klaviyo_review_entity_type_alter(array &$entity_types) {
+  $entity_types['comment']->setFormClass('default', CommerceKlaviyoReviewCommentForm::class);
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function commerce_klaviyo_review_form_field_config_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var Drupal\field\Entity\FieldConfig $field */
+  $field = $form_state->getFormObject()->getEntity();
+  // Alter only for comments field.
+  if ($field instanceof FieldConfigInterface && $field->getType() == 'comment') {
+    $field_manager = \Drupal::service('entity_field.manager');
+    $comment_fields = $field_manager->getFieldDefinitions('comment', $field->getSetting('comment_type'));
+
+    $review_fields = [];
+    foreach ($comment_fields as $comment_field_id => $comment_field) {
+      if ($comment_field->getType() == 'list_integer') {
+        $review_fields[$comment_field_id] = $comment_field->getLabel();
+      }
+    }
+    if ($review_fields) {
+      $form['klaviyo_reviews'] = [
+        '#type' => 'checkbox',
+        '#title' => t('Use for Klaviyo reviews'),
+        '#default_value' => $field->getThirdPartySetting('commerce_klaviyo_review', 'klaviyo_reviews', FALSE),
+      ];
+      $form['klaviyo_reviews_field'] = [
+        '#type' => 'select',
+        '#title' => t('Rating field'),
+        '#description' => t('Field type should be "list_integer".'),
+        '#options' => ['' => t('- Select -')] + $review_fields,
+        '#default_value' => $field->getThirdPartySetting('commerce_klaviyo_review', 'klaviyo_reviews_field', ''),
+      ];
+
+    }
+    $form['actions']['submit']['#validate'][] = 'commerce_klaviyo_review_field_config_form_validate';
+    $form['actions']['submit']['#submit'][] = 'commerce_klaviyo_review_field_config_form_submit';
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function commerce_klaviyo_review_form_alter(&$form, FormStateInterface $form_state) {
+  if (strpos($form['#id'], 'comment-form') === 0) {
+    if ($form_state->get('klaviyo_review')) {
+      $form['actions']['submit']['#submit'][] = 'commerce_klaviyo_review_comment_form_submit';
+    }
+  }
+}
+
+/**
+ * Form validate for 3rd party klaviyo field settings.
+ *
+ * @param array $form
+ *   Form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state object.
+ */
+function commerce_klaviyo_review_field_config_form_validate(array &$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('klaviyo_reviews') && !$form_state->getValue('klaviyo_reviews_field')) {
+    $form_state->setErrorByName('klaviyo_reviews_field', t('Please select rating field to ues with Klaviyo reviews.'));
+  }
+}
+
+/**
+ * Form submit to save additional field settings.
+ *
+ * @param array $form
+ *   Form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state object.
+ */
+function commerce_klaviyo_review_field_config_form_submit(array &$form, FormStateInterface $form_state) {
+  $field = $form_state->getFormObject()->getEntity();
+  $field->setThirdPartySetting('commerce_klaviyo_review', 'klaviyo_reviews', $form_state->getValue('klaviyo_reviews'));
+  $field->setThirdPartySetting('commerce_klaviyo_review', 'klaviyo_reviews_field', $form_state->getValue('klaviyo_reviews_field'));
+  $field->save();
+}
+
+/**
+ * Submit handler for comments form.
+ *
+ * @param array $form
+ *   Form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state object.
+ */
+function commerce_klaviyo_review_comment_form_submit(array &$form, FormStateInterface $form_state) {
+  if ($form_state->get('klaviyo_review') && $cid = $form_state->getValue('cid')) {
+    $review = CommerceKlaviyoReview::load($form_state->get('review'));
+    $review->setComments([$cid]);
+    $review->save();
+
+    $klaviyo = \Drupal::service('commerce_klaviyo.klaviyo_request');
+    $config_factory = \Drupal::service('config.factory');
+    $field_manager = \Drupal::service('entity_field.manager');
+
+    $current_user = \Drupal::service('commerce_klaviyo_review.current_user')->getAccount();
+
+    $comment = Comment::load($cid);
+
+    $customer_properties = CustomerProperties::createFromUser(User::load($current_user->id()));
+    $product = Product::load($comment->getCommentedEntityId());
+    $properties = new ProductProperties($config_factory, $product);
+
+    $config = $config_factory->get('commerce_klaviyo_review.config');
+    foreach ($config->get('fields_config') as $fields_config) {
+      if ($fields_config['entity_type'] == $product->getEntityTypeId() && $fields_config['bundle'] == $product->bundle()) {
+        $field_name = $fields_config['field_name'];
+        $definitions = $field_manager->getFieldDefinitions($fields_config['entity_type'], $fields_config['bundle']);
+        $rating_field = $definitions[$field_name]->getThirdPartySetting('commerce_klaviyo_review', 'klaviyo_reviews_field', '');
+        $vote_value = $comment->get($rating_field)->getString();
+        foreach ($fields_config as $setting) {
+          if (is_array($setting)) {
+            if ($vote_value >= $setting['min'] && $vote_value <= $setting['max']) {
+              $klaviyo->track($setting['event_name'], $customer_properties, $properties);
+              // No sense to continue with cycles.
+              break 2;
+            }
+          }
+        }
+      }
+    }
+
+    $form_state->setRedirect('commerce_klaviyo_review.order_review',
+      ['commerce_order' => $form_state->get('commerce_order'), 'token' => $form_state->get('token')],
+      []
+    );
+  }
+}

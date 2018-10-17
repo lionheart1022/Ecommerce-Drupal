@@ -1,0 +1,36 @@
+uuid: 16ee9f7b-e427-4d25-b243-78276755150d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+    - cpl_paragraphs
+    - system
+  theme:
+    - medipets
+third_party_settings:
+  block_class:
+    classes: ''
+id: medipets_checkoutprogress
+theme: medipets
+region: content
+weight: 2
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/checkout/*'
+    negate: false
+    context_mapping: {  }

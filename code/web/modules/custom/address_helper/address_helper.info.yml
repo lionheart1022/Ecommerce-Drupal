@@ -1,0 +1,7 @@
+name: 'Address Helper'
+type: module
+description: 'Provides suggestions and validation for address lines.'
+core: 8.x
+package: 'Address'
+dependencies:
+  - address:address

@@ -1,0 +1,20 @@
+uuid: 6b94d6ea-93a2-4526-8073-d4666612cb0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - simple_megamenu
+id: simple_mega_menu.field_megamenu_item
+field_name: field_megamenu_item
+entity_type: simple_mega_menu
+type: field_collection
+settings:
+  target_type: field_collection_item
+module: field_collection
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

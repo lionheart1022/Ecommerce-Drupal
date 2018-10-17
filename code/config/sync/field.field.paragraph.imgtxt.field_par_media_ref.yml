@@ -1,0 +1,26 @@
+uuid: d0588ffe-84ba-40a9-b377-0a9366c8dff7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_media_ref
+    - paragraphs.paragraphs_type.imgtxt
+id: paragraph.imgtxt.field_par_media_ref
+field_name: field_par_media_ref
+entity_type: paragraph
+bundle: imgtxt
+label: 'Internal Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

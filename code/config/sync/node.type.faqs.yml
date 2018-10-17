@@ -1,0 +1,17 @@
+uuid: 8bd710f0-1706-4d94-8fed-0ac27691bbe0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: FAQs
+type: faqs
+description: 'Diamond Commerce FAQs Page.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

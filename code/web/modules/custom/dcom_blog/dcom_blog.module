@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce Blog module file.
+ */
+
+use Drupal\Core\Entity\Query\QueryInterface;
+
+/**
+ * Implements hook_cpl_blog_page_query().
+ */
+function dcom_blog_cpl_blog_page_query(QueryInterface $query) {
+  $current_domain = \Drupal::service('domain.negotiator')
+    ->getActiveDomain();
+  $query->condition(DOMAIN_ACCESS_FIELD, $current_domain->id());
+}

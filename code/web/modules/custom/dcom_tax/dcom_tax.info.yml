@@ -1,0 +1,7 @@
+name: 'Diamond Commerce Tax'
+type: module
+description: 'Provides custom Diamond Commerce tax plugin.'
+core: 8.x
+package: Commerce
+dependencies:
+  - commerce_taxcloud

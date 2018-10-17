@@ -1,0 +1,48 @@
+uuid: a43f83bc-adfb-46b7-9494-8039133daed0
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_position
+field_name: field_par_position
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: RI
+      label: Right
+    -
+      value: LE
+      label: Left
+    -
+      value: CE
+      label: Center
+    -
+      value: TO
+      label: Top
+    -
+      value: BO
+      label: Bottom
+    -
+      value: TL
+      label: 'Top Left'
+    -
+      value: TR
+      label: 'Top Right'
+    -
+      value: BL
+      label: 'Bottom Left'
+    -
+      value: BR
+      label: 'Bottom Right'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

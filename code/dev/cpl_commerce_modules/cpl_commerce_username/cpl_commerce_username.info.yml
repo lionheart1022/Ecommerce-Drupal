@@ -1,0 +1,10 @@
+name: 'CPL Commerce Username'
+type: module
+description: 'Provides automatic ucfirst() for user and profile names.'
+core: 8.x
+package: Commerce
+dependencies:
+  - cpl_commerce_user
+  - cpl_commerce_profile
+  - user
+  - profile

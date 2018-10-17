@@ -1,0 +1,45 @@
+uuid: c02ba8f1-c677-453e-95e8-b269c40e9885
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.product_page
+    - field.field.media.lab_results.field_domain_access
+    - field.field.media.lab_results.field_media_image_1
+    - field.field.media.lab_results.field_media_product_ref
+    - field.field.media.lab_results.field_media_term_ref
+    - media.type.lab_results
+  module:
+    - photoswipe
+id: media.lab_results.product_page
+targetEntityType: media
+bundle: lab_results
+mode: product_page
+content:
+  field_media_image_1:
+    label: hidden
+    settings:
+      photoswipe_node_style: lab_report
+      photoswipe_image_style: max_2600x2600
+      photoswipe_caption: alt
+      photoswipe_view_mode: product_page
+    third_party_settings: {  }
+    type: photoswipe_field_formatter
+    weight: 0
+    region: content
+  name:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_domain_access: true
+  field_media_product_ref: true
+  field_media_term_ref: true
+  langcode: true
+  thumbnail: true
+  uid: true

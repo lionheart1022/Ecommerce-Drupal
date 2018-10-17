@@ -1,0 +1,61 @@
+id: diamondcbd_product_images
+label: DiamondCBD Product Images
+migration_group: diamondcbd
+
+source:
+  plugin: shopify_product_image
+  shopify:
+    shop_domain: diamondcbd.myshopify.com
+    api_key: 221f9ce80f304929059c9588617f88b6
+    password: 1529dce859e0c59d2a061452ecdab421
+    shared_secret: 72be699ffe843f37a3aed4cf9e456d4b
+  constants:
+    file_scheme: 'public://'
+    images_dir: 'diamondcbd_images'
+
+destination:
+  plugin: 'entity:file'
+
+process:
+  created:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: created_at
+    settings:
+      validate_format: false
+  changed:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:sO'
+    to_format: 'U'
+    source: updated_at
+    settings:
+      validate_format: false
+  new_filename:
+    plugin: file_basename
+    source: src
+  new_filepath:
+    plugin: concat
+    source:
+      - id
+      - '@new_filename'
+    delimiter: '_'
+  destination_full_path:
+    plugin: concat
+    source:
+      - constants/file_scheme
+      - constants/images_dir
+      - '@new_filepath'
+    delimiter: '/'
+  uri:
+    plugin: file_copy
+    source:
+      - src
+      - '@destination_full_path'
+    # Do not overwrite file if it already exists.
+    reuse: true
+
+dependencies:
+  enforced:
+    module:
+      - dcom_shopify_migrate

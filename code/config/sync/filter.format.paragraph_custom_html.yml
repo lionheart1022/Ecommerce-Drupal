@@ -1,0 +1,75 @@
+uuid: 71ac92cb-0dfc-4dc0-9f6b-acb0b729928d
+langcode: en
+status: true
+dependencies:
+  module:
+    - editor
+    - token_filter
+name: 'Paragraph custom HTML'
+format: paragraph_custom_html
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -49
+    settings:
+      allowed_html: '<a href hreflang class id data-* title target rel> <em> <strong> <cite> <blockquote cite> <ul type class id data-*> <ol start class id data-* type=''1 A I''> <li class id data-*> <dl> <dt> <dd> <h1 class id> <h2 class id> <h3 class id> <h4 class id> <h5 class id> <h6 class id> <div class id data-*> <p class id data-*> <section class id data-*> <img alt src title class id data-*> <i class> <button type class id> <form action method class id> <label class for> <input type id class name value placeholder> <br>'
+      filter_html_help: false
+      filter_html_nofollow: false
+  token_filter:
+    id: token_filter
+    provider: token_filter
+    status: true
+    weight: -50
+    settings: {  }
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: false
+    weight: -47
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: false
+    weight: -45
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -42
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: false
+    weight: -41
+    settings: {  }
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -48
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: -44
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: false
+    weight: -46
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: false
+    weight: -43
+    settings:
+      filter_url_length: 72

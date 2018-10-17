@@ -1,0 +1,6 @@
+uuid: de811006-7134-41a7-a892-0cc07240e3ea
+langcode: en
+status: true
+dependencies: {  }
+id: field_social_icons
+label: field_social_icons

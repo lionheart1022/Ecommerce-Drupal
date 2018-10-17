@@ -1,0 +1,62 @@
+uuid: ed1882a7-0b05-46e5-be51-a34793955915
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.simple_mega_menu.megamenu.field_megamenu_item
+    - field.field.simple_mega_menu.megamenu.field_menu_constraint
+    - field.field.simple_mega_menu.megamenu.field_menu_content_ref
+    - field.field.simple_mega_menu.megamenu.field_menu_megamenu_style
+    - field.field.simple_mega_menu.megamenu.field_menu_slideshow
+    - simple_megamenu.simple_mega_menu_type.megamenu
+  module:
+    - field_collection
+    - options
+id: simple_mega_menu.megamenu.default
+targetEntityType: simple_mega_menu
+bundle: megamenu
+mode: default
+content:
+  field_megamenu_item:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: field_collection_items
+    region: content
+  field_menu_constraint:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_menu_content_ref:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: megamenu_ad_slideshow
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_menu_megamenu_style:
+    type: list_key
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_menu_slideshow:
+    type: list_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  name: true
+  user_id: true

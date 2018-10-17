@@ -1,0 +1,116 @@
+<?php
+
+/**
+ * @file
+ * Provides Diamond Commerce Integration with Commerce Klaviyo module.
+ */
+
+use Drupal\commerce_product\Entity\ProductInterface;
+use Drupal\commerce_product\Entity\ProductVariationInterface;
+use Drupal\domain\DomainInterface;
+
+/**
+ * Implements hook_commerce_klaviyo_identify_request_alter().
+ */
+function dcom_klaviyo_commerce_klaviyo_identify_request_alter(array &$customer_properties) {
+  /** @var \Drupal\domain\DomainNegotiatorInterface $domain_negotiator */
+  $domain_negotiator = \Drupal::service('domain.negotiator');
+  /** @var \Drupal\domain\DomainInterface $current_domain */
+  $current_domain = $domain_negotiator->getActiveDomain();
+
+  if ($current_domain = dcom_klaviyo_prepare_domain($current_domain)) {
+    $customer_properties['Domain'] = $current_domain->getHostname();
+  }
+}
+
+/**
+ * Implements hook_commerce_klaviyo_track_request_alter().
+ */
+function dcom_klaviyo_commerce_klaviyo_track_request_alter(array &$properties, array $context) {
+  if (!empty($context['klaviyo_request_properties'])) {
+    /** @var \Drupal\commerce_klaviyo\Util\KlaviyoRequestPropertiesInterface $klaviyo_request_properties */
+    $klaviyo_request_properties = $context['klaviyo_request_properties'];
+    $source_entity = $klaviyo_request_properties->getSourceEntity();
+
+    switch ($source_entity->getEntityTypeId()) {
+      case 'commerce_product':
+        /** @var \Drupal\commerce_product\Entity\ProductInterface $product */
+        $product = $source_entity;
+
+        if ($product_type = dcom_klaviyo_get_product_product_type($product)) {
+          $properties['ProductType'] = $product_type;
+        }
+        break;
+
+      case 'commerce_order':
+        /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+        $order = $source_entity;
+
+        if (!$order->get('field_domain')->isEmpty()) {
+          /** @var \Drupal\domain\DomainInterface $order_domain */
+          $order_domain = $order->get('field_domain')->entity;
+          if ($order_domain = dcom_klaviyo_prepare_domain($order_domain)) {
+            $properties['Domain'] = $order_domain->getHostname();
+          }
+        }
+
+        foreach ($order->getItems() as $order_item) {
+          if (!($purchased_entity = $order_item->getPurchasedEntity())) {
+            // Skip if purchased product does not exist.
+            continue;
+          }
+
+          if ($purchased_entity instanceof ProductVariationInterface) {
+            $product = $purchased_entity->getProduct();
+            if ($product_type = dcom_klaviyo_get_product_product_type($product)) {
+              $product_types[] = $product_type;
+            }
+          }
+        }
+
+        if (!empty($product_types)) {
+          $properties['ProductTypes'] = array_unique($product_types);
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Replaces a default docker domain by diamondcbd_domain.
+ *
+ * @param \Drupal\domain\DomainInterface $domain
+ *   The domain.
+ *
+ * @return \Drupal\Core\Entity\EntityInterface|\Drupal\domain\DomainInterface|null
+ *   The processed domain or NULL if wasn't able to load diamondcbd_domain.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function dcom_klaviyo_prepare_domain(DomainInterface $domain) {
+  if ($domain->id() == 'default') {
+    $domain = \Drupal::entityTypeManager()
+      ->getStorage('domain')
+      ->load('diamondcbd_domain');
+  }
+  return $domain;
+}
+
+/**
+ * Gets a product type from the product.
+ *
+ * @param \Drupal\commerce_product\Entity\ProductInterface $product
+ *   The product entity.
+ *
+ * @return null|string
+ *   The product type or null if it is empty.
+ */
+function dcom_klaviyo_get_product_product_type(ProductInterface $product) {
+  if (!$product->get('field_product_type')->isEmpty()) {
+    /** @var \Drupal\taxonomy\TermInterface $product_type */
+    $product_types = $product->get('field_product_type')->referencedEntities();
+    $product_type = reset($product_types);
+    return $product_type->label();
+  }
+}

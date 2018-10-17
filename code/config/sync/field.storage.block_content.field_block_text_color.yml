@@ -1,0 +1,45 @@
+uuid: 90c07ccf-d06f-4194-9224-59fd9742d8a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_block_text_color
+field_name: field_block_text_color
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: None
+      label: None
+    -
+      value: TC1
+      label: 'Text Color 1'
+    -
+      value: TC2
+      label: 'Text Color 2'
+    -
+      value: TCW
+      label: White
+    -
+      value: TCB
+      label: Black
+    -
+      value: TCL
+      label: 'Light Gray'
+    -
+      value: TCM
+      label: 'Medium Gray'
+    -
+      value: TCD
+      label: 'Dark Gray'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: aee0d21b-a098-414a-9c6c-2377265fc77c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parc_header
+    - node.type.additional_content
+id: node.additional_content.field_parc_header
+field_name: field_parc_header
+entity_type: node
+bundle: additional_content
+label: Header
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

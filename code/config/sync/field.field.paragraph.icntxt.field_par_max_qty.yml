@@ -1,0 +1,25 @@
+uuid: 1bbab667-5873-4036-b6f2-0fdd406379bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_max_qty
+    - paragraphs.paragraphs_type.icntxt
+id: paragraph.icntxt.field_par_max_qty
+field_name: field_par_max_qty
+entity_type: paragraph
+bundle: icntxt
+label: 'Max Quantity'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 4
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

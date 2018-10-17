@@ -1,0 +1,4 @@
+services:
+  dcom_odoo_inventory.sync:
+    class: Drupal\dcom_odoo_inventory\InventorySync
+    arguments: ['@odoo_api.api_client', '@entity_type.manager', '@database']

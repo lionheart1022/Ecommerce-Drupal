@@ -1,0 +1,23 @@
+uuid: 30ce5334-8679-46ea-8515-2a614c2d104d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_flags_disable
+    - paragraphs.paragraphs_type.imgtxt
+id: paragraph.imgtxt.field_par_flags_disable
+field_name: field_par_flags_disable
+entity_type: paragraph
+bundle: imgtxt
+label: 'Disable Flags'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

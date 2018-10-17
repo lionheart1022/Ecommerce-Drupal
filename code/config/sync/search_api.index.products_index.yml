@@ -1,0 +1,144 @@
+uuid: 1a856ab5-a72a-4782-a695-c9dd086f1d5d
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_solr
+    - commerce_product
+    - search_api
+    - dcom_shop
+  config:
+    - field.storage.commerce_product.field_cbd_brand
+    - field.storage.commerce_product.variations
+    - field.storage.commerce_product.field_product_category
+    - field.storage.commerce_product.field_domain
+    - field.storage.commerce_product.field_product_type
+    - field.storage.commerce_product.field_product_quantity
+    - field.storage.commerce_product_variation.attribute_strength
+    - field.storage.commerce_product.field_visibility_option
+    - search_api.server.search_server
+third_party_settings:
+  search_api_solr:
+    finalize: true
+    commit_before_finalize: false
+    commit_after_finalize: true
+id: products_index
+name: 'Products Index'
+description: ''
+read_only: false
+field_settings:
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
+  title:
+    label: Title
+    datasource_id: 'entity:commerce_product'
+    property_path: title
+    type: solr_text_ngram
+  field_cbd_brand:
+    label: 'CBD Brand'
+    datasource_id: 'entity:commerce_product'
+    property_path: field_cbd_brand
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.field_cbd_brand
+  number:
+    label: 'Variations » Product variation » Price » Number'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'variations:entity:price:number'
+    type: decimal
+    dependencies:
+      config:
+        - field.storage.commerce_product.variations
+      module:
+        - commerce_product
+  field_product_category:
+    label: 'Product Category'
+    datasource_id: 'entity:commerce_product'
+    property_path: field_product_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.field_product_category
+  field_domain:
+    label: Domain
+    datasource_id: 'entity:commerce_product'
+    property_path: field_domain
+    type: string
+    dependencies:
+      config:
+        - field.storage.commerce_product.field_domain
+  field_product_type:
+    label: 'Product Type'
+    datasource_id: 'entity:commerce_product'
+    property_path: field_product_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.field_product_type
+  field_product_quantity:
+    label: Quantity
+    datasource_id: 'entity:commerce_product'
+    property_path: field_product_quantity
+    type: string
+    dependencies:
+      config:
+        - field.storage.commerce_product.field_product_quantity
+  attribute_strength:
+    label: 'Variations » Product variation » Strength'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'variations:entity:attribute_strength'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.variations
+        - field.storage.commerce_product_variation.attribute_strength
+      module:
+        - commerce_product
+  field_product_volume_string:
+    label: 'Product Measurement Type Field'
+    datasource_id: 'entity:commerce_product'
+    property_path: field_product_volume_string
+    type: string
+  field_product_weight_string:
+    label: 'Product Measurement Type Field'
+    datasource_id: 'entity:commerce_product'
+    property_path: field_product_weight_string
+    type: string
+  field_visibility_option:
+    label: 'Visibility option'
+    datasource_id: 'entity:commerce_product'
+    property_path: field_visibility_option
+    type: string
+    dependencies:
+      config:
+        - field.storage.commerce_product.field_visibility_option
+  recent_sales_45:
+    label: 'Product sales in last 45 days'
+    datasource_id: 'entity:commerce_product'
+    property_path: recent_sales_45
+    type: integer
+datasource_settings:
+  'entity:commerce_product':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  dcom_recent_sales: {  }
+  cbd_product_measurement_type_fields: {  }
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+  solr_date_range: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: search_server

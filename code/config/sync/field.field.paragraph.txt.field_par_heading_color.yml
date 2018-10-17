@@ -1,0 +1,23 @@
+uuid: fb088ad3-e3e3-43a1-9611-790045cb058a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_heading_color
+    - paragraphs.paragraphs_type.txt
+  module:
+    - options
+id: paragraph.txt.field_par_heading_color
+field_name: field_par_heading_color
+entity_type: paragraph
+bundle: txt
+label: 'Heading Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: CB
+default_value_callback: ''
+settings: {  }
+field_type: list_string

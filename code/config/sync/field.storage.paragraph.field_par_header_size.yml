@@ -1,0 +1,36 @@
+uuid: 62e58784-dce3-443f-bc54-0b50345278af
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_par_header_size
+field_name: field_par_header_size
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: XS
+      label: Xsmall
+    -
+      value: SM
+      label: Small
+    -
+      value: MD
+      label: Medium
+    -
+      value: LG
+      label: Large
+    -
+      value: XL
+      label: Xlarge
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

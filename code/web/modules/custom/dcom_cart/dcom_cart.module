@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Diamond Commerce Cart module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\Form\ViewsForm;
+
+/**
+ * Add minimum wholesale amount message to the cart.
+ *
+ * Implements hook_form_alter().
+ */
+function dcom_cart_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_state->getFormObject() instanceof ViewsForm) {
+    /** @var \Drupal\views\ViewExecutable $view */
+    $view = reset($form_state->getBuildInfo()['args']);
+    $view_id = $view->storage->id();
+    if (in_array($view_id, ['commerce_cart_block', 'commerce_cart_form'])) {
+      // @TODO: Implement multiple wholesale roles.
+      if (in_array('wholesale_1', \Drupal::currentUser()->getRoles())
+        && !empty($view->argument['order_id'])) {
+        /** @var \Drupal\views\Plugin\views\argument\NumericArgument $order_id_argument */
+        $order_id_argument = $view->argument['order_id'];
+        $order_amount = dcom_cart_order_amount($order_id_argument->getValue());
+        $minimum = dcom_checkout_minimum_wholesale_amount();
+
+        if ($order_amount
+          && $order_amount->lessThan($minimum)) {
+          /** @var \CommerceGuys\Intl\Formatter\CurrencyFormatterInterface $currency_formatter */
+          $currency_formatter = \Drupal::service('commerce_price.currency_formatter');
+          $formatted = $currency_formatter->format($minimum->getNumber(), $minimum->getCurrencyCode());
+
+          $form['message'] = [
+            '#type' => 'container',
+            '#attributes' => [
+              'class' => ['dcom-cart-wholesale-message'],
+            ],
+            '#weight' => 40,
+            '#access' => \Drupal::currentUser()
+              ->hasPermission('access checkout'),
+            'text' => [
+              '#plain_text' => t('Please update your cart.  The minimum order amount for wholesale orders is @min.', ['@min' => $formatted]),
+            ],
+          ];
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Get order total by order ID.
+ *
+ * @param int $order_id
+ *   Order ID.
+ *
+ * @return \Drupal\commerce_price\Price|null
+ *   Order total price or NULL.
+ */
+function dcom_cart_order_amount($order_id) {
+  if (!$order_id
+    || !($order = \Drupal::entityTypeManager()->getStorage('commerce_order')->load($order_id))) {
+    return NULL;
+  }
+
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+  return $order->getTotalPrice();
+}

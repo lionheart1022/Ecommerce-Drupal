@@ -1,0 +1,10 @@
+uuid: 169d4a82-cd9e-4d84-a4c5-a84215697302
+langcode: en
+status: true
+dependencies: {  }
+id: cbd_product
+label: 'CBD Product'
+description: ''
+variationType: cbd_product_variation
+injectVariationFields: true
+traits: {  }

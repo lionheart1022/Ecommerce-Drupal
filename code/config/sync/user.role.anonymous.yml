@@ -1,0 +1,20 @@
+uuid: b8f99e3c-9b22-4060-847f-c6c7445f3af0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access cart'
+  - 'access checkout'
+  - 'access comments'
+  - 'access content'
+  - 'download media'
+  - 'use text format restricted_html'
+  - 'view commerce_product'
+  - 'view media'
+  - 'view published simple mega menu entities'

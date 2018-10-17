@@ -1,0 +1,13 @@
+uuid: 01e4de14-cfe0-4328-993f-05f89b9c86d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.favorite_product.flag
+label: Like
+type: commerce_product
+plugin: 'flag_action:favorite_product.flag'
+configuration:
+  flag_id: favorite_product
+  flag_action: flag

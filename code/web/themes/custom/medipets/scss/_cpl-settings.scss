@@ -1,0 +1,287 @@
+// CPL settings for the medipets theme
+
+$text-colors: (#1a693c, #767676);
+
+$bg-colors: (#ffffff, #e6e6e6, #1a693c, #383838, #7edda7);
+
+$condensed-font-family: 'Source Sans Pro', sans-serif;
+
+// Blog articles
+$blog-teaser-heading-font-size: 20px;
+$blog-teaser-heading-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial,
+  sans-serif;
+$blog-teaser-font-size: 16px;
+$blog-teaser-font-family: $body-font-family;
+$blog-article-font-size: 18px;
+$blog-article-font-family: $body-font-family;
+
+// ImgTxtBanner
+$imgbnr-opacity-dark: rgba(0, 0, 0, 0.3);
+$imgbnr-opacity-light: rgba(255, 255, 255, 0.3);
+
+// Search
+$search-input-border-color: #1a693c;
+
+// FAQ
+$faq-active-title-bg: $primary-color;
+$faq-active-title-text: $white;
+$faq-active-content-bg: #bbffd8;
+
+// Pager
+$pager-current-background: #1a693c;
+
+// ImageText options
+$imgtxt: (
+  1: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1,
+      text-transform: none
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #0e4727,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(0, 0, 0, 0.5),
+      padding: 15px
+    )
+  ),
+  2: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #0e4727,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(0, 0, 0, 0.5),
+      padding: 15px
+    )
+  ),
+  3: (
+    container: (
+      background-color: $primary-color,
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5)
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: #0e4727,
+      color: $white
+    ),
+    link-h: (
+      background-color: $black,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(26, 105, 60, 0.9),
+      padding: 15px
+    )
+  ),
+  4: (
+    container: (
+      background-color: $white,
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5)
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #0e4727,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(230, 230, 230, 0.9),
+      padding: 15px
+    )
+  )
+);
+
+// ImageTextBanner options
+$imgbnr: (
+  1: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #0e4727,
+      color: $white
+    )
+  ),
+  2: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #0e4727,
+      color: $white
+    )
+  ),
+  3: (
+    container: (
+      background-color: $primary-color,
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5)
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: #0e4727,
+      color: $white
+    ),
+    link-h: (
+      background-color: $black,
+      color: $white
+    )
+  ),
+  4: (
+    container: (
+      background-color: $white,
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5)
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $black,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #0e4727,
+      color: $white
+    )
+  )
+);

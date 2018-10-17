@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+id: commerce_product_page
+label: 'Commerce Product Page'
+description: 'Show single product.'
+use_admin_theme: false
+path: '/product/{commerce_product}'
+access_logic: and
+access_conditions: {  }
+parameters:
+  commerce_product:
+    machine_name: commerce_product
+    type: 'entity:commerce_product'
+    label: Product

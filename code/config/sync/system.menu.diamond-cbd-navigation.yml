@@ -1,0 +1,8 @@
+uuid: 802712b8-b2df-46c5-866f-e1eb673f2ced
+langcode: en
+status: true
+dependencies: {  }
+id: diamond-cbd-navigation
+label: 'Diamond CBD Navigation'
+description: 'Diamond CBD Navigation'
+locked: false

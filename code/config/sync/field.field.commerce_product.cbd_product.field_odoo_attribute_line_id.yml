@@ -1,0 +1,23 @@
+uuid: 87c3f406-4823-4088-a798-aae7efeab449
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.commerce_product.field_odoo_attribute_line_id
+id: commerce_product.cbd_product.field_odoo_attribute_line_id
+field_name: field_odoo_attribute_line_id
+entity_type: commerce_product
+bundle: cbd_product
+label: 'Odoo Attribute line ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

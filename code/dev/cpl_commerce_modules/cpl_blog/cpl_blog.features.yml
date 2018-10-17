@@ -1,0 +1,16 @@
+excluded:
+  - rdf.mapping.node.article
+  - block.block.hemp_blog_popular_articles
+  - block.block.views_block__blog_popular_articles_medipets
+  - block.block.views_block__blog_popular_articles_popular_articles
+  - block.block.views_block__blog_popular_articles_popular_articles_2
+  - core.entity_form_display.field_collection_item.field_megamenu_item.default
+  - core.entity_view_display.field_collection_item.field_megamenu_item.default
+  - field.field.field_collection_item.field_megamenu_item.field_menu_ref_product
+  - field.field.field_collection_item.field_megamenu_item.field_menu_ref_term
+  - field.field.simple_mega_menu.megamenu.field_megamenu_item
+  - field_collection.field_collection.field_megamenu_item
+  - field.storage.field_collection_item.field_menu_ref_content
+  - field.storage.field_collection_item.field_menu_ref_product
+  - field.storage.field_collection_item.field_menu_ref_term
+required: true

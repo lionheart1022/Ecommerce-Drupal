@@ -1,0 +1,9 @@
+uuid: 896761a1-82f2-403e-8904-f7afb2909c51
+langcode: en
+status: true
+dependencies: {  }
+id: www_diamondhemp
+domain_id: diamondhemp_domain
+pattern: diamondhemp.com
+redirect: 301
+environment: default

@@ -1,0 +1,12 @@
+name: 'Diamond Commerce - Odoo Migrate'
+type: module
+description: 'Provides Odoo migration.'
+core: 8.x
+package: 'Custom'
+dependencies:
+  # Requires dcom_unique_username migrate process plugin.
+  - dcom_shopify_migrate:dcom_shopify_migrate
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools
+  - odoo_api_migrate:odoo_api_migrate
+  - odoo_api_entity_sync:odoo_api_entity_sync

@@ -1,0 +1,70 @@
+uuid: 5d06197b-22e4-4dd4-8983-9b709436ac51
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_mobile_menu
+    - field.field.block_content.cpl_mobile_menu.field_block_bg_color
+    - field.field.block_content.cpl_mobile_menu.field_block_logo
+    - field.field.block_content.cpl_mobile_menu.field_block_menu_type
+    - field.field.block_content.cpl_mobile_menu.field_block_mobile_menus
+    - field.field.block_content.cpl_mobile_menu.field_block_mobile_view
+    - field.field.block_content.cpl_mobile_menu.field_block_text_color
+    - image.style.medium
+  module:
+    - image
+    - options
+    - viewsreference
+id: block_content.cpl_mobile_menu.default
+targetEntityType: block_content
+bundle: cpl_mobile_menu
+mode: default
+content:
+  field_block_bg_color:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_block_logo:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_block_menu_type:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_block_mobile_menus:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: entity_reference_entity_id
+    region: content
+  field_block_mobile_view:
+    weight: 2
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    type: viewsreference_formatter
+    region: content
+  field_block_text_color:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,14 @@
+uuid: 72273105-7670-4f64-afab-c7d25f7331e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.wholesale_unapproved
+  module:
+    - user
+id: user_remove_role_action.wholesale_unapproved
+label: 'Remove the Wholesale - Unapproved role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: wholesale_unapproved

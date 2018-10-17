@@ -1,0 +1,112 @@
+id: odoo_user_addresses
+label: Odoo User Addresses
+migration_group: odoo
+migration_tags:
+  - odoo_api_entity_sync_save_mapping
+  - odoo_api_entity_sync_export_type_default
+  - dcom_odoo_migrate_cron
+  - odoo_two_way_sync
+
+source:
+  plugin: odoo_api
+  model: res.partner
+  filters:
+    -
+      - type
+      - '='
+      - 'other'
+  fields:
+    - active
+    - name
+    - phone
+    - street
+    - street2
+    - city
+    - state_id
+    - zip
+    - country_id
+    - x_drupal_profile_organization
+    - write_date
+    - parent_id
+  join:
+    -
+      target_model: 'res.partner'
+      base_field: 'parent_id'
+      fields:
+        - name
+  high_water_property:
+    name: write_date
+
+destination:
+  plugin: 'entity:profile'
+  destination_module: profile
+
+process:
+  # TODO Add uid field. Handle if Odoo:parent_id is company?
+  # TODO Odoo: Archived records are NEVER included in any standard search.
+  # TODO Add filters: active=TRUE OR active=FALSE to fetch archived profiles?
+  type:
+    -
+      # For now only Odoo:res_partner:other_address update is supported.
+      plugin: skip_row_if_no_destination
+    -
+      plugin: default_value
+      default_value: customer
+  status: active
+  field_phone_number/0/value: phone
+  address/0/given_name:
+    -
+      plugin: dcom_address_name
+      source:
+        - name
+        - parent_id
+    -
+      plugin: explode
+      delimiter: ' '
+    -
+      plugin: extract
+      default: ''
+      index:
+        - 0
+  address/0/family_name:
+    -
+      plugin: dcom_address_name
+      source:
+        - name
+        - parent_id
+    -
+      plugin: explode
+      delimiter: ' '
+    -
+      plugin: extract
+      default: ''
+      index:
+        - 1
+  address/0/organization: x_drupal_profile_organization
+  address/0/address_line1: street
+  address/0/address_line2: street2
+  address/0/locality: city
+  address/0/postal_code: zip
+  address/0/country_code:
+    plugin: dcom_odoo_country_id
+    source: country_id
+    default: ''
+  address/0/administrative_area:
+    plugin: dcom_odoo_state_id
+    source: state_id
+    default: ''
+  # It is important to map all parts of address.
+  address/0/additional_name:
+    plugin: default_value
+    default_value: ''
+  address/0/dependent_locality:
+    plugin: default_value
+    default_value: ''
+  address/0/sorting_code:
+    plugin: default_value
+    default_value: ''
+
+dependencies:
+  enforced:
+    module:
+      - dcom_odoo_migrate

@@ -1,0 +1,13 @@
+uuid: 05bde7d8-36ee-4323-b87c-20ca23640ac3
+langcode: en
+status: true
+dependencies: {  }
+id: lab_results
+label: 'Lab results'
+description: 'Results of laboratory for product.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image_1
+field_map: {  }

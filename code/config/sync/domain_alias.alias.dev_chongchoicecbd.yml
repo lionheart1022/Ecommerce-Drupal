@@ -1,0 +1,9 @@
+uuid: e565e654-5142-4e40-b6a9-a3b0bed68f74
+langcode: en
+status: true
+dependencies: {  }
+id: dev_chongchoicecbd
+domain_id: chongchoicecbd_domain
+pattern: chongchoicecbd.dev.diamondcommerce.cpldev.com
+redirect: 0
+environment: development

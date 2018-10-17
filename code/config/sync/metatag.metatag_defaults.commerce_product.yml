@@ -1,0 +1,41 @@
+uuid: 7d34a5fb-ed34-4510-af1a-37a061e3b0ab
+langcode: en
+status: true
+dependencies: {  }
+id: commerce_product
+label: Product
+tags:
+  title: '[commerce_product:dcom-meta-title] | [commerce_product:field_product_category]'
+  head_title: '[commerce_product:dcom-meta-title] | [commerce_product:field_product_category]'
+  keywords: '[commerce_product:field_product_category], [commerce_product:field_product_type], [commerce_product:field_cbd_brand]'
+  image_src: '[commerce_product:field_product_image]'
+  abstract: '[commerce_product:dcom-meta-description]'
+  description: '[commerce_product:dcom-meta-description] '
+  og_image: '[commerce_product:field_product_image:max_1300x1300]'
+  og_locale: en_US
+  og_type: product
+  og_title: '[commerce_product:field_meta_title] | [commerce_product:field_product_category]'
+  og_image_height: '[commerce_product:field_product_image:0:max_1300x1300:width]'
+  og_site_name: '[site:name]'
+  og_image_width: '[commerce_product:field_product_image:0:max_1300x1300:height]'
+  og_url: '[current-page:url]'
+  og_description: '[commerce_product:dcom-meta-description]'
+  product_price_currency: $
+  product_price_amount: '$[commerce_product:product_price_min] - $[commerce_product:product_price_max]'
+  twitter_cards_image_width: '[commerce_product:field_product_image:0:max_1300x1300:width]'
+  twitter_cards_image_height: '[commerce_product:field_product_image:0:max_1300x1300:height]'
+  twitter_cards_type: product
+  twitter_cards_description: '[commerce_product:dcom-meta-description]'
+  twitter_cards_image: '[commerce_product:field_product_image:max_1300x1300]'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_title: '[commerce_product:field_meta_title] | [commerce_product:field_product_category]'
+  schema_product_aggregate_rating: 'a:3:{s:5:"@type";s:15:"AggregateRating";s:11:"ratingValue";s:40:"[commerce_product:product_reviews_value]";s:11:"ratingCount";s:40:"[commerce_product:product_reviews_count]";}'
+  schema_product_name: '[commerce_product:dcom-meta-title]'
+  schema_product_offers: 'a:5:{s:5:"@type";s:5:"Offer";s:5:"price";s:36:"[commerce_product:product_price_min]";s:13:"priceCurrency";s:3:"USD";s:3:"url";s:18:"[current-page:url]";s:12:"availability";s:46:"[commerce_product:product_availability_google]";}'
+  schema_product_brand: 'a:2:{s:5:"@type";s:5:"Brand";s:4:"name";s:34:"[commerce_product:field_cbd_brand]";}'
+  schema_product_image: 'a:5:{s:5:"@type";s:11:"ImageObject";s:20:"representativeOfPage";s:4:"True";s:3:"url";s:52:"[commerce_product:field_product_image:max_1300x1300]";s:5:"width";s:60:"[commerce_product:field_product_image:0:max_1300x1300:width]";s:6:"height";s:61:"[commerce_product:field_product_image:0:max_1300x1300:height]";}'
+  schema_product_type: Product
+  schema_product_description: '[commerce_product:dcom-meta-description]'
+  schema_web_page_breadcrumb: 'Yes'
+  schema_web_page_type: ItemPage
+  schema_web_page_description: '[commerce_product:dcom-meta-description] '

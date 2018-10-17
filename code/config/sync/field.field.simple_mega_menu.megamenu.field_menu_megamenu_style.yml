@@ -1,0 +1,23 @@
+uuid: 6ac61cdb-98e9-4fc0-85f5-e5a2131f6896
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.simple_mega_menu.field_menu_megamenu_style
+    - simple_megamenu.simple_mega_menu_type.megamenu
+  module:
+    - options
+id: simple_mega_menu.megamenu.field_menu_megamenu_style
+field_name: field_menu_megamenu_style
+entity_type: simple_mega_menu
+bundle: megamenu
+label: 'Mega Menu Style'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '3'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,15 @@
+uuid: 9fc17c0b-65c8-484f-b84c-b0ff969882dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - video_embed_media
+id: how_to_use
+label: 'How to use'
+description: 'Embed video how to use particular product.'
+source: video_embed_field
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_video_embed_field
+field_map: {  }

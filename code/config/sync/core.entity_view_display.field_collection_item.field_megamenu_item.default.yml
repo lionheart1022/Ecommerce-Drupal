@@ -1,0 +1,42 @@
+uuid: b1c44df5-34bc-4cea-af61-139f08fd4711
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_megamenu_item.field_menu_ref_content
+    - field.field.field_collection_item.field_megamenu_item.field_menu_ref_product
+    - field.field.field_collection_item.field_megamenu_item.field_menu_ref_term
+    - field_collection.field_collection.field_megamenu_item
+id: field_collection_item.field_megamenu_item.default
+targetEntityType: field_collection_item
+bundle: field_megamenu_item
+mode: default
+content:
+  field_menu_ref_content:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: megamenu_style_1
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_menu_ref_product:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: product_megamenu_style_1
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_menu_ref_term:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: term_megamenu_style_1
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

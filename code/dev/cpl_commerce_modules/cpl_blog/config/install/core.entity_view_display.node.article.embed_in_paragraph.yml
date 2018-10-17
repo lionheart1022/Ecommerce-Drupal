@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.embed_in_paragraph
+    - field.field.node.article.comment
+    - field.field.node.article.field_blog_description
+    - field.field.node.article.field_blog_paragraphs
+    - field.field.node.article.field_image
+    - field.field.node.article.field_metatags
+    - field.field.node.article.field_seo
+    - field.field.node.article.field_show_block_page_breadcrumb
+    - field.field.node.article.field_show_block_page_title
+    - field.field.node.article.field_tags
+    - image.style.blog_teaser
+    - node.type.article
+  module:
+    - image
+    - user
+id: node.article.embed_in_paragraph
+targetEntityType: node
+bundle: article
+mode: embed_in_paragraph
+content:
+  field_blog_description:
+    type: basic_string
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: blog_teaser
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  comment: true
+  field_blog_paragraphs: true
+  field_metatags: true
+  field_seo: true
+  field_show_block_page_breadcrumb: true
+  field_show_block_page_title: true
+  field_tags: true
+  langcode: true
+  links: true

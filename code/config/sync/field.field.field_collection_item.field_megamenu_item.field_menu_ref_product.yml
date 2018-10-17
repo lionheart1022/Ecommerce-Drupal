@@ -1,0 +1,28 @@
+uuid: 085f7b9a-5fb7-498f-8157-4d725605050a
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.storage.field_collection_item.field_menu_ref_product
+    - field_collection.field_collection.field_megamenu_item
+id: field_collection_item.field_megamenu_item.field_menu_ref_product
+field_name: field_menu_ref_product
+entity_type: field_collection_item
+bundle: field_megamenu_item
+label: 'Product Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      cbd_product: cbd_product
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

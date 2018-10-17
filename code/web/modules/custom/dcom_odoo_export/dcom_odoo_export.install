@@ -1,0 +1,128 @@
+<?php
+
+/**
+ * @file
+ * Install, update/uninstall/update functions for the dcom_odoo_export module.
+ */
+
+/**
+ * Sets Odoo IDs for the domains.
+ */
+//function dcom_odoo_export_update_8501(&$sandbox) {
+//  /** @var \Drupal\domain\DomainStorageInterface $domain_storage */
+//  $domain_storage = \Drupal::entityTypeManager()->getStorage('domain');
+//  $domain_odoo_ids = [
+//    'mbio_domain' => 1,
+//    'dcom_56cbd_domain' => 2,
+//    'bluecbd_domain' => 3,
+//    'cbdliquidgold_domain' => 4,
+//    'chillgummies_domain' => 5,
+//    'chongchoicecbd_domain' => 6,
+//    'diamondcbdoil_domain' => 7,
+//    'medipets_domain' => 8,
+//    'relaxgummies_domain' => 9,
+//    'diamondhemp_domain' => 10,
+//    'diamondcbd_domain' => 12,
+//  ];
+//  /** @var \Drupal\domain\DomainInterface[] $domains */
+//  $domains = $domain_storage->loadMultiple(array_keys($domain_odoo_ids));
+//
+//  foreach ($domains as $id => $domain) {
+//    $odoo_id = $domain_odoo_ids[$id];
+//    $domain->setThirdPartySetting('dcom_odoo_export', 'odoo_sync_Id', $odoo_id);
+//    $domain->save();
+//  }
+//}
+
+/**
+ * Set Odoo IDs for the "Flavor" product attributes.
+ */
+//function dcom_odoo_export_update_8502(&$sandbox) {
+//  /** @var \Drupal\commerce_product\Entity\ProductAttributeValueInterface[] $attrs */
+//  $attrs = \Drupal::entityTypeManager()
+//    ->getStorage('commerce_product_attribute_value')
+//    ->loadMultiple();
+//  $mapping = [
+//    'Peach' => 26,
+//    'Papaya' => 27,
+//    'Orange Ice' => 28,
+//    'Natural' => 29,
+//    'Peanut Butter' => 30,
+//    'Peanut Butter Cup' => 31,
+//    'Pina Colada' => 32,
+//    'Peppermint' => 33,
+//    'Pear' => 34,
+//    'Mocha' => 35,
+//    'Mint' => 36,
+//    'Honeydew' => 37,
+//    'Honey and Milk' => 38,
+//    'Hard Candy' => 39,
+//    'Jungle Juice' => 40,
+//    'Lemonade' => 41,
+//    'Mary Jane' => 42,
+//    'Mango' => 43,
+//    'Lime' => 44,
+//    'Pineapple' => 45,
+//    'Pomegranate' => 46,
+//    'Vanilla Cupcake' => 47,
+//    'Tobacco' => 48,
+//    'Toasted Marshmallow' => 49,
+//    'Vanilla Custard' => 50,
+//    'Vanilla Ice Cream' => 51,
+//    'Yellow Cake' => 52,
+//    'White Chocolate' => 53,
+//    'Watermelon' => 54,
+//    'Sweet Raspberry' => 55,
+//    'Swedish Fish' => 56,
+//    'Silly Rabbit' => 57,
+//    'Ruby Grape Fruit' => 58,
+//    'Rainbow Candy' => 59,
+//    'Strawberry' => 60,
+//    'Strawberry and Cream' => 61,
+//    'Sugar Cookie' => 62,
+//    'Strawberry Yogurt' => 63,
+//    'Strawberry Shortcake' => 64,
+//    'Gummy Bears' => 65,
+//    'Guava' => 66,
+//    'Bavarian Cream' => 67,
+//    'Banana Cream' => 68,
+//    'Banana' => 69,
+//    'Belgian Waffle' => 70,
+//    'Blueberry' => 71,
+//    'Cake Batter' => 72,
+//    'Butterscotch' => 73,
+//    'Bubblegum' => 74,
+//    'Apple Ring' => 75,
+//    'Apple Pie' => 76,
+//    'Apple' => 77,
+//    'Acai Berry' => 78,
+//    'Cantaloupe' => 79,
+//    'Caramel Flavor' => 80,
+//    'Dulce de Leche' => 81,
+//    'Cucumber Mint' => 82,
+//    'Crunch Cereal' => 83,
+//    'Energy Drink' => 84,
+//    'French Vanilla' => 85,
+//    'Grape' => 86,
+//    'Fruit Circle Cereal' => 87,
+//    'Frosted Donut' => 88,
+//    'Crunch & Berries' => 89,
+//    'Cotton Candy' => 90,
+//    'Cherry Flavor' => 91,
+//    'Cheese Cake Flavor' => 92,
+//    'Cereal Krispies Flavor' => 93,
+//    'Chocolate Spread Flavor' => 94,
+//    'Churro' => 95,
+//    'Cookies & Cream' => 96,
+//    'Coconut' => 97,
+//    'Cinnamon Danish' => 98,
+//  ];
+//
+//  foreach ($attrs as $attr) {
+//    if ($attr->bundle() == 'flavor') {
+//      $odoo_id = strtr($attr->getName(), $mapping);
+//      $attr->set('field_odoo_sync_id', $odoo_id);
+//      $attr->save();
+//    }
+//  }
+//}

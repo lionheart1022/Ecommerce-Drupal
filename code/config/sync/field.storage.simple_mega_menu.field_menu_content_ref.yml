@@ -1,0 +1,20 @@
+uuid: db3993b8-48a1-4fac-8c1f-4716d4862f4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - simple_megamenu
+id: simple_mega_menu.field_menu_content_ref
+field_name: field_menu_content_ref
+entity_type: simple_mega_menu
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

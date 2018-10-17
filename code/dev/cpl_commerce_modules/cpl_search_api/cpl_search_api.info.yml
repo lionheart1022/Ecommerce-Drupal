@@ -1,0 +1,7 @@
+name: 'CPL Search API'
+description: 'Provides Search API configuration for CPL Commerce.'
+type: module
+core: 8.x
+dependencies:
+  - search_api
+  - search_api_solr

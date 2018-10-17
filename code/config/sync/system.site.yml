@@ -1,0 +1,14 @@
+uuid: 7c88c20a-686a-48d2-b2a5-7c463aeb520b
+name: 'Diamond CBD'
+mail: support@diamondcbd.com
+slogan: 'CBD Oils, Vapes, Edibles, Oral Drops and More'
+page:
+  403: /node/307
+  404: /node/307
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

@@ -1,0 +1,16 @@
+{
+  "name": "drupal/address_helper_smartystreets",
+  "type": "drupal-module",
+  "description": "Provides SmartyStreets API integration for Address Helper",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/address_helper_smartystreets",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/address_helper_smartystreets",
+    "source": "http://cgit.drupalcode.org/address_helper_smartystreets"
+  },
+  "require": {
+    "smartystreets/phpsdk": "~4.0"
+  }
+}

@@ -1,0 +1,23 @@
+uuid: 2b884528-e34c-467e-8a25-76142383e7c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_overlay
+    - paragraphs.paragraphs_type.imgtxtbanner
+  module:
+    - options
+id: paragraph.imgtxtbanner.field_par_overlay
+field_name: field_par_overlay
+entity_type: paragraph
+bundle: imgtxtbanner
+label: 'Overlay Option'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'NO'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

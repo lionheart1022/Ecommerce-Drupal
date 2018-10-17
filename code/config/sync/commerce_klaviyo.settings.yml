@@ -1,0 +1,12 @@
+public_key: PHxY8x
+private_key: pk_0d2e245e3c0e740b60a6b8277f7826a23c
+_core:
+  default_config_hash: FMaHT5sebFYsODB2q7iRLDsxybXRA7ah6ohE7kMMp6A
+product_types:
+  cbd_product:
+    view_modes:
+      default: default
+    category_field: field_product_category
+    brand_field: field_cbd_brand
+    image_field: field_product_image
+telephone_field: field_phone_number

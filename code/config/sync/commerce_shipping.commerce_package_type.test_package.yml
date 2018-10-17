@@ -1,0 +1,14 @@
+uuid: f005fe5a-0f24-4aa8-82cf-eac8fb5ceddd
+langcode: en
+status: true
+dependencies: {  }
+id: test_package
+label: 'Test package (1x1x1 in), 1lb'
+dimensions:
+  length: '1'
+  width: '1'
+  height: '1'
+  unit: in
+weight:
+  number: '1'
+  unit: lb

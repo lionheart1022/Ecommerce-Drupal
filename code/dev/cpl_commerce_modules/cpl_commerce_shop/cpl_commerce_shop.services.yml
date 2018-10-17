@@ -1,0 +1,17 @@
+services:
+  cpl_commerce_shop.route_subscriber:
+    class: \Drupal\cpl_commerce_shop\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+  cpl_commerce_shop.collections_url_helper:
+    class: \Drupal\cpl_commerce_shop\CollectionsUrlHelper
+    arguments: ['@entity_type.manager', '@cache.default', '@current_route_match']
+  cpl_commerce_shop.product_breadcrumb:
+    class: Drupal\cpl_commerce_shop\ProductBreadcrumbBuilder
+    arguments: ['@config.factory']
+    tags:
+    - { name: breadcrumb_builder, priority: 100 }
+  cpl_commerce_shop.path_processor:
+    class: \Drupal\cpl_commerce_shop\PathProcessor
+    tags:
+    - { name: path_processor_outbound, priority: 100 }

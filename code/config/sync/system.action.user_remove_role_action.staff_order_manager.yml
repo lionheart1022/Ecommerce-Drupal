@@ -1,0 +1,14 @@
+uuid: 606c65f4-0238-4f1f-a512-b853dbb5356a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.staff_order_manager
+  module:
+    - user
+id: user_remove_role_action.staff_order_manager
+label: 'Remove the Staff - Order Manager role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: staff_order_manager

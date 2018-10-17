@@ -1,0 +1,9 @@
+uuid: fdb23429-af2c-4b37-bb13-3fc5012ca380
+langcode: en
+status: true
+dependencies: {  }
+id: www_diamondcbdoil
+domain_id: diamondcbdoil_domain
+pattern: diamondcbdoil.com
+redirect: 301
+environment: default

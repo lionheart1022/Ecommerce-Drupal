@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+    - cpl_commerce_shop
+name: 'Product Category'
+vid: product_category
+description: ''
+hierarchy: 0
+weight: 0

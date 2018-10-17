@@ -1,0 +1,30 @@
+uuid: 4685ac66-daf6-4097-ba51-7f6a31a69548
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+    - system
+  theme:
+    - mbio
+third_party_settings:
+  block_class:
+    classes: ''
+id: checkoutprogress_mbio
+theme: mbio
+region: content
+weight: -2
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/checkout/*'
+    negate: false
+    context_mapping: {  }

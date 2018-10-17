@@ -1,0 +1,10 @@
+#TODO Block Subscribe me to a list.
+name: 'Diamond Commerce Klaviyo'
+type: module
+description: 'Provides Diamond Commerce Integration with Commerce Klaviyo module.'
+core: 8.x
+package: Commerce
+dependencies:
+  - commerce_klaviyo:commerce_klaviyo
+  - commerce_klaviyo_review:commerce_klaviyo_review
+  - domain:domain

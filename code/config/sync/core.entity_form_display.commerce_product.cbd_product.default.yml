@@ -1,0 +1,268 @@
+uuid: 5b193640-998d-467f-9307-da45631d8cf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.cbd_product
+    - field.field.commerce_product.cbd_product.body
+    - field.field.commerce_product.cbd_product.field_average_review
+    - field.field.commerce_product.cbd_product.field_cbd_brand
+    - field.field.commerce_product.cbd_product.field_domain
+    - field.field.commerce_product.cbd_product.field_force_availability
+    - field.field.commerce_product.cbd_product.field_force_odoo_migrate
+    - field.field.commerce_product.cbd_product.field_meta_description
+    - field.field.commerce_product.cbd_product.field_meta_title
+    - field.field.commerce_product.cbd_product.field_odoo_attribute_line_id
+    - field.field.commerce_product.cbd_product.field_product_category
+    - field.field.commerce_product.cbd_product.field_product_characteristics
+    - field.field.commerce_product.cbd_product.field_product_how_to_use
+    - field.field.commerce_product.cbd_product.field_product_image
+    - field.field.commerce_product.cbd_product.field_product_ingredients
+    - field.field.commerce_product.cbd_product.field_product_lab_results
+    - field.field.commerce_product.cbd_product.field_product_quantity
+    - field.field.commerce_product.cbd_product.field_product_type
+    - field.field.commerce_product.cbd_product.field_product_volume
+    - field.field.commerce_product.cbd_product.field_product_weight
+    - field.field.commerce_product.cbd_product.field_review
+    - field.field.commerce_product.cbd_product.field_visibility_option
+    - field.field.commerce_product.cbd_product.stores
+    - field.field.commerce_product.cbd_product.variations
+    - image.style.thumbnail
+  module:
+    - comment
+    - commerce
+    - image
+    - inline_entity_form
+    - path
+    - physical
+    - text
+    - votingapi_widgets
+id: commerce_product.cbd_product.default
+targetEntityType: commerce_product
+bundle: cbd_product
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_average_review:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: voting_api_widget
+    region: content
+  field_cbd_brand:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_domain:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_force_availability:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_force_odoo_migrate:
+    weight: 26
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_meta_description:
+    weight: 4
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_meta_title:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_product_category:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_product_characteristics:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_product_how_to_use:
+    weight: 13
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_product_image:
+    weight: 15
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_product_ingredients:
+    weight: 16
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_product_lab_results:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_product_quantity:
+    weight: 23
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_product_type:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_product_volume:
+    weight: 22
+    settings:
+      default_unit: ml
+      allow_unit_change: true
+    third_party_settings: {  }
+    type: physical_measurement_default
+    region: content
+  field_product_weight:
+    weight: 21
+    settings:
+      default_unit: g
+      allow_unit_change: true
+    third_party_settings: {  }
+    type: physical_measurement_default
+    region: content
+  field_review:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_visibility_option:
+    weight: 25
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 12
+    region: content
+    third_party_settings: {  }
+  stores:
+    type: commerce_entity_select
+    weight: 0
+    settings:
+      hide_single_entity: true
+      autocomplete_threshold: 7
+      autocomplete_size: 60
+      autocomplete_placeholder: ''
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  variations:
+    type: inline_entity_form_complex
+    weight: 7
+    settings:
+      override_labels: true
+      label_singular: variation
+      label_plural: variations
+      form_mode: default
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: true
+      collapsible: false
+      collapsed: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_odoo_attribute_line_id: true

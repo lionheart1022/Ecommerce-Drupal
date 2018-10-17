@@ -1,0 +1,8 @@
+uuid: 39b48705-ff74-4b44-9dc6-64ac435c9521
+langcode: en
+status: true
+dependencies: {  }
+id: cpl_page_footer
+label: 'CPL Page Footer'
+revision: 0
+description: 'Page footer block.'

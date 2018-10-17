@@ -1,0 +1,418 @@
+// CPL settings for the diamondhemp theme
+
+$text-colors: (#61cbb7, #767676);
+
+$bg-colors: (#ffffff, #f5f5f5, #61cbb7, #00745f, #3c3c3c);
+
+$condensed-font-family: 'Roboto Condensed', sans-serif;
+
+// Header
+$header-font-size-promo: 12px;
+$header-text-color: $dark-gray;
+
+// Blog
+$blog-teaser-heading-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial;
+
+// FAQ
+$faq-active-content-bg: #cff4ed;
+
+// Slideshow controls
+$slideshow-arrow-container: (
+  background-color: $white,
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.35),
+  height: 55px,
+  width: 35px,
+  border: none,
+  border-radius: 3px,
+  padding: 14px !important
+);
+
+// We have two variants: for dark and light background
+// Arrows use Font Awesome 5
+$slideshow-arrow: (
+  next-symbol: '\f054',
+  prev-symbol: '\f053',
+  color-dark: rgba(66, 66, 66, 0.5),
+  color-light: rgba(255, 255, 255, 0.5),
+  font-size: 15px,
+  font-weight: bold
+);
+
+// ImageText options
+$imgtxt: (
+  1: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1,
+      text-transform: none
+    ),
+    heading-h: (),
+    subheading: (
+      color: #525252,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background: $primary-color url('../images/greenbuttons.gif') repeat,
+      color: $white
+    ),
+    link-h: (
+      background: #00745f,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(0, 0, 0, 0.9),
+      padding: 15px
+    )
+  ),
+  2: (
+    container: (
+      background-color: #f5f5f5,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: #525252,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background: $primary-color url('../images/greenbuttons.gif') repeat,
+      color: $white
+    ),
+    link-h: (
+      background: #00745f,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(255, 255, 255, 0.9),
+      padding: 15px
+    )
+  ),
+  3: (
+    container: (
+      background: $primary-color url('../images/greenbackground.gif') repeat,
+      box-shadow: none
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: #00745f,
+      color: $white
+    ),
+    link-h: (
+      background-color: $black,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(97, 203, 183, 0.9),
+      padding: 15px
+    )
+  ),
+  4: (
+    container: (
+      background: $light-gray url('../images/graybackground.gif') repeat,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: #525252,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #00745f,
+      color: $white
+    ),
+    overlay: (
+      background-color: rgba(230, 230, 230, 0.9),
+      padding: 15px
+    )
+  )
+);
+
+// ImageTextBanner options
+$imgbnr: (
+  1: (
+    container: (
+      background-color: transparent,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1,
+      text-transform: none
+    ),
+    heading-h: (),
+    subheading: (
+      color: #525252,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background: $primary-color url('../images/greenbuttons.gif') repeat,
+      color: $white
+    ),
+    link-h: (
+      background: #00745f,
+      color: $white
+    )
+  ),
+  2: (
+    container: (
+      background-color: #f5f5f5,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: #525252,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background: $primary-color url('../images/greenbuttons.gif') repeat,
+      color: $white
+    ),
+    link-h: (
+      background-color: #00745f,
+      color: $white
+    )
+  ),
+  3: (
+    container: (
+      background: $primary-color url('../images/greenbackground.gif') repeat,
+      box-shadow: none
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: #00745f,
+      color: $white
+    ),
+    link-h: (
+      background-color: $black,
+      color: $white
+    )
+  ),
+  4: (
+    container: (
+      background: $light-gray url('../images/graybackground.gif') repeat,
+      box-shadow: none
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: #525252,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white
+    ),
+    link-h: (
+      background-color: #00745f,
+      color: $white
+    )
+  )
+);
+
+// IconTxt options
+$icntxt: (
+  1: (
+    container: (
+      background-color: transparent
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1,
+      text-transform: none
+    ),
+    heading-h: (),
+    subheading: (
+      color: #525252,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background: $primary-color url('../images/greenbuttons.gif') repeat,
+      color: $white,
+      margin: 1rem 0 0
+    ),
+    link-h: (
+      background: #00745f,
+      color: $white
+    )
+  ),
+  2: (
+    container: (
+      background-color: #f5f5f5
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: #525252,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background: $primary-color url('../images/greenbuttons.gif') repeat,
+      color: $white,
+      margin: 1rem 0 0
+    ),
+    link-h: (
+      background-color: #00745f,
+      color: $white
+    )
+  ),
+  3: (
+    container: (
+      background: $primary-color url('../images/greenbackground.gif') repeat
+    ),
+    heading: (
+      color: $white,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: $white,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      ont-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: #00745f,
+      color: $white,
+      margin: 1rem 0 0
+    ),
+    link-h: (
+      background-color: $black,
+      color: $white
+    )
+  ),
+  4: (
+    container: (
+      background: $light-gray url('../images/graybackground.gif') repeat
+    ),
+    heading: (
+      color: $primary-color,
+      font-weight: bold,
+      letter-spacing: 1px,
+      line-height: 1.1
+    ),
+    heading-h: (),
+    subheading: (
+      color: #525252,
+      font-size: 16px,
+      line-height: 1.1
+    ),
+    link: (
+      font-size: 16px,
+      text-decoration: none,
+      text-transform: uppercase,
+      background-color: $primary-color,
+      color: $white,
+      margin: 1rem 0 0
+    ),
+    link-h: (
+      background-color: #00745f,
+      color: $white
+    )
+  )
+);

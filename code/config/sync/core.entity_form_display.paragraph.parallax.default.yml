@@ -1,0 +1,24 @@
+uuid: e66aa444-0283-40e0-96d9-599cc41a8571
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.parallax.field_par_parallax_item
+    - paragraphs.paragraphs_type.parallax
+  module:
+    - field_collection
+id: paragraph.parallax.default
+targetEntityType: paragraph
+bundle: parallax
+mode: default
+content:
+  field_par_parallax_item:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

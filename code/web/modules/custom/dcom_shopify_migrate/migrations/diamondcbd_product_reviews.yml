@@ -1,0 +1,81 @@
+id: diamondcbd_product_reviews
+label: DiamondCBD Product Reviews
+migration_group: diamondcbd
+
+source:
+  plugin: csv
+  path: 'modules/custom/dcom_shopify_migrate/data/product_reviews.csv'
+  header_row_count: 1
+  keys:
+    - product_handle
+    - email
+    - created_at
+
+process:
+  subject:
+  -
+    plugin: skip_on_empty
+    method: process
+    source: title
+  -
+    plugin: substr
+    start: 0
+    length: 64
+  created:
+    plugin: format_date
+    from_format: 'Y-m-d H:i:s e'
+    to_format: 'U'
+    source: created_at
+    settings:
+      validate_format: false
+  mail: email
+  name: author
+  uid:
+    -
+      plugin: entity_lookup
+      value_key: mail
+      entity_type: user
+      ignore_case: true
+      source: email
+    -
+      plugin: default_value
+      default_value: 0
+  field_review_vote: rating
+  field_review_body: body
+  status:
+    -
+      plugin: static_map
+      source: state
+      map:
+        published: 1
+        approved: 0
+    -
+      plugin: skip_on_empty
+      method: row
+
+  comment_type:
+    plugin: default_value
+    default_value: 'diamond_commerce_product_review'
+  entity_type:
+    plugin: default_value
+    default_value: 'commerce_product'
+  entity_id:
+    -
+      plugin: dcom_shopify_handle_to_id
+      source: product_handle
+    -
+      plugin: migration_lookup
+      migration: diamondcbd_products
+      no_stub: true
+    -
+      plugin: entity_exists
+      entity_type: commerce_product
+    -
+      plugin: skip_on_empty
+      method: row
+  field_name:
+    plugin: default_value
+    default_value: 'field_review'
+
+destination:
+  plugin: 'entity:comment'

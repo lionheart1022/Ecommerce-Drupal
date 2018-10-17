@@ -1,0 +1,7 @@
+uuid: 4087a276-e735-4096-9b96-a0e04cc3df2d
+langcode: en
+status: true
+dependencies: {  }
+id: strength
+label: Strength
+elementType: select

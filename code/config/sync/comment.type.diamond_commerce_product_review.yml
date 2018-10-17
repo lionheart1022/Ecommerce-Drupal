@@ -1,0 +1,8 @@
+uuid: 5362a1d5-ba7e-4810-96b8-c71e4d4dd5a5
+langcode: en
+status: true
+dependencies: {  }
+id: diamond_commerce_product_review
+label: 'Diamond Commerce Product Review'
+target_entity_type_id: commerce_product
+description: 'Product review for Diamond Commerce.'

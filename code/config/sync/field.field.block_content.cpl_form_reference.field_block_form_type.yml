@@ -1,0 +1,23 @@
+uuid: 80d739a9-d541-42a6-a927-1b7063693850
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_form_reference
+    - field.storage.block_content.field_block_form_type
+  module:
+    - options
+id: block_content.cpl_form_reference.field_block_form_type
+field_name: field_block_form_type
+entity_type: block_content
+bundle: cpl_form_reference
+label: 'Block Form Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: F1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

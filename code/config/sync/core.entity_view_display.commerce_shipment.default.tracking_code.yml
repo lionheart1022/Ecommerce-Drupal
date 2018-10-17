@@ -1,0 +1,30 @@
+uuid: 288054d4-0661-42e4-b480-1c6892e27ef1
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_shipping.commerce_shipment_type.default
+    - core.entity_view_mode.commerce_shipment.tracking_code
+  module:
+    - dcom_order
+id: commerce_shipment.default.tracking_code
+targetEntityType: commerce_shipment
+bundle: default
+mode: tracking_code
+content:
+  tracking_code:
+    type: dcom_commerce_tracking_link
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  amount: true
+  items: true
+  package_type: true
+  shipping_method: true
+  shipping_profile: true
+  state: true
+  title: true
+  weight: true

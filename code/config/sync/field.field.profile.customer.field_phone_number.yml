@@ -1,0 +1,30 @@
+uuid: 83583ee3-e2ee-4c68-a3d3-aa52646be529
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_phone_number
+    - profile.type.customer
+  enforced:
+    module:
+      - cpl_commerce_profile
+  module:
+    - profile
+    - telephone
+third_party_settings:
+  profile:
+    profile_private: true
+_core:
+  default_config_hash: '-kFZKmCzmNySOrlbUImCxp7TN9jRR4rG6jgaN9uMkzM'
+id: profile.customer.field_phone_number
+field_name: field_phone_number
+entity_type: profile
+bundle: customer
+label: 'Phone Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

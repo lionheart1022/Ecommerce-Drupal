@@ -1,0 +1,33 @@
+uuid: 3fc91f08-541e-407d-97a3-70ea81d907e7
+langcode: en
+status: true
+dependencies: {  }
+id: staff_store_manager
+label: 'Staff - Store Manager'
+weight: -2
+is_admin: null
+permissions:
+  - 'access commerce administration pages'
+  - 'access commerce_product overview'
+  - 'access commerce_product_attribute overview'
+  - 'access toolbar'
+  - 'create cbd_product commerce_product'
+  - 'create commerce_product_attribute'
+  - 'create terms in product_category'
+  - 'create terms in product_characteristics'
+  - 'create terms in product_type'
+  - 'delete any cbd_product commerce_product'
+  - 'delete commerce_product_attribute'
+  - 'delete own cbd_product commerce_product'
+  - 'delete terms in product_category'
+  - 'delete terms in product_characteristics'
+  - 'delete terms in product_type'
+  - 'edit terms in product_category'
+  - 'edit terms in product_characteristics'
+  - 'edit terms in product_type'
+  - 'update any cbd_product commerce_product'
+  - 'update commerce_product_attribute'
+  - 'update own cbd_product commerce_product'
+  - 'view commerce_product_attribute'
+  - 'view own unpublished commerce_product'
+  - 'view the administration theme'

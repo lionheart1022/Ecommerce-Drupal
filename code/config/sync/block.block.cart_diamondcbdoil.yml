@@ -1,0 +1,31 @@
+uuid: 8b15fce7-f2c4-47c5-996c-405e6b652c0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_cart
+    - cpl_paragraphs
+  theme:
+    - diamondcbdoil
+third_party_settings:
+  block_class:
+    classes: ''
+id: cart_diamondcbdoil
+theme: diamondcbdoil
+region: right_off_canvas
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: true
+visibility:
+  node_boolean_field:
+    id: node_boolean_field
+    field: '0'
+    negate: false
+    context_mapping: {  }

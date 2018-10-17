@@ -1,0 +1,10 @@
+uuid: b44ac6ec-7175-44df-909b-20eab3d326d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.megamenu_style_1
+label: 'Megamenu Style 1'
+targetEntityType: node
+cache: true

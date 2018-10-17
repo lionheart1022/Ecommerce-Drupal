@@ -1,0 +1,12 @@
+name: 'Commerce Klaviyo Review'
+type: module
+description: 'Integrates products reviews with Klaviyo.'
+core: 8.x
+package: Klaviyo
+configure: commerce_klaviyo_review.config
+dependencies:
+  - comment:comment
+  - commerce:commerce
+  - commerce:commerce_order
+  - commerce:commerce_product
+  - commerce_klaviyo:commerce_klaviyo

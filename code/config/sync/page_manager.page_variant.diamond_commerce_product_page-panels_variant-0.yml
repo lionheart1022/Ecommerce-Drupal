@@ -1,0 +1,41 @@
+uuid: b3fb3f4a-bb7b-4c17-a390-25c85140b203
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.diamond_commerce_product_page
+    - views.view.diamond_commerce_product_page
+  module:
+    - panels
+    - views
+id: diamond_commerce_product_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    6fbe757d-5006-4611-99eb-c47155d59715:
+      id: 'views_block:diamond_commerce_product_page-single_diamond_commerce_product_page_block'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: -1
+      uuid: 6fbe757d-5006-4611-99eb-c47155d59715
+      context_mapping: {  }
+  id: panels_variant
+  uuid: d7f0fc41-6df9-48a0-af5b-6439073d8888
+  label: null
+  weight: 0
+  layout: cpl_product_page_style_1
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: diamond_commerce_product_page-panels_variant-0
+  builder: standard
+page: diamond_commerce_product_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

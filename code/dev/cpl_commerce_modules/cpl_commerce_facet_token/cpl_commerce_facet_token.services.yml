@@ -1,0 +1,7 @@
+services:
+  plugin.manager.facet_token_provider:
+    class: Drupal\cpl_commerce_facet_token\Plugin\FacetTokenProviderManager
+    parent: default_plugin_manager
+  cpl_commerce_facet_token.generator:
+    class: Drupal\cpl_commerce_facet_token\TokenGenerator
+    arguments: ['@plugin.manager.facet_token_provider', '@plugin.manager.facets.facet_source', '@plugin.manager.facets.url_processor', '@facets.manager', '@token', '@cpl_commerce_shop.collections_url_helper']

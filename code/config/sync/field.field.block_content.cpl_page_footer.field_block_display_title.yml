@@ -1,0 +1,23 @@
+uuid: 602a26e6-03e4-4636-8e97-1034e610d6f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cpl_page_footer
+    - field.storage.block_content.field_block_display_title
+  module:
+    - options
+id: block_content.cpl_page_footer.field_block_display_title
+field_name: field_block_display_title
+entity_type: block_content
+bundle: cpl_page_footer
+label: 'Display Title'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'OFF'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

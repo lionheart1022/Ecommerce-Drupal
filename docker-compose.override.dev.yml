@@ -1,0 +1,43 @@
+version: "2.1"
+
+services:
+  mariadb:
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+    restart: always
+
+  nginx:
+    environment:
+      VIRTUAL_HOST: 'dev.diamondcommerce.cpldev.com,mbio.dev.diamondcommerce.cpldev.com,diamondcbd.dev.diamondcommerce.cpldev.com,bluecbd.dev.diamondcommerce.cpldev.com,cbdliquidgold.dev.diamondcommerce.cpldev.com,chillgummies.dev.diamondcommerce.cpldev.com,chongchoicecbd.dev.diamondcommerce.cpldev.com,56cbd.dev.diamondcommerce.cpldev.com,diamondcbdoil.dev.diamondcommerce.cpldev.com,medipets.dev.diamondcommerce.cpldev.com,relaxgummies.dev.diamondcommerce.cpldev.com,diamondhemp.dev.diamondcommerce.cpldev.com'
+    restart: always
+    networks:
+      - "default"
+      - "nginx-proxy"
+
+  php:
+    restart: always
+
+  solr:
+    restart: always
+
+  mailhog:
+    image: mailhog/mailhog
+    restart: always
+    environment:
+      VIRTUAL_HOST: 'mail.dev.diamondcommerce.cpldev.com'
+      VIRTUAL_PORT: 8025
+    networks:
+      - "default"
+      - "nginx-proxy"
+
+  memcached:
+    restart: always
+
+volumes:
+  db-data:
+
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy
