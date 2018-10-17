@@ -199,32 +199,6 @@ Simply run:
 ```bash
 docker-compose exec backups flock -w 10 /tmp/backup.lock -c /opt/bin/make_backup
 ```
-
-## Restoring backup
-
-**WARNING**: Never restore Live backup to the local or staging environment! Doing so will break **live** connections
-to Odoo, NMI and other 3rd party services.
-
-You will need recent versions of Duplicity and boto (`python-boto` in Debian/Ubuntu) to restore backup.
-
-In order to restore backup to a local folder, run:
-
-```bash
-export AWS_ACCESS_KEY_ID=key_id
-export AWS_SECRET_ACCESS_KEY=access_key
-export PASSPHRASE=passphrase
-
-AWS_S3_BACKUP_PATH=s3://s3.us-east-2.amazonaws.com/diamondcbd-backup/backups
-MONTH=`date +%Y-%m`
-BACKUP_PATH=${AWS_S3_BACKUP_PATH}/${MONTH}
-
-duplicity restore --s3-use-new-style --name diamond_database ${AWS_S3_BACKUP_PATH}/${MONTH}/database db/
-duplicity restore --s3-use-new-style --name diamond_files ${AWS_S3_BACKUP_PATH}/${MONTH}/files files/
-
-```
-
-AWS access key, secret and and Duplicity passphrase may be found in the  `docker-compose.override.live.yml`.
-
 ## Dumping database
 
 You may want to dump your database at some point. To do so, run:
